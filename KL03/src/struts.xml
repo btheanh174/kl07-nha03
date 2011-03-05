@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" extends="struts-default">
+		<!-- Đăng nhập -->
+		<action name="doRegister" class="view.RegisterAction">
+			<result name="success">/user/register-success.jsp</result>
+			<result name="error">/user/register.jsp</result>
+			<result name="input">/user/register.jsp</result>
+		</action>
+		
+		<!-- Đăng xuất -->
+		<action name="doLogin" class="view.LoginAction">
+			<result name="success">/user/login-success.jsp</result>
+			<result name="error">/user/login.jsp</result>
+			<result name="input">/user/login.jsp</result>
+		</action>
+		
+		<!-- Quản lý người dùng -->
+		<action name="User_list" method="list" class="view.UserAction">
+			<result name="success">/user/listing.jsp</result>
+		</action>
+		<action name="User_*" method="{1}" class="view.UserAction">
+			<result type="redirect">User_list.action</result>
+			<result name="input">/user/listing.jsp</result>
+		</action>
+		
+		<!-- quản lý tuyến xe -->
+		<action name="Tuyen_list" method="list" class="view.TuyenXeAction">
+			<result name="success">/tuyen/index.jsp</result>
+			<result name="input">/tuyen/index.jsp</result>
+		</action>
+		<action name="Tuyen_*" method="{1}" class="view.TuyenXeAction">
+			<result>/tuyen/index.jsp</result>
+			<result type="redirect">Tuyen_list.action</result>
+			<result name="input">/tuyen/index.jsp</result>
+		</action>
+		<!-- Quản lý chuyến xe -->
+		<action name="Chuyen_list" method="list" class="view.ChuyenXeAction">
+			<result name="success">/chuyen/index.jsp</result>
+		</action>
+		<action name="Chuyen_*" method="{1}" class="view.ChuyenXeAction">
+			<result>/chuyen/index.jsp</result>
+			<result type="redirect">Chuyen_list.action</result>
+			<result name="input">/chuyen/index.jsp</result>
+		</action>
+	</package>
+</struts>
