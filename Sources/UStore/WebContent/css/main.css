@@ -52,7 +52,7 @@ a {
     position: relative;
     text-align: left;
     top: 2px;
-    width: 980px;
+    width: 990px;
     z-index: 10;
 }
 
@@ -61,7 +61,7 @@ a {
 	background-image:url(../images/banner_bg.jpg);
 	background-repeat:no-repeat;
 	background-position:left top;
-	width:980px;
+	width:990px;
 	height:72px;
 }
 #header_nav .topnav{
@@ -73,6 +73,7 @@ a {
     text-align: right;
     width: auto;
 }
+
 #header_nav .topnav li {
     display: inline;
     margin-bottom: 0;
@@ -128,6 +129,8 @@ a {
     padding-right: 15px;
     padding-top: 8px;
 }
+
+
 #header_sub{
 	background-attachment: scroll;
     background-clip: border-box;
@@ -136,7 +139,7 @@ a {
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: auto auto;
-    width: 980px;
+    width: 990px;
 }
 #header_sub .login {
 	float:right;
@@ -225,8 +228,7 @@ a {
     background-size: auto auto;
     float: left;
     height: 70px;
-    /*width: 980px;*/
-	width:100%;
+	width: 100%;
 }
 
 <!-- Css cho logo trên header-->
@@ -235,30 +237,42 @@ a {
     float: left;
     width: 100%;
 }
-.container {
+.left_container {
+	float:left;
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
-    width: 980px;
+    width: 230px;
 }
-<!-- menu trai -->
+
+.main_container {
+	float:left;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 760px;
+}
+
+
 #content .leftcol {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: transparent;
-    background-image: url(../images/rightcol_top_bg.gif);
+    background-image: url();
     background-origin: padding-box;
-    background-position: right top;
+    background-position: left top;
     background-repeat: no-repeat;
     background-size: auto auto;
-    float: left;
-    padding-bottom: 84px;
+    float: right;
+    padding-bottom: 50px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 30px;
     width: 220px;
 }
+
 #content .leftcol h3 {
     color: #1A7316;
     font-family: Tahoma,Arial,Helvetica,sans-serif;
@@ -333,6 +347,7 @@ a {
     position: relative;
     width: 200px;
 }
+
 #content .leftcol ul.category li a {
     background-attachment: scroll;
     background-clip: border-box;
@@ -363,26 +378,19 @@ a {
     padding-top: 0;
 }
 
-<!-- Phan than -->
-#content .main {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: transparent;
-    background-image: url("../images/main_top_bg.jpg");
-    background-origin: padding-box;
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: auto auto;
+<!-- main -->
+
+#content.main {
     float: left;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding-bottom: 84px;
+    padding-bottom: 50px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 10px;
     position: relative;
-    width: 688px;
     z-index: 5;
+	width:100%;
 }
 
 <!-- footer -->
@@ -430,7 +438,7 @@ a {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: #464646;
-    background-image: url("../images/add_content_spr.gif");
+    background-image: url("/images/add_content_spr.gif");
     background-origin: padding-box;
     background-position: 5px -8px;
     background-repeat: no-repeat;
