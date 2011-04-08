@@ -13,10 +13,12 @@
 	<div id="header"><tiles:insertAttribute name="header"></tiles:insertAttribute>
 	</div>
 	<div id="content">
-		<!-- Phần thân của template sẽ được kế thừa lại
-			Phần này sẽ được chèn bởi một layout khác.
-		 -->
-		<tiles:insertDefinition name="body"></tiles:insertDefinition>
+		 <div class="left_container">
+			<tiles:insertAttribute name="left"></tiles:insertAttribute>
+		</div>
+		<div class="main_container">
+			<tiles:insertAttribute name="body"></tiles:insertAttribute>
+		</div>
 	</div>
 	<div id="footer"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
 	</div>
