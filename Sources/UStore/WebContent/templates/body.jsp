@@ -1,1 +1,0 @@
-<div>Body content</div>

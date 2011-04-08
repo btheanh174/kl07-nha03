@@ -7,9 +7,12 @@
 	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
 		<put-attribute name="pageTitle" value="Template" />
 		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
 		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="guestLayout" extends="baseLayout">
+		<put-attribute name="left" value="/WEB-INF/tiles/left.jsp" />
 	</definition>
 	
 	<definition name="Home.tiles" extends="baseLayout">
