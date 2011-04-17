@@ -2,7 +2,6 @@ package util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.SettingsFactory;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
@@ -10,9 +9,8 @@ public class HibernateUtil {
 		try {
 			sessionFactory = new AnnotationConfiguration().configure()
 					.buildSessionFactory();
-			
 		} catch (Throwable ex) {
-			System.err.println("Khoi tao sessionFactory bi loi "
+			System.err.println("Khoi tao sessionFactory bi loi: "
 					+ ex.getMessage());
 			throw new ExceptionInInitializerError(ex);
 		}
