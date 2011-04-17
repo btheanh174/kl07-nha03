@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 11:25:57 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.ThanhVien" table="thanh_vien">
+        <id name="maThanhVien" column="MaThanhVien" type="int">
+            <generator class="foreign">
+            	<param name="property">taiKhoan</param>
+            </generator>
+        </id>
+        <property name="hoTen" type="java.lang.String">
+            <column name="HoTen" />
+        </property>
+        <property name="dienThoai" type="java.lang.String">
+            <column name="DienThoai" />
+        </property>
+        <property name="diaChi" type="java.lang.String">
+            <column name="DiaChi" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="Email" />
+        </property>
+        <property name="ngaySinh" type="java.util.Date">
+            <column name="NgaySinh" />
+        </property>
+        <!-- Quan he 1 - 1 tham chieu toi bang tai khoan va su dung khoa chung voi bang tai khoan -->
+        <one-to-one name="taiKhoan" class="model.pojo.TaiKhoan" constrained="true"></one-to-one>
+        
+        <!-- danh sach tin nhan -->
+        <bag name="dsTinNhan" table="tin_nhan">
+        	<key column="ThanhVien" ></key>
+        	<one-to-many class="model.pojo.TinNhan"/>
+        </bag>
+        
+        <!-- tinh thanh pho -->
+        <many-to-one name="tinhThanhPho" class="model.pojo.TinhThanhPho" column="TinhThanhPho"></many-to-one>
+    </class>
+</hibernate-mapping>
