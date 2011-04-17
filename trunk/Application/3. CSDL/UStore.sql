@@ -3,7 +3,7 @@
 # Server version:               5.0.27-community-nt
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2011-04-14 00:47:58
+# Date/time:                    2011-04-15 15:50:42
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -39,16 +39,31 @@ CREATE TABLE IF NOT EXISTS `chi_tiet_hoa_don` (
 # Dumping structure for table USTORE.danh_muc
 DROP TABLE IF EXISTS `danh_muc`;
 CREATE TABLE IF NOT EXISTS `danh_muc` (
-  `MaDanhMuc` int(10) NOT NULL,
-  `TenDanhMuc` varchar(50) collate utf8_unicode_ci default NULL,
-  `DanhMucCha` int(10) default NULL,
+  `MaDanhMuc` int(10) NOT NULL auto_increment,
+  `TenDanhMuc` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `DanhMucCha` int(10) NOT NULL,
   PRIMARY KEY  (`MaDanhMuc`),
   KEY `FK_DANHMUCSANPHAM_DANHMUCSANPHAM` (`DanhMucCha`),
   CONSTRAINT `FK_DANHMUC_DANHMUC` FOREIGN KEY (`DanhMucCha`) REFERENCES `danh_muc` (`MaDanhMuc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dumping data for table USTORE.danh_muc: ~0 rows (approximately)
+# Dumping data for table USTORE.danh_muc: ~14 rows (approximately)
 /*!40000 ALTER TABLE `danh_muc` DISABLE KEYS */;
+INSERT INTO `danh_muc` (`MaDanhMuc`, `TenDanhMuc`, `DanhMucCha`) VALUES
+	(1, 'Điện thoại, viễn thông', 1),
+	(2, 'Máy tính, điện tử', 2),
+	(3, 'Đồ dùng gia đình', 3),
+	(4, 'Ô tô - Xe máy', 4),
+	(5, 'May mặc, thời trang', 5),
+	(6, 'Laptop', 2),
+	(7, 'Desktop', 2),
+	(8, 'Phần mềm', 2),
+	(9, 'Điện thoại', 1),
+	(10, 'Thiết bị viễn thông', 1),
+	(11, 'Dịch vụ viễn thông', 1),
+	(12, 'Ô tô', 4),
+	(13, 'Xe máy, phụ tùng xe máy', 4),
+	(14, 'Phụ tùng, cơ khí ô tô', 4);
 /*!40000 ALTER TABLE `danh_muc` ENABLE KEYS */;
 
 
@@ -57,20 +72,20 @@ DROP TABLE IF EXISTS `gian_hang`;
 CREATE TABLE IF NOT EXISTS `gian_hang` (
   `MaGianHang` int(10) NOT NULL,
   `TenGianHang` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `FileThongTinGianHang` varchar(50) collate utf8_unicode_ci NOT NULL COMMENT 'SoDT, Fax, Website, Diachi.',
-  `FileCauHinhGianHang` varchar(50) collate utf8_unicode_ci default NULL COMMENT 'File XML, cau truc web gan nhu gian hang VATGIA',
-  `FileDanhMucSanPham` varchar(50) collate utf8_unicode_ci default NULL COMMENT 'File XML, trong do co thong tin san pham la cac file XML',
-  `FileTinTuc` varchar(50) collate utf8_unicode_ci default NULL,
+  `ThongTinGianHang` varchar(50) collate utf8_unicode_ci NOT NULL COMMENT 'Tập tin xml: SoDT, Fax, Website, Diachi.',
+  `CauHinhGianHang` varchar(50) collate utf8_unicode_ci default NULL COMMENT 'Tập tin XML, cau truc web gan nhu gian hang VATGIA',
+  `DanhMucSanPham` varchar(50) collate utf8_unicode_ci default NULL COMMENT 'Tập tin XML, trong do co thong tin san pham la cac file XML',
+  `TinTuc` varchar(50) collate utf8_unicode_ci default NULL,
   `MaDanhMuc` int(10) NOT NULL,
   `MaThanhVien` int(10) NOT NULL,
-  `TinhThanhPho` int(10) default NULL,
+  `MaTinhThanhPho` int(10) default NULL,
   PRIMARY KEY  (`MaGianHang`),
   KEY `FK_GIANHANG_DANHMUCSANPHAM` (`MaDanhMuc`),
   KEY `FK_GIANHANG_THANHVIEN` (`MaThanhVien`),
-  KEY `FK_GIANHANG_TINHTHANHPHO` (`TinhThanhPho`),
+  KEY `FK_GIANHANG_TINHTHANHPHO` (`MaTinhThanhPho`),
   CONSTRAINT `FK_GIANHANG_DANHMUCSANPHAM` FOREIGN KEY (`MaDanhMuc`) REFERENCES `danh_muc` (`MaDanhMuc`),
   CONSTRAINT `FK_GIANHANG_THANHVIEN` FOREIGN KEY (`MaThanhVien`) REFERENCES `thanh_vien` (`MaThanhVien`),
-  CONSTRAINT `FK_GIANHANG_TINHTHANHPHO` FOREIGN KEY (`TinhThanhPho`) REFERENCES `tinh_thanhpho` (`MaTinhThanhPho`)
+  CONSTRAINT `FK_GIANHANG_TINHTHANHPHO` FOREIGN KEY (`MaTinhThanhPho`) REFERENCES `tinh_thanhpho` (`MaTinhThanhPho`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 # Dumping data for table USTORE.gian_hang: ~0 rows (approximately)
@@ -81,20 +96,23 @@ CREATE TABLE IF NOT EXISTS `gian_hang` (
 # Dumping structure for table USTORE.hinh_thuc_van_chuyen
 DROP TABLE IF EXISTS `hinh_thuc_van_chuyen`;
 CREATE TABLE IF NOT EXISTS `hinh_thuc_van_chuyen` (
-  `MaHinhThucVanChuyen` int(10) NOT NULL,
+  `MaHinhThucVanChuyen` int(10) NOT NULL auto_increment,
   `TenHinhThucVanChuyen` varchar(50) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`MaHinhThucVanChuyen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dumping data for table USTORE.hinh_thuc_van_chuyen: ~0 rows (approximately)
+# Dumping data for table USTORE.hinh_thuc_van_chuyen: ~2 rows (approximately)
 /*!40000 ALTER TABLE `hinh_thuc_van_chuyen` DISABLE KEYS */;
+INSERT INTO `hinh_thuc_van_chuyen` (`MaHinhThucVanChuyen`, `TenHinhThucVanChuyen`) VALUES
+	(1, 'Hình thức 1'),
+	(2, 'Hình thức 2');
 /*!40000 ALTER TABLE `hinh_thuc_van_chuyen` ENABLE KEYS */;
 
 
 # Dumping structure for table USTORE.hoa_don
 DROP TABLE IF EXISTS `hoa_don`;
 CREATE TABLE IF NOT EXISTS `hoa_don` (
-  `MaHoaDon` int(10) NOT NULL,
+  `MaHoaDon` int(10) NOT NULL auto_increment,
   `MaThanhVien` int(10) NOT NULL,
   `NgayLapHoaDon` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `MaNguoiNhan` int(10) NOT NULL,
@@ -107,11 +125,11 @@ CREATE TABLE IF NOT EXISTS `hoa_don` (
   KEY `FK_HOADON_HINHTHUCVANCHUYEN` (`MaHinhThucVanChuyen`),
   KEY `FK_HOADON_TINHTRANGHOADON` (`MaTinhTrang`),
   KEY `FK_HOADON_NGUOINHAN` (`MaNguoiNhan`),
-  CONSTRAINT `FK_HOADON_TINHTRANGHOADON` FOREIGN KEY (`MaTinhTrang`) REFERENCES `tinh_trang_hoa_don` (`MaTinhTrang`),
   CONSTRAINT `FK_HOADON_HINHTHUCVANCHUYEN` FOREIGN KEY (`MaHinhThucVanChuyen`) REFERENCES `hinh_thuc_van_chuyen` (`MaHinhThucVanChuyen`),
   CONSTRAINT `FK_HOADON_NGUOINHAN` FOREIGN KEY (`MaNguoiNhan`) REFERENCES `nguoi_nhan` (`MaNguoiNhan`),
   CONSTRAINT `FK_HOADON_PHUONGTHUCTHANHTOAN` FOREIGN KEY (`MaPhuongThucThanhToan`) REFERENCES `phuong_thuc_thanh_toan` (`MaPhuongThucThanhToan`),
-  CONSTRAINT `FK_HOADON_THANHVIEN` FOREIGN KEY (`MaThanhVien`) REFERENCES `thanh_vien` (`MaThanhVien`)
+  CONSTRAINT `FK_HOADON_THANHVIEN` FOREIGN KEY (`MaThanhVien`) REFERENCES `thanh_vien` (`MaThanhVien`),
+  CONSTRAINT `FK_HOADON_TINHTRANGHOADON` FOREIGN KEY (`MaTinhTrang`) REFERENCES `tinh_trang_hoa_don` (`MaTinhTrang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 # Dumping data for table USTORE.hoa_don: ~0 rows (approximately)
@@ -122,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `hoa_don` (
 # Dumping structure for table USTORE.nguoi_nhan
 DROP TABLE IF EXISTS `nguoi_nhan`;
 CREATE TABLE IF NOT EXISTS `nguoi_nhan` (
-  `MaNguoiNhan` int(10) NOT NULL,
+  `MaNguoiNhan` int(10) NOT NULL auto_increment,
   `TenNguoiNhan` varchar(50) collate utf8_unicode_ci NOT NULL,
   `DiaChi` varchar(50) collate utf8_unicode_ci default NULL,
   `Email` varchar(50) collate utf8_unicode_ci default NULL,
@@ -147,15 +165,20 @@ CREATE TABLE IF NOT EXISTS `nhom_nguoi_dung` (
   PRIMARY KEY  (`MaNhom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dumping data for table USTORE.nhom_nguoi_dung: ~0 rows (approximately)
+# Dumping data for table USTORE.nhom_nguoi_dung: ~4 rows (approximately)
 /*!40000 ALTER TABLE `nhom_nguoi_dung` DISABLE KEYS */;
+INSERT INTO `nhom_nguoi_dung` (`MaNhom`, `TenNhom`) VALUES
+	(1, 'Member Thường'),
+	(2, 'Member Gian hàng'),
+	(3, 'Mod'),
+	(4, 'Admin');
 /*!40000 ALTER TABLE `nhom_nguoi_dung` ENABLE KEYS */;
 
 
 # Dumping structure for table USTORE.phuong_thuc_thanh_toan
 DROP TABLE IF EXISTS `phuong_thuc_thanh_toan`;
 CREATE TABLE IF NOT EXISTS `phuong_thuc_thanh_toan` (
-  `MaPhuongThucThanhToan` int(10) NOT NULL,
+  `MaPhuongThucThanhToan` int(10) NOT NULL auto_increment,
   `TenPhuongThucThanhToan` varchar(50) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`MaPhuongThucThanhToan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -168,19 +191,19 @@ CREATE TABLE IF NOT EXISTS `phuong_thuc_thanh_toan` (
 # Dumping structure for table USTORE.san_pham
 DROP TABLE IF EXISTS `san_pham`;
 CREATE TABLE IF NOT EXISTS `san_pham` (
-  `MaSanPham` int(10) NOT NULL,
-  `TenSanPham` varchar(50) collate utf8_unicode_ci default NULL,
+  `MaSanPham` int(10) NOT NULL auto_increment,
+  `TenSanPham` varchar(50) collate utf8_unicode_ci NOT NULL,
   `Gia` float default NULL,
   `MoTaNgan` text collate utf8_unicode_ci,
   `MoTaDai` text collate utf8_unicode_ci,
   `HinhNho` varchar(255) collate utf8_unicode_ci default NULL,
   `HinhLon` varchar(255) collate utf8_unicode_ci default NULL,
   `NhaSanXuat` varchar(100) collate utf8_unicode_ci default NULL,
-  `MaDanhMucSanPham` int(10) NOT NULL,
-  `FileDanhSachGianHang` varchar(255) collate utf8_unicode_ci default NULL,
+  `MaDanhMuc` int(10) NOT NULL,
+  `DanhSachGianHang` varchar(255) collate utf8_unicode_ci default NULL COMMENT 'Tập tin xml thể hiện danh sách gian hàng',
   PRIMARY KEY  (`MaSanPham`),
-  KEY `FK_SANPHAM_DANHMUCSANPHAM` (`MaDanhMucSanPham`),
-  CONSTRAINT `FK_SANPHAM_DANHMUCSANPHAM` FOREIGN KEY (`MaDanhMucSanPham`) REFERENCES `danh_muc` (`MaDanhMuc`)
+  KEY `FK_SANPHAM_DANHMUCSANPHAM` (`MaDanhMuc`),
+  CONSTRAINT `FK_SANPHAM_DANHMUCSANPHAM` FOREIGN KEY (`MaDanhMuc`) REFERENCES `danh_muc` (`MaDanhMuc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 # Dumping data for table USTORE.san_pham: ~0 rows (approximately)
@@ -191,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `san_pham` (
 # Dumping structure for table USTORE.tai_khoan
 DROP TABLE IF EXISTS `tai_khoan`;
 CREATE TABLE IF NOT EXISTS `tai_khoan` (
-  `MaTaiKhoan` int(10) NOT NULL,
+  `MaTaiKhoan` int(10) NOT NULL auto_increment,
   `TenTruyCap` varchar(20) collate utf8_unicode_ci NOT NULL,
   `MatKhau` varchar(50) collate utf8_unicode_ci NOT NULL,
   `NgayKichHoat` date default NULL,
@@ -241,7 +264,7 @@ INSERT INTO `tham_so` (`MaThamSo`, `TenThamSo`, `Kieu`, `GiaTri`, `TinhTrang`) V
 # Dumping structure for table USTORE.thanh_vien
 DROP TABLE IF EXISTS `thanh_vien`;
 CREATE TABLE IF NOT EXISTS `thanh_vien` (
-  `MaThanhVien` int(10) NOT NULL,
+  `MaThanhVien` int(10) NOT NULL auto_increment,
   `HoTen` varchar(50) collate utf8_unicode_ci NOT NULL,
   `DiaChi` varchar(50) collate utf8_unicode_ci NOT NULL,
   `Email` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -283,8 +306,11 @@ CREATE TABLE IF NOT EXISTS `tinh_thanhpho` (
   PRIMARY KEY  (`MaTinhThanhPho`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dumping data for table USTORE.tinh_thanhpho: ~0 rows (approximately)
+# Dumping data for table USTORE.tinh_thanhpho: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tinh_thanhpho` DISABLE KEYS */;
+INSERT INTO `tinh_thanhpho` (`MaTinhThanhPho`, `TenTinhThanhPho`) VALUES
+	(1, 'TP HCM'),
+	(2, 'Hà Nội');
 /*!40000 ALTER TABLE `tinh_thanhpho` ENABLE KEYS */;
 
 
