@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+    <class name="model.pojo.ThamSo" table="tham_so">
+        <id name="maThamSo" column="MaThamSo" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property name="tenThamSo" column="TenThamSo" type="string"/>
+        <property name="kieu" column="Kieu" type="string"/>
+        <property name="giaTri" column="GiaTri" type="string"/>
+        <property name="tinhTrang" column="TinhTrang" type="integer"/>
+    </class>
+</hibernate-mapping>

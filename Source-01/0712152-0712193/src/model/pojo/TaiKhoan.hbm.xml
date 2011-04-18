@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 11:28:36 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.TaiKhoan" table="tai_khoan">
+        <id name="maTaiKhoan" type="int">
+            <column name="MaTaiKhoan" />
+            <generator class="identity" />
+        </id>
+        
+        <property name="tenTruyCap" type="java.lang.String">
+            <column name="TenTruyCap" />
+        </property>
+        
+        <property name="salt">
+        	<column name="Salt"></column>
+        </property>
+        
+        <property name="matKhau" type="java.lang.String">
+            <column name="MatKhau" />
+        </property>
+        <property name="ngayKichHoat" type="java.util.Date">
+            <column name="NgayKichHoat" />
+        </property>
+        
+        <!-- Quan he voi NhomNguoiDung-->
+        <many-to-one name="nhomNguoiDung" class="model.pojo.NhomNguoiDung" column="NhomNguoiDung"></many-to-one>
+        
+        <!-- Quan he voi ThanhVien -->
+        <one-to-one name="thanhVien" class="model.pojo.ThanhVien" cascade="save-update,delete"></one-to-one>
+        
+       </class>
+</hibernate-mapping>
