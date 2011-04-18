@@ -6,12 +6,17 @@
     <class name="model.pojo.TaiKhoan" table="tai_khoan">
         <id name="maTaiKhoan" type="int">
             <column name="MaTaiKhoan" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         
         <property name="tenTruyCap" type="java.lang.String">
             <column name="TenTruyCap" />
         </property>
+        
+        <property name="salt">
+        	<column name="Salt"></column>
+        </property>
+        
         <property name="matKhau" type="java.lang.String">
             <column name="MatKhau" />
         </property>
@@ -25,5 +30,5 @@
         <!-- Quan he voi ThanhVien -->
         <one-to-one name="thanhVien" class="model.pojo.ThanhVien" cascade="save-update,delete"></one-to-one>
         
-    </class>
+       </class>
 </hibernate-mapping>

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 	<div class="left_menu_corner"></div>
 
      <ul class="menu">
-          <li><a href="#" class="nav1">  Trang chủ </a></li>
+          <li><a href="<s:url action="show_index"/>" class="nav1">  Trang chủ </a></li>
           <li class="divider"></li>
           <li><a href="<s:url action="load_SanPham"/>" class="nav2">Sản phẩm</a></li>
           <li class="divider"></li>

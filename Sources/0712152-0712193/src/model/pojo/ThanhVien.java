@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ThanhVien {
-	private int maThanhVien;
+	private int maTaiKhoan;
 	private String hoTen;
 	private String dienThoai;
 	private String diaChi;
@@ -33,21 +33,24 @@ public class ThanhVien {
 
 
 	public ThanhVien(ThanhVien thanhVien){
-		this.maThanhVien = thanhVien.maThanhVien;
+		this.taiKhoan = thanhVien.taiKhoan;
 		this.hoTen = thanhVien.hoTen;
 		this.dienThoai = thanhVien.dienThoai;
 		this.diaChi = thanhVien.diaChi;
 		this.email = thanhVien.email;
 		this.ngaySinh = thanhVien.ngaySinh;
+		this.taiKhoan = thanhVien.taiKhoan;
 		this.dsTinNhan = thanhVien.dsTinNhan;
 	}
-	
-	public int getMaThanhVien() {
-		return maThanhVien;
+		
+	public int getMaTaiKhoan() {
+		return maTaiKhoan;
 	}
-	public void setMaThanhVien(int maThanhVien) {
-		this.maThanhVien = maThanhVien;
+
+	public void setMaTaiKhoan(int maTaiKhoan) {
+		this.maTaiKhoan = maTaiKhoan;
 	}
+
 	public String getHoTen() {
 		return hoTen;
 	}

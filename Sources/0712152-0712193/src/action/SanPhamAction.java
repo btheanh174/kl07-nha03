@@ -1,6 +1,6 @@
 package action;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import model.dao.SanPhamDAO;
@@ -9,18 +9,19 @@ import model.pojo.SanPham;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham> {
+public class SanPhamAction extends ActionSupport implements ModelDriven {
 
+	SanPhamDAO spDao = new SanPhamDAO();
 	private SanPham sanPham;
-	private List dsSanPham = new ArrayList<SanPham>();
-	
+	private List dsSanPham;
 	public String execute(){
-		SanPhamDAO spDao = new SanPhamDAO();
-		dsSanPham = spDao.layDanhSach();
+		
 		return SUCCESS;
 	}
+
 	@Override
-	public SanPham getModel() {
+	public Object getModel() {
+		// TODO Auto-generated method stub
 		return sanPham;
 	}
 
@@ -39,5 +40,4 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	public void setDsSanPham(List dsSanPham) {
 		this.dsSanPham = dsSanPham;
 	}
-	
 }

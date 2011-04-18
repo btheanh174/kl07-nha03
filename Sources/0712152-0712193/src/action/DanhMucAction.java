@@ -14,6 +14,10 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 	private DanhMuc danhMuc;
 	private List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
 
+	public String populate(){
+		
+		return "populate";
+	}
 	
 	public String execute(){
 		DanhMucDAO dmDao = new DanhMucDAO();
