@@ -4,7 +4,7 @@
 <!-- Generated Apr 15, 2011 11:25:57 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="model.pojo.ThanhVien" table="thanh_vien">
-        <id name="maThanhVien" column="MaThanhVien" type="int">
+        <id name="maTaiKhoan" column="MaTaiKhoan" type="int">
             <generator class="foreign">
             	<param name="property">taiKhoan</param>
             </generator>

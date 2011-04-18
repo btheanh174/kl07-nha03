@@ -6,6 +6,10 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="default" extends="struts-default,tiles-default">
 		
+		<action name="show_index">
+			<result name="success" type="tiles">Index.tiles</result>
+		</action>
+		
 		<action name="show_*_*">
 			<result name="success">/{1}/{2}.jsp</result>
 		</action>
@@ -16,6 +20,20 @@
 		
 		<action name="load_SanPham" class="action.SanPhamAction" method="execute">
 			<result name="success">/admin/product/index.jsp</result>
+		</action>
+		
+		<!-- Dung cho register -->
+		<action name="User_register" class="action.user.UserAction" method="register">
+			<result name="success" type="redirect">show_index.action</result>
+			<result name="input" type="redirect">show_user_register.action</result>
+			<result name="error" type="tiles">Contact.tiles</result>
+		</action>
+		
+		<!-- Dung cho login va lost password -->
+		<action name="User_*" class="action.user.LoginAction" method="{1}">
+			<result name="success" type="redirect">show_index.action</result>
+			<result name="input" type="redirect">show_user_login.action</result>
+			<result name="error" type="redirect">show_user_register.action</result>
 		</action>
 		
 	</package>

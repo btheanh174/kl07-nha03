@@ -5,6 +5,7 @@ import java.util.Date;
 public class TaiKhoan {
 	private int maTaiKhoan;
 	private String tenTruyCap;
+	private String salt;
 	private String matKhau;
 	private Date ngayKichHoat;
 	private NhomNguoiDung nhomNguoiDung;
@@ -14,10 +15,11 @@ public class TaiKhoan {
 		super();
 	}
 	
-	public TaiKhoan(String tenTruyCap, String matKhau,
+	public TaiKhoan(String tenTruyCap, String salt, String matKhau,
 			Date ngayKichHoat, NhomNguoiDung nhomNguoiDung) {
 		super();
 		this.tenTruyCap = tenTruyCap;
+		this.salt = salt;
 		this.matKhau = matKhau;
 		this.ngayKichHoat = ngayKichHoat;
 		this.nhomNguoiDung = nhomNguoiDung;
@@ -80,5 +82,12 @@ public class TaiKhoan {
 	public void setThanhVien(ThanhVien thanhVien) {
 		this.thanhVien = thanhVien;
 	}
-	
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 }
