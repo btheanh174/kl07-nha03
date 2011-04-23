@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 11:30:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.TinNhan" table="tin_nhan">
+        <id name="maTinNhan" type="int">
+            <column name="MA_TIN_NHAN" />
+            <generator class="assigned" />
+        </id>
+        <property name="noiDung" type="java.lang.String">
+            <column name="NOI_DUNG" />
+        </property>
+        <property name="ngayGui" type="java.util.Date">
+            <column name="NGAY_GUI" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	
+	<field name="tenTruyCap">
+		<field-validator type="requiredstring">
+			<message>Tên truy cập không được bỏ trống!</message>
+		</field-validator>
+	</field>
+	
+	<field name="matKhau">
+		<field-validator type="requiredstring">
+			<message>Mật khẩu không được bỏ trống!</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<message>Mật khẩu phải có ít nhất ${minLength} ký tự!</message>
+		</field-validator>
+		<field-validator type="expression">
+			<param name="expression">matKhau eq xacNhanMatKhau</param>
+			<message>Xac nhan mat khau sai</message>
+		</field-validator>
+	</field>
+	
+	<field name="xacNhanMatKhau">
+		<field-validator type="required">
+			<message></message>
+		</field-validator>
+		<field-validator type="expression">
+			<param name="expression">xacNhanMatKhau.equals(matKhau)</param>
+			<message>Xac nhan mat khau sai</message>
+		</field-validator>
+	</field>
+	
+	<field name="hoTen">
+		<field-validator type="requiredstring">
+			<message>Họ tên không được bỏ trống!</message>
+		</field-validator>
+	</field>
+	
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>Email không được bỏ trống!</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Phải nhập email hợp lệ!</message>
+		</field-validator>
+	</field>
+	
+	<field name="ngaySinh">
+		<field-validator type="date">
+			<message>Ngày sinh không hợp lệ!</message>
+		</field-validator>
+	</field>
+	
+	<field name="dienThoai">
+		<field-validator type="regex">
+			<param name="expression">^[0-9]{10,11}</param>
+			<message>Phải nhập đúng số điện thoại</message>
+		</field-validator>
+	</field>
+	
+	<!-- <validator type="expression">
+		<param name="expression">matKhau.equals(xacNhanMatKhau)</param>
+		<message>Xác nhận mật khẩu không giống với mật khẩu!</message>
+	</validator> -->
+	
+	<validator type="expression">
+		<param name="expression">email == xacNhanEmail</param>
+		<message>Xác nhận email và email không giống nhau!</message>
+	</validator>
+	
+</validators>

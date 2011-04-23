@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 12:29:32 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.DanhMuc" table="danh_muc">
+        <id name="maDanhMuc" type="int">
+            <column name="MA_DANH_MUC" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="tenDanhMuc" type="java.lang.String">
+            <column name="TEN_DANH_MUC" />
+        </property>
+        
+        <property name="capDanhMuc" type="integer">
+        	<column name="CAP_DANH_MUC"></column>
+        </property>
+        
+        
+        <set name="dsSanPham" table="san_pham" cascade="all" lazy="false" inverse="true">
+        	<key column="DANH_MUC"></key>
+        	<one-to-many class="model.pojo.SanPham"/>
+        </set>
+        
+        <bag name="dsDanhMucCon" lazy="false" cascade="all-delete-orphan" inverse="true">
+        	<key column="DANH_MUC_CHA"></key>
+        	<one-to-many class="model.pojo.DanhMuc"/>
+        </bag>
+        
+        <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
+        
+    </class>
+</hibernate-mapping>

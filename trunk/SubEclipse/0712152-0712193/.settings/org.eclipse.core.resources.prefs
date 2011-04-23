@@ -1,0 +1,9 @@
+#Thu Apr 21 00:50:59 ICT 2011
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/tiles/content/body_detail.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/profile/body_information.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/profile/body_newmessage.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/profile/profileLeft.jsp=UTF-8
+encoding//WebContent/myprofile/password.jsp=UTF-8
+encoding//src/action/user/RegisterAction.java=UTF-8
+encoding//src/util/Testing.java=UTF-8
