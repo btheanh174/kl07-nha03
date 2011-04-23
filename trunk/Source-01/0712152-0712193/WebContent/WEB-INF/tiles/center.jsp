@@ -1,1 +1,0 @@
-<div><h3>Phần nội dùng sẽ thay đổi trong các trang sử dụng template này</h3></div>
