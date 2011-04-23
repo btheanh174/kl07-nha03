@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2011 6:04:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.TinhThanhPho" table="tinh_thanh_pho">
+        <id name="maTinhThanhPho" type="int">
+            <column name="MA_TINH_THANH_PHO" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenTinhThanhPho" type="java.lang.String">
+            <column name="TEN_TINH_THANH_PHO" />
+        </property>
+        <set name="dsThanhVien" inverse="true" lazy="true">
+            <key>
+                <column name="MA_TINH_THANH_PHO" />
+            </key>
+            <one-to-many class="model.pojo.ThanhVien"/>
+        </set>
+    </class>
+</hibernate-mapping>

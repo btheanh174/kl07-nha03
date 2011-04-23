@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 1:52:06 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.SanPham" table="san_pham">
+        <id name="maSanPham" type="int">
+            <column name="MA_SAN_PHAM" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="tenSanPham" type="java.lang.String">
+            <column name="TEN_SAN_PHAM" />
+        </property>
+        
+        <property name="gia" type="float">
+            <column name="GIA" />
+        </property>
+        
+        <property name="nhaSanXuat" type="java.lang.String">
+            <column name="NHA_SAN_XUAT" />
+        </property>
+        
+        <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
+        </many-to-one>
+        
+        <list name="dsHinhAnh" cascade="all" lazy="false" inverse="true">
+        	<key column="SAN_PHAM"></key>
+        	<list-index></list-index>
+        	<one-to-many class="model.pojo.HinhAnh"/>
+        </list>
+    </class>
+</hibernate-mapping>
