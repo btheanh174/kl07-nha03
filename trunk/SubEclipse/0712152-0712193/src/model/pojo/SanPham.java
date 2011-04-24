@@ -1,6 +1,8 @@
 package model.pojo;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SanPham {
 	private int maSanPham;
@@ -9,6 +11,8 @@ public class SanPham {
 	private String nhaSanXuat;
 	private List<HinhAnh> dsHinhAnh;
 	private DanhMuc danhMuc;
+	
+	private Set<GianHang> dsGianHang = new HashSet<GianHang>();
 	
 	
 	public SanPham() {
@@ -56,5 +60,13 @@ public class SanPham {
 
 	public void setDsHinhAnh(List<HinhAnh> dsHinhAnh) {
 		this.dsHinhAnh = dsHinhAnh;
+	}
+
+	public Set<GianHang> getDsGianHang() {
+		return dsGianHang;
+	}
+
+	public void setDsGianHang(Set<GianHang> dsGianHang) {
+		this.dsGianHang = dsGianHang;
 	}
 }
