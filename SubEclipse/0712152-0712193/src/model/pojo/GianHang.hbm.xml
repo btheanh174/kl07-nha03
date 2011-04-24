@@ -11,7 +11,28 @@
         <property name="tenGianHang" type="java.lang.String">
             <column name="TEN_GIAN_HANG" />
         </property>
+        <property name="diaChi" type="java.lang.String">
+        	<column name="DIA_CHI"></column>
+        </property>
         
+        <property name="dienThoai" type="java.lang.String">
+        	<column name="DIEN_THOAI"></column>
+        </property>
+        
+        <property name="fax" type="java.lang.String">
+        	<column name="FAX"></column>
+        </property>
+        
+        <property name="thongTin" type="java.lang.String">
+        	<column name="THONG_TIN"></column>
+        </property>
+        
+        <property name="banner" type="java.lang.String">
+        	<column name="BANNER"></column>
+        </property>
+        <property name="logo" type="java.lang.String">
+        	<column name="LOGO"></column>
+        </property>
         <!-- Quan hệ 0..1 -> 1 với bảng tài khoản -->
         <many-to-one name="taiKhoan" class="model.pojo.TaiKhoan" fetch="join" unique="true">
             <column name="TAI_KHOAN" />
