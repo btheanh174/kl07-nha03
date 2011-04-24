@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Set;
 
 public class SanPham {
-	private int maSanPham;
-	private String tenSanPham;
-	private float gia;
-	private String nhaSanXuat;
-	private List<HinhAnh> dsHinhAnh;
-	private DanhMuc danhMuc;
+	protected int maSanPham;
+	protected String tenSanPham;
+	protected float gia;
+	protected String nhaSanXuat;
+	protected List<HinhAnh> dsHinhAnh;
+	protected DanhMuc danhMuc;
 	
-	private Set<GianHang> dsGianHang = new HashSet<GianHang>();
+	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
 	
 	
 	public SanPham() {

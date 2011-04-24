@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 25, 2011 12:44:08 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <joined-subclass name="model.pojo.DienThoai" extends="model.pojo.SanPham" table="dien_thoai" lazy="false">
+        <key>
+            <column name="MA_SAN_PHAM" />
+        </key>
+        
+        <property name="mang" type="java.lang.String">
+            <column name="MANG" />
+        </property>
+        <property name="kieuDang" type="java.lang.String">
+            <column name="KIEU_DANG" />
+        </property>
+        <property name="manHinh" type="java.lang.String">
+            <column name="MAN_HINH" />
+        </property>
+        <property name="doPhanGiai" type="java.lang.String">
+            <column name="DO_PHAN_GIAI" />
+        </property>
+        <property name="heDieuHanh" type="java.lang.String">
+            <column name="HE_DIEU_HANH" />
+        </property>
+        <property name="boNhoTrong" type="java.lang.String">
+            <column name="BO_NHO_TRONG" />
+        </property>
+        <property name="ram" type="java.lang.String">
+            <column name="RAM" />
+        </property>
+        <property name="tinNhan" type="java.lang.String">
+            <column name="TIN_NHAN" />
+        </property>
+        <property name="trongLuong" type="java.lang.String">
+            <column name="TRONG_LUONG" />
+        </property>
+        <property name="kichThuoc" type="java.lang.String">
+            <column name="KICH_THUOC" />
+        </property>
+        <property name="kieuChuong" type="java.lang.String">
+            <column name="KIEU_CHUONG" />
+        </property>
+        <property name="camera" type="java.lang.String">
+            <column name="CAMERA" />
+        </property>
+        <property name="mauSac" type="java.lang.String">
+            <column name="MAU_SAC" />
+        </property>
+        <property name="pin" type="java.lang.String">
+            <column name="PIN" />
+        </property>
+        <property name="thoiGianDamThoai" type="java.lang.String">
+            <column name="THOI_GIAN_DAM_THOAI" />
+        </property>
+        <property name="thoiGianCho" type="java.lang.String">
+            <column name="THOI_GIAN_CHO" />
+        </property>
+        <property name="sim" type="java.lang.String">
+            <column name="SIM" />
+        </property>
+        <property name="theNho" type="java.lang.String">
+            <column name="THE_NHO" />
+        </property>
+        <property name="tinhNang" type="java.lang.String">
+            <column name="TINH_NANG" />
+        </property>
+        <property name="tinhNangKhac" type="java.lang.String">
+            <column name="TINH_NANG_KHAC" />
+        </property>
+    </joined-subclass>
+</hibernate-mapping>
