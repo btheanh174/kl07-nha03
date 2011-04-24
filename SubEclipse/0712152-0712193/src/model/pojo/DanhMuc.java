@@ -1,5 +1,6 @@
 package model.pojo;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -9,21 +10,27 @@ public class DanhMuc {
 	private int capDanhMuc;
 	private DanhMuc danhMucCha;
 	private List<DanhMuc> dsDanhMucCon;
-	private Set dsSanPham;
+	private Set<SanPham> dsSanPham;
+	
+	private Set<GianHang> dsGianHang = new HashSet<GianHang>();
 
 	public DanhMuc() {
 
 	}
 
 	public DanhMuc(String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha,
-			List<DanhMuc> dsDanhMucCon, Set dsSanPham) {
+			List<DanhMuc> dsDanhMucCon, Set<SanPham> dsSanPham,
+			Set<GianHang> dsGianHang) {
 		super();
 		this.tenDanhMuc = tenDanhMuc;
 		this.capDanhMuc = capDanhMuc;
 		this.danhMucCha = danhMucCha;
 		this.dsDanhMucCon = dsDanhMucCon;
 		this.dsSanPham = dsSanPham;
+		this.dsGianHang = dsGianHang;
 	}
+
+
 
 	public DanhMuc(DanhMuc danhMuc) {
 		this.maDanhMuc = danhMuc.maDanhMuc;
@@ -32,6 +39,7 @@ public class DanhMuc {
 		this.danhMucCha = danhMuc.danhMucCha;
 		this.dsDanhMucCon = danhMuc.dsDanhMucCon;
 		this.dsSanPham = danhMuc.dsSanPham;
+		this.dsGianHang = danhMuc.dsGianHang;
 	}
 
 	public int getCapDanhMuc() {
@@ -66,19 +74,27 @@ public class DanhMuc {
 		this.tenDanhMuc = tenDanhMuc;
 	}
 
-	public Set getDsSanPham() {
-		return dsSanPham;
-	}
-
-	public void setDsSanPham(Set dsSanPham) {
-		this.dsSanPham = dsSanPham;
-	}
-
 	public DanhMuc getDanhMucCha() {
 		return danhMucCha;
 	}
 
 	public void setDanhMucCha(DanhMuc danhMucCha) {
 		this.danhMucCha = danhMucCha;
+	}
+
+	public Set<SanPham> getDsSanPham() {
+		return dsSanPham;
+	}
+
+	public void setDsSanPham(Set<SanPham> dsSanPham) {
+		this.dsSanPham = dsSanPham;
+	}
+
+	public Set<GianHang> getDsGianHang() {
+		return dsGianHang;
+	}
+
+	public void setDsGianHang(Set<GianHang> dsGianHang) {
+		this.dsGianHang = dsGianHang;
 	}
 }

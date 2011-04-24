@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2011 1:18:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.HoaDon" table="hoa_don">
+        <id name="maHoaDon" type="int">
+            <column name="MA_HOA_DON" />
+            <generator class="assigned" />
+        </id>
+        <property name="ngayLap" type="java.util.Date">
+            <column name="NGAY_LAP" />
+        </property>
+        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" fetch="join">
+            <column name="THANH_VIEN" />
+        </many-to-one>
+        <many-to-one name="nguoiNhan" class="model.pojo.NguoiNhan" fetch="join">
+            <column name="NGUOI_NHAN" />
+        </many-to-one>
+        <many-to-one name="phuongThuc" class="model.pojo.PhuongThucThanhToan" fetch="join">
+            <column name="PHUONG_THUC_THANH_TOAN" />
+        </many-to-one>
+        <many-to-one name="hinhThuc" class="model.pojo.HinhThucVanChuyen" fetch="join">
+            <column name="HINH_THUC_VAN_CHUYEN" />
+        </many-to-one>
+        <many-to-one name="tinhTrang" class="model.pojo.TinhTrangHoaDon" fetch="join">
+            <column name="TINH_TRANG" />
+        </many-to-one>
+        <list name="dsChiTietHoaDon" inverse="true" table="chi_tiet_hoa_don" lazy="true" cascade="all">
+            <key>
+                <column name="HOA_DON" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="model.pojo.ChiTietHoaDon" />
+        </list>
+    </class>
+</hibernate-mapping>

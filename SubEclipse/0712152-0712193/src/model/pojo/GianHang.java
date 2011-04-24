@@ -1,5 +1,8 @@
 package model.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class GianHang {
 	
 	private int maGianHang;
@@ -7,17 +10,25 @@ public class GianHang {
 	private TaiKhoan taiKhoan;
 	private TinhThanhPho tinhThanhPho;
 	
+	private Set<DanhMuc> dsDanhMuc  = new HashSet<DanhMuc>();
+	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
+	
 	public GianHang() {
 	
 	}
 
 	public GianHang(String tenGianHang, TaiKhoan taiKhoan,
-			TinhThanhPho tinhThanhPho) {
+			TinhThanhPho tinhThanhPho, Set<DanhMuc> dsDanhMuc,
+			Set<SanPham> dsSanPham) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.taiKhoan = taiKhoan;
 		this.tinhThanhPho = tinhThanhPho;
+		this.dsDanhMuc = dsDanhMuc;
+		this.dsSanPham = dsSanPham;
 	}
+
+
 
 
 
@@ -51,5 +62,21 @@ public class GianHang {
 
 	public void setTinhThanhPho(TinhThanhPho tinhThanhPho) {
 		this.tinhThanhPho = tinhThanhPho;
+	}
+
+	public Set<DanhMuc> getDsDanhMuc() {
+		return dsDanhMuc;
+	}
+
+	public void setDsDanhMuc(Set<DanhMuc> dsDanhMuc) {
+		this.dsDanhMuc = dsDanhMuc;
+	}
+
+	public Set<SanPham> getDsSanPham() {
+		return dsSanPham;
+	}
+
+	public void setDsSanPham(Set<SanPham> dsSanPham) {
+		this.dsSanPham = dsSanPham;
 	}
 }

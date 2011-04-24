@@ -169,9 +169,11 @@ public class Testing {
 			System.out.println(dm.getDsSanPham().size());
 		 */		
 	}
-	private static void xuat(List<DanhMuc> dsDanhMuc, String temp){
+	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
+		
 		for(int i = 0; i < dsDanhMuc.size(); i++){
 			System.out.println(temp + dsDanhMuc.get(i).getTenDanhMuc());
 		}
+		temp +="    ";
 	}
 }
