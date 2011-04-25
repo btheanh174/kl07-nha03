@@ -1,5 +1,6 @@
 package model.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -15,10 +16,21 @@ public class DanhMucBean {
 
 	public List<DanhMuc> getDsDanhMuc() {
 		if (dsDanhMuc == null) {
-			dsDanhMuc = dmDao.layDanhSach();
+			List<DanhMuc> temp = dmDao.layDanhSach();
+			dsDanhMuc = new ArrayList<DanhMuc>();
+			for (int i = 0; i < temp.size(); i++)
+			{
+				if (temp.get(i).getCapDanhMuc() == 1)
+				{
+					dsDanhMuc.add(temp.get(i));
+				}
+			}
 		}
+		
+		
 		return dsDanhMuc;
 	}
+	
 
 	public Set<SanPham> getDsSanPham() {
 		dsSanPham = dmDao.lay(maDanhMuc).getDsSanPham();
