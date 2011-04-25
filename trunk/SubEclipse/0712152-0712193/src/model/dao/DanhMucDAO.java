@@ -14,16 +14,16 @@ public class DanhMucDAO extends AbstractDAO {
 		super();
 	}
 	
-	public List layDanhSach(){
+	public List<DanhMuc> layDanhSach(){
 		return super.findAll(DanhMuc.class);
 	}
 	
-	public List layDanhSach(int danhMucCha){
+	public List<DanhMuc> layDanhSach(DanhMuc danhMucCha){
 		List kq = null;
 		try{
 			tx = session.beginTransaction();
-			Query query = session.createQuery("from DanhMuc where danhMucCha =:parentId")
-			.setParameter("parentId", danhMucCha);
+			Query query = session.createQuery("from DanhMuc where danhMucCha =:dm")
+			.setParameter("dm", danhMucCha);
 			kq = query.list();
 			tx.commit();
 		}catch(HibernateException e){

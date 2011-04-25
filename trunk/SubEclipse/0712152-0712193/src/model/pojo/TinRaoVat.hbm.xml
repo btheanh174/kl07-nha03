@@ -17,7 +17,7 @@
             <column name="NOI_DUNG" />
         </property>
         
-        <property name="ngayDang" type="java.util.Date">
+        <property name="ngayDang" type="timestamp">
             <column name="NGAY_DANG" />
         </property>
         

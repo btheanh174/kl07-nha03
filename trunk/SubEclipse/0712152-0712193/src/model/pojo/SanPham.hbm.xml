@@ -30,12 +30,11 @@
         	<one-to-many class="model.pojo.HinhAnh"/>
         </list>
         
-        <set name="dsGianHang" table="gian_hang_san_pham" inverse="true" cascade="all" lazy="true">
+        <set name="dsGianHang" table="gian_hang_san_pham" cascade="all">
         	<meta attribute="quan he nhieu nhieu voi gian hang"></meta>
         	<key column="MA_SAN_PHAM"></key>
         	<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
         </set>
-        
         
     </class>
 </hibernate-mapping>

@@ -11,8 +11,8 @@ public class DanhMuc {
 	private int capDanhMuc;
 	private DanhMuc danhMucCha;
 	private List<DanhMuc> dsDanhMucCon;
-	private Set<SanPham> dsSanPham;
 	
+	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
 	private Set<GianHang> dsGianHang = new HashSet<GianHang>();
 
 	public DanhMuc() {
