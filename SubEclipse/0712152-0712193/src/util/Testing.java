@@ -4,10 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import model.dao.DanhMucDAO;
-import model.dao.SanPhamDAO;
+import model.dao.HinhAnhDAO;
+import model.dao.NhomNguoiDungDAO;
+import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
-import model.pojo.Laptop;
-import model.pojo.SanPham;
+import model.pojo.ThamSo;
 
 
 public class Testing {
@@ -173,7 +174,7 @@ public class Testing {
 		 */		
 		
 		// Kiem tra thao tac voi sản phẩm
-		SanPhamDAO spDao = new SanPhamDAO();
+		/*SanPhamDAO spDao = new SanPhamDAO();
 		// SanPham
 		SanPham sp = new SanPham();
 		sp.setTenSanPham("test");
@@ -196,7 +197,21 @@ public class Testing {
 		laptop.setPin("6 cells");
 		
 		spDao.them(sp);
-		spDao.them(laptop);
+		spDao.them(laptop);*/
+		
+		ThamSoDAO tsDao = new ThamSoDAO();
+		List<ThamSo> dsTS = tsDao.layDanhSach();
+		System.out.println(dsTS.size());
+		
+		NhomNguoiDungDAO nndDao = new NhomNguoiDungDAO();
+		System.out.println(nndDao.layDanhSach().size());
+		
+		HinhAnhDAO spDao = new HinhAnhDAO();
+		System.out.println(spDao.layDanhSach().size());
+		
+		DanhMucDAO dmDao = new DanhMucDAO();
+		DanhMuc dm = dmDao.lay(1);
+		System.out.println(dm.getTenDanhMuc());
 	}
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		

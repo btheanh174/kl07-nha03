@@ -27,7 +27,7 @@ public class ThamSoDAO extends AbstractDAO{
 		return (ThamSo) crit.uniqueResult();
 	}
 	
-	public List layDsThamSo(){
+	public List layDanhSach(){
 		return super.findAll(ThamSo.class);
 	}
 }

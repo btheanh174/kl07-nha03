@@ -18,7 +18,7 @@
         </property>
         
         
-        <set name="dsSanPham" table="san_pham" cascade="all" lazy="false" inverse="true">
+        <set name="dsSanPham" cascade="all" lazy="false" inverse="true">
         	<key column="DANH_MUC"></key>
         	<one-to-many class="model.pojo.SanPham"/>
         </set>
@@ -30,7 +30,7 @@
         
         <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
         
-        <set name="dsGianHang" table="gian_hang_danh_muc" inverse="true" cascade="all">
+        <set name="dsGianHang" table="gian_hang_danh_muc" cascade="all">
         	<key column="MA_DANH_MUC"></key>
         	<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
         </set>

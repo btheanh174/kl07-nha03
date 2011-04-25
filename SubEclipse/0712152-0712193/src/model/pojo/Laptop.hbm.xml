@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 25, 2011 12:49:03 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <joined-subclass name="model.pojo.Laptop" extends="model.pojo.SanPham" table="laptop" lazy="false">
+    <joined-subclass name="model.pojo.Laptop" table="laptop" lazy="false">
         <key>
             <column name="MA_SAN_PHAM" />
         </key>

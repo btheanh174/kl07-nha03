@@ -23,6 +23,24 @@ public class GianHang {
 	
 	}
 
+	public GianHang(String tenGianHang, String diaChi, String dienThoai,
+			String fax, String thongTin, String banner, String logo,
+			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
+			Set<DanhMuc> dsDanhMuc, Set<SanPham> dsSanPham) {
+		super();
+		this.tenGianHang = tenGianHang;
+		this.diaChi = diaChi;
+		this.dienThoai = dienThoai;
+		this.fax = fax;
+		this.thongTin = thongTin;
+		this.banner = banner;
+		this.logo = logo;
+		this.taiKhoan = taiKhoan;
+		this.tinhThanhPho = tinhThanhPho;
+		this.dsDanhMuc = dsDanhMuc;
+		this.dsSanPham = dsSanPham;
+	}
+
 	public int getMaGianHang() {
 		return maGianHang;
 	}

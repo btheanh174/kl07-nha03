@@ -42,17 +42,13 @@
             <column name="TINH_THANH_PHO" />
         </many-to-one>
         
-        <set name="dsDanhMuc" table="gian_hang_danh_muc" inverse="true" lazy="true" access="field" cascade="all">
-            <key>
-                <column name="MA_GIAN_HANG" />
-            </key>
+        <set name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all" inverse="true">
+            <key column="MA_GIAN_HANG" />
             <many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
         </set>
         
-        <set name="dsSanPham" table="gian_hang_san_pham" inverse="true" lazy="true" access="field" cascade="all">
-            <key>
-                <column name="MA_GIAN_HANG" />
-            </key>
+        <set name="dsSanPham" table="gian_hang_san_pham" cascade="all" inverse="true">
+            <key column = "MA_GIAN_HANG" />
             <many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" />
         </set>
         
