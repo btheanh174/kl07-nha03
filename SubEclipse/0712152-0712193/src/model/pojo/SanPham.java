@@ -1,3 +1,4 @@
+
 package model.pojo;
 
 import java.util.HashSet;
@@ -19,6 +20,21 @@ public class SanPham {
 		super();
 	}
 	
+	
+	
+	public SanPham(String tenSanPham, float gia, String nhaSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+		super();
+		this.tenSanPham = tenSanPham;
+		this.gia = gia;
+		this.nhaSanXuat = nhaSanXuat;
+		this.dsHinhAnh = dsHinhAnh;
+		this.danhMuc = danhMuc;
+		this.dsGianHang = dsGianHang;
+	}
+
+
+
 	public int getMaSanPham() {
 		return maSanPham;
 	}

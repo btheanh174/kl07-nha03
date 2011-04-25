@@ -1,7 +1,10 @@
 package model.pojo;
 
+import java.util.List;
+import java.util.Set;
+
 public class DienThoai extends SanPham {
-	private int maSanPham;
+	
 	private String mang;
 	private String kieuDang;
 	private String manHinh;
@@ -24,6 +27,80 @@ public class DienThoai extends SanPham {
 	private String tinhNangKhac;
 	public DienThoai() {
 	}
+	
+	
+	
+	public DienThoai(String tenSanPham, float gia, String nhaSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public DienThoai(String mang, String kieuDang, String manHinh,
+			String doPhanGiai, String heDieuHanh, String boNhoTrong,
+			String ram, String tinNhan, String trongLuong, String kichThuoc,
+			String kieuChuong, String camera, String mauSac, String pin,
+			String thoiGianDamThoai, String thoiGianCho, String sim,
+			String theNho, String tinhNang, String tinhNangKhac) {
+		super();
+		this.mang = mang;
+		this.kieuDang = kieuDang;
+		this.manHinh = manHinh;
+		this.doPhanGiai = doPhanGiai;
+		this.heDieuHanh = heDieuHanh;
+		this.boNhoTrong = boNhoTrong;
+		this.ram = ram;
+		this.tinNhan = tinNhan;
+		this.trongLuong = trongLuong;
+		this.kichThuoc = kichThuoc;
+		this.kieuChuong = kieuChuong;
+		this.camera = camera;
+		this.mauSac = mauSac;
+		this.pin = pin;
+		this.thoiGianDamThoai = thoiGianDamThoai;
+		this.thoiGianCho = thoiGianCho;
+		this.sim = sim;
+		this.theNho = theNho;
+		this.tinhNang = tinhNang;
+		this.tinhNangKhac = tinhNangKhac;
+	}
+
+
+
+	public DienThoai(String tenSanPham, float gia, String nhaSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
+			String mang, String kieuDang, String manHinh, String doPhanGiai,
+			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
+			String trongLuong, String kichThuoc, String kieuChuong,
+			String camera, String mauSac, String pin, String thoiGianDamThoai,
+			String thoiGianCho, String sim, String theNho, String tinhNang,
+			String tinhNangKhac) {
+		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		this.mang = mang;
+		this.kieuDang = kieuDang;
+		this.manHinh = manHinh;
+		this.doPhanGiai = doPhanGiai;
+		this.heDieuHanh = heDieuHanh;
+		this.boNhoTrong = boNhoTrong;
+		this.ram = ram;
+		this.tinNhan = tinNhan;
+		this.trongLuong = trongLuong;
+		this.kichThuoc = kichThuoc;
+		this.kieuChuong = kieuChuong;
+		this.camera = camera;
+		this.mauSac = mauSac;
+		this.pin = pin;
+		this.thoiGianDamThoai = thoiGianDamThoai;
+		this.thoiGianCho = thoiGianCho;
+		this.sim = sim;
+		this.theNho = theNho;
+		this.tinhNang = tinhNang;
+		this.tinhNangKhac = tinhNangKhac;
+	}
+
+
+
 	public int getMaSanPham() {
 		return maSanPham;
 	}
