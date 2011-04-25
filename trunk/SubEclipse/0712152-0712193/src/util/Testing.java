@@ -1,10 +1,13 @@
-package util;
+ package util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import model.dao.DanhMucDAO;
+import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
+import model.pojo.Laptop;
+import model.pojo.SanPham;
 
 
 public class Testing {
@@ -153,7 +156,7 @@ public class Testing {
 		
 		System.out.println(thanhVien.getHoTen());*/
 		
-		DanhMucDAO dmDao = new DanhMucDAO();
+		/*DanhMucDAO dmDao = new DanhMucDAO();
 		List<DanhMuc> dsdm = dmDao.layDanhSach();
 		System.out.println(dsdm.size());
 		
@@ -164,10 +167,36 @@ public class Testing {
 				xuat(dsdm.get(i).getDsDanhMucCon(), temp);
 			}
 		}
-		
+		*/
 		/*		DanhMuc dm = dmDao.lay(1);
 			System.out.println(dm.getDsSanPham().size());
 		 */		
+		
+		// Kiem tra thao tac voi sản phẩm
+		SanPhamDAO spDao = new SanPhamDAO();
+		// SanPham
+		SanPham sp = new SanPham();
+		sp.setTenSanPham("test");
+		sp.setGia(1000);
+		sp.setNhaSanXuat("Chính hãng");
+		DanhMuc danhMuc = new DanhMucDAO().lay(3);
+		sp.setDanhMuc(danhMuc);
+		
+		// Laptop
+		Laptop laptop = new Laptop("Acer", 2000000, "VN", null, danhMuc, null);
+		laptop.setMainboard("Intel chipset");
+		laptop.setCpu("Core i7 2.5GHz");
+		laptop.setChuot("Touchpad");
+		laptop.setHdd("500 TB 7200rpm");
+		laptop.setHeDieuHanh("Window 7 Home premium");
+		laptop.setLan("100mps");
+		laptop.setWifi("100g/n/b");
+		laptop.setRam("4GB");
+		laptop.setTrongLuong("2.5kg");
+		laptop.setPin("6 cells");
+		
+		spDao.them(sp);
+		spDao.them(laptop);
 	}
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		

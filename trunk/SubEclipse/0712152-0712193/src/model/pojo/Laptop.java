@@ -1,9 +1,11 @@
 
 package model.pojo;
 
+import java.util.List;
+import java.util.Set;
+
 public class Laptop extends SanPham {
 
-	private int maSanPham;
 	private String mainboard;
 	private String cpu;
 	private String hdd;
@@ -19,9 +21,43 @@ public class Laptop extends SanPham {
 	private String kichThuocManHinh;
 	private String doPhanGiai;
 	private String tinhNangKhac;
+	
+	
 	public Laptop() {
-		
 	}
+	
+	
+	
+	public Laptop(String tenSanPham, float gia, String nhaSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+ 
+	}
+
+	public Laptop(String tenSanPham, float gia, String nhaSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
+			String mainboard, String cpu, String hdd, String ram, String vga,
+			String usb, String lan, String wifi, String heDieuHanh,
+			String chuot, String pin, String trongLuong,
+			String kichThuocManHinh, String doPhanGiai, String tinhNangKhac) {
+		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		this.mainboard = mainboard;
+		this.cpu = cpu;
+		this.hdd = hdd;
+		this.ram = ram;
+		this.vga = vga;
+		this.usb = usb;
+		this.lan = lan;
+		this.wifi = wifi;
+		this.heDieuHanh = heDieuHanh;
+		this.chuot = chuot;
+		this.pin = pin;
+		this.trongLuong = trongLuong;
+		this.kichThuocManHinh = kichThuocManHinh;
+		this.doPhanGiai = doPhanGiai;
+		this.tinhNangKhac = tinhNangKhac;
+	}
+
 	public int getMaSanPham() {
 		return maSanPham;
 	}
