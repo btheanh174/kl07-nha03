@@ -25,7 +25,7 @@
             <column name="GHI_CHU" />
         </property>
         
-        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" fetch="join">
+        <many-to-one name="thanhVien"  class="model.pojo.ThanhVien" fetch="join">
             <column name="THANH_VIEN" />
         </many-to-one>
     </class>

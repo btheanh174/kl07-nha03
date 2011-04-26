@@ -14,7 +14,7 @@
         <property name="moTa" type="java.lang.String">
             <column name="MO_TA" />
         </property>
-        <set name="dsTaiKhoan" table="nhom_nguoi_dung" inverse="true" lazy="true" cascade="all">
+        <set name="dsTaiKhoan" table="tai_khoan" inverse="true" lazy="true" cascade="all">
             <key>
                 <column name="NHOM_NGUOI_DUNG" />
             </key>

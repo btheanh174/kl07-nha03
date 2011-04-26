@@ -32,10 +32,8 @@
   <mapping resource="model/pojo/HinhThucVanChuyen.hbm.xml"/>
   <mapping resource="model/pojo/PhuongThucThanhToan.hbm.xml"/>
   <mapping resource="model/pojo/HoaDon.hbm.xml"/>
-  <mapping resource="model/pojo/ChiTietHoaDon.hbm.xml"/>
   
   <mapping resource="model/pojo/TinNhan.hbm.xml"/>
-  
   
  </session-factory>
 </hibernate-configuration>

@@ -4,13 +4,13 @@
 <!-- Generated Apr 23, 2011 7:28:56 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="model.pojo.TinRaoVat" table="tin_rao_vat">
-        <id name="noiDung" type="int">
+        <id name="maTinRaoVat" type="int">
             <column name="MA_TIN_RAO_VAT" />
             <generator class="assigned" />
         </id>
         
         <property name="tieuDe" type="java.lang.String">
-            <column name="TIEUDE" />
+            <column name="TIEU_DE" />
         </property>
         
         <property name="noiDung" type="java.lang.String">

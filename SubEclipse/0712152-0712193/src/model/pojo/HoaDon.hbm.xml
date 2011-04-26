@@ -27,11 +27,13 @@
             <column name="TINH_TRANG" />
         </many-to-one>
         <list name="dsChiTietHoaDon" inverse="true" table="chi_tiet_hoa_don" lazy="true" cascade="all">
-            <key>
-                <column name="HOA_DON" />
-            </key>
-            <list-index></list-index>
-            <one-to-many class="model.pojo.ChiTietHoaDon" />
+            <key column="MA_HOA_DON"></key>
+            <list-index column="SO_THU_TU"></list-index>
+            <composite-element class="model.pojo.ChiTietHoaDon">
+            	<property name="soLuong" type="int"></property>
+            	<property name="donGia" type="float"></property>
+            	<many-to-one name="sanPham" column="SAN_PHAM"></many-to-one>
+            </composite-element>
         </list>
     </class>
 </hibernate-mapping>

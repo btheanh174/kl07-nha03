@@ -34,24 +34,28 @@
             <column name="TINH_THANH_PHO" />
         </many-to-one>
         
-        <list name="dsTinNhan" inverse="false" table="thanh_vien" lazy="false">
-            <key>
-                <column name="THANH_VIEN" />
-            </key>
+        <list name="dsTinNhan" table="tin_nhan" inverse="true" lazy="true">
+            <key column="THANH_VIEN"></key>
             <list-index></list-index>
             <one-to-many class="model.pojo.TinNhan"/>
         </list>
         
-        <list name="dsNguoiNhan" inverse="false" table="nguoi_nhan" lazy="false">
+        <list name="dsNguoiNhan" inverse="true" table="nguoi_nhan" lazy="true">
         	<key column="THANH_VIEN"></key>
         	<list-index></list-index>
         	<one-to-many class="model.pojo.NguoiNhan"/>
         </list>
         
-        <list name="dsTinRaoVat" inverse="false" table="tin_nhan" lazy="false">
+        <list name="dsTinRaoVat" inverse="true" table="tin_rao_vat" lazy="true">
         	<key column="THANH_VIEN"></key>
         	<list-index></list-index>
-        	<one-to-many class="model.pojo.TinNhan"/>
+        	<one-to-many class="model.pojo.TinRaoVat"/>
+        </list>
+        
+        <list name="dsHoaDon" inverse="true" table="hoa_don" lazy="true">
+        	<key column="THANH_VIEN"></key>
+        	<list-index></list-index>
+        	<one-to-many class="model.pojo.HoaDon"/>
         </list>
         
     </class>

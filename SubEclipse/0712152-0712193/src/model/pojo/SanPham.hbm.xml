@@ -25,7 +25,7 @@
         </many-to-one>
         
         
-        <list name="dsHinhAnh" cascade="all" lazy="false" inverse="true">
+        <list name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="false" inverse="true">
         	<key column="SAN_PHAM"></key>
         	<list-index></list-index>
         	<one-to-many class="model.pojo.HinhAnh"/>
