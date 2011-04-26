@@ -1,15 +1,22 @@
  package util;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.dao.DanhMucDAO;
 import model.dao.GianHangDAO;
-import model.dao.HinhAnhDAO;
+import model.dao.HoaDonDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.ThamSoDAO;
+import model.dao.TaiKhoanDAO;
+import model.dao.ThanhVienDAO;
 import model.pojo.DanhMuc;
-import model.pojo.ThamSo;
+import model.pojo.GianHang;
+import model.pojo.NhomNguoiDung;
+import model.pojo.TaiKhoan;
+import model.pojo.ThanhVien;
 
 
 public class Testing {
@@ -200,22 +207,18 @@ public class Testing {
 		spDao.them(sp);
 		spDao.them(laptop);*/
 		
-		ThamSoDAO tsDao = new ThamSoDAO();
-		List<ThamSo> dsTS = tsDao.layDanhSach();
-		System.out.println(dsTS.size());
-		
-		NhomNguoiDungDAO nndDao = new NhomNguoiDungDAO();
-		System.out.println(nndDao.layDanhSach().size());
-		
-		HinhAnhDAO spDao = new HinhAnhDAO();
-		System.out.println(spDao.layDanhSach().size());
 		
 		DanhMucDAO dmDao = new DanhMucDAO();
 		List<DanhMuc> dm = dmDao.layDanhSach();
 		System.out.println(dm.size());
+		for(int i = 0; i < dm.size(); i++){
+			System.out.println(dm.get(i).getTenDanhMuc());
+		}
 		
-		GianHangDAO ghDao  = new GianHangDAO();
-		System.out.println(ghDao.layDanhSach().size());
+		ThanhVienDAO tvDao = new ThanhVienDAO();
+		System.out.println(tvDao.lay(1).getDiaChi());
+		
+		
 	}
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		
@@ -223,5 +226,76 @@ public class Testing {
 			System.out.println(temp + dsDanhMuc.get(i).getTenDanhMuc());
 		}
 		temp +="    ";
+	}
+	
+	
+	
+	private static void themTaiKhoan() throws UnsupportedEncodingException{
+		TaiKhoan tk = new TaiKhoan();
+		tk.setTenTruyCap("llho");
+		tk.setNgayKichHoat(new Date());
+		String salt = HashUtil.generateSalt(6);
+		tk.setSalt(HashUtil.generateSalt(6));
+		String mk = salt + "llho";
+		tk.setMatKhau(HashUtil.generateHash(mk));
+		NhomNguoiDung nnd = new NhomNguoiDungDAO().lay(1);
+		tk.setNhomNguoiDung(nnd);
+		
+		ThanhVien tv = new ThanhVien();
+		tv.setHoTen("Lê Long Hồ");
+		tv.setDiaChi("Tây Ninh");
+		tv.setDienThoai("01674560436");
+		tv.setEmail("dragon_TN@yahoo.com");
+		
+		tk.setThanhVien(tv);
+		tv.setTaiKhoan(tk);
+		
+		new TaiKhoanDAO().them(tk);
+	}
+	
+	private static void testGianHangDanhMuc(){
+		TaiKhoan tk = new TaiKhoanDAO().lay(1);
+		System.out.println(tk.getTenTruyCap());
+		
+		Set<GianHang> dsGianHang = new HashSet<GianHang>();
+		
+		GianHang gh1 = new GianHang();
+		gh1.setTenGianHang("LLH");
+		gh1.setDiaChi("Tay Ninh");
+		gh1.setDienThoai("01674560436");
+		gh1.setTaiKhoan(tk);
+		
+		GianHang gh2 = new GianHang();
+		gh2.setTenGianHang("MTH");
+		gh2.setDiaChi("Vung Tau");
+		gh2.setDienThoai("0902615194");
+		gh2.setTaiKhoan(tk);
+		
+		dsGianHang.add(gh1);
+		dsGianHang.add(gh2);
+		
+		
+		DanhMuc dm1 = new DanhMucDAO().lay(8);
+		DanhMuc dm2 = new DanhMucDAO().lay(9);
+		
+		dm1.setDsGianHang(dsGianHang);
+		dm2.setDsGianHang(dsGianHang);
+		
+		
+		Set<DanhMuc> dsDanhMuc = new HashSet<DanhMuc>();
+		dsDanhMuc.add(dm1);
+		dsDanhMuc.add(dm2);
+		
+		gh1.setDsDanhMuc(dsDanhMuc);
+		gh2.setDsDanhMuc(dsDanhMuc);
+		
+		GianHangDAO ghDao = new GianHangDAO();
+		DanhMucDAO dmDao = new DanhMucDAO();
+		
+		dmDao.them(dm1);
+		dmDao.them(dm2);
+		
+		ghDao.them(gh1);
+		ghDao.them(gh2);
 	}
 }

@@ -24,7 +24,7 @@
         
         <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
         
-        <set name="dsSanPham" cascade="all" lazy="true" inverse="true">
+        <set name="dsSanPham" cascade="all" table="san_pham" lazy="true" inverse="true">
         	<key column="DANH_MUC"></key>
         	<one-to-many class="model.pojo.SanPham"/>
         </set>

@@ -15,5 +15,8 @@
             <column name="NGAY_GUI" />
         </property>
         
+        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" fetch="join">
+        	<column name="THANH_VIEN"></column>
+        </many-to-one>
     </class>
 </hibernate-mapping>

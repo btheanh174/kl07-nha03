@@ -1,31 +1,33 @@
 package model.pojo;
 
 public class ChiTietHoaDon {
-
-	private int maChiTietHoaDon;
-	private String sanPham;
+	
 	private int soLuong;
 	private float donGia;
-	
+	private SanPham sanPham;
 	private HoaDon hoaDon;
+	
 	
 	public ChiTietHoaDon() {
 		
 	}
-
-	public int getMaChiTietHoaDon() {
-		return maChiTietHoaDon;
+	
+	public ChiTietHoaDon(int soLuong, float donGia, SanPham sanPham,
+			HoaDon hoaDon) {
+		super();
+		this.soLuong = soLuong;
+		this.donGia = donGia;
+		this.sanPham = sanPham;
+		this.hoaDon = hoaDon;
 	}
 
-	public void setMaChiTietHoaDon(int maChiTietHoaDon) {
-		this.maChiTietHoaDon = maChiTietHoaDon;
-	}
 
-	public String getSanPham() {
+
+	public SanPham getSanPham() {
 		return sanPham;
 	}
 
-	public void setSanPham(String sanPham) {
+	public void setSanPham(SanPham sanPham) {
 		this.sanPham = sanPham;
 	}
 

@@ -10,31 +10,27 @@ public class TaiKhoan {
 	private Date ngayKichHoat;
 	private NhomNguoiDung nhomNguoiDung;
 	private ThanhVien thanhVien;
+	private GianHang gianHang;
 	
 	public TaiKhoan() {
 		super();
 	}
 	
+	
+	
 	public TaiKhoan(String tenTruyCap, String salt, String matKhau,
-			Date ngayKichHoat, NhomNguoiDung nhomNguoiDung) {
+			Date ngayKichHoat, NhomNguoiDung nhomNguoiDung,
+			ThanhVien thanhVien, GianHang gianHang) {
 		super();
 		this.tenTruyCap = tenTruyCap;
 		this.salt = salt;
 		this.matKhau = matKhau;
 		this.ngayKichHoat = ngayKichHoat;
 		this.nhomNguoiDung = nhomNguoiDung;
-	}
-	
-	
-	public TaiKhoan(String tenTruyCap, String matKhau, Date ngayKichHoat,
-			NhomNguoiDung nhomNguoiDung, ThanhVien thanhVien) {
-		super();
-		this.tenTruyCap = tenTruyCap;
-		this.matKhau = matKhau;
-		this.ngayKichHoat = ngayKichHoat;
-		this.nhomNguoiDung = nhomNguoiDung;
 		this.thanhVien = thanhVien;
+		this.gianHang = gianHang;
 	}
+
 
 	public TaiKhoan(TaiKhoan taiKhoan){
 		this.maTaiKhoan = taiKhoan.maTaiKhoan;
@@ -89,5 +85,13 @@ public class TaiKhoan {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public GianHang getGianHang() {
+		return gianHang;
+	}
+
+	public void setGianHang(GianHang gianHang) {
+		this.gianHang = gianHang;
 	}
 }

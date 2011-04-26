@@ -6,7 +6,7 @@
     <class name="model.pojo.TaiKhoan" table="tai_khoan">
         <id name="maTaiKhoan" type="int">
             <column name="MA_TAI_KHOAN" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
         <property name="tenTruyCap" type="java.lang.String">
             <column name="TEN_TRUY_CAP" />
@@ -30,5 +30,7 @@
         <one-to-one name="thanhVien" class="model.pojo.ThanhVien" cascade="save-update,delete">
         	<meta attribute="Quan hệ 1 -1 với bảng thành viên"></meta>
         </one-to-one>
+        
+        <one-to-one name="gianHang" property-ref="taiKhoan"></one-to-one>
     </class>
 </hibernate-mapping>

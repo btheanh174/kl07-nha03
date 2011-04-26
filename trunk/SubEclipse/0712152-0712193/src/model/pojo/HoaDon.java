@@ -12,7 +12,6 @@ public class HoaDon {
 	private PhuongThucThanhToan phuongThuc;
 	private HinhThucVanChuyen hinhThuc;
 	private TinhTrangHoaDon tinhTrang;
-	
 	private List<ChiTietHoaDon> dsChiTietHoaDon;
 	
 	public HoaDon() {
