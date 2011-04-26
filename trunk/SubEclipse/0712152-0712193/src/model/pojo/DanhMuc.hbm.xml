@@ -24,12 +24,12 @@
         
         <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
         
-        <set name="dsSanPham" cascade="all" lazy="false" inverse="true">
+        <set name="dsSanPham" cascade="all" lazy="true" inverse="true">
         	<key column="DANH_MUC"></key>
         	<one-to-many class="model.pojo.SanPham"/>
         </set>
         
-        <set name="dsGianHang" table="gian_hang_danh_muc" cascade="all">
+        <set name="dsGianHang" table="gian_hang_danh_muc" cascade="all" lazy="true">
         	<key column="MA_DANH_MUC"></key>
         	<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
         </set>
