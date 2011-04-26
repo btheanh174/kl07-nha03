@@ -6,7 +6,7 @@
     <class name="model.pojo.SanPham" table="san_pham">
         <id name="maSanPham" type="int">
             <column name="MA_SAN_PHAM" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
         
         <property name="tenSanPham" type="java.lang.String">
@@ -23,6 +23,7 @@
         
         <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
         </many-to-one>
+        
         
         <list name="dsHinhAnh" cascade="all" lazy="false" inverse="true">
         	<key column="SAN_PHAM"></key>

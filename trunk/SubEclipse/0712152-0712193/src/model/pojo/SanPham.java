@@ -10,9 +10,9 @@ public class SanPham {
 	protected String tenSanPham;
 	protected float gia;
 	protected String nhaSanXuat;
-	protected List<HinhAnh> dsHinhAnh;
-	protected DanhMuc danhMuc;
 	
+	protected DanhMuc danhMuc;
+	protected List<HinhAnh> dsHinhAnh;
 	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
 	
 	
@@ -85,4 +85,6 @@ public class SanPham {
 	public void setDsGianHang(Set<GianHang> dsGianHang) {
 		this.dsGianHang = dsGianHang;
 	}
+	
+	
 }
