@@ -8,13 +8,13 @@
 			<a href="XuLyDanhMuc?maDanhMuc=<s:property value="#root.maDanhMuc"/> "><s:property
 					value="#root.tenDanhMuc" /> </a>
 
-<s:if test="#root.dsDanhMucCon.size() != 0 && #root.dsDanhMucCon != null"> 
-	<ul>
-	<s:iterator value="#root.dsDanhMucCon">
-		<s:include value="/WEB-INF/tiles/node.jsp" />
-	</s:iterator>
-	</ul>
-</s:if>
+	<s:if test="#root.dsDanhMucCon.size() != 0 && #root.dsDanhMucCon != null"> 
+		<ul>
+		<s:iterator value="#root.dsDanhMucCon">
+			<s:include value="/WEB-INF/tiles/node.jsp" />
+		</s:iterator>
+		</ul>
+	</s:if>
 </li>
 
 

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import model.dao.DanhMucDAO;
+import model.dao.GianHangDAO;
 import model.dao.HinhAnhDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.ThamSoDAO;
@@ -210,8 +211,11 @@ public class Testing {
 		System.out.println(spDao.layDanhSach().size());
 		
 		DanhMucDAO dmDao = new DanhMucDAO();
-		DanhMuc dm = dmDao.lay(1);
-		System.out.println(dm.getTenDanhMuc());
+		List<DanhMuc> dm = dmDao.layDanhSach();
+		System.out.println(dm.size());
+		
+		GianHangDAO ghDao  = new GianHangDAO();
+		System.out.println(ghDao.layDanhSach().size());
 	}
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		
