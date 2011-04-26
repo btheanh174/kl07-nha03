@@ -17,18 +17,17 @@
         	<column name="CAP_DANH_MUC"></column>
         </property>
         
-        
-        <set name="dsSanPham" cascade="all" lazy="false" inverse="true">
-        	<key column="DANH_MUC"></key>
-        	<one-to-many class="model.pojo.SanPham"/>
-        </set>
-        
         <bag name="dsDanhMucCon" lazy="false" cascade="all-delete-orphan" inverse="true">
         	<key column="DANH_MUC_CHA"></key>
         	<one-to-many class="model.pojo.DanhMuc"/>
         </bag>
         
         <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
+        
+        <set name="dsSanPham" cascade="all" lazy="false" inverse="true">
+        	<key column="DANH_MUC"></key>
+        	<one-to-many class="model.pojo.SanPham"/>
+        </set>
         
         <set name="dsGianHang" table="gian_hang_danh_muc" cascade="all">
         	<key column="MA_DANH_MUC"></key>
