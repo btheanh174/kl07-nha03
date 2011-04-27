@@ -61,10 +61,10 @@
 
 		<!-- Danh muc -->
 		<action name="DanhMuc_*" class="action.DanhMucAction" method="{1}">
-			<param name="maDanhMuc">1</param>
-			<result name="success"></result>
-			<result name="error"></result>
+			<result name="success" type="tiles">Products.tiles</result>
 		</action>
+		
+		
 
 	</package>
 </struts>
