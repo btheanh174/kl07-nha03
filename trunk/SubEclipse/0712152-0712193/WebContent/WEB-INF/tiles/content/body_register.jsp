@@ -3,6 +3,7 @@
     
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
+<%@ taglib uri="http://code.google.com/p/jcaptcha4struts2/taglib/2.0" prefix="jcaptcha" %>
 
 <div class="center_title_bar">Đăng ký thành viên, gian hàng</div>
 <div class="prod_box_big">
@@ -29,7 +30,8 @@
 			
 			<s:textfield name="diaChi" label="Địa chỉ"></s:textfield>
 			<s:textfield name="dienThoai" label="Điện thoại"></s:textfield>
-			<s:textfield name="captcha" label="Mã an toàn (*)"></s:textfield>
+			
+			<jcaptcha:image label="Mã an toàn"/>
 			
 	        <s:submit value="Đăng ký"/>
 	        
