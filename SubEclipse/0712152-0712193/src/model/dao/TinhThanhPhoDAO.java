@@ -14,6 +14,10 @@ public class TinhThanhPhoDAO extends AbstractDAO{
 		return super.findAll(TinhThanhPho.class);
 	}
 	
+	public TinhThanhPho lay(int id){
+		return (TinhThanhPho)super.find(TinhThanhPho.class, id);
+	}
+	
 	public void them(TinhThanhPho ttp){
 		super.saveOrUpdate(ttp);
 	}

@@ -24,7 +24,7 @@ public class TaiKhoanDAO extends AbstractDAO{
 		TaiKhoan tk = null;
 		try{
 			tx = session.beginTransaction();
-			tk = (TaiKhoan) session.createQuery("from TaiKhoan where tenTruyCap =:usr").setParameter("usr", userName).uniqueResult();
+			tk = (TaiKhoan) session.createQuery("from TaiKhoan as tk where lower(tk.tenTruyCap) like '" +userName.toLowerCase() +"'").uniqueResult();
 			tx.commit();
 		}catch(HibernateException e){
 			handleException(e);
