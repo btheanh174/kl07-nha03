@@ -3,55 +3,59 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 24, 2011 12:49:49 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.pojo.GianHang" table="gian_hang">
-        <id name="maGianHang" type="int">
-            <column name="MA_GIAN_HANG" />
-            <generator class="native" />
-        </id>
-        <property name="tenGianHang" type="java.lang.String">
-            <column name="TEN_GIAN_HANG" />
-        </property>
-        <property name="diaChi" type="java.lang.String">
-        	<column name="DIA_CHI"></column>
-        </property>
-        
-        <property name="dienThoai" type="java.lang.String">
-        	<column name="DIEN_THOAI"></column>
-        </property>
-        
-        <property name="fax" type="java.lang.String">
-        	<column name="FAX"></column>
-        </property>
-        
-        <property name="thongTin" type="java.lang.String">
-        	<column name="THONG_TIN"></column>
-        </property>
-        
-        <property name="banner" type="java.lang.String">
-        	<column name="BANNER"></column>
-        </property>
-        <property name="logo" type="java.lang.String">
-        	<column name="LOGO"></column>
-        </property>
-        <!-- Quan hệ 0..1 -> 1 với bảng tài khoản -->
-        <many-to-one name="taiKhoan" class="model.pojo.TaiKhoan" fetch="join" unique="true" cascade="all" not-null="
+	<class name="model.pojo.GianHang" table="gian_hang">
+		<id name="maGianHang" type="int">
+			<column name="MA_GIAN_HANG" />
+			<generator class="native" />
+		</id>
+		<property name="tenGianHang" type="java.lang.String">
+			<column name="TEN_GIAN_HANG" />
+		</property>
+		<property name="diaChi" type="java.lang.String">
+			<column name="DIA_CHI"></column>
+		</property>
+
+		<property name="dienThoai" type="java.lang.String">
+			<column name="DIEN_THOAI"></column>
+		</property>
+
+		<property name="fax" type="java.lang.String">
+			<column name="FAX"></column>
+		</property>
+
+		<property name="thongTin" type="java.lang.String">
+			<column name="THONG_TIN"></column>
+		</property>
+
+		<property name="banner" type="java.lang.String">
+			<column name="BANNER"></column>
+		</property>
+		<property name="logo" type="java.lang.String">
+			<column name="LOGO"></column>
+		</property>
+		<!-- Quan hệ 0..1 -> 1 với bảng tài khoản -->
+		<many-to-one name="taiKhoan" class="model.pojo.TaiKhoan"
+			fetch="join" unique="true" cascade="all" not-null="
         true">
-            <column name="TAI_KHOAN" />
-        </many-to-one>
-        
-        <many-to-one name="tinhThanhPho" class="model.pojo.TinhThanhPho" fetch="join">
-            <column name="TINH_THANH_PHO" />
-        </many-to-one>
-        
-        <set name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all" inverse="true">
-            <key column="MA_GIAN_HANG" />
-            <many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
-        </set>
-        
-        <set name="dsSanPham" table="gian_hang_san_pham" cascade="all" inverse="true">
-            <key column = "MA_GIAN_HANG" />
-            <many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" />
-        </set>
-        
-    </class>
+			<column name="TAI_KHOAN" />
+		</many-to-one>
+
+		<many-to-one name="tinhThanhPho" class="model.pojo.TinhThanhPho"
+			fetch="join">
+			<column name="TINH_THANH_PHO" />
+		</many-to-one>
+
+		<set name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all"
+			inverse="true" lazy="true">
+			<key column="MA_GIAN_HANG" />
+			<many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
+		</set>
+
+		<set name="dsSanPham" table="gian_hang_san_pham" cascade="all"
+			inverse="true" lazy="true">
+			<key column="MA_GIAN_HANG" />
+			<many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" />
+		</set>
+
+	</class>
 </hibernate-mapping>

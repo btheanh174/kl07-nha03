@@ -7,13 +7,16 @@ import java.util.List;
 import java.util.Set;
 
 import model.dao.DanhMucDAO;
+import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
-import model.dao.HoaDonDAO;
+import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
-import model.dao.ThanhVienDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DienThoai;
 import model.pojo.GianHang;
+import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
@@ -207,24 +210,59 @@ public class Testing {
 		spDao.them(sp);
 		spDao.them(laptop);*/
 		
+		//themTaiKhoan();
 		
-		DanhMucDAO dmDao = new DanhMucDAO();
-		List<DanhMuc> dm = dmDao.layDanhSach();
-		System.out.println(dm.size());
-		for(int i = 0; i < dm.size(); i++){
-			System.out.println(dm.get(i).getTenDanhMuc());
+		TaiKhoanDAO tkDao = new TaiKhoanDAO();
+		List<TaiKhoan> dstk = tkDao.layDanhSach();
+		for(int i = 0; i < dstk.size(); i++){
+			System.out.println(dstk.get(i).getTenTruyCap());
+			
 		}
 		
-		ThanhVienDAO tvDao = new ThanhVienDAO();
-		System.out.println(tvDao.lay(1).getDiaChi());
+		TaiKhoan tk = tkDao.lay(13);
+		System.out.println(tk.getTenTruyCap());
+		
+		SanPhamDAO spDao = new SanPhamDAO();
+		System.out.println(spDao.layDanhSach().size());
+		
+		System.out.println("Them Laptop:");
+		testSanPham();
+	}
+	
+	private static void testSanPham(){
+		DanhMuc danhMuc = new DanhMucDAO().lay(8);
+		// Laptop
+		Laptop laptop = new Laptop("Dell Inspiron", 2000000, "VN", null, danhMuc, null);
+		laptop.setMainboard("Intel chipset");
+		laptop.setCpu("Core i7 2.5GHz");
+		laptop.setChuot("Touchpad");
+		laptop.setHdd("500 TB 7200rpm");
+		laptop.setHeDieuHanh("Window 7 Home premium");
+		laptop.setLan("100mps");
+		laptop.setWifi("100g/n/b");
+		laptop.setRam("4GB");
+		laptop.setTrongLuong("2.5kg");
+		laptop.setPin("6 cells");
+		
+		LaptopDAO laptopDao = new LaptopDAO();
+		/*laptopDao.them(laptop);*/
+		
+		DienThoai dienThoai = new DienThoai();
+		dienThoai.setTenSanPham("Nokia c3 wifi");
+		dienThoai.setGia(2300000);
+		danhMuc = new DanhMucDAO().lay(8);
+		dienThoai.setDanhMuc(danhMuc);
 		
 		
+		DienThoaiDAO dtDao = new DienThoaiDAO();
+		dtDao.them(dienThoai);
 	}
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		
 		for(int i = 0; i < dsDanhMuc.size(); i++){
 			System.out.println(temp + dsDanhMuc.get(i).getTenDanhMuc());
 		}
+		
 		temp +="    ";
 	}
 	
@@ -235,14 +273,14 @@ public class Testing {
 		tk.setTenTruyCap("llho");
 		tk.setNgayKichHoat(new Date());
 		String salt = HashUtil.generateSalt(6);
-		tk.setSalt(HashUtil.generateSalt(6));
-		String mk = salt + "llho";
+		tk.setSalt(salt);
+		String mk = salt + "123456";
 		tk.setMatKhau(HashUtil.generateHash(mk));
 		NhomNguoiDung nnd = new NhomNguoiDungDAO().lay(1);
 		tk.setNhomNguoiDung(nnd);
 		
 		ThanhVien tv = new ThanhVien();
-		tv.setHoTen("Lê Long Hồ");
+		tv.setHoTen("LLH");
 		tv.setDiaChi("Tây Ninh");
 		tv.setDienThoai("01674560436");
 		tv.setEmail("dragon_TN@yahoo.com");
@@ -250,7 +288,8 @@ public class Testing {
 		tk.setThanhVien(tv);
 		tv.setTaiKhoan(tk);
 		
-		new TaiKhoanDAO().them(tk);
+		TaiKhoanDAO tkDao = new TaiKhoanDAO();
+		tkDao.them(tk);
 	}
 	
 	private static void testGianHangDanhMuc(){

@@ -81,6 +81,10 @@ public abstract class AbstractDAO {
 	}
 	
 	protected void handleException(HibernateException e) {
-		tx.rollback();
+		if(tx != null){
+			tx.rollback();
+			throw e;
+		}
+		
 	}
 }

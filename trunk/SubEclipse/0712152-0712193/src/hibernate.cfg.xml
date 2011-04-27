@@ -16,8 +16,10 @@
   
   <mapping resource="model/pojo/DanhMuc.hbm.xml"/>
   <mapping resource="model/pojo/SanPham.hbm.xml"/>
-  <!-- <mapping resource="model/pojo/DienThoai.hbm.xml"/>
-  <mapping resource="model/pojo/Laptop.hbm.xml"/> -->
+  
+  <mapping resource="model/pojo/DienThoai.hbm.xml"/>
+  <mapping resource="model/pojo/Laptop.hbm.xml"/>
+  
   <mapping resource="model/pojo/HinhAnh.hbm.xml"/>
   
   <mapping resource="model/pojo/NhomNguoiDung.hbm.xml"/>

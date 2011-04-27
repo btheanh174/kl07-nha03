@@ -3,35 +3,39 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 15, 2011 12:29:32 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.pojo.DanhMuc" table="danh_muc">
-        <id name="maDanhMuc" type="int">
-            <column name="MA_DANH_MUC" />
-            <generator class="assigned" />
-        </id>
-        
-        <property name="tenDanhMuc" type="java.lang.String">
-            <column name="TEN_DANH_MUC" />
-        </property>
-        
-        <property name="capDanhMuc" type="integer">
-        	<column name="CAP_DANH_MUC"></column>
-        </property>
-        
-        <bag name="dsDanhMucCon" lazy="false" cascade="all-delete-orphan" inverse="true">
-        	<key column="DANH_MUC_CHA"></key>
-        	<one-to-many class="model.pojo.DanhMuc"/>
-        </bag>
-        
-        <many-to-one name="danhMucCha" class="model.pojo.DanhMuc" column="DANH_MUC_CHA"></many-to-one>
-        
-        <set name="dsSanPham" cascade="all" table="san_pham" lazy="true" inverse="true">
-        	<key column="DANH_MUC"></key>
-        	<one-to-many class="model.pojo.SanPham"/>
-        </set>
-        
-        <set name="dsGianHang" table="gian_hang_danh_muc" cascade="all" lazy="true">
-        	<key column="MA_DANH_MUC"></key>
-        	<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
-        </set>
-    </class>
+	<class name="model.pojo.DanhMuc" table="danh_muc">
+		<id name="maDanhMuc" type="int">
+			<column name="MA_DANH_MUC" />
+			<generator class="assigned" />
+		</id>
+
+		<property name="tenDanhMuc" type="java.lang.String">
+			<column name="TEN_DANH_MUC" />
+		</property>
+
+		<property name="capDanhMuc" type="integer">
+			<column name="CAP_DANH_MUC"></column>
+		</property>
+
+		<bag name="dsDanhMucCon" lazy="false" cascade="all-delete-orphan"
+			inverse="true">
+			<key column="DANH_MUC_CHA"></key>
+			<one-to-many class="model.pojo.DanhMuc" />
+		</bag>
+
+		<many-to-one name="danhMucCha" class="model.pojo.DanhMuc"
+			column="DANH_MUC_CHA"></many-to-one>
+
+		<set name="dsSanPham" cascade="all" table="san_pham" lazy="true"
+			inverse="true">
+			<key column="DANH_MUC"></key>
+			<one-to-many class="model.pojo.SanPham" />
+		</set>
+
+		<set name="dsGianHang" table="gian_hang_danh_muc" cascade="all"
+			lazy="true">
+			<key column="MA_DANH_MUC"></key>
+			<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
+		</set>
+	</class>
 </hibernate-mapping>

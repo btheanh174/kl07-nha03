@@ -20,8 +20,6 @@ public class SanPham {
 		super();
 	}
 	
-	
-	
 	public SanPham(String tenSanPham, float gia, String nhaSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super();
@@ -32,8 +30,6 @@ public class SanPham {
 		this.danhMuc = danhMuc;
 		this.dsGianHang = dsGianHang;
 	}
-
-
 
 	public int getMaSanPham() {
 		return maSanPham;
@@ -84,7 +80,5 @@ public class SanPham {
 
 	public void setDsGianHang(Set<GianHang> dsGianHang) {
 		this.dsGianHang = dsGianHang;
-	}
-	
-	
+	}	
 }

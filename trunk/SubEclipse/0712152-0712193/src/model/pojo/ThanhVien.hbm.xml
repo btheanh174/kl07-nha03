@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="model.pojo.ThanhVien" table="thanh_vien">
         <id name="maTaiKhoan" type="int">
-            <column name="MA_TAI_KHOAN" />
+            <column name="MA_TAI_KHOAN"/>
             <generator class="foreign">
             	<param name="property">taiKhoan</param>
             </generator>
