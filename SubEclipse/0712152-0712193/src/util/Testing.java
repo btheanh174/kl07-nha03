@@ -18,6 +18,7 @@ import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
+import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
@@ -225,10 +226,17 @@ public class Testing {
 		SanPhamDAO spDao = new SanPhamDAO();
 		System.out.println(spDao.layDanhSach().size());
 		
-		System.out.println("Them Laptop:");
-		testSanPham();
-	}
+		System.out.println("Lay Danh sach san pham cua danh muc co  ma so = 9:");
+		DanhMuc danhMuc = new DanhMucDAO().lay(8);
+		List<SanPham> dsSanPham =  new SanPhamDAO().layDanhSach(danhMuc);
+		for(int i = 0; i < dsSanPham.size(); i++){
+			xuatSanPham(dsSanPham.get(i));
+		}
 	
+	}
+	private static void xuatSanPham(SanPham sp){
+		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
+	}
 	private static void testSanPham(){
 		DanhMuc danhMuc = new DanhMucDAO().lay(8);
 		// Laptop

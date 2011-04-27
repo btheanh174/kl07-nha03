@@ -2,6 +2,7 @@ package model.dao;
 
 import java.util.List;
 
+import model.pojo.DanhMuc;
 import model.pojo.SanPham;
 
 import org.hibernate.HibernateException;
@@ -19,17 +20,17 @@ public class SanPhamDAO extends AbstractDAO {
 		return (SanPham) super.find(SanPham.class, id);
 	}
 
-	public List layDanhSach() {
+	public List<SanPham> layDanhSach() {
 		return super.findAll(SanPham.class);
 	}
 
-	public List layDanhSach(int maDanhMuc) {
+	public List<SanPham> layDanhSach(DanhMuc danhMuc) {
 		List kq = null;
 		try {
 			tx = session.beginTransaction();
 			Query query = session
-					.createQuery("from SanPham where danhMuc =:id");
-			query.setParameter("id", maDanhMuc);
+					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
+			query.setParameter("dm", danhMuc);
 			kq = query.list();
 			tx.commit();
 			
