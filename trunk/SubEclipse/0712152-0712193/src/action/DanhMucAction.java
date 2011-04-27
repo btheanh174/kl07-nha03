@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import model.dao.DanhMucDAO;
+import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
+import model.pojo.GianHang;
+import model.pojo.HinhAnh;
 import model.pojo.SanPham;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,6 +21,8 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 	private DanhMuc danhMuc;
 	private List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
 	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
+	private List<SanPham> listSanPham = new ArrayList<SanPham>();
+	private int idCatalogue;
 	public String Chitiet(){
 		dsSanPham = danhMuc.getDsSanPham();
 		return SUCCESS;
@@ -34,6 +39,41 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 		return SUCCESS;
 	}
 	
+	public String getDanhSachSanPham()
+	{
+		//SanPhamDAO spDao = new SanPhamDAO();
+		//List<SanPham> temp = spDao.layDanhSach(idCatalogue);
+		List<HinhAnh> dsHinhAnh1 = new ArrayList<HinhAnh>();
+		List<HinhAnh> dsHinhAnh2 = new ArrayList<HinhAnh>();
+		List<HinhAnh> dsHinhAnh3 = new ArrayList<HinhAnh>();
+		List<HinhAnh> dsHinhAnh4 = new ArrayList<HinhAnh>();
+		dsHinhAnh1.add(new HinhAnh("Pic1","http://www.vitinhphongvu.com/multidata/sanpham/1105399981499vostro%2033002_150x100_small.jpg",null));
+		dsHinhAnh2.add(new HinhAnh("Pic2","http://www.vitinhphongvu.com/multidata/sanpham/390350241962315R_150x100_small.jpg",null));
+		dsHinhAnh3.add(new HinhAnh("Pic3","http://www.vitinhphongvu.com/multidata/sanpham/64958172986601458_150x100_small.jpg",null));
+		dsHinhAnh4.add(new HinhAnh("Pic4","http://www.vitinhphongvu.com/multidata/sanpham/869484894090514R.-1jpg_150x100_small.jpg",null));
+		
+		listSanPham.add(new SanPham("DELL Vostro V3300",15650000,"DELL",dsHinhAnh1,null,null));
+		listSanPham.add(new SanPham("DELL Inspiron 15R",14315000,"DELL",dsHinhAnh2,null,null));
+		listSanPham.add(new SanPham("DELL Studio 1458",17999000,"DELL",dsHinhAnh3,null,null));
+		listSanPham.add(new SanPham("DELL Inspiron N4010",13455000,"DELL",dsHinhAnh4,null,null));
+		listSanPham.add(new SanPham("DELL Vostro V3300",15650000,"DELL",dsHinhAnh1,null,null));
+		listSanPham.add(new SanPham("DELL Inspiron 15R",14315000,"DELL",dsHinhAnh2,null,null));
+		listSanPham.add(new SanPham("DELL Studio 1458",17999000,"DELL",dsHinhAnh3,null,null));
+		listSanPham.add(new SanPham("DELL Inspiron N4010",13455000,"DELL",dsHinhAnh4,null,null));
+		listSanPham.add(new SanPham("DELL Vostro V3300",15650000,"DELL",dsHinhAnh1,null,null));
+		
+		
+		return SUCCESS;
+	}
+	
+	public List<SanPham> getListSanPham() {
+		return listSanPham;
+	}
+
+	public void setListSanPham(List<SanPham> listSanPham) {
+		this.listSanPham = listSanPham;
+	}
+
 	public List<DanhMuc> getDsDanhMuc() {
 		return dsDanhMuc;
 	}
@@ -79,5 +119,13 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 		}else{
 			danhMuc = new DanhMuc();
 		}
+	}
+
+	public void setIdCatalogue(int idCatalogue) {
+		this.idCatalogue = idCatalogue;
+	}
+
+	public int getIdCatalogue() {
+		return idCatalogue;
 	}	
 }
