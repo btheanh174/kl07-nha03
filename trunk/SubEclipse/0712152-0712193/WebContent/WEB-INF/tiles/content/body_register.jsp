@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
+
 <div class="center_title_bar">Đăng ký thành viên, gian hàng</div>
 <div class="prod_box_big">
 <div class="top_prod_box_big"></div>
@@ -18,9 +20,9 @@
 			<s:textfield name="email" label="Email (*)"></s:textfield>
 			<s:textfield name="xacNhanEmail" label="Xác nhận email (*)"></s:textfield>
 			
-			<s:radio name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"></s:radio>
+			<sx:datetimepicker name="ngaySinh" label="Ngày sinh" displayFormat="dd/MM/yyyy"></sx:datetimepicker>
 			
-			<s:textfield name="ngaySinh" label="Ngày sinh"></s:textfield>
+			<s:radio name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"></s:radio>			
 			
 			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 			<s:select name="tinhThanhPho" list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho" listValue="tenTinhThanhPho" label="Tỉnh/Thành phố"></s:select>

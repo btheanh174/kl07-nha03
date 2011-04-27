@@ -2,7 +2,6 @@ package action.user;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +32,7 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 	private String diaChi;
 	private String gioiTinh;
 	private String dienThoai;
-	private String tinhThanhPho;
+	private int tinhThanhPho;
 	private ArrayList<TinhThanhPho> dsTinhThanhPho;
 	
 	Map session;
@@ -70,13 +69,14 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 		thanhVien.setDiaChi(getDiaChi());
 		thanhVien.setDienThoai(getDienThoai());
 		
+		TinhThanhPho ttp = new TinhThanhPhoDAO().lay(getTinhThanhPho());
+		thanhVien.setTinhThanhPho(ttp);
+		
 		
 		taiKhoan.setThanhVien(thanhVien);
 		thanhVien.setTaiKhoan(taiKhoan);
 		
 		tkDao.them(taiKhoan);
-		
-		session.put("tk", taiKhoan);
 		
 		return SUCCESS;
 	}
@@ -135,10 +135,12 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 	public void setDienThoai(String dienThoai) {
 		this.dienThoai = dienThoai;
 	}
-	public String getTinhThanhPho() {
+	
+	public int getTinhThanhPho() {
 		return tinhThanhPho;
 	}
-	public void setTinhThanhPho(String tinhThanhPho) {
+	
+	public void setTinhThanhPho(int tinhThanhPho) {
 		this.tinhThanhPho = tinhThanhPho;
 	}
 	public ArrayList<TinhThanhPho> getDsTinhThanhPho() {
