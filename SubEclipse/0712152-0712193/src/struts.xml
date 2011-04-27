@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-	<package name="default" extends="struts-default,tiles-default">
+	<package name="default" extends="struts-default,tiles-default,jcaptcha4struts2-default">
 		<interceptors>
 			<interceptor name="LastActionInterceptor" class="action.user.LastActionInterceptor"></interceptor>
 			<interceptor-stack name="MyLoginStack">
@@ -26,6 +26,7 @@
 		<!-- Dung cho register -->
 		<action name="User_register" class="action.user.RegisterAction"
 			method="register">
+			<interceptor-ref name="jcaptchaDefaultStack" /> <!-- Tich hop jcaptcha4pluginstruts2 -->
 			<result name="success" type="redirect">show_index.action</result>
 			<result name="input" type="redirect">show_user_register.action</result>
 			<result name="error" type="tiles">Contact.tiles</result>
