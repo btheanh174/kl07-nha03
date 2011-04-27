@@ -22,7 +22,7 @@ public class DanhMucDAO extends AbstractDAO {
 		List kq = null;
 		try{
 			tx = session.beginTransaction();
-			Query query = session.createQuery("from DanhMuc where danhMucCha =:dm")
+			Query query = session.createQuery("from DanhMuc as dm where dm.danhMucCha =:dm")
 			.setParameter("dm", danhMucCha);
 			kq = query.list();
 			tx.commit();
