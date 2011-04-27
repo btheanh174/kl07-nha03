@@ -67,8 +67,9 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 		ThanhVien thanhVien = new ThanhVien();
 		thanhVien.setHoTen(getHoTen());
 		thanhVien.setEmail(getEmail());
-		thanhVien.setDiaChi("TN");
-		thanhVien.setDienThoai("1674560436");
+		thanhVien.setDiaChi(getDiaChi());
+		thanhVien.setDienThoai(getDienThoai());
+		
 		
 		taiKhoan.setThanhVien(thanhVien);
 		thanhVien.setTaiKhoan(taiKhoan);

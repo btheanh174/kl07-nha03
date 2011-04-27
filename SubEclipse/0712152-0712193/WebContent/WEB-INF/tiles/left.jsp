@@ -10,7 +10,6 @@
 
 <ul class="left_menu" id="nav">
 	<s:bean name="model.bean.DanhMucBean" var="danhMucBean"></s:bean>
-	<s:property value="#danhMucBean.dsDanhMuc.size"/>
 	<s:iterator id="root" value="#danhMucBean.dsDanhMuc" status="danhMucStatus">
 			 <s:include value="/WEB-INF/tiles/node.jsp" />
 	</s:iterator>
