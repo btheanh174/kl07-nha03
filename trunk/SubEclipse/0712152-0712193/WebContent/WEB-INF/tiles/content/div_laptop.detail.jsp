@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="center_prod_box_big">
 
 	<div class="product_img_big">
@@ -25,7 +28,7 @@
 			Pretul include <span class="blue">TVA</span><br />
 		</div>
 		<div class="prod_price_big">
-			<span class="reduce">350$</span> <span class="price">270$</span>
+			<span class="price"> <s:property value="gia"/> </span>
 		</div>
 
 		<a href="#" class="addtocart">Thêm vào giỏ hàng</a> <a href="#"

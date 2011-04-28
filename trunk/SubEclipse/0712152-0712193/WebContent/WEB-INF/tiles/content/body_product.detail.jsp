@@ -1,17 +1,22 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 
 	<div class="center_title_bar"> <s:property value="tenSanPham"/> </div>
    
    	<div class="prod_box_big">
        	<div class="top_prod_box_big"></div>
        	<s:if test="sanPham instanceof Laptop">
-       	Laptop
+       	<s:include value="/WEB-INF/tiles/content/div_dienthoai.detail.jsp"></s:include>
        	</s:if>
        	<s:else>
-       	Dien thoai
+       	<s:include value="/WEB-INF/tiles/content/div_dienthoai.detail.jsp">
+       	</s:include>
        	</s:else>
+       	
+       	
         <div class="bottom_prod_box_big"></div>                                
     </div>
        
