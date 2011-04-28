@@ -12,9 +12,15 @@ public class DanhMucBean {
 	private static List<DanhMuc> dsDanhMuc;
 	private Set<SanPham> dsSanPham; // danh sach san pham cua danh muc
 	private int maDanhMuc;
+	private List<DanhMuc> dsDanhMucShow;
 	DanhMucDAO dmDao = new DanhMucDAO();
 
 	public List<DanhMuc> getDsDanhMuc() {
+		khoiTaodsDanhMuc();
+		return dsDanhMuc;
+	}
+	
+	public void khoiTaodsDanhMuc(){
 		if (dsDanhMuc == null) {
 			List<DanhMuc> temp = dmDao.layDanhSach();
 			dsDanhMuc = new ArrayList<DanhMuc>();
@@ -26,9 +32,6 @@ public class DanhMucBean {
 				}
 			}
 		}
-		
-		
-		return dsDanhMuc;
 	}
 	
 
@@ -47,5 +50,46 @@ public class DanhMucBean {
 
 	public void setMaDanhMuc(int maDanhMuc) {
 		this.maDanhMuc = maDanhMuc;
+	}
+
+
+	public void setDsDanhMucShow(List<DanhMuc> dsDanhMucShow) {
+		this.dsDanhMucShow = dsDanhMucShow;
+	}
+
+
+	public List<DanhMuc> getDsDanhMucShow() {
+		khoiTaodsDanhMuc();
+		String name;
+		String level = "|";
+		dsDanhMucShow = new ArrayList<DanhMuc>();
+		for(int i = 0; i < dsDanhMuc.size(); i++)
+		{
+			
+			name = level + "- - -" + dsDanhMuc.get(i).getTenDanhMuc();
+			dsDanhMucShow.add(new DanhMuc(name,dsDanhMuc.get(i).getCapDanhMuc(),
+					dsDanhMuc.get(i).getDanhMucCha(),null,null,null));
+			if (dsDanhMuc.get(i).getDsDanhMucCon().size() > 0)
+			{
+				themDanhMucShow(dsDanhMuc.get(i).getDsDanhMucCon(),level + "- - -|");
+			}
+		}
+		return dsDanhMucShow;
+	}
+	
+	public void themDanhMucShow(List<DanhMuc> dsdm, String level)
+	{
+		String name;
+		for(int i = 0; i < dsdm.size(); i++)
+		{
+			
+			name = level + "- - -" + dsdm.get(i).getTenDanhMuc();
+			dsDanhMucShow.add(new DanhMuc(name,dsdm.get(i).getCapDanhMuc(),
+					dsdm.get(i).getDanhMucCha(),null,null,null));
+			if (dsdm.get(i).getDsDanhMucCon().size() > 0)
+			{
+				themDanhMucShow(dsdm.get(i).getDsDanhMucCon(),level + "- - -|");
+			}
+		}
 	}
 }
