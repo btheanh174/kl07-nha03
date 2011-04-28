@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<div class="center_title_bar">Motorola 156 MX-VL</div>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
+	<div class="center_title_bar"> <s:property value="tenSanPham"/> </div>
    
    	<div class="prod_box_big">
        	<div class="top_prod_box_big"></div>
