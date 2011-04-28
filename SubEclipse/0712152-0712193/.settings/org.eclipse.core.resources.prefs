@@ -1,7 +1,9 @@
-#Thu Apr 28 00:37:48 ICT 2011
+#Fri Apr 29 00:33:12 ICT 2011
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/admin/body_addcategory.jsp=UTF-8
-encoding//WebContent/WEB-INF/tiles/content/body_detail.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/content/body_product.detail.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/content/div_dienthoai.detail.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/content/div_laptop.detail.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/node.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/profile/body_information.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/profile/body_newmessage.jsp=UTF-8

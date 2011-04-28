@@ -232,6 +232,19 @@ public class Testing {
 		for(int i = 0; i < dsSanPham.size(); i++){
 			xuatSanPham(dsSanPham.get(i));
 		}
+		
+		//
+		System.out.println("Lay san pham: ");
+		SanPham sp = spDao.lay(3);
+		System.out.println(sp.getClass().getName());
+		if(sp instanceof DienThoai){
+			System.out.println("DienThoai");
+		}else{
+			System.out.println("Laptop");
+		}
+		
+		
+		
 	
 	}
 	private static void xuatSanPham(SanPham sp){

@@ -26,6 +26,7 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
 	private List<SanPham> listSanPham = new ArrayList<SanPham>();
 	private int idCatalogue;
+	
 	public String Chitiet(){
 		dsSanPham = danhMuc.getDsSanPham();
 		return SUCCESS;
