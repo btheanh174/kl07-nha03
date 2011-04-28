@@ -23,6 +23,10 @@
 			<result name="success">/{1}/{2}.jsp</result>
 		</action>
 
+		<action name="show3_*_*_*">
+			<result name="success">/{1}/{2}/{3}.jsp</result>
+		</action>
+
 		<!-- Dung cho register -->
 		<action name="User_register" class="action.user.RegisterAction"
 			method="register">
@@ -65,7 +69,8 @@
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
 		
-		
+
+
 
 	</package>
 </struts>

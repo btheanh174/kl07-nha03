@@ -14,7 +14,12 @@
           <li><a href="<s:url action=""/>" class="nav3">Cửa hàng</a></li>
           <li class="divider"></li>
           <li><a href="<s:url action="show_contact_contact"/>" class="nav6">Liên hệ</a></li> 
-		
+			
+			
+		<li class="divider"></li>
+		<li><a href="<s:url action="show3_admin_category_index"/>" class="nav6">Quản lý category admin</a></li>
+			
+			
 		<s:if test="#session['tk'] == null">
 			<li><a href="<s:url action="show_user_login"/>" class="nav4">Đăng nhập</a></li>
 		    <li class="right_divider"></li>

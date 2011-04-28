@@ -13,70 +13,91 @@
 		<put-attribute name="center" value="/WEB-INF/tiles/center.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
-	
+
 	<definition name="Index.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Trang chủ" />
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_index.jsp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_index.jsp" />
 	</definition>
-	
+
 	<definition name="Contact.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Liên hệ" />
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_contact.jsp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_contact.jsp" />
 	</definition>
-	
+
 	<definition name="Register.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Đăng ký" />
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_register.jsp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_register.jsp" />
 	</definition>
-	
+
 	<definition name="Login.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Đăng nhập" />
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_login.jsp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_login.jsp" />
 	</definition>
-	
+
 	<definition name="Products.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Danh sách sản phẩm"/>
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_products.jsp"/>
+		<put-attribute name="pageTitle" value="Danh sách sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_products.jsp" />
 	</definition>
-	
+
 	<definition name="Product.Detail.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Chi tiết sản phẩm"/>
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_detail.jsp"/>
+		<put-attribute name="pageTitle" value="Chi tiết sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_detail.jsp" />
 	</definition>
-	
+
+	<!-- Admin layout -->
+
 	<definition name="Categories.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Danh mục sản phẩm"/>
-		<put-attribute name="center" value="/WEB-INF/tiles/content/body_categories.jsp"/>
+		<put-attribute name="pageTitle" value="Danh mục sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_categories.jsp" />
 	</definition>
-	
+
+	<definition name="AddCategory.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Thêm danh mục sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/body_addcategory.jsp" />
+	</definition>
+
 	<!-- Profile layout -->
 	<definition name="profileLayout" template="/WEB-INF/tiles/profile/profileLayout.jsp">
 		<put-attribute name="pageTitle" value="Template" />
-		<put-attribute name="header" value="/WEB-INF/tiles/profile/profileHeader.jsp" />
-		<put-attribute name="left" value="/WEB-INF/tiles/profile/profileLeft.jsp" />
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/profile/profileHeader.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/profile/profileLeft.jsp" />
 		<put-attribute name="center" value="/WEB-INF/tiles/center.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
-	
+
 	<definition name="Profile.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Thông tin người dùng"></put-attribute>
-		<put-attribute name="center" value="/WEB-INF/tiles/profile/body_profile.jsp"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="Profile.password.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Thay đổi mật khẩu"></put-attribute>
-		<put-attribute name="center" value="/WEB-INF/tiles/profile/body_password.jsp"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_password.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="Profile.information.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
-		<put-attribute name="center" value="/WEB-INF/tiles/profile/body_information.jsp"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_information.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="Profile.newmessage.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Gửi tin nhắn"></put-attribute>
-		<put-attribute name="center" value="/WEB-INF/tiles/profile/body_newmessage.jsp"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_newmessage.jsp"></put-attribute>
 	</definition>
 	<!-- End Profile layout -->
-	
+
 </tiles-definitions>
