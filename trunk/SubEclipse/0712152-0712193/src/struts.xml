@@ -12,6 +12,8 @@
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
+		
+		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
 
 		<action name="show_index">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
@@ -77,7 +79,7 @@
 		<!-- San pham -->
 		
 		<action name="SanPham_chiTiet" class="action.SanPhamAction" method="chiTiet">
-			<result name="success" type="tiles">Product.Detail.tiles</result>
+			<result name="success">/admin/product/detail.jsp</result>
 		</action>
 		
 	</package>

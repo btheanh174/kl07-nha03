@@ -47,7 +47,7 @@
 	<definition name="Product.Detail.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Chi tiết sản phẩm" />
 		<put-attribute name="center"
-			value="/WEB-INF/tiles/content/body_detail.jsp" />
+			value="/WEB-INF/tiles/content/body_product.detail.jsp" />
 	</definition>
 
 	<!-- Admin layout -->
