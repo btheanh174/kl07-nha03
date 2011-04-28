@@ -11,38 +11,15 @@
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
 		<s:bean name="model.bean.DanhMucBean" var="danhMucBean"></s:bean>
-		<s:form action="customer.action" method="post">
-			<s:textfield name="tenDanhMuc" maxlength="20" label="Tên danh mục "
+		<s:form action="DanhMuc_themDanhMuc.action" method="post" validate="true">
+			<s:textfield name="danhMuc.tenDanhMuc" maxlength="20" label="Tên danh mục "
 				size="20" />
-
-			<s:select name="danhMucChas" label="Chọn tên danh mục cha "
+			<s:select  name="idCatalogue"  value="" label="Chọn tên danh mục cha "
 				list="#danhMucBean.dsDanhMucShow" listKey="maDanhMuc"
 				listValue="tenDanhMuc" />
-			<s:submit method="addCustomer" key="Thêm"
+			<s:submit method="themDanhMuc" key="Thêm"
 				align="center" />
 		</s:form>
 	</div>
 	<div class="bottom_prod_box_big"></div>
 </div>
-
-
-
-
-
-
-<!-- <table>
-		<tr>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr>
-			<td>Tên danh mục</td>
-			<td>
-				
-			</td>
-		</tr>
-		<tr>
-			<td>Danh mục cha</td>
-			<td></td>
-		</tr>
-</table> -->

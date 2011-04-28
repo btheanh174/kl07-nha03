@@ -30,6 +30,14 @@ public class DanhMuc {
 		this.dsSanPham = dsSanPham;
 		this.dsGianHang = dsGianHang;
 	}
+	
+	public DanhMuc(int maDanhMuc, String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha) {
+		super();
+		this.maDanhMuc = maDanhMuc;
+		this.tenDanhMuc = tenDanhMuc;
+		this.capDanhMuc = capDanhMuc;
+		this.danhMucCha = danhMucCha;
+	}
 
 
 

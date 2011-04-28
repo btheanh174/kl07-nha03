@@ -67,8 +67,8 @@ public class DanhMucBean {
 		{
 			
 			name = level + "- - -" + dsDanhMuc.get(i).getTenDanhMuc();
-			dsDanhMucShow.add(new DanhMuc(name,dsDanhMuc.get(i).getCapDanhMuc(),
-					dsDanhMuc.get(i).getDanhMucCha(),null,null,null));
+			dsDanhMucShow.add(new DanhMuc(dsDanhMuc.get(i).getMaDanhMuc(), 
+					name,dsDanhMuc.get(i).getCapDanhMuc(),dsDanhMuc.get(i).getDanhMucCha()));
 			if (dsDanhMuc.get(i).getDsDanhMucCon().size() > 0)
 			{
 				themDanhMucShow(dsDanhMuc.get(i).getDsDanhMucCon(),level + "- - -|");
@@ -84,8 +84,8 @@ public class DanhMucBean {
 		{
 			
 			name = level + "- - -" + dsdm.get(i).getTenDanhMuc();
-			dsDanhMucShow.add(new DanhMuc(name,dsdm.get(i).getCapDanhMuc(),
-					dsdm.get(i).getDanhMucCha(),null,null,null));
+			dsDanhMucShow.add(new DanhMuc(dsdm.get(i).getMaDanhMuc(), 
+					name,dsdm.get(i).getCapDanhMuc(),dsdm.get(i).getDanhMucCha()));
 			if (dsdm.get(i).getDsDanhMucCon().size() > 0)
 			{
 				themDanhMucShow(dsdm.get(i).getDsDanhMucCon(),level + "- - -|");

@@ -69,6 +69,9 @@
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
 		
+		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction" method="themDanhMuc">
+			<result name="success" type="tiles">Categories.tiles</result>
+		</action>
 
 
 
