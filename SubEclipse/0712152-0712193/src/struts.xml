@@ -22,7 +22,7 @@
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success">/{1}/{2}.jsp</result>
 		</action>
-
+		
 		<action name="show3_*_*_*">
 			<result name="success">/{1}/{2}/{3}.jsp</result>
 		</action>
@@ -69,11 +69,16 @@
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
 		
+		
 		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction" method="themDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
 		</action>
-
-
-
+		
+		<!-- San pham -->
+		
+		<action name="SanPham_chiTiet" class="action.SanPhamAction" method="chiTiet">
+			<result name="success" type="tiles">Product.Detail.tiles</result>
+		</action>
+		
 	</package>
 </struts>

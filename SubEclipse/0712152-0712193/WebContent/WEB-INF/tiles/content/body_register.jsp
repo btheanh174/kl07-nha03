@@ -21,8 +21,8 @@
 			<s:textfield name="email" label="Email (*)"></s:textfield>
 			<s:textfield name="xacNhanEmail" label="Xác nhận email (*)"></s:textfield>
 			
-			<sx:datetimepicker name="ngaySinh" label="Ngày sinh" displayFormat="dd/MM/yyyy"></sx:datetimepicker>
 			
+			<sx:datetimepicker name="ngaySinh" label="Ngày sinh" displayFormat="dd/MM/yyyy" formatLength="full"></sx:datetimepicker>
 			<s:radio name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"></s:radio>			
 			
 			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
@@ -31,7 +31,7 @@
 			<s:textfield name="diaChi" label="Địa chỉ"></s:textfield>
 			<s:textfield name="dienThoai" label="Điện thoại"></s:textfield>
 			
-			<jcaptcha:image label="Mã an toàn"/>
+			<jcaptcha:image height="50" width="300" label="Mã an toàn"/>
 			
 	        <s:submit value="Đăng ký"/>
 	        
