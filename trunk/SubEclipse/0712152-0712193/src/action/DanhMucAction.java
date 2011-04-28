@@ -16,13 +16,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>, Preparable{
-	private int maDanhMuc;
+public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>{
 	private DanhMuc danhMuc;
-	private List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
+	private static List<DanhMuc> dsDanhMuc;
 	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
 	private List<SanPham> listSanPham = new ArrayList<SanPham>();
 	private int idCatalogue;
+	DanhMucDAO dmDao = new DanhMucDAO();
 	public String Chitiet(){
 		dsSanPham = danhMuc.getDsSanPham();
 		return SUCCESS;
@@ -34,8 +34,31 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 	}
 	
 	public String execute(){
-		DanhMucDAO dmDao = new DanhMucDAO();
-		dsDanhMuc = dmDao.layDanhSach();
+		
+		
+		khoiTaoDanhSachDanhMuc();
+		return SUCCESS;
+	}
+	
+	public void khoiTaoDanhSachDanhMuc()
+	{
+		if (dsDanhMuc == null)
+		{
+			 dsDanhMuc = new ArrayList<DanhMuc>();
+			 dsDanhMuc = dmDao.layDanhSach();
+		}
+	}
+	
+	public String themDanhMuc()
+	{
+		System.out.println("Tên danh muc moi: " + danhMuc.getTenDanhMuc());
+		System.out.println("Ma danh muc cha: " + idCatalogue);
+		idCatalogue--;
+		khoiTaoDanhSachDanhMuc();
+		danhMuc.setDanhMucCha(dsDanhMuc.get(idCatalogue));
+		danhMuc.setCapDanhMuc(dsDanhMuc.get(idCatalogue).getCapDanhMuc()+1);
+		dmDao.them(danhMuc);
+		danhMuc = null;
 		return SUCCESS;
 	}
 	
@@ -82,14 +105,6 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 		this.dsDanhMuc = dsDanhMuc;
 	}
 	
-	public int getMaDanhMuc() {
-		return maDanhMuc;
-	}
-
-	public void setMaDanhMuc(int maDanhMuc) {
-		this.maDanhMuc = maDanhMuc;
-	}
-
 	public DanhMuc getDanhMuc() {
 		return danhMuc;
 	}
@@ -111,15 +126,6 @@ public class DanhMucAction extends ActionSupport implements ModelDriven<DanhMuc>
 		return danhMuc;
 	}
 
-	@Override
-	public void prepare() throws Exception {
-		if(maDanhMuc != 0){
-			danhMuc = new DanhMucDAO().lay(maDanhMuc);
-			dsSanPham = danhMuc.getDsSanPham();
-		}else{
-			danhMuc = new DanhMuc();
-		}
-	}
 
 	public void setIdCatalogue(int idCatalogue) {
 		this.idCatalogue = idCatalogue;
