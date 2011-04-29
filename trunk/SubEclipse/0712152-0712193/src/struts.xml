@@ -4,7 +4,8 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-	<package name="default" extends="struts-default,tiles-default,jcaptcha4struts2-default">
+	<package name="default"
+		extends="struts-default,tiles-default,jcaptcha4struts2-default">
 		<interceptors>
 			<interceptor name="LastActionInterceptor" class="action.user.LastActionInterceptor"></interceptor>
 			<interceptor-stack name="MyLoginStack">
@@ -12,7 +13,7 @@
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-		
+
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
 
 		<action name="show_index">
@@ -24,7 +25,7 @@
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success">/{1}/{2}.jsp</result>
 		</action>
-		
+
 		<action name="show3_*_*_*">
 			<result name="success">/{1}/{2}/{3}.jsp</result>
 		</action>
@@ -67,20 +68,23 @@
 		</action>
 
 		<!-- Danh muc -->
-		<action name="DanhMuc_*" class="action.DanhMucAction" method="{1}">
+
+		<action name="DanhMuc_layDanhSachSanPham" class="action.DanhMucAction"
+			method="layDanhSachSanPham">
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
-		
-		
-		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction" method="themDanhMuc">
+
+		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction"
+			method="themDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
 		</action>
-		
+
 		<!-- San pham -->
-		
-		<action name="SanPham_chiTiet" class="action.SanPhamAction" method="chiTiet">
+
+		<action name="SanPham_chiTiet" class="action.SanPhamAction"
+			method="chiTiet">
 			<result name="success">/admin/product/detail.jsp</result>
 		</action>
-		
+
 	</package>
 </struts>

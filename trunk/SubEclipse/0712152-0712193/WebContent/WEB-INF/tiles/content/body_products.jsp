@@ -3,27 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
    	<div class="center_title_bar">Danh Muc Sản Phẩm</div>
-    
-            
-			
-			
-			<%-- <table>
-				<tr>
-					<th>Tên sản phẩm</th>
-					<th>Giá</th>
-					<th>Nhà sản xuất</th>
-				</tr>
-				<s:iterator value="listSanPham">
-					<tr>
-						<td> <s:property value="tenSanPham"/> </td>
-						<td> <s:property value="gia"/> </td>
-						<td> <s:property value="nhaSanXuat"/> </td>
-					</tr>
-				</s:iterator>
-			</table>        --%>   
-			
-			
-			
 		 <s:iterator value="listSanPham" status="statusSanPham">
 		 
 		 	<s:url action="SanPham_chiTiet" var="productDetail">

@@ -10,12 +10,12 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:bean name="model.bean.DanhMucBean" var="danhMucBean"></s:bean>
+			<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>
 		<s:form action="DanhMuc_themDanhMuc.action" method="post" validate="true">
 			<s:textfield name="danhMuc.tenDanhMuc" maxlength="20" label="Tên danh mục "
 				size="20" />
 			<s:select  name="idCatalogue"  value="" label="Chọn tên danh mục cha "
-				list="#danhMucBean.dsDanhMucShow" listKey="maDanhMuc"
+				list="#danhMucAction.dsDanhMucShow" listKey="maDanhMuc"
 				listValue="tenDanhMuc" />
 			<s:submit method="themDanhMuc" key="Thêm"
 				align="center" />
