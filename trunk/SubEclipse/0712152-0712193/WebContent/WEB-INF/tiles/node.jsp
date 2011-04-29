@@ -5,7 +5,6 @@
 <li	class="<s:if test="#danhMucStatus.odd == true ">odd</s:if>
  		  	<s:else>even</s:else>">
  		  	
- 		  	
  		  	<s:url action="DanhMuc_layDanhSachSanPham" var="urlTag" >
 		    	<s:param name="maDanhMuc"><s:property value="#root.maDanhMuc"/></s:param>
 			</s:url>
