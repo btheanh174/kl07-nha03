@@ -243,8 +243,9 @@ public class Testing {
 			System.out.println("Laptop");
 		}
 		
-		
-		
+		DanhMuc dm = new DanhMucDAO().lay(8);
+		List<SanPham> list = spDao.layDanhSach(dm);
+		System.out.println(list.size());
 	
 	}
 	private static void xuatSanPham(SanPham sp){

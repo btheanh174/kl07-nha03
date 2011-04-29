@@ -71,7 +71,8 @@
 
 		<action name="DanhMuc_layDanhSachSanPham" class="action.DanhMucAction"
 			method="layDanhSachSanPham">
-			<result name="success" type="tiles">Products.tiles</result>
+			<result type="tiles">Products.tiles</result>
+			<result name="input" type="tiles">Products.tiles</result>
 		</action>
 
 		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction"
