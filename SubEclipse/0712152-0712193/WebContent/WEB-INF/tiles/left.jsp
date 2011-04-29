@@ -9,9 +9,12 @@
 <div class="title_box">Danh mục sản phẩm</div>
 
 <ul class="left_menu" id="nav">
-	<s:bean name="model.bean.DanhMucBean" var="danhMucBean"></s:bean>
-	<s:iterator id="root" value="#danhMucBean.dsDanhMuc" status="danhMucStatus">
-			 <s:include value="/WEB-INF/tiles/node.jsp" />
+	<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>
+	<s:iterator id="root" value="#danhMucAction.dsDanhMuc"
+		status="danhMucStatus">
+		<s:if test="#root.capDanhMuc == 1">
+			<s:include value="/WEB-INF/tiles/node.jsp" />
+		</s:if>
 	</s:iterator>
 </ul>
 
