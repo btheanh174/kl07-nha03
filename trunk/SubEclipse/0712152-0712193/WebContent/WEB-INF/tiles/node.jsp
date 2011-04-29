@@ -7,12 +7,9 @@
  		  	
  		  	
  		  	<s:url action="DanhMuc_layDanhSachSanPham" var="urlTag" >
-		    	<s:param name="idCatalogue"><s:property value="#root.maDanhMuc"/></s:param>
+		    	<s:param name="maDanhMuc"><s:property value="#root.maDanhMuc"/></s:param>
 			</s:url>
 			<a href="<s:property value="#urlTag" />" ><s:property value="#root.tenDanhMuc" /></a>
- 		  	
-			<%-- <a href="XuLyDanhMuc?maDanhMuc=<s:property value="#root.maDanhMuc"/> "><s:property
-					value="#root.tenDanhMuc" /> </a> --%>
 
 	<s:if test="#root.dsDanhMucCon.size() != 0 && #root.dsDanhMucCon != null"> 
 		<ul>

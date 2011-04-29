@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import model.dao.DanhMucDAO;
+import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
-import model.pojo.HinhAnh;
 import model.pojo.SanPham;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -80,9 +80,10 @@ public class DanhMucAction extends ActionSupport implements
 
 
 	public String layDanhSachSanPham() {
-		// SanPhamDAO spDao = new SanPhamDAO();
-		// List<SanPham> temp = spDao.layDanhSach(idCatalogue);
-		List<HinhAnh> dsHinhAnh1 = new ArrayList<HinhAnh>();
+		SanPhamDAO spDao = new SanPhamDAO();
+		DanhMuc danhMuc = dmDao.lay(maDanhMuc);
+		listSanPham = spDao.layDanhSach(danhMuc);
+		/*List<HinhAnh> dsHinhAnh1 = new ArrayList<HinhAnh>();
 		List<HinhAnh> dsHinhAnh2 = new ArrayList<HinhAnh>();
 		List<HinhAnh> dsHinhAnh3 = new ArrayList<HinhAnh>();
 		List<HinhAnh> dsHinhAnh4 = new ArrayList<HinhAnh>();
@@ -125,7 +126,7 @@ public class DanhMucAction extends ActionSupport implements
 				dsHinhAnh4, null, null));
 		listSanPham.add(new SanPham("DELL Vostro V3300", 15650000, "DELL",
 				dsHinhAnh1, null, null));
-
+*/
 		return SUCCESS;
 	}
 

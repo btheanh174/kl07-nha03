@@ -27,6 +27,7 @@ public class SanPhamDAO extends AbstractDAO {
 	public List<SanPham> layDanhSach(DanhMuc danhMuc) {
 		List kq = null;
 		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			Query query = session
 					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
