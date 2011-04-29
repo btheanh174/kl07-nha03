@@ -62,6 +62,12 @@
 		<put-attribute name="pageTitle" value="Thêm danh mục sản phẩm" />
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/admin/body_addcategory.jsp" />
+	</definition> 
+	
+		<definition name="DeleteCategory.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Xóa danh mục sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/body_deletecategory.jsp" />
 	</definition>
 
 	<!-- Profile layout -->

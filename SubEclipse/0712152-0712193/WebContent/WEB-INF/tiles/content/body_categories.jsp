@@ -3,19 +3,18 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <div class="center_title_bar">
+	<a href="<s:url action="show3_admin_category_add"/>">Thêm danh mục</a>
 
+	<a href="<s:url action="show3_admin_category_delete"/>">Xóa danh
+		mục</a>
 
-	<li><a href="<s:url action="show3_admin_category_add"/>">Thêm
-			danh mục</a>
-	</li>
 
 
 </div>
 
 <div class="prod_box_big">
 	<div class="top_prod_box_big">Danh sách danh mục sản phẩm</div>
-	</br>
-	</br>
+	</br> </br>
 
 	<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>
 	<sx:tree id="books" label="Danh sách danh mục" title="test">

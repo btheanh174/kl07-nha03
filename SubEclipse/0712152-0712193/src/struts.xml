@@ -78,6 +78,11 @@
 			method="themDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
 		</action>
+		
+		<action name="DanhMuc_xoaDanhMuc" class="action.DanhMucAction"
+			method="xoaDanhMuc">
+			<result name="success" type="tiles">Categories.tiles</result>
+		</action>
 
 		<!-- San pham -->
 
