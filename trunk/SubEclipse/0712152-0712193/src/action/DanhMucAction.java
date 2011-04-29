@@ -50,14 +50,34 @@ public class DanhMucAction extends ActionSupport implements
 	}
 
 	public String themDanhMuc() {
-		idCatalogue--;
 		khoiTaodsDanhMuc();
-		danhMuc.setDanhMucCha(dsDanhMuc.get(idCatalogue));
-		danhMuc.setCapDanhMuc(dsDanhMuc.get(idCatalogue).getCapDanhMuc() + 1);
+		int index = timViTriDanhMuc(idCatalogue);
+		danhMuc.setDanhMucCha(dsDanhMuc.get(index));
+		danhMuc.setCapDanhMuc(dsDanhMuc.get(index).getCapDanhMuc() + 1);
 		dmDao.them(danhMuc);
 		danhMuc = null;
 		return SUCCESS;
 	}
+	
+	public int timViTriDanhMuc(int idCatalogue)
+	{
+		for (int i = 0; i < dsDanhMuc.size(); i++)
+		{
+			if (dsDanhMuc.get(i).getMaDanhMuc() == idCatalogue)
+				return i;
+		}
+		return -1;	
+	}
+	
+	public String xoaDanhMuc() {
+		idCatalogue--;
+		khoiTaodsDanhMuc();
+		danhMuc = dsDanhMuc.get(idCatalogue);
+		dmDao.xoa(danhMuc);
+		danhMuc = null;
+		return SUCCESS;
+	}
+
 
 	public String layDanhSachSanPham() {
 		// SanPhamDAO spDao = new SanPhamDAO();
@@ -214,4 +234,6 @@ public class DanhMucAction extends ActionSupport implements
 			}
 		}
 	}
+	
+	
 }
