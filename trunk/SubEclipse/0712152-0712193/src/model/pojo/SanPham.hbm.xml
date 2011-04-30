@@ -4,10 +4,13 @@
 <!-- Generated Apr 15, 2011 1:52:06 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="model.pojo.SanPham" table="san_pham">
+    
         <id name="maSanPham" type="int">
             <column name="MA_SAN_PHAM" />
             <generator class="native" />
         </id>
+        
+        <discriminator column="LOAI_SAN_PHAM"></discriminator>
         
         <property name="tenSanPham" type="java.lang.String">
             <column name="TEN_SAN_PHAM" />

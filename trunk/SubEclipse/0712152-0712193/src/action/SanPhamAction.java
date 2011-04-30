@@ -22,12 +22,11 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private SanPham sanPham;
 	private List<SanPham> dsSanPham;
 	public String execute(){
-		
+		dsSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
 	
 	public String chiTiet(){
-		
 		sanPham = spDao.lay(maSanPham);
 		return SUCCESS;
 	}

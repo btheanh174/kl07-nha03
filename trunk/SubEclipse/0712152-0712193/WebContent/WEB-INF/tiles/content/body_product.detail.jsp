@@ -8,15 +8,13 @@
    
    	<div class="prod_box_big">
        	<div class="top_prod_box_big"></div>
-       	<s:if test="sanPham instanceof Laptop">
-       	<s:include value="/WEB-INF/tiles/content/div_dienthoai.detail.jsp"></s:include>
+       	<s:if test="">
+       	<s:include value="/WEB-INF/tiles/content/div_laptop.detail.jsp"></s:include>
        	</s:if>
        	<s:else>
        	<s:include value="/WEB-INF/tiles/content/div_dienthoai.detail.jsp">
        	</s:include>
        	</s:else>
-       	
-       	
         <div class="bottom_prod_box_big"></div>                                
     </div>
        
