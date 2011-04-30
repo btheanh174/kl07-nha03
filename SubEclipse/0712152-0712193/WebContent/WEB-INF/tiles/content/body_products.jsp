@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-   	<div class="center_title_bar">Danh Muc Sản Phẩm</div>
+   	<div class="center_title_bar"><s:property value="tenDanhMuc"/></div>
 		 <s:iterator value="listSanPham" status="statusSanPham">
 		 
 		 	<s:url action="SanPham_chiTiet" var="productDetail">

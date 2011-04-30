@@ -213,40 +213,10 @@ public class Testing {
 		
 		//themTaiKhoan();
 		
-		TaiKhoanDAO tkDao = new TaiKhoanDAO();
-		List<TaiKhoan> dstk = tkDao.layDanhSach();
-		for(int i = 0; i < dstk.size(); i++){
-			System.out.println(dstk.get(i).getTenTruyCap());
-			
-		}
+		//testSanPham();
 		
-		TaiKhoan tk = tkDao.lay(13);
-		System.out.println(tk.getTenTruyCap());
-		
-		SanPhamDAO spDao = new SanPhamDAO();
-		System.out.println(spDao.layDanhSach().size());
-		
-		System.out.println("Lay Danh sach san pham cua danh muc co  ma so = 9:");
-		DanhMuc danhMuc = new DanhMucDAO().lay(8);
-		List<SanPham> dsSanPham =  new SanPhamDAO().layDanhSach(danhMuc);
-		for(int i = 0; i < dsSanPham.size(); i++){
-			xuatSanPham(dsSanPham.get(i));
-		}
-		
-		//
-		System.out.println("Lay san pham: ");
-		SanPham sp = spDao.lay(3);
-		System.out.println(sp.getClass().getName());
-		if(sp instanceof DienThoai){
-			System.out.println("DienThoai");
-		}else{
-			System.out.println("Laptop");
-		}
-		
-		DanhMuc dm = new DanhMucDAO().lay(8);
-		List<SanPham> list = spDao.layDanhSach(dm);
-		System.out.println(list.size());
-	
+		SanPham sanPham = new SanPhamDAO().lay(6);
+		System.out.println(sanPham.getClass());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
@@ -267,7 +237,7 @@ public class Testing {
 		laptop.setPin("6 cells");
 		
 		LaptopDAO laptopDao = new LaptopDAO();
-		/*laptopDao.them(laptop);*/
+		laptopDao.them(laptop);
 		
 		DienThoai dienThoai = new DienThoai();
 		dienThoai.setTenSanPham("Nokia c3 wifi");
@@ -279,6 +249,7 @@ public class Testing {
 		DienThoaiDAO dtDao = new DienThoaiDAO();
 		dtDao.them(dienThoai);
 	}
+	
 	private static void xuat(List<DanhMuc> dsDanhMuc, String  temp){
 		
 		for(int i = 0; i < dsDanhMuc.size(); i++){
@@ -287,9 +258,7 @@ public class Testing {
 		
 		temp +="    ";
 	}
-	
-	
-	
+
 	private static void themTaiKhoan() throws UnsupportedEncodingException{
 		TaiKhoan tk = new TaiKhoan();
 		tk.setTenTruyCap("llho");

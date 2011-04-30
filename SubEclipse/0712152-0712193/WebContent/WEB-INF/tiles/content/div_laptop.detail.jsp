@@ -19,14 +19,16 @@
 		</div>
 	</div>
 	<div class="details_big_box">
-		<div class="product_title_big">My Cinema-U3000/DVBT, USB 2.0 TV
-			BOX External, White</div>
-		<div class="specifications">
-			Disponibilitate: <span class="blue">In stoc</span><br /> Garantie: <span
-				class="blue">24 luni</span><br /> Tip transport: <span class="blue">Mic</span><br />
-
-			Pretul include <span class="blue">TVA</span><br />
-		</div>
+		<div class="product_title_big"> <s:property value="tenSanPham"/> </div>
+			<div class="specifications">
+				<p>
+				Cập nhật: <span class="blue">30/04/2011</span><br />
+	            Số lượng: <span class="blue">1</span><br /> 
+    	        Chất lượng: <span class="blue">Mới</span><br />
+				Phí vận chuyển: <span class="blue">Liên hệ</span><br />
+				Xuất xứ: <span class="blue">Chính hãng</span>
+				</p>
+			</div>
 		<div class="prod_price_big">
 			<span class="price"> <s:property value="gia"/> </span>
 		</div>

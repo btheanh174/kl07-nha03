@@ -79,7 +79,7 @@
 			method="themDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
 		</action>
-		
+
 		<action name="DanhMuc_xoaDanhMuc" class="action.DanhMucAction"
 			method="xoaDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
@@ -90,6 +90,11 @@
 		<action name="SanPham_chiTiet" class="action.SanPhamAction"
 			method="chiTiet">
 			<result name="success">/admin/product/detail.jsp</result>
+		</action>
+
+		<action name="SanPham_danhSach" class="action.SanPhamAction"
+			method="execute">
+			<result name="success" type="tiles">Products.tiles</result>
 		</action>
 
 	</package>

@@ -7,7 +7,7 @@
      <ul class="menu">
           <li><a href="<s:url action="show_index"/>" class="nav1">  Trang chủ </a></li>
           <li class="divider"></li>
-          <li><a href="<s:url action=""/>" class="nav2">Sản phẩm</a></li>
+          <li><a href="<s:url action="SanPham_danhSach"/>" class="nav2">Sản phẩm</a></li>
           <li class="divider"></li>
           <li><a href="<s:url action=""/>" class="nav3">Rao vặt</a></li>
           <li class="divider"></li>
