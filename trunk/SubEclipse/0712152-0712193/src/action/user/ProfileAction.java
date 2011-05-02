@@ -1,17 +1,16 @@
 package action.user;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import model.dao.TaiKhoanDAO;
 import model.dao.ThanhVienDAO;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
+
+import util.HashUtil;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -30,20 +29,50 @@ public class ProfileAction extends ActionSupport implements SessionAware, Prepar
 	private ThanhVien thanhVien;
 	private TaiKhoanDAO tkDao = new TaiKhoanDAO();
 	private ThanhVienDAO tvDao = new ThanhVienDAO();
+	
+	private String matKhauCu;
+	private String matKhauMoi;
+	private String xacNhanMatKhau;
 	@Override
 	public String execute() throws Exception {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
+		
 		return super.execute();
 	}
 
 	public String capNhatThongTin(){
-		tkDao.capNhat(taiKhoan);
-		tvDao.capNhat(thanhVien);
+		tkDao.capNhat(getTaiKhoan());
+		tvDao.capNhat(getThanhVien());
 		return SUCCESS;
 	}
 
 	public String doiMatKhau(){
+		System.out.println("Doi Mat Khau");
+		taiKhoan = (TaiKhoan)sessionMap.get("tk");
+		String salt = taiKhoan.getSalt();
+		String hashedPassword = null;
+		try {
+			hashedPassword = HashUtil.generateHash(salt + getMatKhauCu());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(!taiKhoan.getMatKhau().equals(hashedPassword)){
+			System.out.println("Mật khẩu cũ không đúng");
+			addFieldError(matKhauCu, "Mật khẩu cũ không đúng!");
+			return INPUT;
+		}
+		if(!getMatKhauMoi().equals(getXacNhanMatKhau())){
+			System.out.println("Xác nhận mật khẩu sai");
+			addFieldError(xacNhanMatKhau, "Xác nhận mật khẩu sai!");
+			return INPUT;
+		}
+		try {
+			hashedPassword = HashUtil.generateHash(salt + getMatKhauMoi());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		taiKhoan.setMatKhau(hashedPassword);
 		tkDao.capNhat(taiKhoan);
 		return SUCCESS;
 	}
@@ -96,4 +125,29 @@ public class ProfileAction extends ActionSupport implements SessionAware, Prepar
 		// TODO Auto-generated method stub
 		return thanhVien;
 	}
+
+	public String getMatKhauCu() {
+		return matKhauCu;
+	}
+
+	public void setMatKhauCu(String matKhauCu) {
+		this.matKhauCu = matKhauCu;
+	}
+
+	public String getMatKhauMoi() {
+		return matKhauMoi;
+	}
+
+	public void setMatKhauMoi(String matKhauMoi) {
+		this.matKhauMoi = matKhauMoi;
+	}
+
+	public String getXacNhanMatKhau() {
+		return xacNhanMatKhau;
+	}
+
+	public void setXacNhanMatKhau(String xacNhanMatKhau) {
+		this.xacNhanMatKhau = xacNhanMatKhau;
+	}
+	
 }

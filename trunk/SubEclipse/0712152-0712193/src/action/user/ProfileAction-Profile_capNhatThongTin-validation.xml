@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="hoTen">
+		<field-validator type="requiredstring">
+			<message>Phải nhập họ tên</message>
+		</field-validator>
+	</field>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>Email không được bỏ trống!</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Phải nhập email hợp lệ!</message>
+		</field-validator>
+	</field>
+	
+	<field name="ngaySinh">
+		<field-validator type="date">
+			<message>Ngày sinh không hợp lệ!</message>
+		</field-validator>
+	</field>
+	
+	<field name="dienThoai">
+		<field-validator type="regex">
+			<param name="expression">^[0-9]{10,11}</param>
+			<message>Phải nhập đúng số điện thoại</message>
+		</field-validator>
+	</field>
+	
+</validators>

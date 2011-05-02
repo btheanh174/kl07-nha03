@@ -59,7 +59,7 @@
 		<!-- User profile -->
 
 		<action name="Profile_doiMatKhau" class="action.user.ProfileAction" method="doiMatKhau">
-			<result name="success" type="redirect">show_myprofile_profile.action
+			<result name="success" type="redirect">show_index.action
 			</result>
 			<result name="input" type="redirect">show_myprofile_password.action</result>
 		</action>

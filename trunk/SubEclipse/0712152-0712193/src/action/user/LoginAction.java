@@ -47,6 +47,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 			String storedPassword = tk.getMatKhau();
 		
 			if(hashedPassword.equals(storedPassword)){
+				
 				session.put("tk", tk);
 				session.put("context", new Date());
 				return SUCCESS;
