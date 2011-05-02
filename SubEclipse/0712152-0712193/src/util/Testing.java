@@ -11,7 +11,6 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
@@ -21,6 +20,7 @@ import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
+import action.user.ProfileAction;
 
 
 public class Testing {
@@ -215,8 +215,14 @@ public class Testing {
 		
 		//testSanPham();
 		
-		SanPham sanPham = new SanPhamDAO().lay(6);
-		System.out.println(sanPham.getClass());
+		// Doi mat khau
+		TaiKhoanDAO tkDao  = new TaiKhoanDAO();
+		ProfileAction pa = new ProfileAction();
+		pa.setMatKhauCu("1234567");
+		pa.setMatKhauMoi("123456");
+		pa.setXacNhanMatKhau("123456");
+		
+		pa.doiMatKhau();
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
