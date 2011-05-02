@@ -14,7 +14,7 @@
 
 <div class="prod_box_big">
 	<div class="top_prod_box_big">Danh sách danh mục sản phẩm</div>
-	</br> </br>
+	
 
 	<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>
 	<sx:tree id="books" label="Danh sách danh mục" title="test">

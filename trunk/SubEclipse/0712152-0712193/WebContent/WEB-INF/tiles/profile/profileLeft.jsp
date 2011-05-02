@@ -5,7 +5,7 @@
 
     <div class="title_box">Thông tin cá nhân</div>
         <ul class="left_menu">
-        <li class="even"><a href="<s:url action="show_myprofile_information"/>">Sửa thông tin</a></li>
+        <li class="even"><a href="<s:url action="Profile_hienThi"/>">Sửa thông tin</a></li>
         <li class="even"><a href="<s:url action="show_myprofile_password"/>">Đổi mật khẩu</a></li>
 		<li class="even"><a href="password_change.html">Nạp tiền vào tài khoản</a></li>
 		<li class="even"><a href="password_change.html">Nâng cấp lên gian hàng</a></li>

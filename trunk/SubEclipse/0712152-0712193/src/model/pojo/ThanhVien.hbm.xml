@@ -19,11 +19,19 @@
         <property name="diaChi" type="java.lang.String">
             <column name="DIA_CHI" />
         </property>
+        
+        <property name="website" type="java.lang.String">
+            <column name="WEBSITE" />
+        </property>
         <property name="email" type="java.lang.String">
             <column name="EMAIL" />
         </property>
         <property name="ngaySinh" type="java.util.Date">
             <column name="NGAY_SINH" />
+        </property>
+        
+        <property name="hinh" type="java.lang.String">
+        	<column name="HINH"></column>
         </property>
         
         <one-to-one name="taiKhoan" class="model.pojo.TaiKhoan" constrained="true">

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>	
-
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -14,6 +14,9 @@
 <link rel="stylesheet" type="text/css" href="iecss.css" />
 <![endif]-->
 <script type="text/javascript" src="js/boxOver.js"></script>
+
+<sj:head/>
+
 </head>
 <body>
 <div id="main_container">
