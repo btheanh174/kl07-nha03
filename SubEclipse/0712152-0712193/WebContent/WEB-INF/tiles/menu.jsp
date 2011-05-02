@@ -28,7 +28,7 @@
 		<s:else>
 		    <li><a href="<s:url action="User_logout"/>" class="nav4">Đăng xuất</a></li>
 		    <li class="right_divider"></li>
-		    <s:url action="show_myprofile_profile" id="showProfile">
+		    <s:url action="Profile_hienThi" id="showProfile">
 		    	<s:param name="maTaiKhoan" value="#session['tk'].maTaiKhoan"></s:param>
 		    </s:url>
 		    <li><a href="${showProfile}" class="nav4"><s:property value="#session['tk'].tenTruyCap"/></a></li>

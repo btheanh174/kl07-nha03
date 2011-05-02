@@ -10,7 +10,7 @@ public class TinhThanhPhoDAO extends AbstractDAO{
 		super();
 	}
 	
-	public List layDanhSach(){
+	public List<TinhThanhPho> layDanhSach(){
 		return super.findAll(TinhThanhPho.class);
 	}
 	

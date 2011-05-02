@@ -8,8 +8,10 @@ public class ThanhVien {
 	private String hoTen;
 	private String dienThoai;
 	private String diaChi;
+	private String website;
 	private String email;
 	private Date ngaySinh;
+	private String hinh;
 	private TaiKhoan taiKhoan;
 	private TinhThanhPho tinhThanhPho;
 	private List<TinNhan> dsTinNhan;
@@ -22,7 +24,7 @@ public class ThanhVien {
 	}
 
 	public ThanhVien(String hoTen, String dienThoai, String diaChi,
-			String email, Date ngaySinh, TaiKhoan taiKhoan,
+			String email, String website ,Date ngaySinh, TaiKhoan taiKhoan,
 			TinhThanhPho tinhThanhPho, List<TinNhan> dsTinNhan,
 			List<NguoiNhan> dsNguoiNhan, List<TinRaoVat> dsTinRaoVat,
 			List<HoaDon> dsHoaDon) {
@@ -30,6 +32,7 @@ public class ThanhVien {
 		this.hoTen = hoTen;
 		this.dienThoai = dienThoai;
 		this.diaChi = diaChi;
+		this.website = website;
 		this.email = email;
 		this.ngaySinh = ngaySinh;
 		this.taiKhoan = taiKhoan;
@@ -45,6 +48,7 @@ public class ThanhVien {
 		this.hoTen = thanhVien.hoTen;
 		this.dienThoai = thanhVien.dienThoai;
 		this.diaChi = thanhVien.diaChi;
+		this.website = thanhVien.website;
 		this.email = thanhVien.email;
 		this.ngaySinh = thanhVien.ngaySinh;
 		this.taiKhoan = thanhVien.taiKhoan;
@@ -148,5 +152,21 @@ public class ThanhVien {
 
 	public void setDsHoaDon(List<HoaDon> dsHoaDon) {
 		this.dsHoaDon = dsHoaDon;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getHinh() {
+		return hinh;
+	}
+
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
 	}
 }

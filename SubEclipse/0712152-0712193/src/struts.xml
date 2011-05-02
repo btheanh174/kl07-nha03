@@ -31,6 +31,7 @@
 		</action>
 
 		<!-- Dung cho register -->
+		
 		<action name="User_register" class="action.user.RegisterAction"
 			method="register">
 			<interceptor-ref name="jcaptchaDefaultStack" /> <!-- Tich hop jcaptcha4pluginstruts2 -->
@@ -57,14 +58,19 @@
 
 		<!-- User profile -->
 
-		<action name="Profile_password" class="action.user.ProfileAction">
+		<action name="Profile_doiMatKhau" class="action.user.ProfileAction" method="doiMatKhau">
 			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
+			<result name="input" type="redirect">show_myprofile_password.action</result>
 		</action>
-
-		<action name="Profile_information">
-			<result name="success" type="tiles">Profile.information.tiles</result>
-			<result name="input" type="tiles">Profile.information.tiles</result>
+		
+		<action name="Profile_hienThi" class="action.user.ProfileAction" method="hienThi">
+			<result name="success" type="redirect">show_myprofile_information.action</result>
+		</action>
+		
+		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction" method="capNhatThongTin">
+			<result name="success" type="redirect">show_myprofile_profile.action</result>
+			<result name="input" type="redirect">show_myprofile_information.action</result>
 		</action>
 
 		<!-- Danh muc -->

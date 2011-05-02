@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib uri="http://code.google.com/p/jcaptcha4struts2/taglib/2.0" prefix="jcaptcha" %>
 
 <div class="center_title_bar">Đăng ký thành viên, gian hàng</div>
@@ -10,7 +10,7 @@
 <div class="top_prod_box_big"></div>
 <div class="center_prod_box_big">
 	<s:form method="post" action="User_register" validate="true">
-	<s:actionerror/>
+			<s:actionerror/>
 		    <s:textfield name="tenTruyCap" label="Tên truy cập (*)"></s:textfield>
 		    
 		    <s:password name="matKhau" label="Mật khẩu (*)"></s:password>
@@ -21,8 +21,10 @@
 			<s:textfield name="email" label="Email (*)"></s:textfield>
 			<s:textfield name="xacNhanEmail" label="Xác nhận email (*)"></s:textfield>
 			
-			
-			<sx:datetimepicker name="ngaySinh" label="Ngày sinh" displayFormat="dd/MM/yyyy" formatLength="full"></sx:datetimepicker>
+			<%-- <sj:datepicker showAnim="slideDown" displayFormat="dd/mm/yy"
+					appendText="(Ngày/Tháng/Năm)" label="Ngày sinh"></sj:datepicker>
+			 --%>
+			 
 			<s:radio name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"></s:radio>			
 			
 			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
