@@ -18,7 +18,7 @@
 <script type="text/javascript" src="js/boxOver.js"></script>
 
 <sj:head />
-<s:head theme="xhtml"/>
+
 
 </head>
 <body>
