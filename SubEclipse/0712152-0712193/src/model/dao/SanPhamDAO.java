@@ -10,8 +10,16 @@ import org.hibernate.Query;
 
 import util.HibernateUtil;
 
+/**
+ * @author Kha
+ *
+ */
+/**
+ * @author Kha
+ *
+ */
 public class SanPhamDAO extends AbstractDAO {
-	
+
 	public SanPhamDAO() {
 		super();
 	}
@@ -25,16 +33,48 @@ public class SanPhamDAO extends AbstractDAO {
 	}
 
 	public List<SanPham> layDanhSach(DanhMuc danhMuc) {
-		List kq = null;
+		List<SanPham> kq = null;
 		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			Query query = session
 					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
 			query.setParameter("dm", danhMuc);
+			
 			kq = query.list();
 			tx.commit();
+
+		} catch (HibernateException e) {
+			handleException(e);
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	// Lay san pham theo danh muc co phan trang
+	// Voi tham so dau vao la: trang, danhMuc
+	public List<SanPham> layDanhSach(DanhMuc danhMuc, int trang) {
+		List<SanPham> kq = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			Query query = session
+					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
+			query.setParameter("dm", danhMuc);
+
+			// int soSanPhamTrenTrang = new ThamSoDAO().lay(1).getGiaTri();
+			int soSanPhamTrenTrang = 10;
+			int batDau = (trang - 1) * soSanPhamTrenTrang;
 			
+			query.setFirstResult(batDau);
+			query.setMaxResults(soSanPhamTrenTrang);
+
+			kq = query.list();
+
+			tx.commit();
+
 		} catch (HibernateException e) {
 			handleException(e);
 		} finally {

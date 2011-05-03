@@ -37,10 +37,8 @@
 					listValue="tenTinhThanhPho"
 					value="%{#session['tk'].thanhVien.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
 
-
-				<s:radio name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"
-					value="%{#session['tk'].thanhVien.gioiTinh}"></s:radio>
-
+				<sj:select name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính" autocomplete="true"></sj:select>
+				
 				<jcaptcha:image height="50" width="300" label="Mã an toàn" />
 				<s:submit value="Cập nhật"></s:submit>
 

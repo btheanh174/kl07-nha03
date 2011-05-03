@@ -222,7 +222,7 @@ public class Testing {
 		pa.setMatKhauMoi("123456");
 		pa.setXacNhanMatKhau("123456");
 		
-		pa.doiMatKhau();
+		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

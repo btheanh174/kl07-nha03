@@ -12,10 +12,13 @@
 				<interceptor-ref name="LastActionInterceptor"></interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
+			
+			<interceptor name="redirectMessage" class="action.user.RedirectMessageInterceptor"></interceptor>
+			
 		</interceptors>
 
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
-
+		
 		<action name="show_index">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success" type="tiles">Index.tiles</result>
@@ -57,20 +60,21 @@
 		</action>
 
 		<!-- User profile -->
-
-		<action name="Profile_doiMatKhau" class="action.user.ProfileAction" method="doiMatKhau">
-			<result name="success" type="redirect">show_index.action
-			</result>
-			<result name="input" type="redirect">show_myprofile_password.action</result>
-		</action>
 		
 		<action name="Profile_hienThi" class="action.user.ProfileAction" method="hienThi">
 			<result name="success" type="redirect">show_myprofile_information.action</result>
 		</action>
 		
+		
 		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction" method="capNhatThongTin">
 			<result name="success" type="redirect">show_myprofile_profile.action</result>
 			<result name="input" type="redirect">show_myprofile_information.action</result>
+		</action>
+		
+		<action name="Profile_test" class="action.user.ProfileAction" method="test">
+
+			<result name="success" type="redirect">show_index.action</result>
+			<result name="input" type="redirect">show_myprofile_password.action</result>
 		</action>
 
 		<!-- Danh muc -->
