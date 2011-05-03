@@ -2,21 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-	<div class="center_title_bar">Test san pham theo danh muc</div>
-	<div class="prod_box_big">
-		<div class="top_prod_box_big"></div>
-		<div class="center_prod_box_big">
-			<s:bean name="model.bean.SanPhamBean" var="spBean">
-				<s:param name="maDanhMuc" value="9"></s:param>
-			</s:bean>
-			<s:iterator value="#spBean.dsSanPham" status="spStatus">
-				<s:property value="tenSanPham"/>
-			</s:iterator>
-		</div>
-		<div class="bottom_prod_box_big"></div>
-	</div>
-
-	<div class="center_title_bar">Sản phẩm mới nhất</div>
+	<s:a action="Profile_test">Test</s:a>
+	<%-- <div class="center_title_bar">Sản phẩm mới nhất</div>
     
    	<div class="prod_box">
        	<div class="top_prod_box"></div>
@@ -170,3 +157,4 @@
          <a href="#" class="prod_details">Chi tiết</a>            
          </div>                     
      </div> 
+ --%>

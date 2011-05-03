@@ -10,8 +10,8 @@
     <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-	<sj:div>
-		<s:form action="Profile_doiMatKhau" method="post" validate="true">
+	
+		<s:form action="Profile_test" method="post">
 			<s:actionerror/>
 			<s:hidden name="maTaiKhoan" value="maTaiKhoan"></s:hidden>
 			<s:password label="Mật khẩu cũ" name="matKhauCu" />
@@ -22,7 +22,7 @@
 			<s:submit value="Cập nhật"/>
 			
 		</s:form>
-	</sj:div>
+	
 	</div>
 	<div class="bottom_prod_box_big"></div>
 	</div>
