@@ -16,6 +16,7 @@ public class DienThoai extends SanPham {
 	private String trongLuong;
 	private String kichThuoc;
 	private String kieuChuong;
+	private int rung; // 1: Có rung, 0: không rung
 	private String camera;
 	private String mauSac;
 	private String pin;
@@ -33,14 +34,13 @@ public class DienThoai extends SanPham {
 	public DienThoai(String tenSanPham, float gia, String nhaSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
-		// TODO Auto-generated constructor stub
 	}
 
 
 	public DienThoai(String mang, String kieuDang, String manHinh,
 			String doPhanGiai, String heDieuHanh, String boNhoTrong,
 			String ram, String tinNhan, String trongLuong, String kichThuoc,
-			String kieuChuong, String camera, String mauSac, String pin,
+			String kieuChuong, int rung, String camera, String mauSac, String pin,
 			String thoiGianDamThoai, String thoiGianCho, String sim,
 			String theNho, String tinhNang, String tinhNangKhac) {
 		super();
@@ -55,6 +55,7 @@ public class DienThoai extends SanPham {
 		this.trongLuong = trongLuong;
 		this.kichThuoc = kichThuoc;
 		this.kieuChuong = kieuChuong;
+		this.rung = rung;
 		this.camera = camera;
 		this.mauSac = mauSac;
 		this.pin = pin;
@@ -72,7 +73,7 @@ public class DienThoai extends SanPham {
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
-			String trongLuong, String kichThuoc, String kieuChuong,
+			String trongLuong, String kichThuoc, String kieuChuong, int rung,
 			String camera, String mauSac, String pin, String thoiGianDamThoai,
 			String thoiGianCho, String sim, String theNho, String tinhNang,
 			String tinhNangKhac) {
@@ -88,6 +89,7 @@ public class DienThoai extends SanPham {
 		this.trongLuong = trongLuong;
 		this.kichThuoc = kichThuoc;
 		this.kieuChuong = kieuChuong;
+		this.rung = rung;
 		this.camera = camera;
 		this.mauSac = mauSac;
 		this.pin = pin;
@@ -226,5 +228,13 @@ public class DienThoai extends SanPham {
 	}
 	public void setTinhNangKhac(String tinhNangKhac) {
 		this.tinhNangKhac = tinhNangKhac;
+	}
+
+	public int getRung() {
+		return rung;
+	}
+
+	public void setRung(int rung) {
+		this.rung = rung;
 	}
 }
