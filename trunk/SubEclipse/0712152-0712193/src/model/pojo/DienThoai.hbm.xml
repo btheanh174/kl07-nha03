@@ -106,6 +106,10 @@
 	        <property name="kieuChuong" type="java.lang.String">
 	            <column name="KIEU_CHUONG" />
 	        </property>
+	        <property name="rung" type="int">
+	            <column name="RUNG" />
+	        </property>
+	        
 	        <property name="camera" type="java.lang.String">
 	            <column name="CAMERA" />
 	        </property>
