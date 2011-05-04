@@ -70,9 +70,8 @@ public class DanhMucAction extends ActionSupport implements
 	}
 	
 	public String xoaDanhMuc() {
-		idCatalogue--;
 		khoiTaodsDanhMuc();
-		danhMuc = dsDanhMuc.get(idCatalogue);
+		danhMuc = dsDanhMuc.get(timViTriDanhMuc(idCatalogue));
 		dmDao.xoa(danhMuc);
 		danhMuc = null;
 		return SUCCESS;
@@ -81,7 +80,7 @@ public class DanhMucAction extends ActionSupport implements
 
 	public String layDanhSachSanPham() {
 		SanPhamDAO spDao = new SanPhamDAO();
-		DanhMuc danhMuc = dmDao.lay(maDanhMuc);
+		DanhMuc danhMuc = dmDao.lay(1);
 		listSanPham = spDao.layDanhSach(danhMuc);
 		/*List<HinhAnh> dsHinhAnh1 = new ArrayList<HinhAnh>();
 		List<HinhAnh> dsHinhAnh2 = new ArrayList<HinhAnh>();

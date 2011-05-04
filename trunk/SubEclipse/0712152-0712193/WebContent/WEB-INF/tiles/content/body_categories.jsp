@@ -5,8 +5,9 @@
 <div class="center_title_bar">
 	<a href="<s:url action="show3_admin_category_add"/>">Thêm danh mục</a>
 
-	<a href="<s:url action="show3_admin_category_delete"/>">Xóa danh
-		mục</a>
+	<a href="<s:url action="show3_admin_category_delete"/>">Xóa danh mục</a>
+	
+	<a href="<s:url action="show3_admin_category_update"/>">Sửa danh mục</a>
 
 
 
@@ -22,6 +23,7 @@
 			status="danhMucStatus">
 			<s:if test="#root.capDanhMuc == 1">
 				<s:include value="/admin/category/treenode.jsp" />
+				<%-- <s:property value="#root.tenDanhMuc" /> --%>
 			</s:if>
 		</s:iterator>
 	</sx:tree>

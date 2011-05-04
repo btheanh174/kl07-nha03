@@ -6,8 +6,7 @@
 
 	<s:if test="#root.dsDanhMucCon.size() != 0 && #root.dsDanhMucCon != null"> 
 		<s:iterator value="#root.dsDanhMucCon">
-			<s:include value="/admin/category/treenode.jsp" />
-			
+			<s:include value="/admin/category/treenode.jsp" />	
 		</s:iterator>
 	</s:if>
 

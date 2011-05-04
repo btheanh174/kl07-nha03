@@ -93,6 +93,7 @@
 		<action name="DanhMuc_xoaDanhMuc" class="action.DanhMucAction"
 			method="xoaDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>
+			<result name="input" type="tiles">DeleteCategory.tiles</result>
 		</action>
 
 		<!-- San pham -->
