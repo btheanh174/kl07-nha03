@@ -5,7 +5,11 @@ import java.util.List;
 import model.pojo.ThamSo;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
+
+import util.HibernateUtil;
 
 public class ThamSoDAO extends AbstractDAO{
 	
@@ -18,16 +22,68 @@ public class ThamSoDAO extends AbstractDAO{
 	}
 	
 	public ThamSo lay(String tenThamSo){
-		/*Query query = session.createQuery("select * from ThamSo where tenThamSo like :ten");
-		query.setParameter("ten", tenThamSo);
-		return (ThamSo)query.uniqueResult();*/
-		Criteria crit = session.createCriteria(getClass());
-		crit.add(Restrictions.like("tenThamSo", tenThamSo));
+		ThamSo kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			Criteria crit = session.createCriteria(getClass());
+			crit.add(Restrictions.like("tenThamSo", tenThamSo));
+			
+			
+			kq = (ThamSo) crit.uniqueResult();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
 		
-		return (ThamSo) crit.uniqueResult();
+		return kq;
 	}
 	
-	public List layDanhSach(){
+	public List<ThamSo> layDanhSach(){
 		return super.findAll(ThamSo.class);
+	}
+	
+	public List<ThamSo> layDanhSach(int tinhTrang){
+		List<ThamSo> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			Query query = session.createQuery("from ThamSo as ts where ts.tinhTrang =:tt").setParameter("tt", tinhTrang);
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	public int layGiaTri(int id){
+		int kq = -1;
+		
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "from ThamSo as ts where ts.maThamSo =:id and ts.tinhTrang =:tt";
+			Query query = session.createQuery(hql).setParameter("id", id).setParameter("tt", 1);
+			
+			kq = Integer.parseInt(((ThamSo)query.uniqueResult()).getGiaTri());
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		
+		return kq;
 	}
 }

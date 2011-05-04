@@ -3,6 +3,12 @@ package model.dao;
 import java.util.List;
 
 import model.pojo.Laptop;
+import model.pojo.LaptopTieuChi;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+
+import util.HibernateUtil;
 
 public class LaptopDAO extends AbstractDAO{
 
@@ -28,5 +34,40 @@ public class LaptopDAO extends AbstractDAO{
 	
 	public void capNhat(Laptop laptop){
 		super.saveOrUpdate(laptop);
+	}
+	
+	public List<Laptop> timKiem(LaptopTieuChi tieuChi){
+		List<Laptop> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			String hql = "";
+			Query query = session.createQuery(hql);
+			kq = query.list();
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	// Tim kiem laptop va tra ra ket qua co phan trang
+	public List<Laptop> timKiem(LaptopTieuChi tieuChi, int trang){
+		List<Laptop> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			String hql = "";
+			Query query = session.createQuery(hql);
+			kq = query.list();
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 }

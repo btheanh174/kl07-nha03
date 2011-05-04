@@ -38,6 +38,8 @@
 			value="/WEB-INF/tiles/content/body_login.jsp" />
 	</definition>
 
+	<!-- Product Layout -->
+	
 	<definition name="Products.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Danh sách sản phẩm" />
 		<put-attribute name="center"
@@ -49,6 +51,19 @@
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/content/body_product.detail.jsp" />
 	</definition>
+	
+	<definition name="Laptop.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm kiếm laptop" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_laptop.search.jsp" />
+	</definition>
+	
+	<definition name="DienThoai.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm kiếm điện thoại" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_dienthoai.search.jsp" />
+	</definition>
+	<!-- End Product Layout -->
 
 	<!-- Admin layout -->
 

@@ -6,6 +6,8 @@
 <%@ taglib uri="http://code.google.com/p/jcaptcha4struts2/taglib/2.0"
 	prefix="jcaptcha"%>
 
+<sj:head/>
+
 <div class="center_title_bar">Thông tin cá nhân</div>
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
