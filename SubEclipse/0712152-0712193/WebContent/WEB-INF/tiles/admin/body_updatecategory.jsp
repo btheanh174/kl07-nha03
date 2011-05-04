@@ -11,7 +11,7 @@
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
 		<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>
-		<s:form action="DanhMuc_themDanhMuc.action" method="post" validate="true">
+		<s:form action="DanhMuc_themDanhMuc.action" method="post" validate="false">
 			<s:textfield name="danhMuc.tenDanhMuc" maxlength="20" label="Tên danh mục "
 				size="20" />
 			<s:select  name="idCatalogue"  value="" label="Chọn tên danh mục cha "
