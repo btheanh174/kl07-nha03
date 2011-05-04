@@ -9,7 +9,7 @@ public class SanPham {
 	protected int maSanPham;
 	protected String tenSanPham;
 	protected float gia;
-	protected String nhaSanXuat;
+	protected String hangSanXuat;
 	
 	protected DanhMuc danhMuc;
 	protected List<HinhAnh> dsHinhAnh;
@@ -20,12 +20,12 @@ public class SanPham {
 		super();
 	}
 	
-	public SanPham(String tenSanPham, float gia, String nhaSanXuat,
+	public SanPham(String tenSanPham, float gia, String hangSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.gia = gia;
-		this.nhaSanXuat = nhaSanXuat;
+		this.hangSanXuat = hangSanXuat;
 		this.dsHinhAnh = dsHinhAnh;
 		this.danhMuc = danhMuc;
 		this.dsGianHang = dsGianHang;
@@ -52,13 +52,14 @@ public class SanPham {
 		this.gia = gia;
 	}
 	
-	public String getNhaSanXuat() {
-		return nhaSanXuat;
+	public String getHangSanXuat() {
+		return hangSanXuat;
 	}
-	public void setNhaSanXuat(String nhaSanXuat) {
-		this.nhaSanXuat = nhaSanXuat;
+
+	public void setHangSanXuat(String hangSanXuat) {
+		this.hangSanXuat = hangSanXuat;
 	}
-	
+
 	public DanhMuc getDanhMuc() {
 		return danhMuc;
 	}

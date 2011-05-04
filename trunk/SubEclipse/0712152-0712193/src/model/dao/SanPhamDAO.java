@@ -10,14 +10,7 @@ import org.hibernate.Query;
 
 import util.HibernateUtil;
 
-/**
- * @author Kha
- *
- */
-/**
- * @author Kha
- *
- */
+
 public class SanPhamDAO extends AbstractDAO {
 
 	public SanPhamDAO() {
@@ -65,7 +58,7 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setParameter("dm", danhMuc);
 
 			// int soSanPhamTrenTrang = new ThamSoDAO().lay(1).getGiaTri();
-			int soSanPhamTrenTrang = 10;
+			int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 			int batDau = (trang - 1) * soSanPhamTrenTrang;
 			
 			query.setFirstResult(batDau);

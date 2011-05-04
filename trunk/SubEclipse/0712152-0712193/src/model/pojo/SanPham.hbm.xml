@@ -20,8 +20,8 @@
             <column name="GIA" />
         </property>
         
-        <property name="nhaSanXuat" type="java.lang.String">
-            <column name="NHA_SAN_XUAT" />
+        <property name="hangSanXuat" type="java.lang.String">
+            <column name="HANG_SAN_XUAT" />
         </property>
         
         <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
