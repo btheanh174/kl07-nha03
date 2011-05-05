@@ -25,22 +25,23 @@ public class Laptop extends SanPham {
 	
 	public Laptop() {
 	}
+
 	
-	
-	
-	public Laptop(String tenSanPham, float gia, String nhaSanXuat,
+	public Laptop(String tenSanPham, float gia, String hangSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
-		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
- 
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 	}
 
-	public Laptop(String tenSanPham, float gia, String nhaSanXuat,
+
+
+
+	public Laptop(String tenSanPham, float gia, String hangSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
-			String mainboard, String cpu, String hdd, String ram, String vga,
-			String usb, String lan, String wifi, String heDieuHanh,
-			String chuot, String pin, String trongLuong,
+			String loaiSanPham, String mainboard, String cpu, String hdd,
+			String ram, String vga, String usb, String lan, String wifi,
+			String heDieuHanh, String chuot, String pin, String trongLuong,
 			String kichThuocManHinh, String doPhanGiai, String tinhNangKhac) {
-		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 		this.mainboard = mainboard;
 		this.cpu = cpu;
 		this.hdd = hdd;

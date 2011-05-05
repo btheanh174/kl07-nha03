@@ -10,6 +10,7 @@ public class SanPham {
 	protected String tenSanPham;
 	protected float gia;
 	protected String hangSanXuat;
+	protected String loaiSanPham;
 	
 	protected DanhMuc danhMuc;
 	protected List<HinhAnh> dsHinhAnh;
@@ -81,5 +82,13 @@ public class SanPham {
 
 	public void setDsGianHang(Set<GianHang> dsGianHang) {
 		this.dsGianHang = dsGianHang;
-	}	
+	}
+
+	public String getLoaiSanPham() {
+		return loaiSanPham;
+	}
+
+	public void setLoaiSanPham(String loaiSanPham) {
+		this.loaiSanPham = loaiSanPham;
+	}
 }

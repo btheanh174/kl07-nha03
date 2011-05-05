@@ -11,6 +11,7 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
@@ -19,6 +20,7 @@ import model.pojo.GianHang;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 import model.pojo.ThamSo;
 import model.pojo.ThanhVien;
@@ -218,6 +220,13 @@ public class Testing {
 		
 		int kq = new ThamSoDAO().layGiaTri(1);
 		System.out.println(kq);
+		
+		SanPhamDAO spDao = new SanPhamDAO();
+		SanPham sp = spDao.lay(12);
+		System.out.println(sp.getLoaiSanPham());
+		SanPhamTieuChi tieuChi = new SanPhamTieuChi("NOKIa", 120000000, 1, "DIENTHOAI");
+		List<SanPham> list = spDao.timKiem(tieuChi);
+		System.out.println(list.size());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

@@ -52,6 +52,12 @@
 			value="/WEB-INF/tiles/content/body_product.detail.jsp" />
 	</definition>
 	
+	<definition name="Product.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm nhanh" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.search.jsp" />
+	</definition>
+	
 	<definition name="Laptop.Search.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Tìm kiếm laptop" />
 		<put-attribute name="center"
