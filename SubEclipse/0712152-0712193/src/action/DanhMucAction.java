@@ -79,7 +79,7 @@ public class DanhMucAction extends ActionSupport implements
 
 	public String layDanhSachSanPham() {
 		SanPhamDAO spDao = new SanPhamDAO();
-		DanhMuc danhMuc = dmDao.lay(1);
+		DanhMuc danhMuc = dmDao.lay(maDanhMuc);
 		listSanPham = spDao.layDanhSach(danhMuc);
 		return SUCCESS;
 	}
