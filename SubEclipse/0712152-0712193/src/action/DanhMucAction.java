@@ -30,6 +30,8 @@ public class DanhMucAction extends ActionSupport implements
 	private List<DanhMuc> dsDanhMucShow;
 	private int idCatalogue;
 
+	private DanhMuc danhMucGoc;
+
 	public String Chitiet() {
 		dsSanPham = danhMuc.getDsSanPham();
 		return SUCCESS;
@@ -45,7 +47,7 @@ public class DanhMucAction extends ActionSupport implements
 
 	public void khoiTaodsDanhMuc() {
 		if (dsDanhMuc == null) {
-			dsDanhMuc= dmDao.layDanhSach();
+			dsDanhMuc = dmDao.layDanhSach();
 		}
 	}
 
@@ -58,17 +60,15 @@ public class DanhMucAction extends ActionSupport implements
 		danhMuc = null;
 		return SUCCESS;
 	}
-	
-	public int timViTriDanhMuc(int idCatalogue)
-	{
-		for (int i = 0; i < dsDanhMuc.size(); i++)
-		{
+
+	public int timViTriDanhMuc(int idCatalogue) {
+		for (int i = 0; i < dsDanhMuc.size(); i++) {
 			if (dsDanhMuc.get(i).getMaDanhMuc() == idCatalogue)
 				return i;
 		}
-		return -1;	
+		return -1;
 	}
-	
+
 	public String xoaDanhMuc() {
 		khoiTaodsDanhMuc();
 		danhMuc = dsDanhMuc.get(timViTriDanhMuc(idCatalogue));
@@ -77,55 +77,10 @@ public class DanhMucAction extends ActionSupport implements
 		return SUCCESS;
 	}
 
-
 	public String layDanhSachSanPham() {
 		SanPhamDAO spDao = new SanPhamDAO();
 		DanhMuc danhMuc = dmDao.lay(1);
 		listSanPham = spDao.layDanhSach(danhMuc);
-		/*List<HinhAnh> dsHinhAnh1 = new ArrayList<HinhAnh>();
-		List<HinhAnh> dsHinhAnh2 = new ArrayList<HinhAnh>();
-		List<HinhAnh> dsHinhAnh3 = new ArrayList<HinhAnh>();
-		List<HinhAnh> dsHinhAnh4 = new ArrayList<HinhAnh>();
-		dsHinhAnh1
-				.add(new HinhAnh(
-						"Pic1",
-						"http://www.vitinhphongvu.com/multidata/sanpham/1105399981499vostro%2033002_150x100_small.jpg",
-						null));
-		dsHinhAnh2
-				.add(new HinhAnh(
-						"Pic2",
-						"http://www.vitinhphongvu.com/multidata/sanpham/390350241962315R_150x100_small.jpg",
-						null));
-		dsHinhAnh3
-				.add(new HinhAnh(
-						"Pic3",
-						"http://www.vitinhphongvu.com/multidata/sanpham/64958172986601458_150x100_small.jpg",
-						null));
-		dsHinhAnh4
-				.add(new HinhAnh(
-						"Pic4",
-						"http://www.vitinhphongvu.com/multidata/sanpham/869484894090514R.-1jpg_150x100_small.jpg",
-						null));
-
-		listSanPham.add(new SanPham("DELL Vostro V3300", 15650000, "DELL",
-				dsHinhAnh1, null, null));
-		listSanPham.add(new SanPham("DELL Inspiron 15R", 14315000, "DELL",
-				dsHinhAnh2, null, null));
-		listSanPham.add(new SanPham("DELL Studio 1458", 17999000, "DELL",
-				dsHinhAnh3, null, null));
-		listSanPham.add(new SanPham("DELL Inspiron N4010", 13455000, "DELL",
-				dsHinhAnh4, null, null));
-		listSanPham.add(new SanPham("DELL Vostro V3300", 15650000, "DELL",
-				dsHinhAnh1, null, null));
-		listSanPham.add(new SanPham("DELL Inspiron 15R", 14315000, "DELL",
-				dsHinhAnh2, null, null));
-		listSanPham.add(new SanPham("DELL Studio 1458", 17999000, "DELL",
-				dsHinhAnh3, null, null));
-		listSanPham.add(new SanPham("DELL Inspiron N4010", 13455000, "DELL",
-				dsHinhAnh4, null, null));
-		listSanPham.add(new SanPham("DELL Vostro V3300", 15650000, "DELL",
-				dsHinhAnh1, null, null));
-*/
 		return SUCCESS;
 	}
 
@@ -202,38 +157,53 @@ public class DanhMucAction extends ActionSupport implements
 		String name;
 		String level = "|";
 		dsDanhMucShow = new ArrayList<DanhMuc>();
-		for(int i = 0; i < dsDanhMuc.size(); i++)
-		{
-			
-			if (dsDanhMuc.get(i).getCapDanhMuc() == 1)
-			{
+		for (int i = 0; i < dsDanhMuc.size(); i++) {
+
+			if (dsDanhMuc.get(i).getCapDanhMuc() == 1) {
 				name = level + "- - -" + dsDanhMuc.get(i).getTenDanhMuc();
-				dsDanhMucShow.add(new DanhMuc(dsDanhMuc.get(i).getMaDanhMuc(), 
-						name,dsDanhMuc.get(i).getCapDanhMuc(),dsDanhMuc.get(i).getDanhMucCha()));
-				if (dsDanhMuc.get(i).getDsDanhMucCon().size() > 0)
-				{
-					themDanhMucShow(dsDanhMuc.get(i).getDsDanhMucCon(),level + "- - -|");
+				dsDanhMucShow.add(new DanhMuc(dsDanhMuc.get(i).getMaDanhMuc(),
+						name, dsDanhMuc.get(i).getCapDanhMuc(), dsDanhMuc
+								.get(i).getDanhMucCha()));
+				if (dsDanhMuc.get(i).getDsDanhMucCon().size() > 0) {
+					themDanhMucShow(dsDanhMuc.get(i).getDsDanhMucCon(), level
+							+ "- - -|");
 				}
 			}
 		}
 		return dsDanhMucShow;
 	}
-	
-	public void themDanhMucShow(List<DanhMuc> dsdm, String level)
-	{
+
+	public void themDanhMucShow(List<DanhMuc> dsdm, String level) {
 		String name;
-		for(int i = 0; i < dsdm.size(); i++)
-		{
-			
+		for (int i = 0; i < dsdm.size(); i++) {
+
 			name = level + "- - -" + dsdm.get(i).getTenDanhMuc();
-			dsDanhMucShow.add(new DanhMuc(dsdm.get(i).getMaDanhMuc(), 
-					name,dsdm.get(i).getCapDanhMuc(),dsdm.get(i).getDanhMucCha()));
-			if (dsdm.get(i).getDsDanhMucCon().size() > 0)
-			{
-				themDanhMucShow(dsdm.get(i).getDsDanhMucCon(),level + "- - -|");
+			dsDanhMucShow.add(new DanhMuc(dsdm.get(i).getMaDanhMuc(), name,
+					dsdm.get(i).getCapDanhMuc(), dsdm.get(i).getDanhMucCha()));
+			if (dsdm.get(i).getDsDanhMucCon().size() > 0) {
+				themDanhMucShow(dsdm.get(i).getDsDanhMucCon(), level + "- - -|");
 			}
 		}
 	}
-	
-	
+
+	public void setDanhMucGoc(DanhMuc danhMucGoc) {
+		this.danhMucGoc = danhMucGoc;
+	}
+
+	public DanhMuc getDanhMucGoc() {
+		khoiTaodsDanhMuc();
+		if (danhMucGoc == null)
+		{
+			danhMucGoc = new DanhMuc(0,"Root",0,null);
+			danhMucGoc.setDsDanhMucCon(new ArrayList<DanhMuc>()); 
+			for (int i = 0; i < dsDanhMuc.size(); i++)
+			{
+				if (dsDanhMuc.get(i).getCapDanhMuc() == 1)
+				{
+					danhMucGoc.getDsDanhMucCon().add(dsDanhMuc.get(i));
+				}
+			}
+		}
+		return danhMucGoc;
+	}
 }

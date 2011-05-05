@@ -33,15 +33,23 @@
 @import "css/dojo.css" body , html { font-family:helvetica , arial , sans-serif
 	;
 font-size
+
+
+
+
 :
+
+
+
+
 90%;
- 
 }
 </style>
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js"
-	djConfig="parseOnLoad: true,locale: 'vi'">	
+	djConfig="parseOnLoad: true,locale: 'vi'">
+	
 </script>
 <script type="text/javascript">
 	dojo.require("dojo.parser");
@@ -49,29 +57,9 @@ font-size
 	dojo.require("dijit.layout.ContentPane");
 	dojo.require("dojo.data.ItemFileReadStore");
 	dojo.require("dijit.Tree");
-
-	dojo.addOnLoad(function() {
-		var store = new dojo.data.ItemFileReadStore({
-			url : "dojo-release-1.6.0-src/dijit/tests/_data/countries.json"
-		});
-
-		var treeModel = new dijit.tree.ForestStoreModel({
-			store : store,
-			query : {
-				"type" : "continent"
-			},
-			rootId : "root",
-			rootLabel : "Continents",
-			childrenAttrs : [ "children" ]
-		});
-
-		new dijit.Tree({
-			model : treeModel
-		}, "treeOne");
-	});
 </script>
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"
-        />
+<link rel="stylesheet" type="text/css"
+	href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css" />
 </head>
 <body class="tundra">
 	<div class="center_title_bar">
@@ -90,28 +78,33 @@ font-size
 				<b>Danh sách danh mục</b>
 			</p>
 
-			<div id="treeOne"></div>
-			<script type="text/javascript">
-				dojo.addOnLoad(function() {
-					if (document.pub) {
-						document.pub();
-					}
-				});
-			</script>
+			<div dojoType="dojo.data.ItemFileReadStore" jsId="continentStore"
+				url="dojo-release-1.6.0-src/dijit/tests/_data/countries.json"></div>
+			<div dojoType="dijit.tree.ForestStoreModel" jsId="continentModel"
+				store="continentStore" query="{type:'continent'}"
+				rootId="continentRoot" rootLabel="Continents"
+				childrenAttrs="children"></div>
+			<div dojoType="dijit.Tree" id="mytree" model="continentModel"
+				openOnClick="false">
+				<script type="dojo/method" event="onClick" args="item">
+                alert("Execute of node " + continentStore.getLabel(item) + ", population=" + continentStore.getValue(item, "population"));
+            </script>
+			</div>
+
 		</div>
 		<div dojoType="dijit.layout.ContentPane" sizeMin="10" sizeShare="10">
 			<p>
 				<b>Chi tiết</b>
 			</p>
 
-			<s:form action="DanhMuc_themDanhMuc.action" method="post" validate="true">
-			<s:textfield name="danhMuc.tenDanhMuc" maxlength="20" label="Tên danh mục "
-				size="20" />
-			<s:select  name="idCatalogue"  value="" label="Chọn tên danh mục cha "
-				list="#danhMucAction.dsDanhMucShow" listKey="maDanhMuc"
-				listValue="tenDanhMuc" />
-			<s:submit method="themDanhMuc" key="Thêm"
-				align="center" />
+			<s:form action="DanhMuc_themDanhMuc.action" method="post"
+				validate="true">
+				<s:textfield name="danhMuc.tenDanhMuc" maxlength="20"
+					label="Tên danh mục " size="20" />
+				<s:select name="idCatalogue" value="" label="Chọn tên danh mục cha "
+					list="#danhMucAction.dsDanhMucShow" listKey="maDanhMuc"
+					listValue="tenDanhMuc" />
+				<s:submit method="themDanhMuc" key="Thêm" align="center" />
 			</s:form>
 
 
