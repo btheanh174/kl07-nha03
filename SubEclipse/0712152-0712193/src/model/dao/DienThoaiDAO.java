@@ -42,7 +42,7 @@ public class DienThoaiDAO extends AbstractDAO {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			// Cau truy van tim kiem
-			String hql = "";
+			String hql = "from DienThoai where ";
 			Query query = session.createQuery(hql);
 			//
 			kq = query.list();

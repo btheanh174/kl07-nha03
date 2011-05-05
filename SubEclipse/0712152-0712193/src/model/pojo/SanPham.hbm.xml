@@ -24,6 +24,11 @@
             <column name="HANG_SAN_XUAT" />
         </property>
         
+        <property name="loaiSanPham" type="java.lang.String" insert="false" update="false">
+            <column name="LOAI_SAN_PHAM" />
+        </property>
+        
+        
         <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
         </many-to-one>
         

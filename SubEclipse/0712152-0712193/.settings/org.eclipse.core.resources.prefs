@@ -1,4 +1,4 @@
-#Tue May 03 22:13:15 ICT 2011
+#Thu May 05 12:57:38 ICT 2011
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/admin/body_addcategory.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/content/body_product.detail.jsp=UTF-8
@@ -12,6 +12,7 @@ encoding//WebContent/admin/category/add.jsp=UTF-8
 encoding//WebContent/admin/category/update.jsp=UTF-8
 encoding//WebContent/myprofile/password.jsp=UTF-8
 encoding//src/action/DanhMucAction.java=UTF-8
+encoding//src/action/DienThoaiTimKiemAction.java=UTF-8
 encoding//src/action/user/LoginAction.properties=UTF-8
 encoding//src/action/user/ProfileAction.java=UTF-8
 encoding//src/action/user/ProfileAction.properties=UTF-8

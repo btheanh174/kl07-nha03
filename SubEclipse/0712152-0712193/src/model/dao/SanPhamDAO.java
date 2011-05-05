@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.pojo.DanhMuc;
 import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -86,5 +87,33 @@ public class SanPhamDAO extends AbstractDAO {
 
 	public void capNhat(SanPham sanPham) {
 		super.saveOrUpdate(sanPham);
+	}
+	
+	public List<SanPham> timKiem(SanPhamTieuChi tieuChi){
+		List<SanPham> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
+			
+			String hql = "from SanPham as sp where lower(sp.tenSanPham) like :ten and "
+			+ "(sp.gia >=:min and sp.gia <=:max) and sp.loaiSanPham like :loai";
+			
+			Query query = session.createQuery(hql)
+			.setParameter("ten", ten)
+			.setParameter("min", tieuChi.getGiaDuoi())
+			.setParameter("max", tieuChi.getGiaTren())
+			.setParameter("loai", tieuChi.getLoaiSanPham());
+			
+			
+			kq = query.list();
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 }

@@ -29,20 +29,20 @@ public class DienThoai extends SanPham {
 	public DienThoai() {
 	}
 	
-	
-	
-	public DienThoai(String tenSanPham, float gia, String nhaSanXuat,
+	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
-		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 	}
 
-
+	
+	
+	
 	public DienThoai(String mang, String kieuDang, String manHinh,
 			String doPhanGiai, String heDieuHanh, String boNhoTrong,
 			String ram, String tinNhan, String trongLuong, String kichThuoc,
-			String kieuChuong, int rung, String camera, String mauSac, String pin,
-			String thoiGianDamThoai, String thoiGianCho, String sim,
-			String theNho, String tinhNang, String tinhNangKhac) {
+			String kieuChuong, int rung, String camera, String mauSac,
+			String pin, String thoiGianDamThoai, String thoiGianCho,
+			String sim, String theNho, String tinhNang, String tinhNangKhac) {
 		super();
 		this.mang = mang;
 		this.kieuDang = kieuDang;
@@ -67,9 +67,7 @@ public class DienThoai extends SanPham {
 		this.tinhNangKhac = tinhNangKhac;
 	}
 
-
-
-	public DienThoai(String tenSanPham, float gia, String nhaSanXuat,
+	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
@@ -77,7 +75,7 @@ public class DienThoai extends SanPham {
 			String camera, String mauSac, String pin, String thoiGianDamThoai,
 			String thoiGianCho, String sim, String theNho, String tinhNang,
 			String tinhNangKhac) {
-		super(tenSanPham, gia, nhaSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 		this.mang = mang;
 		this.kieuDang = kieuDang;
 		this.manHinh = manHinh;
@@ -100,8 +98,6 @@ public class DienThoai extends SanPham {
 		this.tinhNang = tinhNang;
 		this.tinhNangKhac = tinhNangKhac;
 	}
-
-
 
 	public int getMaSanPham() {
 		return maSanPham;

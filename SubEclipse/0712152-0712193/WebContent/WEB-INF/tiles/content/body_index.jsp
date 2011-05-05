@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-	<s:a action="Profile_test">Test</s:a>
-	<s:a action="show3_admin_product_dienthoai_search">Tìm kiếm điện thoại</s:a>
+	<s:a action="Profile_test">Test</s:a><br>
+	<s:a action="show3_admin_product_search">Tìm nhanh</s:a><br>
+	<s:a action="DienThoai_timKiem_populate">Tìm kiếm điện thoại</s:a><br>
 	<s:a action="show3_admin_product_laptop_search">Tìm kiếm laptop</s:a>
 	
 	<%-- <div class="center_title_bar">Sản phẩm mới nhất</div>
