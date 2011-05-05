@@ -28,10 +28,9 @@
 			</div>
 			<div class="specifications">
 				<p>
-					Cập nhật: <span class="blue">30/04/2011</span><br /> Số lượng: <span
-						class="blue">1</span><br /> Chất lượng: <span class="blue">Mới</span><br />
-					Phí vận chuyển: <span class="blue">Liên hệ</span><br /> Xuất xứ: <span
-						class="blue">Chính hãng</span>
+					Số lượng: <span class="blue">1</span><br /> Chất lượng: <span
+						class="blue">Mới</span><br /> Phí vận chuyển: <span class="blue">Liên
+						hệ</span><br /> Xuất xứ: <span class="blue">Chính hãng</span>
 				</p>
 			</div>
 			<div class="prod_price_big">
@@ -50,14 +49,86 @@
 	<div class="center_prod_box_big">
 
 		<sj:div cssClass="">
-			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true">
+			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true" selectedTab="1">
 				<sj:tab id="tabSoSanh" target="one" label="So sánh"></sj:tab>
 				<sj:tab id="tabThongSo" target="two" label="Thông số kỹ thuật"></sj:tab>
 				<sj:tab id="tabSanPhamLienQuan" target="three"
 					label="Các sản phẩm liên quan"></sj:tab>
 				<sj:tab id="tabHinhAnh" target="four" label="Hình ảnh"></sj:tab>
 				<div id="one">So sánh</div>
-				<div id="two">Thông số kỹ thuật</div>
+				<div id="two">
+					<table width="500" border="1" align="center" cellpadding="5"
+						cellspacing="0">
+						<tr>
+							<td align="right">Hãng sản xuất:</td>
+							<td align="left">Sony Vaio 8 Series</td>
+						</tr>
+						<tr>
+							<td align="right">HDD:</td>
+							<td align="left">500 GB, 7200rpm</td>
+						</tr>
+						<tr>
+							<td align="right">RAM:</td>
+							<td align="left">DDR3, 4GB</td>
+						</tr>
+						<tr>
+							<td align="right">CPU:</td>
+							<td align="left">Intel core i7, 2.5 GH</td>
+						</tr>
+						<tr>
+							<td align="right">VGA:</td>
+							<td align="left">NVIDIA GeForce G 310M</td>
+						</tr>
+						<tr>
+							<td align="right">OS:</td>
+							<td align="left">Window 7 Home premium</td>
+						</tr>
+						<tr>
+							<td align="right">Chuột:</td>
+							<td align="left">Touchpad</td>
+						</tr>
+						<tr>
+							<td align="right">Cổng USB:</td>
+							<td align="left">3 x USB 2.0 port</td>
+						</tr>
+						<tr>
+							<td align="right">LAN:</td>
+							<td align="left">10/100/1000 Mbps</td>
+						</tr>
+						<tr>
+							<td align="right">WIFI:</td>
+							<td align="left">IEEE 802.1 a/b/g/n</td>
+						</tr>
+						<tr>
+							<td align="right">Pin:</td>
+							<td align="left">6 cells</td>
+						</tr>
+						<tr>
+							<td align="right">Trọng lượng:</td>
+							<td align="left">2.5 kg</td>
+						</tr>
+						<tr>
+							<td align="right">Độ phân giải:</td>
+							<td align="left">1366 x 768</td>
+						</tr>
+						<tr>
+							<td align="right">Kích thước màn hình:</td>
+							<td align="left">13.3 inch</td>
+						</tr>
+						<tr>
+							<td align="right">Tính năng khác:</td>
+							<td align="left">
+								<ul>
+									<li>HDMI</li>
+									<li>Camera</li>
+									<li>Microphone</li>
+									<li>Headphone</li>
+									<li>Bluetooth</li>
+									<li>RJ-11 Modem</li>
+								</ul></td>
+						</tr>
+					</table>
+				</div>
 				<div id="three">Các sản phẩm liên quan</div>
 				<div id="four">Hình ảnh</div>
 			</sj:tabbedpanel>
