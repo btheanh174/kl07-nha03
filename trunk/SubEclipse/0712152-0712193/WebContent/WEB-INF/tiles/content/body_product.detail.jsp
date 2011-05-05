@@ -6,18 +6,13 @@
 
 <sj:head/>
 
-
-	   	<s:if test="">
+	   	<s:if test="sanPham.loaiSanPham.equals('DIENTHOAI')">
        	<s:include value="/WEB-INF/tiles/content/div_dienthoai.detail.jsp"></s:include>
        	</s:if>
        	<s:else>
        	<s:include value="/WEB-INF/tiles/content/div_laptop.detail.jsp">
        	</s:include>
        	</s:else>
-                                        
-    
-       
-       
        
        	<%-- <div class="center_title_bar">Sản phẩm cùng loại</div>
  
