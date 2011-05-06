@@ -22,11 +22,11 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	SanPhamDAO spDao = new SanPhamDAO();
 	private int maSanPham;
 	private SanPham sanPham;
-	private List<SanPham> listSanPham;
+	private List<SanPham> dsSanPham;
 	private SanPhamTieuChi tieuChi;
 	
 	public String execute(){
-		listSanPham = spDao.layDanhSach();
+		dsSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
 	
@@ -37,8 +37,8 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	
 	public String timNhanh(){
 		System.out.println(tieuChi.toString());
-		listSanPham = spDao.timKiem(getTieuChi());
-		System.out.println(listSanPham.size());
+		dsSanPham = spDao.timKiem(getTieuChi());
+		System.out.println(dsSanPham.size());
 		return SUCCESS;
 	}
 
@@ -56,12 +56,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		this.sanPham = sanPham;
 	}
 
-	public List<SanPham> getListSanPham() {
-		return listSanPham;
+
+	public List<SanPham> getDsSanPham() {
+		return dsSanPham;
 	}
 
-	public void setListSanPham(List<SanPham> listSanPham) {
-		this.listSanPham = listSanPham;
+	public void setDsSanPham(List<SanPham> dsSanPham) {
+		this.dsSanPham = dsSanPham;
 	}
 
 	public int getMaSanPham() {
