@@ -95,16 +95,19 @@ public class SanPhamDAO extends AbstractDAO {
 			tx = session.beginTransaction();
 			
 			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
+			String loai = "%" + tieuChi.getLoaiSanPham().toUpperCase() + "%";
 			
-			String hql = "from SanPham as sp where lower(sp.tenSanPham) like :ten"
-			+ " and (sp.gia >=:min and sp.gia <=:max)"
-			+ " and sp.loaiSanPham like :loai";
+			String hql = "from SanPham as sp "
+			+ "where lower(sp.tenSanPham) like :ten "
+			+ "and (("+tieuChi.getGiaDuoi().equals("")+") or (sp.gia >=:min)) "
+			+ "and (("+"".equals(tieuChi.getGiaTren())+") or (sp.gia <=:max)) "
+			+ "and sp.loaiSanPham like :loai";
 			
 			Query query = session.createQuery(hql)
 			.setParameter("ten", ten)
 			.setParameter("min", tieuChi.getGiaDuoi())
 			.setParameter("max", tieuChi.getGiaTren())
-			.setParameter("loai", tieuChi.getLoaiSanPham());
+			.setParameter("loai", loai);
 			
 			
 			kq = query.list();

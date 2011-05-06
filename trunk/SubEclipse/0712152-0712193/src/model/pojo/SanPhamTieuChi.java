@@ -3,15 +3,15 @@ package model.pojo;
 public class SanPhamTieuChi {
 
 	private String tenSanPham;
-	private float giaTren;
-	private float giaDuoi;
+	private String giaTren;
+	private String giaDuoi;
 	private String loaiSanPham;
 	
 	public SanPhamTieuChi() {
 		
 	}
 
-	public SanPhamTieuChi(String tenSanPham, float giaTren, float giaDuoi,
+	public SanPhamTieuChi(String tenSanPham, String giaTren, String giaDuoi,
 			String loaiSanPham) {
 		super();
 		this.tenSanPham = tenSanPham;
@@ -28,21 +28,25 @@ public class SanPhamTieuChi {
 		this.tenSanPham = tenSanPham;
 	}
 
-	public float getGiaTren() {
+	public String getGiaTren() {
 		return giaTren;
 	}
 
-	public void setGiaTren(float giaTren) {
+	public void setGiaTren(String giaTren) {
 		this.giaTren = giaTren;
 	}
 
-	public float getGiaDuoi() {
+	public String getGiaDuoi() {
 		return giaDuoi;
 	}
 
-	public void setGiaDuoi(float giaDuoi) {
+
+
+	public void setGiaDuoi(String giaDuoi) {
 		this.giaDuoi = giaDuoi;
 	}
+
+
 
 	public String getLoaiSanPham() {
 		return loaiSanPham;
@@ -51,4 +55,12 @@ public class SanPhamTieuChi {
 	public void setLoaiSanPham(String loaiSanPham) {
 		this.loaiSanPham = loaiSanPham;
 	}
+
+	@Override
+	public String toString() {
+		String kq = tenSanPham+":"+loaiSanPham+":"+":"+giaDuoi+":"+giaTren;
+		return kq;
+	}
+	
+	
 }

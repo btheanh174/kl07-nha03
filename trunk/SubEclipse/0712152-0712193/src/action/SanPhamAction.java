@@ -36,8 +36,7 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	}
 	
 	public String timNhanh(){
-		System.out.println(tieuChi.getLoaiSanPham()+ " - " + tieuChi.getGiaDuoi());
-		
+		System.out.println(tieuChi.toString());
 		listSanPham = spDao.timKiem(getTieuChi());
 		System.out.println(listSanPham.size());
 		return SUCCESS;
