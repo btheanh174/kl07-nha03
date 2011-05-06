@@ -110,7 +110,7 @@
 		</action>
 		
 		<action name="SanPham_timNhanh" class="action.SanPhamAction" method="timNhanh">
-			<result name="success" type="tiles">Products.tiles</result>
+			<result name="success">/admin/product/search_results.jsp</result>
 			<result name="input" type="redirect">show3_admin_product_search.action</result>
 		</action>
 		
