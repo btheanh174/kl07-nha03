@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.dao.SanPhamDAO;
 import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,17 +18,28 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	 * 
 	 */
 	private static final long serialVersionUID = -6399634351690725889L;
+	
 	SanPhamDAO spDao = new SanPhamDAO();
 	private int maSanPham;
 	private SanPham sanPham;
-	private List<SanPham> dsSanPham;
+	private List<SanPham> listSanPham;
+	private SanPhamTieuChi tieuChi;
+	
 	public String execute(){
-		dsSanPham = spDao.layDanhSach();
+		listSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
 	
 	public String chiTiet(){
 		sanPham = spDao.lay(maSanPham);
+		return SUCCESS;
+	}
+	
+	public String timNhanh(){
+		System.out.println(tieuChi.getLoaiSanPham()+ " - " + tieuChi.getGiaDuoi());
+		
+		listSanPham = spDao.timKiem(getTieuChi());
+		System.out.println(listSanPham.size());
 		return SUCCESS;
 	}
 
@@ -45,12 +57,12 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		this.sanPham = sanPham;
 	}
 
-	public List<SanPham> getDsSanPham() {
-		return dsSanPham;
+	public List<SanPham> getListSanPham() {
+		return listSanPham;
 	}
 
-	public void setDsSanPham(List<SanPham> dsSanPham) {
-		this.dsSanPham = dsSanPham;
+	public void setListSanPham(List<SanPham> listSanPham) {
+		this.listSanPham = listSanPham;
 	}
 
 	public int getMaSanPham() {
@@ -68,5 +80,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		}else{
 			sanPham = new SanPham();
 		}
+	}
+
+	public SanPhamTieuChi getTieuChi() {
+		return tieuChi;
+	}
+
+	public void setTieuChi(SanPhamTieuChi tieuChi) {
+		this.tieuChi = tieuChi;
 	}
 }

@@ -58,7 +58,6 @@ public class SanPhamDAO extends AbstractDAO {
 					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
 			query.setParameter("dm", danhMuc);
 
-			// int soSanPhamTrenTrang = new ThamSoDAO().lay(1).getGiaTri();
 			int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 			int batDau = (trang - 1) * soSanPhamTrenTrang;
 			
@@ -97,8 +96,9 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
 			
-			String hql = "from SanPham as sp where lower(sp.tenSanPham) like :ten and "
-			+ "(sp.gia >=:min and sp.gia <=:max) and sp.loaiSanPham like :loai";
+			String hql = "from SanPham as sp where lower(sp.tenSanPham) like :ten"
+			+ " and (sp.gia >=:min and sp.gia <=:max)"
+			+ " and sp.loaiSanPham like :loai";
 			
 			Query query = session.createQuery(hql)
 			.setParameter("ten", ten)
