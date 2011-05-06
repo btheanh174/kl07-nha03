@@ -9,11 +9,11 @@
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
 		<label>Tìm sản phẩm theo loại, tên và khoảng giá</label>
-		<s:form action="Product_timNhanh" method="post">
-			<s:select list="#{'1':'Điện thoại', '2':'Laptop'}" label="Loại sản phẩm"></s:select>
-			<s:textfield name="tenSanPham" label="Tên sản phẩm"></s:textfield>
-			<s:textfield name="giaDuoi" label="Giá từ"></s:textfield>
-			<s:textfield name="giaDen" label="Đến"></s:textfield>
+		<s:form action="SanPham_timNhanh" method="post">
+			<s:select name="tieuChi.loaiSanPham" list="#{'DIENTHOAI':'Điện thoại', 'LAPTOP':'Laptop'}" label="Loại sản phẩm"></s:select>
+			<s:textfield name="tieuChi.tenSanPham" label="Tên sản phẩm"></s:textfield>
+			<s:textfield name="tieuChi.giaDuoi" label="Giá từ"></s:textfield>
+			<s:textfield name="tieuChi.giaTren" label="Đến"></s:textfield>
 			<s:submit value="Tìm kiếm"></s:submit>
 		</s:form>
 	</div>

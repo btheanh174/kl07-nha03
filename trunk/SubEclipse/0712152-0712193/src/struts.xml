@@ -109,6 +109,11 @@
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
 		
+		<action name="SanPham_timNhanh" class="action.SanPhamAction" method="timNhanh">
+			<result name="success" type="tiles">Products.tiles</result>
+			<result name="input" type="redirect">show3_admin_product_search.action</result>
+		</action>
+		
 		<action name="DienThoai_timKiem_populate" class="action.DienThoaiTimKiemAction" method="populate">
 			<result name="populate" type="tiles">DienThoai.Search.tiles</result>
 		</action>

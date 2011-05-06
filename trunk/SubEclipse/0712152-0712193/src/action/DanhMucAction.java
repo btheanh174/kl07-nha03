@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+
 import model.dao.DanhMucDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
@@ -21,10 +24,11 @@ public class DanhMucAction extends ActionSupport implements
 	 */
 	private static final long serialVersionUID = 648498833054826561L;
 	DanhMucDAO dmDao = new DanhMucDAO();
+	SanPhamDAO spDao = new SanPhamDAO();
 	private int maDanhMuc;
 	private DanhMuc danhMuc;
 
-	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
+	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
 	private List<SanPham> listSanPham = new ArrayList<SanPham>();
 	private List<DanhMuc> dsDanhMuc;
 	private List<DanhMuc> dsDanhMucShow;
@@ -33,7 +37,9 @@ public class DanhMucAction extends ActionSupport implements
 	private DanhMuc danhMucGoc;
 
 	public String Chitiet() {
-		dsSanPham = danhMuc.getDsSanPham();
+		System.out.println("Chi tiet");
+		danhMuc  = dmDao.lay(maDanhMuc);
+		
 		return SUCCESS;
 	}
 
@@ -78,11 +84,13 @@ public class DanhMucAction extends ActionSupport implements
 	}
 
 	public String layDanhSachSanPham() {
-		SanPhamDAO spDao = new SanPhamDAO();
+		System.out.println("Lay danh sach");
 		DanhMuc danhMuc = dmDao.lay(maDanhMuc);
 		listSanPham = spDao.layDanhSach(danhMuc);
 		return SUCCESS;
 	}
+	
+	
 
 	public List<SanPham> getListSanPham() {
 		return listSanPham;
@@ -117,11 +125,13 @@ public class DanhMucAction extends ActionSupport implements
 		this.danhMuc = danhMuc;
 	}
 
-	public Set<SanPham> getDsSanPham() {
+	
+
+	public List<SanPham> getDsSanPham() {
 		return dsSanPham;
 	}
 
-	public void setDsSanPham(Set<SanPham> dsSanPham) {
+	public void setDsSanPham(List<SanPham> dsSanPham) {
 		this.dsSanPham = dsSanPham;
 	}
 
@@ -133,8 +143,7 @@ public class DanhMucAction extends ActionSupport implements
 	@Override
 	public void prepare() throws Exception {
 		if (maDanhMuc != 0) {
-			danhMuc = new DanhMucDAO().lay(maDanhMuc);
-			dsSanPham = danhMuc.getDsSanPham();
+			danhMuc = dmDao.lay(maDanhMuc);
 		} else {
 			danhMuc = new DanhMuc();
 		}
