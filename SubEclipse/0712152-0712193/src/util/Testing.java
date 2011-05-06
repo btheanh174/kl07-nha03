@@ -224,7 +224,7 @@ public class Testing {
 		SanPhamDAO spDao = new SanPhamDAO();
 		SanPham sp = spDao.lay(12);
 		System.out.println(sp.getLoaiSanPham());
-		SanPhamTieuChi tieuChi = new SanPhamTieuChi("NOKIa", 120000000, 1, "DIENTHOAI");
+		SanPhamTieuChi tieuChi = new SanPhamTieuChi("", "", "1", "DIENTHOAI");
 		List<SanPham> list = spDao.timKiem(tieuChi);
 		System.out.println(list.size());
 	}
