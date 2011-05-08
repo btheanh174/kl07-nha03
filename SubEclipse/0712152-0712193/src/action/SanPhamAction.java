@@ -6,6 +6,7 @@ import java.util.List;
 
 import model.dao.SanPhamDAO;
 import model.dao.ThamSoDAO;
+import model.pojo.DuLieuTrang;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
@@ -41,7 +42,8 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	public String timNhanh(){
 		System.out.println(tieuChi.toString());
 		System.out.println("Trang hien tai = " +  trang);
-		listSanPham = spDao.timKiem(getTieuChi(), trang);
+		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang);
+		listSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
 
