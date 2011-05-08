@@ -48,6 +48,10 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		listSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
+	
+	public String timNangCao(){
+		return SUCCESS;
+	}
 
 	@Override
 	public SanPham getModel() {
