@@ -181,9 +181,12 @@ public class SanPhamDAO extends AbstractDAO {
 			.setParameter("min", tieuChi.getGiaDuoi())
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
+			int temp = query.list().size();
 			
-			int tongSoTrang = query.list().size();
-			
+			int tongSoTrang = temp / soSanPhamTrenTrang;
+			if(temp % soSanPhamTrenTrang != 0){
+				tongSoTrang++;
+			}
 			kq = new DuLieuTrang(tongSoTrang);
 			
 			int batdau = (trang - 1) * soSanPhamTrenTrang;
