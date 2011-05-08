@@ -27,6 +27,7 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private List<SanPham> listSanPham;
 	private SanPhamTieuChi tieuChi;
 	private int trang = 1;
+	private int tongSoTrang;
 	private List<Integer> soTrang = new ArrayList<Integer>();
 	
 	public String execute(){
@@ -43,6 +44,7 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		System.out.println(tieuChi.toString());
 		System.out.println("Trang hien tai = " +  trang);
 		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang);
+		tongSoTrang = duLieuTrang.getTongSoTrang();
 		listSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
@@ -105,11 +107,22 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	}
 
 	public List<Integer> getSoTrang() {
+		for(int i = 1; i <= getTongSoTrang(); i++){
+			soTrang.add(i);
+		}
 		return soTrang;
 	}
 
 	public void setSoTrang(List<Integer> soTrang) {
 		this.soTrang = soTrang;
+	}
+
+	public int getTongSoTrang() {
+		return tongSoTrang;
+	}
+
+	public void setTongSoTrang(int tongSoTrang) {
+		this.tongSoTrang = tongSoTrang;
 	}
 	
 }

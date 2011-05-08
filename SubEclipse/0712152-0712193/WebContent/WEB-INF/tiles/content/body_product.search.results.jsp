@@ -4,14 +4,13 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <%
-int trang = 1;
-if(request.getParameter("trang") != null){
-	session.setAttribute("trang", request.getParameter("trang"));
-	trang = Integer.parseInt(request.getParameter("trang"));
-}else{
-	session.setAttribute("trang", 1);
-}
-
+	int trang = 1;
+	if (request.getParameter("trang") != null) {
+		session.setAttribute("trang", request.getParameter("trang"));
+		trang = Integer.parseInt(request.getParameter("trang"));
+	} else {
+		session.setAttribute("trang", 1);
+	}
 %>
 
 <div class="center_title_bar">Kết quả tìm kiếm</div>
@@ -20,12 +19,31 @@ if(request.getParameter("trang") != null){
 	<div class="center_prod_box_big">
 		<s:if test="listSanPham.size() > 0">
 			<s:form>
-				
 				<div style="text-align: center;">
+					<%--
 					<font><span>Trang:</span> </font>
-					<s:a href="SanPham_timNhanh?trang=">&lt;&lt;</s:a>
-					<s:a href="">[<s:property value="trang"/>]</s:a>
-					<s:a href="SanPham_timNhanh?trang=2">&gt;&gt;</s:a>
+					 <s:url id="timNhanh" action="SanPham_timNhanh">
+						<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
+						<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
+						<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
+						<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
+						<s:param name="trang" value="trang"></s:param>
+					</s:url>
+					<s:a href="%{timNhanh}">&lt;&lt;</s:a>
+					<s:a href="%{timNhanh}">[<s:property value="trang" />]</s:a>
+					<s:a href="%{timNhanh}">&gt;&gt;</s:a>
+					trong tổng số <s:property value="tongSoTrang"/> trang --%>
+					
+					Trang:<s:iterator  value="soTrang" status="stat">
+						<s:url id="timNhanh" action="SanPham_timNhanh">
+							<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
+							<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
+							<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
+							<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
+							<s:param name="trang" value="%{#stat.count}"></s:param>
+						</s:url>
+						<s:a href="%{timNhanh}">[<s:property/>]</s:a>	
+					</s:iterator>
 				</div>
 
 				<table>
@@ -42,12 +60,13 @@ if(request.getParameter("trang") != null){
 								<td class="col_2">
 									<div class="picture_small">
 										<a href="" class="tooltip"><img src="" alt=""> </a>
-									</div></td>
+									</div>
+								</td>
 								<td class="col_3">
 									<div class="name">
-										<a href=""> <s:property value="tenSanPham"/> Dell Inspiron 14r (Intel Core i3-350M
-											2.26GHz, 2GB RAM, 320GB HDD, VGA Intel HD Graphics, 14.1
-											inch, PC DOS)</a>
+										<a href=""> <s:property value="tenSanPham" /> Dell
+											Inspiron 14r (Intel Core i3-350M 2.26GHz, 2GB RAM, 320GB HDD,
+											VGA Intel HD Graphics, 14.1 inch, PC DOS)</a>
 									</div>
 									<div class="teaser">
 										<a href=""><em>Dell 14 N4030</em> </a>, <a href=""><em>Dell
@@ -79,13 +98,17 @@ if(request.getParameter("trang") != null){
 											src="http://static.vatgia.com/css/multi_css_v2/standard/blank.gif">
 										</a>
 									</div>
-									<div class="clear"></div></td>
+									<div class="clear"></div>
+								</td>
 								<td class="col_4">
-									<div class="price"> <s:property value="gia"/> </div>
+									<div class="price">
+										<s:property value="gia" />
+									</div>
 									<div class="price_usd"></div>
 									<div>
 										<a href="" class="text_link">Có <b>1</b> gian hàng bán</a>
-									</div></td>
+									</div>
+								</td>
 							</tr>
 
 						</s:iterator>
