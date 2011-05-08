@@ -3,16 +3,29 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
+<%
+int trang = 1;
+if(request.getParameter("trang") != null){
+	session.setAttribute("trang", request.getParameter("trang"));
+	trang = Integer.parseInt(request.getParameter("trang"));
+}else{
+	session.setAttribute("trang", 1);
+}
+
+%>
+
 <div class="center_title_bar">Kết quả tìm kiếm</div>
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:if test="dsSanPham.size() > 0">
+		<s:if test="listSanPham.size() > 0">
 			<s:form>
+				
 				<div style="text-align: center;">
-					<font><span>Trang:</span> </font><font class="page_current"
-						title="Trang 1">[1]</font> <a class="page" href="" title="Trang 2">2</a>
-					<a class="page" href="" title="Trang 3">3</a>
+					<font><span>Trang:</span> </font>
+					<s:a href="SanPham_timNhanh?trang=">&lt;&lt;</s:a>
+					<s:a href="">[<s:property value="trang"/>]</s:a>
+					<s:a href="SanPham_timNhanh?trang=2">&gt;&gt;</s:a>
 				</div>
 
 				<table>
@@ -23,7 +36,7 @@
 							<td class="col_3" align="center">Tên sản phẩm</td>
 							<td class="col_4" align="center">Giá bán</td>
 						</tr>
-						<s:iterator value="dsSanPham" status="spStatus">
+						<s:iterator value="listSanPham" status="spStatus">
 							<tr class="tr">
 								<td class="col_1"></td>
 								<td class="col_2">
@@ -32,7 +45,7 @@
 									</div></td>
 								<td class="col_3">
 									<div class="name">
-										<a href=""> <s:property value="tenSanPham"/> (Intel Core i3-350M
+										<a href=""> <s:property value="tenSanPham"/> Dell Inspiron 14r (Intel Core i3-350M
 											2.26GHz, 2GB RAM, 320GB HDD, VGA Intel HD Graphics, 14.1
 											inch, PC DOS)</a>
 									</div>
