@@ -3,6 +3,7 @@ package model.dao;
 import java.util.List;
 
 import model.pojo.DanhMuc;
+import model.pojo.DuLieuTrang;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
@@ -120,7 +121,7 @@ public class SanPhamDAO extends AbstractDAO {
 	}
 	
 
-	public List<SanPham> timKiem(SanPhamTieuChi tieuChi, int trang){
+	/*public List<SanPham> timKiem(SanPhamTieuChi tieuChi, int trang){
 		List<SanPham> kq = null;
 		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 		try{
@@ -157,4 +158,54 @@ public class SanPhamDAO extends AbstractDAO {
 		}
 		return kq;
 	}
+	*/
+
+	public DuLieuTrang timKiem(SanPhamTieuChi tieuChi, int trang){
+		DuLieuTrang kq = null;
+		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
+			String loai = "%" + tieuChi.getLoaiSanPham().toUpperCase() + "%";
+			
+			String hql = "from SanPham as sp "
+			+ "where lower(sp.tenSanPham) like :ten "
+			+ "and ((" + "".equals(tieuChi.getGiaDuoi()) + ") or (sp.gia >=:min)) "
+			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) "
+			+ "and sp.loaiSanPham like :loai";
+			
+			Query query = session.createQuery(hql)
+			.setParameter("ten", ten)
+			.setParameter("min", tieuChi.getGiaDuoi())
+			.setParameter("max", tieuChi.getGiaTren())
+			.setParameter("loai", loai);
+			
+			int tongSoTrang = query.list().size();
+			
+			kq = new DuLieuTrang(tongSoTrang);
+			
+			int batdau = (trang - 1) * soSanPhamTrenTrang;
+			
+			query.setFirstResult(batdau);
+			query.setMaxResults(soSanPhamTrenTrang);
+			
+			kq.setBatdau(batdau);
+			kq.setTrangHienTai(trang);
+			kq.setDsDuLieu(query.list());
+			kq.setLaTrangCuoi(false);
+			if(trang * soSanPhamTrenTrang >= tongSoTrang){
+				kq.setLaTrangCuoi(true);
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+
 }
