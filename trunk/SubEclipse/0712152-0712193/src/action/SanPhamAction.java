@@ -1,13 +1,14 @@
 package action;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -22,11 +23,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	SanPhamDAO spDao = new SanPhamDAO();
 	private int maSanPham;
 	private SanPham sanPham;
-	private List<SanPham> dsSanPham;
+	private List<SanPham> listSanPham;
 	private SanPhamTieuChi tieuChi;
+	private int trang = 1;
+	private List<Integer> soTrang = new ArrayList<Integer>();
 	
 	public String execute(){
-		dsSanPham = spDao.layDanhSach();
+		listSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
 	
@@ -37,8 +40,8 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	
 	public String timNhanh(){
 		System.out.println(tieuChi.toString());
-		dsSanPham = spDao.timKiem(getTieuChi());
-		System.out.println(dsSanPham.size());
+		System.out.println("Trang hien tai = " +  trang);
+		listSanPham = spDao.timKiem(getTieuChi(), trang);
 		return SUCCESS;
 	}
 
@@ -56,13 +59,14 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		this.sanPham = sanPham;
 	}
 
+	
 
-	public List<SanPham> getDsSanPham() {
-		return dsSanPham;
+	public List<SanPham> getListSanPham() {
+		return listSanPham;
 	}
 
-	public void setDsSanPham(List<SanPham> dsSanPham) {
-		this.dsSanPham = dsSanPham;
+	public void setListSanPham(List<SanPham> listSanPham) {
+		this.listSanPham = listSanPham;
 	}
 
 	public int getMaSanPham() {
@@ -89,4 +93,21 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	public void setTieuChi(SanPhamTieuChi tieuChi) {
 		this.tieuChi = tieuChi;
 	}
+
+	public int getTrang() {
+		return trang;
+	}
+
+	public void setTrang(int trang) {
+		this.trang = trang;
+	}
+
+	public List<Integer> getSoTrang() {
+		return soTrang;
+	}
+
+	public void setSoTrang(List<Integer> soTrang) {
+		this.soTrang = soTrang;
+	}
+	
 }

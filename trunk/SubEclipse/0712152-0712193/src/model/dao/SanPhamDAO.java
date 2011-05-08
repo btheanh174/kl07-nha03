@@ -109,6 +109,44 @@ public class SanPhamDAO extends AbstractDAO {
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
 			
+			tx.commit();
+			kq = query.list();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+
+	public List<SanPham> timKiem(SanPhamTieuChi tieuChi, int trang){
+		List<SanPham> kq = null;
+		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
+			String loai = "%" + tieuChi.getLoaiSanPham().toUpperCase() + "%";
+			
+			String hql = "from SanPham as sp "
+			+ "where lower(sp.tenSanPham) like :ten "
+			+ "and ((" + "".equals(tieuChi.getGiaDuoi()) + ") or (sp.gia >=:min)) "
+			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) "
+			+ "and sp.loaiSanPham like :loai";
+			
+			Query query = session.createQuery(hql)
+			.setParameter("ten", ten)
+			.setParameter("min", tieuChi.getGiaDuoi())
+			.setParameter("max", tieuChi.getGiaTren())
+			.setParameter("loai", loai);
+			
+			
+			int batdau = (trang - 1) * soSanPhamTrenTrang;
+			
+			query.setFirstResult(batdau);
+			query.setMaxResults(soSanPhamTrenTrang);
 			
 			kq = query.list();
 			tx.commit();
