@@ -8,9 +8,9 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:form method="post" action="DienThoai_timKiem">
+		<s:form method="get" action="SanPham_timNangCao">
 			<s:actionerror />
-			
+			<s:hidden name="loaiSanPham" value="DIENTHOAI"></s:hidden>
 			<table width="500" cellspacing="0" cellpadding="0" border="0"
 				align="center">
 				<tbody>
@@ -23,7 +23,7 @@
 									<tr>
 										<td width="177"></td>
 										<td width="211" style="padding-bottom: 4px;"><s:textfield
-												label="Tên sản phẩm" name="tenSanPham"></s:textfield></td>
+												label="Tên sản phẩm" name="dienthoaiTieuChi.tenSanPham"></s:textfield></td>
 									</tr>
 								</tbody>
 							</table></td>
@@ -45,27 +45,27 @@
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
 											<s:select name="hangSanXuat" label="Hãng sản xuất"
 												list="dsHangSanXuat" headerValue="--[Bạn hãy chọn]--">
-											</s:select> <input type="hidden" value=":" name="c1"></td>
+											</s:select>
+										</td>
 									</tr>
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select name="mang"
-												label="Mạng" list="dsMang"></s:select> <input
-											type="hidden" value="=" name="c2"></td>
+												label="Mạng" list="dsMang"></s:select>
+										</td>
 									</tr>
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
 												label="Kiểu dáng" list="dsKieuDang"
-												name="kieuDang"></s:select> <input type="hidden" value="="
-											name="c3">
+												name="kieuDang"></s:select>
 										</td>
 									</tr>
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
 												name="trongLuong" label="Trọng lượng (<)"
-												list="{'--[Bạn hãy chọn]--','100g','200g','300g'}"></s:select>
+												list="#{'0':'--[Bạn hãy chọn]--','100':'100g','200':'200g','300':'300g'}"></s:select>
 											<input type="hidden" value="&lt;" name="c5">
 										</td>
 									</tr>
@@ -120,8 +120,8 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="soDiaChi" label="Sổ địa chỉ (>)"
-												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
+											<s:select name="sim" label="Số sim"
+												list="#{'0':'--[Bạn hãy chọn]--','1':'1 Sim','2':'2 Sim'}"></s:select> <input
 											type="hidden" value="&gt;" name="c11">
 										</td>
 									</tr>
@@ -253,7 +253,7 @@
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
 												name="thoiGianCho" label="Thời gian chờ (>)"
-												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
+												list="dsThoiGianCho"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
 									</tr>

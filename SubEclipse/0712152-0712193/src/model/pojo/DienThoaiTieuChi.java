@@ -5,13 +5,13 @@ public class DienThoaiTieuChi {
 	private String tenSanPham;
 	private String hangSanXuat;
 	private String mang;
+	private String kieuDang;
 	private String trongLuong;
 	private String kichThuoc;
 	private String loaiManHinh;
 	private String doPhanGiai;
 	private String kieuChuong;
 	private String soSim;
-	private String soDiaChi;
 	private String boNhoTrong;
 	private String ram;
 	private String loaiTheNho;
@@ -31,23 +31,24 @@ public class DienThoaiTieuChi {
 	}
 
 	public DienThoaiTieuChi(String tenSanPham, String hangSanXuat, String mang,
-			String trongLuong, String kichThuoc, String loaiManHinh,
-			String doPhanGiai, String kieuChuong, String soSim,
-			String soDiaChi, String boNhoTrong, String ram, String loaiTheNho,
-			String heDieuHanh, String tinNhan, String mauSac, String camera,
-			String tinhNangCoBan, String pin, String thoiGianDamThoai,
-			String thoiGianCho, String giaDuoi, String giaTren) {
+			String kieuDang, String trongLuong, String kichThuoc,
+			String loaiManHinh, String doPhanGiai, String kieuChuong,
+			String soSim, String boNhoTrong, String ram,
+			String loaiTheNho, String heDieuHanh, String tinNhan,
+			String mauSac, String camera, String tinhNangCoBan, String pin,
+			String thoiGianDamThoai, String thoiGianCho, String giaDuoi,
+			String giaTren) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.hangSanXuat = hangSanXuat;
 		this.mang = mang;
+		this.kieuDang = kieuDang;
 		this.trongLuong = trongLuong;
 		this.kichThuoc = kichThuoc;
 		this.loaiManHinh = loaiManHinh;
 		this.doPhanGiai = doPhanGiai;
 		this.kieuChuong = kieuChuong;
 		this.soSim = soSim;
-		this.soDiaChi = soDiaChi;
 		this.boNhoTrong = boNhoTrong;
 		this.ram = ram;
 		this.loaiTheNho = loaiTheNho;
@@ -62,6 +63,7 @@ public class DienThoaiTieuChi {
 		this.giaDuoi = giaDuoi;
 		this.giaTren = giaTren;
 	}
+
 
 
 	public String getTenSanPham() {
@@ -136,13 +138,6 @@ public class DienThoaiTieuChi {
 		this.soSim = soSim;
 	}
 
-	public String getSoDiaChi() {
-		return soDiaChi;
-	}
-
-	public void setSoDiaChi(String soDiaChi) {
-		this.soDiaChi = soDiaChi;
-	}
 
 	public String getBoNhoTrong() {
 		return boNhoTrong;
@@ -247,5 +242,12 @@ public class DienThoaiTieuChi {
 	public void setGiaTren(String giaTren) {
 		this.giaTren = giaTren;
 	}
-	
+
+	public String getKieuDang() {
+		return kieuDang;
+	}
+
+	public void setKieuDang(String kieuDang) {
+		this.kieuDang = kieuDang;
+	}
 }

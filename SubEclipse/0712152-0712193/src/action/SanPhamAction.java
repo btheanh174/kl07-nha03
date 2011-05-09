@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.SanPhamDAO;
-import model.dao.ThamSoDAO;
+import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
+import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
@@ -25,7 +26,12 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private int maSanPham;
 	private SanPham sanPham;
 	private List<SanPham> listSanPham;
+	
 	private SanPhamTieuChi tieuChi;
+	private DienThoaiTieuChi dt = new DienThoaiTieuChi();
+	private LaptopTieuChi lt = new LaptopTieuChi();
+	private String loaiSanPham;
+	
 	private int trang = 1;
 	private int tongSoTrang;
 	private List<Integer> soTrang = new ArrayList<Integer>();
@@ -50,7 +56,22 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	}
 	
 	public String timNangCao(){
-		return SUCCESS;
+		
+		System.out.println(loaiSanPham);
+		if("DIENTHOAI".equalsIgnoreCase(loaiSanPham)){
+			System.out.println(dt.getTenSanPham());
+			DuLieuTrang duLieuTrang = spDao.timKiem(dt, trang);
+			tongSoTrang = duLieuTrang.getTongSoTrang();
+			listSanPham = duLieuTrang.getDsDuLieu();
+			return SUCCESS;
+		}else if("LAPTOP".equalsIgnoreCase(loaiSanPham)){
+			DuLieuTrang duLieuTrang = spDao.timKiem(lt, trang);
+			tongSoTrang = duLieuTrang.getTongSoTrang();
+			listSanPham = duLieuTrang.getDsDuLieu();
+			return SUCCESS;
+		}else{
+			return "error";
+		}
 	}
 
 	@Override
@@ -66,8 +87,6 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	public void setSanPham(SanPham sanPham) {
 		this.sanPham = sanPham;
 	}
-
-	
 
 	public List<SanPham> getListSanPham() {
 		return listSanPham;
@@ -102,6 +121,22 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		this.tieuChi = tieuChi;
 	}
 
+	public DienThoaiTieuChi getDt() {
+		return dt;
+	}
+
+	public void setDt(DienThoaiTieuChi dt) {
+		this.dt = dt;
+	}
+
+	public LaptopTieuChi getLt() {
+		return lt;
+	}
+
+	public void setLt(LaptopTieuChi lt) {
+		this.lt = lt;
+	}
+
 	public int getTrang() {
 		return trang;
 	}
@@ -128,5 +163,12 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	public void setTongSoTrang(int tongSoTrang) {
 		this.tongSoTrang = tongSoTrang;
 	}
-	
+
+	public String getLoaiSanPham() {
+		return loaiSanPham;
+	}
+
+	public void setLoaiSanPham(String loaiSanPham) {
+		this.loaiSanPham = loaiSanPham;
+	}
 }
