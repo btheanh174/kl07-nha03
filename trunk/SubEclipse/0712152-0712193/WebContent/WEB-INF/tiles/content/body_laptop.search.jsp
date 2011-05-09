@@ -8,7 +8,7 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:form method="post" action="">
+		<s:form method="get" action="Laptop_timKiem">
 			
 			<table width="500" cellspacing="0" cellpadding="0" border="0" align="center">
 				<tbody>
