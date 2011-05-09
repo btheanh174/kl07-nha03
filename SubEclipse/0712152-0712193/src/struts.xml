@@ -114,12 +114,18 @@
 			<result name="input" type="redirect">show3_admin_product_search.action</result>
 		</action>
 		
-		<action name="DienThoai_timKiem_populate" class="action.DienThoaiTimKiemAction" method="populate">
-			<result name="populate" type="tiles">DienThoai.Search.tiles</result>
+		<action name="SanPham_timKiem" class="action.XuLyTimKiemAction">
+			<result name="dienthoai" type="tiles">DienThoai.Search.tiles</result>
+			<result name="laptop" type="tiles">Laptop.Search.tiles</result>
+			<result name="error">/global/error.jsp</result>
 		</action>
 		
 		<action name="DienThoai_timKiem" class="action.DienThoaiTimKiemAction">
-			<result name="success"></result>
+			<result name="success">/admin/product/advancedsearch_results.jsp</result>
+		</action>
+		
+		<action name="Laptop_timKiem"  class="action.LaptopTimKiemAction">
+			<result name="success">/admin/product/advancedsearch_results.jsp</result>
 		</action>
 		<!-- End San pham -->
 

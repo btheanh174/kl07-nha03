@@ -218,15 +218,8 @@ public class Testing {
 		
 		//testSanPham();
 		
-		int kq = new ThamSoDAO().layGiaTri(1);
-		System.out.println(kq);
-		
-		SanPhamDAO spDao = new SanPhamDAO();
-		SanPham sp = spDao.lay(12);
-		System.out.println(sp.getLoaiSanPham());
-		SanPhamTieuChi tieuChi = new SanPhamTieuChi("", "", "1", "DIENTHOAI");
-		List<SanPham> list = spDao.timKiem(tieuChi);
-		System.out.println(list.size());
+		DienThoai dt = new DienThoaiDAO().lay(6);
+		System.out.println(dt.getLoaiSanPham());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
