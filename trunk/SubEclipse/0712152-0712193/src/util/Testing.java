@@ -218,8 +218,7 @@ public class Testing {
 		
 		//testSanPham();
 		
-		DienThoai dt = new DienThoaiDAO().lay(6);
-		System.out.println(dt.getLoaiSanPham());
+		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

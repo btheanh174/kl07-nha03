@@ -62,104 +62,110 @@
 						cellspacing="0">
 						<tr>
 							<td align="right">Hãng sản xuất:</td>
-							<td align="left">Samsung</td>
+							<td align="left"><s:property value="hangSanXuat"/></td>
 						</tr>
 						<tr>
 							<td align="right">Mạng:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>GSM850</li>
 									<li>GSM1800</li>
 									<li>GSM1900</li>
 									<li>HSDPA 2100</li>
 									<li>HSDPA 900</li>
 									<li>HSDPA 1900</li>
-								</ul></td>
+								</ul> -->
+								<s:property value="mang"/>
+							</td>
 						</tr>
 						<tr>
 							<td align="right">Kiểu dáng:</td>
-							<td align="left">Thẳng</td>
+							<td align="left"><s:property value="kieuDang"/></td>
 						</tr>
 						<tr>
 							<td align="right">Màn hình:</td>
-							<td align="left">16M Màu</td>
+							<td align="left"><s:property value="manHinh"/></td>
 						</tr>
 						<tr>
 							<td align="right">Độ phân giải:</td>
-							<td align="left">480 x 800 pixels</td>
+							<td align="left"><s:property value="doPhanGiai"/></td>
 						</tr>
 						<tr>
 							<td align="right">Hệ điều hành:</td>
-							<td align="left">Android OS</td>
+							<td align="left"><s:property value="heDieuHanh"/></td>
 						</tr>
 						<tr>
 							<td align="right">Bộ nhớ trong:</td>
-							<td align="left">8GB</td>
+							<td align="left"> <s:property value="boNhoTrong"/> </td>
 						</tr>
 						<tr>
 							<td align="right">Ram:</td>
-							<td align="left">512MB</td>
+							<td align="left"> <s:property value="ram"/> </td>
 						</tr>
 						<tr>
 							<td align="right">Tin nhắn:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>Email</li>
 									<li>Instant Messaging</li>
 									<li>MMS</li>
 									<li>SMS</li>
-								</ul></td>
+								</ul> -->
+								<s:property value="tinNhan"/>	
+							</td>
 						</tr>
 						<tr>
 							<td align="right">Trọng lượng:</td>
-							<td align="left">118g</td>
+							<td align="left"><s:property value="trongLuong"/></td>
 						</tr>
 						<tr>
 							<td align="right">Kích thước:</td>
-							<td align="left">122.2 x 64.2 x 9.9 mm</td>
+							<td align="left"><s:property value="kichThuoc"/></td>
 						</tr>
 						<tr>
 							<td align="right">Kiểu chuông:</td>
-							<td align="left">MP3, WAV, Nhạc chuông đa âm sắc</td>
+							<td align="left"><s:property value="kieuChuong"/></td>
 						</tr>
 						<tr>
 							<td align="right">Camera:</td>
-							<td align="left">5 Megapixel</td>
+							<td align="left"><s:property value="camera"/></td>
 						</tr>
 						<tr>
 							<td align="right">Màu sắc:</td>
-							<td align="left">Đen</td>
+							<td align="left"><s:property value="mauSac"/></td>
 						</tr>
 						<tr>
 							<td align="right">Pin:</td>
-							<td align="left">Li-po 1500mAh</td>
+							<td align="left"><s:property value="pin"/></td>
 						</tr>
 						<tr>
 							<td align="right">Thời gian đàm thoại:</td>
-							<td align="left">13.5 giờ</td>
+							<td align="left"><s:property value="thoiGianDamThoai"/></td>
 						</tr>
 						<tr>
 							<td align="right">Thời gian chờ:</td>
-							<td align="left">750 giờ</td>
+							<td align="left"><s:property value="thoiGianCho"/></td>
 						</tr>
 						<tr>
 							<td align="right">Số sim:</td>
-							<td align="left">1 Sim</td>
+							<td align="left"><s:property value="sim"/></td>
 						</tr>
 						<tr>
 							<td align="right">Loại thẻ nhớ tích hợp:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>MicroSD</li>
 									<li>TransFlash</li>
 									<li>EDGE</li>
 									<li>GPRS</li>
-								</ul></td>
+								</ul> -->
+								<s:property value="theNho"/>
+							</td>
 						</tr>
 						<tr>
 							<td align="right">Tính năng:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>Nghe nhạc</li>
 									<li>Cài đặt hình nền, nhạc chuông</li>
 									<li>Chỉnh sửa ảnh</li>
@@ -172,12 +178,14 @@
 									<li>MP4</li>
 									<li>Quay Video</li>
 									<li>Công nghệ 3G</li>
-								</ul></td>
+								</ul> -->
+								<s:property value="tinhNang"/>
+							</td>
 						</tr>
 						<tr>
 							<td align="right">Tính năng khác:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>- Accelerometer sensor for auto-rotate</li>
 									<li>- Proximity sensor for auto turn-off</li>
 									<li>- Swype text input</li>
@@ -189,7 +197,10 @@
 									<li>- Social networking integration</li>
 									<li>- Image/video editor</li>
 									<li>- Flash Lite v3.1</li>
-								</ul></td>
+								</ul> -->
+								
+								<s:property value="tinhNangKhac"/>
+							</td>
 						</tr>
 					</table>
 				</div>

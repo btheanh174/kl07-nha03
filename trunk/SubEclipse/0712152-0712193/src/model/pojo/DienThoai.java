@@ -16,7 +16,7 @@ public class DienThoai extends SanPham {
 	private String trongLuong;
 	private String kichThuoc;
 	private String kieuChuong;
-	private int rung; // 1: C� rung, 0: kh�ng rung
+	private int rung; // 1: Có rung, 0: không rung
 	private String camera;
 	private String mauSac;
 	private String pin;
@@ -97,6 +97,40 @@ public class DienThoai extends SanPham {
 		this.theNho = theNho;
 		this.tinhNang = tinhNang;
 		this.tinhNangKhac = tinhNangKhac;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		str.append("Hãng sản xuất: " + hangSanXuat + "/");
+		str.append("/Mạng: " + mang);
+		str.append("/Kiểu dáng: " + kieuDang);
+		str.append("/Màn hình: " + manHinh);
+		str.append("/Độ phân giải: " + doPhanGiai);
+		str.append("/Hệ điều hành: " + heDieuHanh);
+		str.append("/Bộ nhớ trong: " + boNhoTrong);
+		str.append("/Ram: " + ram);
+		str.append("/Tin nhắn: " + tinNhan);
+		str.append("/Trọng lượng: " + trongLuong);
+		str.append("/Kích thước: " + kichThuoc);
+		str.append("/Kiểu chuông: " + kieuChuong);
+		if(rung == 0){
+			str.append("/Rung: không");
+		}else{
+			str.append("/Rung: có");
+		}
+		str.append("/Camera: " + camera);
+		str.append("/Màu sắc: " + mauSac);
+		str.append("/Pin: " + pin);
+		str.append("Thời gian đàm thoại: " + thoiGianDamThoai);
+		str.append("/Thời gian chờ: "  + thoiGianCho);
+		str.append("/Sim: " + sim);
+		str.append("/Loại thẻ nhớ: " + theNho);
+		str.append("/Tính năng: " + tinhNang);
+		str.append("/Tính năng khác: " + tinhNangKhac);
+		
+		
+		return str.toString();
 	}
 
 	public int getMaSanPham() {

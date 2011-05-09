@@ -3,7 +3,9 @@ package model.dao;
 import java.util.List;
 
 import model.pojo.DanhMuc;
+import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
+import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
@@ -172,15 +174,143 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			String hql = "from SanPham as sp "
 			+ "where lower(sp.tenSanPham) like :ten "
+			+ "and sp.loaiSanPham like :loai"
 			+ "and ((" + "".equals(tieuChi.getGiaDuoi()) + ") or (sp.gia >=:min)) "
-			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) "
-			+ "and sp.loaiSanPham like :loai";
+			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) ";
 			
 			Query query = session.createQuery(hql)
 			.setParameter("ten", ten)
 			.setParameter("min", tieuChi.getGiaDuoi())
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
+			int temp = query.list().size();
+			
+			int tongSoTrang = temp / soSanPhamTrenTrang;
+			if(temp % soSanPhamTrenTrang != 0){
+				tongSoTrang++;
+			}
+			kq = new DuLieuTrang(tongSoTrang);
+			
+			int batdau = (trang - 1) * soSanPhamTrenTrang;
+			
+			query.setFirstResult(batdau);
+			query.setMaxResults(soSanPhamTrenTrang);
+			
+			kq.setBatdau(batdau);
+			kq.setTrangHienTai(trang);
+			kq.setDsDuLieu(query.list());
+			kq.setLaTrangCuoi(false);
+			if(trang * soSanPhamTrenTrang >= tongSoTrang){
+				kq.setLaTrangCuoi(true);
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	public DuLieuTrang timKiem(LaptopTieuChi tieuChi, int trang){
+		DuLieuTrang kq = null;
+		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String tatca = "--[Bạn hãy chọn]--";
+						
+			
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	public DuLieuTrang timKiem(DienThoaiTieuChi tieuChi, int trang){
+		DuLieuTrang kq = null;
+		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String tatca = "--[Bạn hãy chọn]--";
+						
+			String hql = "from SanPham as sp "
+			+ "left outer join DienThoai "
+			+ "where lower(sp.tenSanPham) like :ten "
+			+ "and sp.loaiSanPham like :loai "
+			+ "and (("+ tatca.equals(tieuChi.getHangSanXuat()) +") or (lower(sp.hangSanXuat) like :hangSanXuat)) "
+			+ "and (("+ tatca.equals(tieuChi.getMang()) +") or (lower(sp.mang) like :mang)) "
+			+ "and (("+ tatca.equals(tieuChi.getKieuDang()) +") or (lower(sp.kieuDang) like :kieuDang)) "
+			+ "and sp.trongLuong < :trongLuong "
+			+ "and sp.manHinh > :manHinh "
+			+ "and sp.doPhanGiai > :doPhanGiai "
+			+ "and (("+ tatca.equals(tieuChi.getKieuChuong()) +") or (lower(sp.kieuChuong) like :kieuChuong)) "
+			+ "and sp.sim = :sim "
+			+ "and (("+ tatca.equals(tieuChi.getLoaiTheNho()) +") or (lower(sp.theNho) like :theNho)) "
+			+ "and sp.boNhoTrong > :boNhoTrong "
+			+ "and sp.ram > :ram "
+			+ "and (("+ tatca.equals(tieuChi.getMauSac()) +") or (lower(sp.heDieuHanh) like :heDieuHanh)) "
+			+ "and (("+ tatca.equals(tieuChi.getTinNhan()) +") or (lower(sp.tinNhan) like :tinNhan)) "
+			+ "and sp.camera > :camera "
+			+ "and (("+ tatca.equals(tieuChi.getMauSac()) +") or (lower(sp.mauSac) like :mauSac)) "
+			+ "and (("+ tatca.equals(tieuChi.getTinhNangCoBan()) +") or (lower(sp.tinhNangCoBan) like :tinhNangCoBan)) "
+			+ "and sp.pin > :pin "
+			+ "and sp.thoiGianDamThoai > :thoiGianDamThoai "
+			+ "and sp.thoiGianCho > :thoiGianCho "
+			+ "and ((" + "".equals(tieuChi.getGiaDuoi()) + ") or (sp.gia >=:min)) "
+			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) ";
+			
+			String loaiSanPham = "DIENTHOAI";
+			String ten = "%" + tieuChi.getTenSanPham().toLowerCase() + "%";
+			String loai = "%" + loaiSanPham + "%";
+			
+			String hangSanXuat = "%"+ tieuChi.getHangSanXuat() +"%";
+			String mang = "%"+tieuChi.getMang()+"%";
+			String kieuDang = "%"+tieuChi.getKieuDang()+"%";
+			String kieuChuong = "%"+tieuChi.getKieuChuong()+"%";
+			String theNho = "%"+tieuChi.getLoaiTheNho()+"%";
+			String heDieuHanh = "%"+tieuChi.getHeDieuHanh()+"%";
+			String tinNhan = "%"+tieuChi.getTinNhan()+"%";
+			String mauSac = "%"+tieuChi.getMauSac()+"%";
+			String tinhNangCoBan = "%"+tieuChi.getTinhNangCoBan()+"%";
+			
+			Query query = session.createQuery(hql)
+			.setParameter("ten", ten)
+			.setParameter("min", tieuChi.getGiaDuoi())
+			.setParameter("max", tieuChi.getGiaTren())
+			.setParameter("loai", loai)
+			
+			// set parameter chuoi
+			.setParameter("hangSanXuat", hangSanXuat)
+			.setParameter("mang", mang)
+			.setParameter("kieuDang", kieuDang)
+			.setParameter("kieuChuong", kieuChuong)
+			.setParameter("theNho", theNho)
+			.setParameter("heDieuHanh", heDieuHanh)
+			.setParameter("tinNhan", tinNhan)
+			.setParameter("mauSac", mauSac)
+			.setParameter("tinhNangCoBan", tinhNangCoBan)
+			// set parameter so
+			.setParameter("sim", tieuChi.getSoSim())
+			.setParameter("trongLuong", tieuChi.getTrongLuong())
+			.setParameter("manHinh", tieuChi.getLoaiManHinh())
+			.setParameter("doPhanGiai", tieuChi.getDoPhanGiai())
+			.setParameter("boNhoTrong", tieuChi.getBoNhoTrong())
+			.setParameter("ram", tieuChi.getRam())
+			.setParameter("camera", tieuChi.getCamera())
+			.setParameter("pin", tieuChi.getPin())
+			.setParameter("thoiGianDamThoai", tieuChi.getThoiGianDamThoai())
+			.setParameter("thoiGianCho", tieuChi.getThoiGianCho());
+			
+			
 			int temp = query.list().size();
 			
 			int tongSoTrang = temp / soSanPhamTrenTrang;

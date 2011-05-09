@@ -31,6 +31,15 @@ public class SanPham {
 		this.danhMuc = danhMuc;
 		this.dsGianHang = dsGianHang;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		
+		return str.toString();
+	}
 
 	public int getMaSanPham() {
 		return maSanPham;

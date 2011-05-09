@@ -61,71 +61,73 @@
 						cellspacing="0">
 						<tr>
 							<td align="right">Hãng sản xuất:</td>
-							<td align="left">Sony Vaio 8 Series</td>
+							<td align="left"><s:property value="hangSanXuat"/> </td>
 						</tr>
 						<tr>
 							<td align="right">HDD:</td>
-							<td align="left">500 GB, 7200rpm</td>
+							<td align="left"><s:property value="hdd"/></td>
 						</tr>
 						<tr>
 							<td align="right">RAM:</td>
-							<td align="left">DDR3, 4GB</td>
+							<td align="left"><s:property value="ram"/></td>
 						</tr>
 						<tr>
 							<td align="right">CPU:</td>
-							<td align="left">Intel core i7, 2.5 GH</td>
+							<td align="left"><s:property value="cpu"/></td>
 						</tr>
 						<tr>
 							<td align="right">VGA:</td>
-							<td align="left">NVIDIA GeForce G 310M</td>
+							<td align="left"><s:property value="vga"/></td>
 						</tr>
 						<tr>
 							<td align="right">OS:</td>
-							<td align="left">Window 7 Home premium</td>
+							<td align="left"><s:property value="heDieuHanh"/></td>
 						</tr>
 						<tr>
 							<td align="right">Chuột:</td>
-							<td align="left">Touchpad</td>
+							<td align="left"><s:property value="chuot"/></td>
 						</tr>
 						<tr>
 							<td align="right">Cổng USB:</td>
-							<td align="left">3 x USB 2.0 port</td>
+							<td align="left"><s:property value="usb"/></td>
 						</tr>
 						<tr>
 							<td align="right">LAN:</td>
-							<td align="left">10/100/1000 Mbps</td>
+							<td align="left"><s:property value="lan"/></td>
 						</tr>
 						<tr>
 							<td align="right">WIFI:</td>
-							<td align="left">IEEE 802.1 a/b/g/n</td>
+							<td align="left"><s:property value="wifi"/></td>
 						</tr>
 						<tr>
 							<td align="right">Pin:</td>
-							<td align="left">6 cells</td>
+							<td align="left"><s:property value="pin"/></td>
 						</tr>
 						<tr>
 							<td align="right">Trọng lượng:</td>
-							<td align="left">2.5 kg</td>
+							<td align="left"><s:property value="trongLuong"/></td>
 						</tr>
 						<tr>
 							<td align="right">Độ phân giải:</td>
-							<td align="left">1366 x 768</td>
+							<td align="left"><s:property value="doPhanGiai"/></td>
 						</tr>
 						<tr>
 							<td align="right">Kích thước màn hình:</td>
-							<td align="left">13.3 inch</td>
+							<td align="left"><s:property value="kichThuocManHinh"/></td>
 						</tr>
 						<tr>
 							<td align="right">Tính năng khác:</td>
 							<td align="left">
-								<ul>
+								<!-- <ul>
 									<li>HDMI</li>
 									<li>Camera</li>
 									<li>Microphone</li>
 									<li>Headphone</li>
 									<li>Bluetooth</li>
 									<li>RJ-11 Modem</li>
-								</ul></td>
+								</ul> -->
+								<s:property value="tinhNangKhac"/>
+							</td>
 						</tr>
 					</table>
 				</div>

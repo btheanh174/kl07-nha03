@@ -1,11 +1,19 @@
 package action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import org.apache.commons.collections.map.HashedMap;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class XuLyTimKiemAction extends ActionSupport {
+public class XuLyTimKiemAction extends ActionSupport implements ServletContextListener{
 	
 	private String loaiSanPham;
 	/*
@@ -16,20 +24,20 @@ public class XuLyTimKiemAction extends ActionSupport {
 	private List<String> dsMang;
 	private List<String> dsKieuDang;
 	private List<String> dsTrongLuong;
-	private List<String> dsLoaiManHinh;
-	private List<String> dsDoPhanGiai;
+	private Map<String, String> dsLoaiManHinh;
+	private Map<String, String> dsDoPhanGiai;
 	private List<String> dsKieuChuong;
 	private List<String> dsLoaiTheNho;
 	private List<String> dsBoNhoTrong;
 	private List<String> dsRam;
 	private List<String> dsHeDieuHanh;
 	private List<String> dsTinNhan;
-	private List<String> dsCamera;
+	private Map<String, String> dsCamera;
 	private List<String> dsMauSac;
 	private List<String> dsTinhNangCoBan;
-	private List<String> dsPin;
-	private List<String> dsThoiGianCho;
-	private List<String> dsThoiGianDamThoai;
+	private Map<String, String> dsPin;
+	private Map<String, String> dsThoiGianCho;
+	private Map<String, String> dsThoiGianDamThoai;
 	
 	@Override
 	public String execute() throws Exception {
@@ -110,26 +118,24 @@ public class XuLyTimKiemAction extends ActionSupport {
 	}
 	
 	private void khoiTaoDsLoaiManHinh(){
-		dsLoaiManHinh = new ArrayList<String>();
-		dsLoaiManHinh.add("--[Bạn hãy chọn]--");
-		dsLoaiManHinh.add("Màn hình đơn sắc");
-		dsLoaiManHinh.add("65K màu");
-		dsLoaiManHinh.add("256K màu");
-		dsLoaiManHinh.add("16M màu");
-		dsLoaiManHinh.add("16.7M màu TFT");
-		
+		dsLoaiManHinh = new HashMap<String,String>();
+		dsLoaiManHinh.put("0", "--[Bạn hãy chọn]--");
+		dsLoaiManHinh.put("1", "Màn hình đơn sắc");
+		dsLoaiManHinh.put("65","65K màu");
+		dsLoaiManHinh.put("256", "256K màu");
+		dsLoaiManHinh.put("1600", "16M màu");
+		dsLoaiManHinh.put("1670", "16.7M màu TFT");
 	}
 	
 	private void khoiTaoDsDoPhanGiai(){
-		dsDoPhanGiai = new ArrayList<String>();
-		dsDoPhanGiai.add("--[Bạn hãy chọn]--");
-		dsDoPhanGiai.add("94 x 64 pixels");
-		dsDoPhanGiai.add("128 x 96 pixels");
-		dsDoPhanGiai.add("94 x 64 pixels");
-		dsDoPhanGiai.add("240 x 320 pixels");
-		dsDoPhanGiai.add("320 x 240 pixels");
-		dsDoPhanGiai.add("480 x 272 pixels");
-		dsDoPhanGiai.add("800 x 480 pixels");
+		dsDoPhanGiai = new HashMap<String, String>();
+		dsDoPhanGiai.put("0", "--[Bạn hãy chọn]--");
+		dsDoPhanGiai.put("94", "94 x 64 pixels");
+		dsDoPhanGiai.put("128", "128 x 96 pixels");
+		dsDoPhanGiai.put("240", "240 x 320 pixels");
+		dsDoPhanGiai.put("320", "320 x 240 pixels");
+		dsDoPhanGiai.put("480", "480 x 272 pixels");
+		dsDoPhanGiai.put("800", "800 x 480 pixels");
 	}
 	
 	private void khoiTaoDsKieuChuong(){
@@ -200,14 +206,14 @@ public class XuLyTimKiemAction extends ActionSupport {
 	}
 	
 	private void khoiTaoDsCamera(){
-		dsCamera = new ArrayList<String>();
-		dsCamera.add("--[Bạn hãy chọn]--");
-		dsCamera.add("1.3 Megapixel");
-		dsCamera.add("2 Megapixel");
-		dsCamera.add("3.2 Megapixel");
-		dsCamera.add("5 Megapixel");
-		dsCamera.add("8 Megapixel");
-		dsCamera.add("12 Megapixel");
+		dsCamera = new HashMap<String, String>();
+		dsCamera.put("0", "--[Bạn hãy chọn]--");
+		dsCamera.put("1.3", "1.3 Megapixel");
+		dsCamera.put("2", "2 Megapixel");
+		dsCamera.put("3.2", "3.2 Megapixel");
+		dsCamera.put("5", "5 Megapixel");
+		dsCamera.put("8", "8 Megapixel");
+		dsCamera.put("12", "12 Megapixel");
 	}
 	
 	private void khoiTaoDsMauSac(){
@@ -248,18 +254,18 @@ public class XuLyTimKiemAction extends ActionSupport {
 		dsTinhNangCoBan.add("Loa ngoài");
 	}
 	private void khoiTaoDsThoiGianDamThoai() {
-		dsThoiGianDamThoai = new ArrayList<String>();
-		dsThoiGianDamThoai.add("--[Bạn hãy chọn]--");
+		dsThoiGianDamThoai = new HashMap<String, String>();
+		dsThoiGianDamThoai.put("0", "--[Bạn hãy chọn]--");
 	}
 
 	private void khoiTaoDsThoiGianCho() {
-		dsThoiGianCho = new ArrayList<String>();
-		dsThoiGianCho.add("--[Bạn hãy chọn]--");
+		dsThoiGianCho = new HashMap<String, String>();
+		dsThoiGianCho.put("0", "--[Bạn hãy chọn]--");
 	}
 
 	private void khoiTaoDsPin() {
-		dsPin = new ArrayList<String>();
-		dsPin.add("--[Bạn hãy chọn]--");
+		dsPin = new HashMap<String, String>();
+		dsPin.put("0", "--[Bạn hãy chọn]--");
 	}
 
 	private void khoiTaoDsRam() {
@@ -311,21 +317,7 @@ public class XuLyTimKiemAction extends ActionSupport {
 		this.dsTrongLuong = dsTrongLuong;
 	}
 
-	public List<String> getDsLoaiManHinh() {
-		return dsLoaiManHinh;
-	}
 
-	public void setDsLoaiManHinh(List<String> dsLoaiManHinh) {
-		this.dsLoaiManHinh = dsLoaiManHinh;
-	}
-
-	public List<String> getDsDoPhanGiai() {
-		return dsDoPhanGiai;
-	}
-
-	public void setDsDoPhanGiai(List<String> dsDoPhanGiai) {
-		this.dsDoPhanGiai = dsDoPhanGiai;
-	}
 
 	public List<String> getDsKieuChuong() {
 		return dsKieuChuong;
@@ -375,14 +367,6 @@ public class XuLyTimKiemAction extends ActionSupport {
 		this.dsTinNhan = dsTinNhan;
 	}
 
-	public List<String> getDsCamera() {
-		return dsCamera;
-	}
-
-	public void setDsCamera(List<String> dsCamera) {
-		this.dsCamera = dsCamera;
-	}
-
 	public List<String> getDsMauSac() {
 		return dsMauSac;
 	}
@@ -399,27 +383,78 @@ public class XuLyTimKiemAction extends ActionSupport {
 		this.dsTinhNangCoBan = dsTinhNangCoBan;
 	}
 
-	public List<String> getDsPin() {
+	public Map<String, String> getDsLoaiManHinh() {
+		return dsLoaiManHinh;
+	}
+
+	public void setDsLoaiManHinh(Map<String, String> dsLoaiManHinh) {
+		this.dsLoaiManHinh = dsLoaiManHinh;
+	}
+
+	public Map<String, String> getDsDoPhanGiai() {
+		return dsDoPhanGiai;
+	}
+
+	public void setDsDoPhanGiai(Map<String, String> dsDoPhanGiai) {
+		this.dsDoPhanGiai = dsDoPhanGiai;
+	}
+
+	public Map<String, String> getDsCamera() {
+		return dsCamera;
+	}
+
+	public void setDsCamera(Map<String, String> dsCamera) {
+		this.dsCamera = dsCamera;
+	}
+
+	public Map<String, String> getDsPin() {
 		return dsPin;
 	}
 
-	public void setDsPin(List<String> dsPin) {
+	public void setDsPin(Map<String, String> dsPin) {
 		this.dsPin = dsPin;
 	}
 
-	public List<String> getDsThoiGianCho() {
+	public Map<String, String> getDsThoiGianCho() {
 		return dsThoiGianCho;
 	}
 
-	public void setDsThoiGianCho(List<String> dsThoiGianCho) {
+	public void setDsThoiGianCho(Map<String, String> dsThoiGianCho) {
 		this.dsThoiGianCho = dsThoiGianCho;
 	}
 
-	public List<String> getDsThoiGianDamThoai() {
+	public Map<String, String> getDsThoiGianDamThoai() {
 		return dsThoiGianDamThoai;
 	}
 
-	public void setDsThoiGianDamThoai(List<String> dsThoiGianDamThoai) {
+	public void setDsThoiGianDamThoai(Map<String, String> dsThoiGianDamThoai) {
 		this.dsThoiGianDamThoai = dsThoiGianDamThoai;
+	}
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		
+		
+	}
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		ServletContext servletContext = sce.getServletContext();
+		// Dat gia tri cac Map vao application
+		//servletContext.setAttribute("dsTrongLuong", dsTrongLuong);
+		/*khoiTaoDsLoaiManHinh();
+		servletContext.setAttribute("dsLoaiManHinh", dsLoaiManHinh);
+		khoiTaoDsDoPhanGiai();
+		servletContext.setAttribute("dsDoPhanGiai", dsDoPhanGiai);
+		khoiTaoDsBoNhoTrong();
+		servletContext.setAttribute("dsBoNhoTrong", dsBoNhoTrong);
+		khoiTaoDsCamera();
+		servletContext.setAttribute("dsCamera", dsCamera);
+		khoiTaoDsPin();
+		servletContext.setAttribute("dsPin", dsPin);
+		khoiTaoDsThoiGianCho();
+		servletContext.setAttribute("dsThoiGianCho", dsThoiGianCho);
+		khoiTaoDsThoiGianDamThoai();
+		servletContext.setAttribute("dsThoiGianDamThoai", dsThoiGianDamThoai);*/
 	}
 }
