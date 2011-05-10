@@ -10,7 +10,7 @@
 		Giỏ hàng chưa có sản phẩm nào!
 		<s:a action="show_index">Tiếp tục mua</s:a>
 </s:if> <s:else>
-	<s:form method="post"
+	<s:form method="get"
 		action="GioHang_capNhat"
 		name="soLuong">
 	<table cellspacing="0" cellpadding="0" border="0" width="100%">

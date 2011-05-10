@@ -19,7 +19,7 @@
 		<li class="divider"></li>
 		<li><a href="<s:url action="show3_admin_category_index"/>" class="nav6">Quản lý category admin</a></li>
 			
-			
+		   	
 		<s:if test="#session['tk'] == null">
 			<li><a href="<s:url action="show_user_login"/>" class="nav4">Đăng nhập</a></li>
 		    <li class="right_divider"></li>
@@ -33,6 +33,7 @@
 		    </s:url>
 		    <li><a href="${showProfile}" class="nav4"><s:property value="#session['tk'].tenTruyCap"/></a></li>
 		</s:else>
+		
 		                   
      </ul>
 
