@@ -4,13 +4,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="center_title_bar">Giỏ hàng</div>
 <div class="prod_box_big">
-<div class="top_prod_box_big"></div>
-<div class="center_prod_box_big"><s:if
-	test="!#session['gioHang'] == null">
+	<div class="top_prod_box_big"></div>
+	<div class="center_prod_box_big">
+		<s:if test="!#session['gioHang'] == null">
 		Giỏ hàng chưa có sản phẩm nào!
 		<s:a action="show_index">Tiếp tục mua</s:a>
-</s:if> <s:else>
-	<s:form method="get"
+		</s:if>
+		<s:else>
+		<s:form method="get"
 		action="GioHang_capNhat"
 		name="soLuong">
 	<table cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -121,6 +122,7 @@
 		</tbody>
 	</table>
 	</s:form>
-</s:else></div>
-<div class="bottom_prod_box_big"></div>
+		</s:else>
+	</div>
+	<div class="bottom_prod_box_big"></div>
 </div>

@@ -127,5 +127,12 @@
 		
 		<!-- End San pham -->
 
+		<!-- Gio hang -->
+		
+		<action name="XuLyGioHang" class="action.GioHangAction">
+			<result name="success" type="tiles">ShoppingCart.tiles</result>
+		</action>
+		
+		<!--  -->
 	</package>
 </struts>
