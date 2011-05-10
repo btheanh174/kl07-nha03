@@ -4,53 +4,123 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="center_title_bar">Giỏ hàng</div>
 <div class="prod_box_big">
-	<div class="top_prod_box_big"></div>
-	<div class="center_prod_box_big">
-		<s:if test="#session['gioHang'] == null">
+<div class="top_prod_box_big"></div>
+<div class="center_prod_box_big"><s:if
+	test="!#session['gioHang'] == null">
 		Giỏ hàng chưa có sản phẩm nào!
 		<s:a action="show_index">Tiếp tục mua</s:a>
-		</s:if>
-		<s:else>
-			<s:form method="post" action="">
-				<table width="100%" border="1" align="center" bordercolor="#CCCCCC"
-					style="border-collapse: collapse;">
-					<tr class="table_header">
-						<th width="5%" scope="col">&nbsp;</th>
-						<th width="12%" scope="col">H&igrave;nh</th>
-						<th width="24%" scope="col">T&ecirc;n s&#7843;n ph&#7849;m</th>
-						<th width="25%" scope="col">S&#7889; l&#432;&#7907;ng</th>
-						<th width="21%" scope="col">&#272;&#417;n gi&aacute;</th>
-						<th width="13%" scope="col">Th&agrave;nh ti&#7873;n</th>
-					</tr>
-					<tr>
-						<td><label> <input name="ckbXoa" type="checkbox"
-								id="ckbXoa" value="checkbox" /> </label></td>
-						<td>SmallImage</td>
-						<td>iPhone 4 32GB Black</td>
-						<td align="center"><label> <input name="txtSoLuong"
-								type="text" id="txtSoLuong" value="1" align="right" /> </label></td>
-						<td align="right">17.800.000 VN&#272;</td>
-						<td align="right">17.800.000 VN&#272;</td>
-					</tr>
-					<tr>
-						<td colspan="6" align="right"><label></label> <label></label>
-							T&#7893;ng ti&#7873;n: 17.800.000 VN&#272;</td>
-					</tr>
-					<tr>
-						<td><input name="btnXoa" type="submit" id="btnXoa"
-							value="X&oacute;a" /></td>
-						<td colspan="3" align="center"><input name="btnCapNhat"
-							type="submit" id="btnCapNhat" value="C&#7853;p nh&#7853;t" /> <input
-							name="btnXoaHet" type="submit" id="btnXoaHet"
-							value="X&oacute;a h&#7871;t" /> <input name="btnTiepTucMua"
-							type="submit" id="btnTiepTucMua" value="Ti&#7871;p t&#7909;c mua" />
-						</td>
-						<td colspan="2" align="right"><input name="btnThanhToan"
-							type="submit" id="btnThanhToan" value="Thanh to&aacute;n" /></td>
-					</tr>
+</s:if> <s:else>
+	<s:form method="post"
+		action="GioHang_capNhat"
+		name="soLuong">
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		<tbody>
+			<tr>
+				<td>
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tbody>
+						<tr>
+							<td class="pageHeading"><b>Giỏ hàng của tôi</b></td>
+							<td align="right" class="pageHeading"></td>
+						</tr>
+					</tbody>
 				</table>
-			</s:form>
-		</s:else>
-	</div>
-	<div class="bottom_prod_box_big"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><!--  --> <!--  -->
+				<table cellspacing="0" cellpadding="0" border="0" width="100%"
+					class="productListing">
+					<tbody>
+						<tr>
+							<td align="center" class="productListing-heading">Xóa</td>
+							<td class="productListing-heading">Sản phẩm</td>
+							<td align="center" class="productListing-heading">Số lượng</td>
+							<td align="center" class="productListing-heading">Thành tiền</td>
+						</tr>
+						<tr class="productListing-even">
+							<td align="center" valign="top" class="productListing-data"><input
+								type="checkbox" value="1377" name="xoaSanPham"></td>
+							<td class="productListing-data">
+							<table cellspacing="2" cellpadding="2" border="0">
+								<tbody>
+									<tr>
+										<td align="center" class="productListing-data">
+											<a href="product_info.php?products_id=1377"></a>
+										</td>
+										<td valign="top" class="productListing-data">
+											<a href="product_info.php?products_id=1377"><b>Flashing Bouncy Ball</b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							</td>
+							<td align="center" valign="top" class="productListing-data">
+							<input type="text" size="4" value="1" name="soLuong">
+								<input type="hidden" value="1377" name="maSanPham">
+							</td>
+							<td align="center" valign="top" class="productListing-data"><b>£3.44</b></td>
+						</tr>
+					</tbody>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+				<table>
+				<tbody>
+				<tr>
+				<td align="right" width="100%"><b>Tổng số tiền: £3.44</b></td><td></td>
+				</tr>
+				</tbody>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+				<table cellspacing="1" cellpadding="2" border="0" width="100%"
+					class="infoBlankBox">
+					<tbody>
+						<tr class="infoBoxContents">
+							<td>
+							<table cellspacing="0" cellpadding="2" border="0" width="100%">
+								<tbody>
+									<tr>
+										<td width="10"></td>
+										<td class="main">
+											<s:a><img title="Update Cart" alt="UpdateCart" src="images/button_update_cart.gif"/></s:a>
+										</td>
+										<td class="main">
+											<s:a><img border="0"
+											title=" Continue Shopping " alt="Continue Shopping"
+											src="images/button_continue_shopping.gif"></s:a>
+										</td>
+										<td align="right" class="main">
+											<s:a><img
+											border="0" title=" Checkout " alt="Checkout"
+											src="images/button_checkout.gif"></s:a>
+										</td>
+										<td width="10"></td>
+									</tr>
+								</tbody>
+							</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</s:form>
+</s:else></div>
+<div class="bottom_prod_box_big"></div>
 </div>
