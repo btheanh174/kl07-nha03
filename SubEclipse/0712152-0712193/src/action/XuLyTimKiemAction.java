@@ -28,7 +28,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	private Map<String, String> dsDoPhanGiai;
 	private List<String> dsKieuChuong;
 	private List<String> dsLoaiTheNho;
-	private List<String> dsBoNhoTrong;
+	private Map<Integer, String> dsBoNhoTrong;
 	private List<String> dsRam;
 	private List<String> dsHeDieuHanh;
 	private List<String> dsTinNhan;
@@ -167,17 +167,17 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	}
 	
 	private void khoiTaoDsBoNhoTrong(){
-		dsBoNhoTrong = new ArrayList<String>();
-		dsBoNhoTrong.add("--[Bạn hãy chọn]--");
-		dsBoNhoTrong.add("10Mb");
-		dsBoNhoTrong.add("50Mb");
-		dsBoNhoTrong.add("100Mb");
-		dsBoNhoTrong.add("512Mb");
-		dsBoNhoTrong.add("1Gb");
-		dsBoNhoTrong.add("2Gb");
-		dsBoNhoTrong.add("4Gb");
-		dsBoNhoTrong.add("16Gb");
-		dsBoNhoTrong.add("64Gb");
+		dsBoNhoTrong = new HashMap<Integer, String>();
+		dsBoNhoTrong.put(0, "--[Bạn hãy chọn]--");
+		dsBoNhoTrong.put(10, "10Mb");
+		dsBoNhoTrong.put(50, "50Mb");
+		dsBoNhoTrong.put(100, "100Mb");
+		dsBoNhoTrong.put(512, "512Mb");
+		dsBoNhoTrong.put(1000, "1Gb");
+		dsBoNhoTrong.put(2000, "2Gb");
+		dsBoNhoTrong.put(4000, "4Gb");
+		dsBoNhoTrong.put(5000, "16Gb");
+		dsBoNhoTrong.put(64000, "64Gb");
 	}
 	
 	private void khoiTaoDsHeDieuHanh(){
@@ -335,11 +335,11 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 		this.dsLoaiTheNho = dsLoaiTheNho;
 	}
 
-	public List<String> getDsBoNhoTrong() {
+	public Map<Integer, String> getDsBoNhoTrong() {
 		return dsBoNhoTrong;
 	}
 
-	public void setDsBoNhoTrong(List<String> dsBoNhoTrong) {
+	public void setDsBoNhoTrong(Map<Integer, String> dsBoNhoTrong) {
 		this.dsBoNhoTrong = dsBoNhoTrong;
 	}
 

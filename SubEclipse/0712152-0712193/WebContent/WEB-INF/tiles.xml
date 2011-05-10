@@ -145,5 +145,13 @@
 			value="/WEB-INF/tiles/profile/body_newmessage.jsp"></put-attribute>
 	</definition>
 	<!-- End Profile layout -->
-
+	<!-- Shopping cart -->
+	
+	<definition name="ShoppingCart.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Giỏ hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_shoppingcart.jsp" />
+	</definition>
+	
+	<!--  -->
 </tiles-definitions>

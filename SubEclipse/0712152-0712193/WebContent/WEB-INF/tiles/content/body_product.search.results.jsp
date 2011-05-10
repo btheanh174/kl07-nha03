@@ -69,8 +69,7 @@
 											VGA Intel HD Graphics, 14.1 inch, PC DOS)</a>
 									</div>
 									<div class="teaser">
-										<a href=""><em>Dell 14 N4030</em> </a>, <a href=""><em>Dell
-												N4030</em> </a>.
+										<a href=""><em><s:property value="tenSanPham" /></em></a>.<s:property value="sanPham.toString()"/>
 									</div>
 									<div class="fl">
 										<div>

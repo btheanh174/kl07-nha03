@@ -37,8 +37,7 @@
 				<span class="price"> <s:property value="gia" /> </span>
 			</div>
 
-			<a href="#" class="addtocart">Thêm vào giỏ hàng</a> <a href="#"
-				class="compare">So sánh</a>
+			<a href="#" class="addtocart">Chọn mua</a>
 		</div>
 
 	</div>

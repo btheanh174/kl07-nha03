@@ -37,7 +37,7 @@ public class SanPham {
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		
+		str.append("Thông tin chi tiết sản phẩm");
 		return str.toString();
 	}
 

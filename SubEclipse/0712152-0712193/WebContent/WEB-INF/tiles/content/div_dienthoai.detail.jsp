@@ -39,8 +39,7 @@
 				</div>
 			</div>
 
-			<a href="#" class="addtocart">Thêm vào giỏ hàng</a> <a href="#"
-				class="compare">So sánh</a>
+			<a href="#" class="addtocart">Chọn mua</a>
 		</div>
 	</div>
 	<div class="bottom_prod_box_big"></div>
