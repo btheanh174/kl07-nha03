@@ -8,7 +8,8 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:form method="get" action="Laptop_timKiem">
+		<s:form method="get" action="SanPham_timNangCao">
+			<s:hidden name="loaiSanPham" value="LAPTOP"></s:hidden>
 			
 			<table width="500" cellspacing="0" cellpadding="0" border="0" align="center">
 				<tbody>
@@ -21,13 +22,13 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px;"><s:textfield
-												label="Tên sản phẩm" name="tenSanPham"></s:textfield></td>
+												label="Tên sản phẩm" name="lt.tenSanPham"></s:textfield></td>
 									</tr>
 									
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="hangSanXuat" label="Hãng sản xuất"
+											<s:select name="lt.hangSanXuat" label="Hãng sản xuất"
 												list="{'--[Bạn hãy chọn]--'}">
 											</s:select> <input type="hidden" value=":" name="c1"></td>
 									</tr>
@@ -35,7 +36,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="mainboard" label="Mainboard Chipset"
+											<s:select name="lt.mainboard" label="Mainboard Chipset"
 												list="{'--[Bạn hãy chọn]--'}">
 											</s:select> <input type="hidden" value=":" name="c1"></td>
 									</tr>
@@ -55,7 +56,7 @@
 								<tbody>
 									<tr>
 										<td width="130"></td>
-										<td width="145" style="padding-bottom: 4px; padding-top: 3px;"><s:select name="kichThuocManHinh"
+										<td width="145" style="padding-bottom: 4px; padding-top: 3px;"><s:select name="lt.kichThuocManHinh"
 												label="Độ lớn (>)" list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="=" name="c2"></td>
 									</tr>
@@ -64,7 +65,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="doPhanGiai" label="Độ phân giải (>)"
+												name="lt.doPhanGiai" label="Độ phân giải (>)"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c7" />
 										</td>
@@ -89,7 +90,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="hdd" label="Dung lượng (>)"
+											<s:select name="lt.hdd" label="Dung lượng (>)"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c11">
 										</td>
@@ -98,7 +99,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="soVongQuay" label="Số vòng quay"
+												name="lt.soVongQuay" label="Số vòng quay"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="=" name="c13">
 										</td>
@@ -124,7 +125,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="cpu" label="Loại CPU"
+											<s:select name="lt.cpu" label="Loại CPU"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value=":" name="c17">
 										</td>
@@ -132,7 +133,7 @@
 
 									<tr>
 										<td></td>
-										<td style="padding-bottom: 4px;"><s:select name="tocDo"
+										<td style="padding-bottom: 4px;"><s:select name="lt.tocDo"
 												label="Tốc độ (>)" list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="=" name="c20">
 										</td>
@@ -158,14 +159,14 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="chipset" label="Chipset"
+											<s:select name="lt.chipset" label="Chipset"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c24">
 										</td>
 									</tr>
 									<tr>
 										<td></td>
-										<td style="padding-bottom: 4px;"><s:select name="vga"
+										<td style="padding-bottom: 4px;"><s:select name="lt.vga"
 												label="Memory (>)" list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="=" name="c25">
 										</td>
@@ -191,7 +192,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="ram" label="Dung lượng (>)"
+											<s:select name="lt.ram" label="Dung lượng (>)"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c28">
 										</td>
@@ -200,7 +201,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="loaiRam" label="Loại"
+												name="lt.loaiRam" label="Loại"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
@@ -226,7 +227,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="lan" label="Lan"
+											<s:select name="lt.lan" label="Lan"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c28">
 										</td>
@@ -235,7 +236,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="wifi" label="Wifi"
+												name="lt.wifi" label="Wifi"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
@@ -260,7 +261,7 @@
 									<tr>
 										<td width="130"></td>
 										<td width="145" style="padding-bottom: 4px; padding-top: 3px;">
-											<s:select name="chuot" label="Chuột"
+											<s:select name="lt.chuot" label="Chuột"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c28">
 										</td>
@@ -269,7 +270,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="heDieuHanh" label="OS"
+												name="lt.heDieuHanh" label="OS"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
@@ -277,7 +278,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="trongLuong" label="Trọng lượng (<)"
+												name="lt.trongLuong" label="Trọng lượng (<)"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
@@ -285,7 +286,7 @@
 									<tr>
 										<td></td>
 										<td style="padding-bottom: 4px;"><s:select
-												name="pin" label="Pin"
+												name="lt.pin" label="Pin"
 												list="{'--[Bạn hãy chọn]--'}"></s:select> <input
 											type="hidden" value="&gt;" name="c30">
 										</td>
@@ -305,12 +306,11 @@
 			<table cellspacing="0" cellpadding="0" align="center">
 				<tbody>
 					<tr>
-						<td class="form_name">Giá từ :</td>
-						<td nowrap="nowrap" class="form_text"><input type="text" />
-						</td>
+						<td></td>
+						<td> <s:textfield label="Giá từ" name="lt.giaDuoi"></s:textfield> </td>
 						<td>VNĐ</td>
-						<td class="form_name">Đến :</td>
-						<td nowrap="nowrap" class="form_text"><input type="text" />
+						<td></td>
+						<td> <s:textfield label="Đến" name="lt.giaTren"></s:textfield>
 						</td>
 						<td>VNĐ</td>
 					</tr>

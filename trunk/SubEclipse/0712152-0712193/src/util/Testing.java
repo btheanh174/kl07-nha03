@@ -218,7 +218,6 @@ public class Testing {
 		
 		//testSanPham();
 		
-		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

@@ -174,9 +174,9 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			String hql = "from SanPham as sp "
 			+ "where lower(sp.tenSanPham) like :ten "
-			+ "and sp.loaiSanPham like :loai"
+			+ "and sp.loaiSanPham like :loai "
 			+ "and ((" + "".equals(tieuChi.getGiaDuoi()) + ") or (sp.gia >=:min)) "
-			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max)) ";
+			+ "and ((" + "".equals(tieuChi.getGiaTren()) + ") or (sp.gia <=:max))";
 			
 			Query query = session.createQuery(hql)
 			.setParameter("ten", ten)
