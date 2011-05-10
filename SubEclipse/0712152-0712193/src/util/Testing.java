@@ -1,6 +1,7 @@
  package util;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -218,6 +219,12 @@ public class Testing {
 		
 		//testSanPham();
 		
+		BigDecimal a = new BigDecimal(123);
+		BigDecimal b = new BigDecimal("123");
+		
+		a = a.add(b);
+		a = a.add(a);
+		System.out.println(a);
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
