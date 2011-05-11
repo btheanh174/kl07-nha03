@@ -99,8 +99,17 @@ public class DienThoai extends SanPham {
 		this.tinhNangKhac = tinhNangKhac;
 	}
 
+	
+	
 	@Override
-	public String toString() {
+	public String toShortString() {
+		StringBuilder str = new StringBuilder();
+		
+		return str.toString();
+	}
+
+	@Override
+	public String toLongString() {
 		StringBuilder str = new StringBuilder();
 		str.append("Hãng sản xuất: " + hangSanXuat + "/");
 		str.append("/Mạng: " + mang);

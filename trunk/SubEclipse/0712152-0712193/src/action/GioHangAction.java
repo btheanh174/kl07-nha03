@@ -20,11 +20,8 @@ public class GioHangAction extends ActionSupport implements ModelDriven<GioHang>
 	private Map<String, Object> session;
 	@Override
 	public String execute() throws Exception {
-		String action = servletRequest.getParameter("btnCapNhat"); 
-		if("capnhat".equals(action)){
-			
-		}
-		return super.execute();
+		
+		return SUCCESS;
 	}
 
 	public void capNhat(){

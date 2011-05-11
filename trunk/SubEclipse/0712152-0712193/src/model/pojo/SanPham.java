@@ -32,13 +32,12 @@ public class SanPham {
 		this.dsGianHang = dsGianHang;
 	}
 	
+	public String toShortString(){
+		return "";
+	}
 	
-
-	@Override
-	public String toString() {
-		StringBuilder str = new StringBuilder();
-		str.append("Thông tin chi tiết sản phẩm");
-		return str.toString();
+	public String toLongString() {
+		return "";
 	}
 
 	public int getMaSanPham() {

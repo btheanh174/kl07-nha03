@@ -49,6 +49,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 			if(hashedPassword.equals(storedPassword)){
 				
 				session.put("tk", tk);
+				session.put("nhomNguoiDung", tk.getNhomNguoiDung().getMaNhom());
 				session.put("context", new Date());
 				return SUCCESS;
 			}else{
