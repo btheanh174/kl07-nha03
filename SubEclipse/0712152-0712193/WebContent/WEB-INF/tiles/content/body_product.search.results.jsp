@@ -20,20 +20,6 @@
 		<s:if test="listSanPham.size() > 0">
 			<s:form>
 				<div style="text-align: center;">
-					<%--
-					<font><span>Trang:</span> </font>
-					 <s:url id="timNhanh" action="SanPham_timNhanh">
-						<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
-						<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
-						<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
-						<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
-						<s:param name="trang" value="trang"></s:param>
-					</s:url>
-					<s:a href="%{timNhanh}">&lt;&lt;</s:a>
-					<s:a href="%{timNhanh}">[<s:property value="trang" />]</s:a>
-					<s:a href="%{timNhanh}">&gt;&gt;</s:a>
-					trong tổng số <s:property value="tongSoTrang"/> trang --%>
-
 					Trang:
 					<s:iterator value="soTrang" status="stat">
 						<s:url id="timNhanh" action="SanPham_timNhanh">
@@ -61,17 +47,15 @@
 								<td class="col_2">
 									<div class="picture_small">
 										<a href="" class="tooltip"><img src="" alt=""> </a>
-									</div>
-								</td>
+									</div></td>
 								<td class="col_3">
 									<div class="name">
-										<a href=""> <s:property value="tenSanPham" /> <s:property value="toShortString()"/> </a>
+										<a href="#"><b style="color: blue;"> <s:property
+													value="toShortString()" /> </b> </a>
 									</div>
 									<div class="teaser">
 
-										<a href=""><em><s:property value="tenSanPham" />
-										</em>
-										</a>.
+										<a href=""><em><s:property value="tenSanPham" /> </em> </a>.
 										<s:property value="toLongString()" />
 									</div>
 									<div class="fl">
@@ -90,8 +74,7 @@
 											src="http://static.vatgia.com/css/multi_css_v2/standard/blank.gif">
 										</a>
 									</div>
-									<div class="clear"></div>
-								</td>
+									<div class="clear"></div></td>
 								<td class="col_4">
 									<div class="price">
 										<s:property value="gia" />
@@ -99,8 +82,7 @@
 									<div class="price_usd"></div>
 									<div>
 										<!-- <a href="" class="text_link">Có <b>1</b> gian hàng bán</a> -->
-									</div>
-								</td>
+									</div></td>
 							</tr>
 
 						</s:iterator>
