@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GioHang {
+public class GioHang{
 
 	private List<MonHang> dsMonHang = new ArrayList<MonHang>();
 	private BigDecimal tongTien;

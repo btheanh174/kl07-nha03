@@ -58,7 +58,7 @@
 	</s:else>
 	
 	<li class="right_divider"></li>
-	<li><a href="<s:url action="show3_content_shoppingcart_shoppingcart"/>" class="right_nav3">Giỏ hàng</a>
+	<li><a href="<s:url action="XemGioHang"/>" class="right_nav3">Giỏ hàng</a>
 	</li>
 	
 
