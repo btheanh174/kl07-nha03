@@ -13,6 +13,15 @@
 		<put-attribute name="center" value="/WEB-INF/tiles/center.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
+	
+	
+	<definition name="adminLayout" template="/WEB-INF/tiles/adminLayout.jsp">
+		<put-attribute name="pageTitle" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/tiles/admin/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/admin/menu.jsp" />
+		<put-attribute name="center" value="/WEB-INF/tiles/admin/center.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/admin/footer.jsp" />
+	</definition>
 
 	<definition name="Index.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Trang chủ" />
@@ -84,6 +93,16 @@
 	<!-- End Product Layout -->
 
 	<!-- Admin layout -->
+	
+	<definition name="AdminIndex.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý trang web" />
+	</definition>
+	
+	<definition name="AdminCategories.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý danh mục" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/body_categories.jsp" />
+	</definition>
 
 	<definition name="Categories.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Danh mục sản phẩm" />
