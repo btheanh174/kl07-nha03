@@ -47,10 +47,10 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	}
 	
 	public String timNhanh(){
-		System.out.println(tieuChi.toString());
 		System.out.println("Trang hien tai = " +  trang);
 		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang);
 		tongSoTrang = duLieuTrang.getTongSoTrang();
+		System.out.println("Tong so trang = " +  tongSoTrang);
 		listSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
