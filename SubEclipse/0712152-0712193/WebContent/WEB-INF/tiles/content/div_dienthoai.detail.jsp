@@ -49,13 +49,11 @@
 <div class="prod_box_big">
 	<div class="center_prod_box_big">
 		<sj:div cssClass="">
-			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true" selectedTab="1">
-				<sj:tab id="tabSoSanh" target="one" label="So sánh"></sj:tab>
+			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true" selectedTab="0">
 				<sj:tab id="tabThongSo" target="two" label="Thông số kỹ thuật"></sj:tab>
 				<sj:tab id="tabSanPhamLienQuan" target="three"
 					label="Các sản phẩm liên quan"></sj:tab>
 				<sj:tab id="tabHinhAnh" target="four" label="Hình ảnh"></sj:tab>
-				<div id="one">So sánh</div>
 				<div id="two">
 					<table width="500" border="1" align="center" cellpadding="5"
 						cellspacing="0">

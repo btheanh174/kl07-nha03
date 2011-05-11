@@ -59,9 +59,15 @@ public class Laptop extends SanPham {
 		this.tinhNangKhac = tinhNangKhac;
 	}
 	
+	@Override
+	public String toShortString() {
+		StringBuilder str = new StringBuilder();
+		
+		return str.toString();
+	}
 
 	@Override
-	public String toString() {
+	public String toLongString() {
 		
 		StringBuilder str = new StringBuilder();
 		str.append("Hãng sản xuất: " + hangSanXuat);

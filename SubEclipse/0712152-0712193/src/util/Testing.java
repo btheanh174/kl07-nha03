@@ -1,7 +1,6 @@
  package util;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -12,9 +11,7 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
-import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
@@ -23,8 +20,8 @@ import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
-import model.pojo.ThamSo;
 import model.pojo.ThanhVien;
+import action.SanPhamAction;
 
 
 public class Testing {
@@ -219,12 +216,18 @@ public class Testing {
 		
 		//testSanPham();
 		
-		BigDecimal a = new BigDecimal(123);
-		BigDecimal b = new BigDecimal("123");
+		SanPhamAction spAction = new SanPhamAction();
+		SanPhamTieuChi tc = new SanPhamTieuChi("","","","");
 		
-		a = a.add(b);
-		a = a.add(a);
-		System.out.println(a);
+		spAction.setTieuChi(tc);
+		
+		spAction.timNhanh();
+		
+		System.out.println(spAction.getListSanPham().size());
+		for (SanPham sp : spAction.getListSanPham()) {
+			
+			System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getLoaiSanPham());
+		}
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

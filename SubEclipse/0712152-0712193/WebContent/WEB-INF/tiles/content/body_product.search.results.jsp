@@ -61,15 +61,18 @@
 								<td class="col_2">
 									<div class="picture_small">
 										<a href="" class="tooltip"><img src="" alt=""> </a>
-									</div></td>
+									</div>
+								</td>
 								<td class="col_3">
 									<div class="name">
-										<a href=""> <s:property value="tenSanPham" /> Dell
-											Inspiron 14r (Intel Core i3-350M 2.26GHz, 2GB RAM, 320GB HDD,
-											VGA Intel HD Graphics, 14.1 inch, PC DOS)</a>
+										<a href=""> <s:property value="tenSanPham" /> <s:property value="toShortString()"/> </a>
 									</div>
 									<div class="teaser">
-										<a href=""><em><s:property value="tenSanPham" /></em></a>.<s:property value="sanPham.toString()"/>
+
+										<a href=""><em><s:property value="tenSanPham" />
+										</em>
+										</a>.
+										<s:property value="toLongString()" />
 									</div>
 									<div class="fl">
 										<div>
@@ -87,15 +90,17 @@
 											src="http://static.vatgia.com/css/multi_css_v2/standard/blank.gif">
 										</a>
 									</div>
-									<div class="clear"></div></td>
+									<div class="clear"></div>
+								</td>
 								<td class="col_4">
 									<div class="price">
 										<s:property value="gia" />
 									</div>
 									<div class="price_usd"></div>
 									<div>
-										<a href="" class="text_link">Có <b>1</b> gian hàng bán</a>
-									</div></td>
+										<!-- <a href="" class="text_link">Có <b>1</b> gian hàng bán</a> -->
+									</div>
+								</td>
 							</tr>
 
 						</s:iterator>
