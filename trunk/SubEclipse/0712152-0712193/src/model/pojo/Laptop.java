@@ -62,7 +62,14 @@ public class Laptop extends SanPham {
 	@Override
 	public String toShortString() {
 		StringBuilder str = new StringBuilder();
-		
+		str.append(tenSanPham);
+		str.append(" (");
+		str.append(cpu + ", ");
+		str.append(ram + " RAM, ");
+		str.append(hdd + " HDD, ");
+		str.append(kichThuocManHinh + ", ");
+		str.append(heDieuHanh);
+		str.append(")");
 		return str.toString();
 	}
 

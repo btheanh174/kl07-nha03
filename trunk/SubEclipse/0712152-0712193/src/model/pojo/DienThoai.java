@@ -104,7 +104,7 @@ public class DienThoai extends SanPham {
 	@Override
 	public String toShortString() {
 		StringBuilder str = new StringBuilder();
-		
+		str.append(tenSanPham);
 		return str.toString();
 	}
 
