@@ -139,5 +139,17 @@
 		</action>
 		
 		<!--  -->
+		
+		
+		
+		<action name="QuanLyCategories" class="action.DanhMucAction">
+			<result name="success" type="tiles">AdminCategories.tiles</result>
+			<result name="input" type="tiles">AdminCategories.tiles</result>
+		</action>
+		
+		<action name="TestAction">
+			<result name="success">admin/test.jsp</result>
+			<result name="input">admin/test.jsp</result>
+		</action>
 	</package>
 </struts>

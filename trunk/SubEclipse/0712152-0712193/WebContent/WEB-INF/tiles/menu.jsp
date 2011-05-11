@@ -26,7 +26,7 @@
 
 	<s:if test="#session['nhomNguoiDung'] == 4">
 		<li class="divider"></li>
-		<li><a href="<s:url action="show3_admin_category_index"/>"
+		<li><a href="<s:url action="show_admin_index"/>"
 			class="nav6">Quản lý category admin</a>
 		</li>
 
