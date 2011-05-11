@@ -39,7 +39,12 @@
 				</div>
 			</div>
 
-			<a href="#" class="addtocart">Chọn mua</a>
+			
+			<s:form>
+				<s:hidden name="maSanPham" value="maSanpham"></s:hidden>
+				<!-- <a href="#" class="addtocart">Chọn mua</a> -->
+				<s:submit value="Chọn mua"></s:submit>
+			</s:form>
 		</div>
 	</div>
 	<div class="bottom_prod_box_big"></div>

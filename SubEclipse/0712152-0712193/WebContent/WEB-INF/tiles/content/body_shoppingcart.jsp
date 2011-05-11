@@ -12,7 +12,7 @@
 		</s:if>
 		<s:else>
 		<s:form method="get"
-		action="GioHang_capNhat"
+		action=""
 		name="soLuong">
 	<table cellspacing="0" cellpadding="0" border="0" width="100%">
 		<tbody>
