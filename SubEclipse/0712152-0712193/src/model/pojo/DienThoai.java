@@ -111,32 +111,32 @@ public class DienThoai extends SanPham {
 	@Override
 	public String toLongString() {
 		StringBuilder str = new StringBuilder();
-		str.append("Hãng sản xuất: " + hangSanXuat + "/");
-		str.append("/Mạng: " + mang);
-		str.append("/Kiểu dáng: " + kieuDang);
-		str.append("/Màn hình: " + manHinh);
-		str.append("/Độ phân giải: " + doPhanGiai);
-		str.append("/Hệ điều hành: " + heDieuHanh);
-		str.append("/Bộ nhớ trong: " + boNhoTrong);
-		str.append("/Ram: " + ram);
-		str.append("/Tin nhắn: " + tinNhan);
-		str.append("/Trọng lượng: " + trongLuong);
-		str.append("/Kích thước: " + kichThuoc);
-		str.append("/Kiểu chuông: " + kieuChuong);
+		str.append("Hãng sản xuất: " + hangSanXuat);
+		str.append(" / Mạng: " + mang);
+		str.append(" / Kiểu dáng: " + kieuDang);
+		str.append(" / Màn hình: " + manHinh);
+		str.append(" / Độ phân giải: " + doPhanGiai);
+		str.append(" / Hệ điều hành: " + heDieuHanh);
+		str.append(" / Bộ nhớ trong: " + boNhoTrong);
+		str.append(" / Ram: " + ram);
+		str.append(" / Tin nhắn: " + tinNhan);
+		str.append(" / Trọng lượng: " + trongLuong);
+		str.append(" / Kích thước: " + kichThuoc);
+		str.append(" / Kiểu chuông: " + kieuChuong);
 		if(rung == 0){
-			str.append("/Rung: không");
+			str.append(" / Rung: không");
 		}else{
-			str.append("/Rung: có");
+			str.append(" / Rung: có");
 		}
-		str.append("/Camera: " + camera);
-		str.append("/Màu sắc: " + mauSac);
-		str.append("/Pin: " + pin);
-		str.append("Thời gian đàm thoại: " + thoiGianDamThoai);
-		str.append("/Thời gian chờ: "  + thoiGianCho);
-		str.append("/Sim: " + sim);
-		str.append("/Loại thẻ nhớ: " + theNho);
-		str.append("/Tính năng: " + tinhNang);
-		str.append("/Tính năng khác: " + tinhNangKhac);
+		str.append(" / Camera: " + camera);
+		str.append(" / Màu sắc: " + mauSac);
+		str.append(" / Pin: " + pin);
+		str.append(" / Thời gian đàm thoại: " + thoiGianDamThoai);
+		str.append(" / Thời gian chờ: "  + thoiGianCho);
+		str.append(" / Sim: " + sim);
+		str.append(" / Loại thẻ nhớ: " + theNho);
+		str.append(" / Tính năng: " + tinhNang);
+		str.append(" / Tính năng khác: " + tinhNangKhac);
 		
 		
 		return str.toString();

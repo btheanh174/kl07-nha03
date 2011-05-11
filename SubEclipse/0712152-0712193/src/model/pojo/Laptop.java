@@ -78,21 +78,21 @@ public class Laptop extends SanPham {
 		
 		StringBuilder str = new StringBuilder();
 		str.append("Hãng sản xuất: " + hangSanXuat);
-		str.append("/Mainboard: " + mainboard);
-		str.append("/CPU: " + cpu);
-		str.append("/HDD: " + hdd);
-		str.append("/RAM: " +  ram);
-		str.append("/VGA: " + vga);
-		str.append("/Cổng USB: " + usb);
-		str.append("/Lan: " + lan);
-		str.append("Wifi: " + wifi);
-		str.append("/Hệ điều hành: " + heDieuHanh);
-		str.append("/Chuột: " + chuot);
-		str.append("/Pin: " + pin);
-		str.append("/Trọng lượng: " +  trongLuong);
-		str.append("/Kích thước màn hình: " + kichThuocManHinh);
-		str.append("/Độ phân giải: " + doPhanGiai);
-		str.append("/Tính năng khác: " + tinhNangKhac);
+		str.append(" / Mainboard: " + mainboard);
+		str.append(" / CPU: " + cpu);
+		str.append(" / HDD: " + hdd);
+		str.append(" / RAM: " +  ram);
+		str.append(" / VGA: " + vga);
+		str.append(" / Cổng USB: " + usb);
+		str.append(" / Lan: " + lan);
+		str.append(" / Wifi: " + wifi);
+		str.append(" / Hệ điều hành: " + heDieuHanh);
+		str.append(" / Chuột: " + chuot);
+		str.append(" / Pin: " + pin);
+		str.append(" / Trọng lượng: " +  trongLuong);
+		str.append(" / Kích thước màn hình: " + kichThuocManHinh);
+		str.append(" / Độ phân giải: " + doPhanGiai);
+		str.append(" / Tính năng khác: " + tinhNangKhac);
 		return str.toString();
 	}
 

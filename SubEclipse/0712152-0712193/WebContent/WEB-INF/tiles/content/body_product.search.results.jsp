@@ -52,6 +52,7 @@
 							<s:param name="maSanPham" value="maSanPham"></s:param>
 						</s:url>
 						<div class="name"><a href="${productDetail }"><b style="color: blue;">
+						<s:property value="maSanPham"/>
 						<s:property value="toShortString()" /> </b> </a></div>
 						<div class="teaser"><a href="${productDetail }"><em><s:property
 							value="tenSanPham" /> </em> </a>. <s:property value="toLongString()" />
