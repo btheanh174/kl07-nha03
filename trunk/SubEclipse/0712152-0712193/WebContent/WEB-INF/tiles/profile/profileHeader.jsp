@@ -23,7 +23,7 @@
                          <li class="divider"></li>
                          <li><a href="<s:url action="User_logout"/>" class="nav4">Thoát</a></li>
                          <li class="divider"></li>                         
-						 <li><a href="<s:url action="show3_content_shoppingcart_shoppingcart"/>" class="nav3">Giỏ hàng</a></li>
+						 <li><a href="<s:url action="XemGioHang"/>" class="nav3">Giỏ hàng</a></li>
                                           
 
                          <li><a href="<s:url action=""/>" class="right_nav6">Hướng dẫn</a></li>

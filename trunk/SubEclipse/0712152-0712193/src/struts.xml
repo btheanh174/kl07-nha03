@@ -128,9 +128,14 @@
 		<!-- End San pham -->
 
 		<!-- Gio hang -->
-		
-		<action name="XuLyGioHang" class="action.GioHangAction">
+		<action name="XemGioHang">
+			<result name="success">/content/shoppingcart/shoppingcart.jsp</result>
+		</action>
+		<action name="XuLyGioHang" class="action.XuLyGioHangAction">
 			<result name="success" type="tiles">ShoppingCart.tiles</result>
+			<result name="input" type="redirect">SanPham_chiTiet.action
+				<param name="maSanPham"></param>
+			</result>
 		</action>
 		
 		<!--  -->

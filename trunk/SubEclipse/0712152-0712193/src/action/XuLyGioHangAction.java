@@ -13,11 +13,12 @@ import model.pojo.GioHang;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class GioHangAction extends ActionSupport implements ModelDriven<GioHang>, ServletRequestAware, SessionAware{
+public class XuLyGioHangAction extends ActionSupport implements ModelDriven<GioHang>, ServletRequestAware, SessionAware{
 	
 	private GioHang gioHang;
 	private HttpServletRequest servletRequest;
 	private Map<String, Object> session;
+	private int maSanPham;
 	@Override
 	public String execute() throws Exception {
 		
@@ -62,5 +63,13 @@ public class GioHangAction extends ActionSupport implements ModelDriven<GioHang>
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public int getMaSanPham() {
+		return maSanPham;
+	}
+
+	public void setMaSanPham(int maSanPham) {
+		this.maSanPham = maSanPham;
 	}
 }
