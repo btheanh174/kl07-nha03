@@ -16,7 +16,7 @@ public class DienThoai extends SanPham {
 	private String trongLuong;
 	private String kichThuoc;
 	private String kieuChuong;
-	private int rung; // 1: Có rung, 0: không rung
+	private Integer rung = 0; // 1: Có rung, 0: không rung
 	private String camera;
 	private String mauSac;
 	private String pin;
@@ -40,7 +40,7 @@ public class DienThoai extends SanPham {
 	public DienThoai(String mang, String kieuDang, String manHinh,
 			String doPhanGiai, String heDieuHanh, String boNhoTrong,
 			String ram, String tinNhan, String trongLuong, String kichThuoc,
-			String kieuChuong, int rung, String camera, String mauSac,
+			String kieuChuong, Integer rung, String camera, String mauSac,
 			String pin, String thoiGianDamThoai, String thoiGianCho,
 			String sim, String theNho, String tinhNang, String tinhNangKhac) {
 		super();
@@ -71,7 +71,7 @@ public class DienThoai extends SanPham {
 			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
-			String trongLuong, String kichThuoc, String kieuChuong, int rung,
+			String trongLuong, String kichThuoc, String kieuChuong, Integer rung,
 			String camera, String mauSac, String pin, String thoiGianDamThoai,
 			String thoiGianCho, String sim, String theNho, String tinhNang,
 			String tinhNangKhac) {
@@ -269,11 +269,11 @@ public class DienThoai extends SanPham {
 		this.tinhNangKhac = tinhNangKhac;
 	}
 
-	public int getRung() {
+	public Integer getRung() {
 		return rung;
 	}
 
-	public void setRung(int rung) {
+	public void setRung(Integer rung) {
 		this.rung = rung;
 	}
 }

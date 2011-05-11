@@ -166,6 +166,7 @@ public class SanPhamDAO extends AbstractDAO {
 		DuLieuTrang kq = null;
 		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 		try{
+			System.out.println("Tim kiem dao");
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			
@@ -206,6 +207,7 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			tx.commit();
 		}catch(HibernateException e){
+			System.out.println("Exception tim kiem");
 			handleException(e);
 		}finally{
 			HibernateUtil.shutdown();
