@@ -6,7 +6,7 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:if test="!#session['gioHang'] == null">
+		<s:if test="#session['gioHang'] == null">
 		Giỏ hàng chưa có sản phẩm nào!
 		<s:a action="show_index">Tiếp tục mua</s:a>
 		</s:if>
@@ -62,7 +62,7 @@
 							<input type="text" size="4" value="1" name="soLuong">
 								<input type="hidden" value="1377" name="maSanPham">
 							</td>
-							<td align="center" valign="top" class="productListing-data"><b>£3.44</b></td>
+							<td align="center" valign="top" class="productListing-data"><b> <s:property value="gia"/> VNĐ</b></td>
 						</tr>
 					</tbody>
 				</table>
