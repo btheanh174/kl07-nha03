@@ -12,13 +12,14 @@
 				<interceptor-ref name="LastActionInterceptor"></interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
-			
-			<interceptor name="redirectMessage" class="action.user.RedirectMessageInterceptor"></interceptor>
-			
+
+			<interceptor name="redirectMessage"
+				class="action.user.RedirectMessageInterceptor"></interceptor>
+
 		</interceptors>
 
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
-		
+
 		<action name="show_index">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success" type="tiles">Index.tiles</result>
@@ -34,7 +35,7 @@
 		</action>
 
 		<!-- Dung cho register -->
-		
+
 		<action name="User_register" class="action.user.RegisterAction"
 			method="register">
 			<interceptor-ref name="jcaptchaDefaultStack" /> <!-- Tich hop jcaptcha4pluginstruts2 -->
@@ -60,21 +61,28 @@
 		</action>
 
 		<!-- User profile -->
-		
-		<action name="Profile_hienThi" class="action.user.ProfileAction" method="hienThi">
-			<result name="success" type="redirect">show_myprofile_information.action</result>
+
+		<action name="Profile_hienThi" class="action.user.ProfileAction"
+			method="hienThi">
+			<result name="success" type="redirect">show_myprofile_information.action
+			</result>
 		</action>
-		
-		
-		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction" method="capNhatThongTin">
-			<result name="success" type="redirect">show_myprofile_profile.action</result>
-			<result name="input" type="redirect">show_myprofile_information.action</result>
+
+
+		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction"
+			method="capNhatThongTin">
+			<result name="success" type="redirect">show_myprofile_profile.action
+			</result>
+			<result name="input" type="redirect">show_myprofile_information.action
+			</result>
 		</action>
-		
-		<action name="Profile_test" class="action.user.ProfileAction" method="test">
+
+		<action name="Profile_test" class="action.user.ProfileAction"
+			method="test">
 
 			<result name="success" type="redirect">show_index.action</result>
-			<result name="input" type="redirect">show_myprofile_password.action</result>
+			<result name="input" type="redirect">show_myprofile_password.action
+			</result>
 		</action>
 
 		<!-- Danh muc -->
@@ -95,7 +103,7 @@
 			<result name="success" type="tiles">Categories.tiles</result>
 			<result name="input" type="tiles">DeleteCategory.tiles</result>
 		</action>
-		
+
 
 		<!-- San pham -->
 
@@ -108,45 +116,49 @@
 			method="execute">
 			<result name="success" type="tiles">Products.tiles</result>
 		</action>
-		
-		<action name="SanPham_timNhanh" class="action.SanPhamAction" method="timNhanh">
+
+		<action name="SanPham_timNhanh" class="action.SanPhamAction"
+			method="timNhanh">
 			<result name="success">/admin/product/search_results.jsp</result>
-			<result name="input" type="redirect">show3_admin_product_search.action</result>
+			<result name="input" type="redirect">show3_admin_product_search.action
+			</result>
 		</action>
-		
+
 		<action name="SanPham_timKiem" class="action.XuLyTimKiemAction">
 			<result name="dienthoai" type="tiles">DienThoai.Search.tiles</result>
 			<result name="laptop" type="tiles">Laptop.Search.tiles</result>
 			<result name="error">/global/error.jsp</result>
 		</action>
-		
-		<action name="SanPham_timNangCao" class="action.SanPhamAction" method="timNangCao">
-			<result name="success">/admin/product/advancedsearch_results.jsp</result>
+
+		<action name="SanPham_timNangCao" class="action.SanPhamAction"
+			method="timNangCao">
+			<result name="success">/admin/product/advancedsearch_results.jsp
+			</result>
 			<result name="error">/global/error.jsp</result>
 		</action>
-		
+
 		<!-- End San pham -->
 
 		<!-- Gio hang -->
 		<action name="XemGioHang">
 			<result name="success">/content/shoppingcart/shoppingcart.jsp</result>
 		</action>
-		<action name="XuLyGioHang" class="action.XuLyGioHangAction">
+		
+		<action name="GioHang_*" class="action.XuLyGioHangAction"
+			method="{1}">
 			<result name="success" type="tiles">ShoppingCart.tiles</result>
-			<result name="input" type="redirect">SanPham_chiTiet.action
-				<param name="maSanPham"></param>
-			</result>
+			<result name="input" type="tiles">ShoppingCart.tiles</result>
 		</action>
-		
-		<!--  -->
-		
-		
-		
+
+		<!-- -->
+
+
+
 		<action name="QuanLyCategories" class="action.DanhMucAction">
 			<result name="success" type="tiles">AdminCategories.tiles</result>
 			<result name="input" type="tiles">AdminCategories.tiles</result>
 		</action>
-		
+
 		<action name="TestAction">
 			<result name="success">admin/test.jsp</result>
 			<result name="input">admin/test.jsp</result>

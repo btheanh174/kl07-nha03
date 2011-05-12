@@ -1,75 +1,68 @@
 package model.pojo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
-public class GioHang{
+public class GioHang {
 
-	private List<MonHang> dsMonHang = new ArrayList<MonHang>();
-	private BigDecimal tongTien;
+	private Hashtable<Integer, MatHang> dsMatHang = new Hashtable<Integer, MatHang>();
 
-	public void themMonHang(MonHang monHang) {
-		
-		if (this.dsMonHang.contains(monHang)) {
-			MonHang mh = dsMonHang.get(dsMonHang.indexOf(monHang));
-			mh.setSoLuong(mh.getSoLuong() + monHang.getSoLuong());
+	public GioHang() {
+
+	}
+
+	public void themMatHang(MatHang matHang) {
+		int key = matHang.getSanPham().getMaSanPham();
+		if (dsMatHang.contains(matHang)) {
+			MatHang mh = (MatHang) dsMatHang.get(key);
+			mh.setSoLuong(matHang.getSoLuong() + mh.getSoLuong());
 		} else {
-			this.dsMonHang.add(monHang);
+			dsMatHang.put(key, matHang);
 		}
 	}
-	
-	public MonHang layMonHang(int i){
-		if(i > (dsMonHang.size()-1) || i < 0){
-			return null;
+
+	public void xoaMatHang(MatHang matHang) {
+		int key = matHang.getSanPham().getMaSanPham();
+		if (dsMatHang.containsKey(key)) {
+			dsMatHang.remove(key);
+		}
+	}
+
+	public void xoaMatHang(int key) {
+		if (dsMatHang.containsKey(key)) {
+			dsMatHang.remove(key);
+		}
+	}
+
+	public void capNhatSoLuong(MatHang matHang, int soLuong) {
+		int key = matHang.getSanPham().getMaSanPham();
+		if (dsMatHang.containsKey(key)) {
+			MatHang mh = (MatHang) dsMatHang.get(key);
+			mh.setSoLuong(soLuong + matHang.getSoLuong());
 		}else{
-			return dsMonHang.get(i);
+			dsMatHang.put(key, matHang);
 		}
 	}
 	
-	public boolean xoaMonHang(int maSanPham){
-		MonHang mh = new MonHang();
-		mh.setMaSanPham(maSanPham);
-		if(!dsMonHang.contains(mh)){
-			return false;
-		}else{
-			dsMonHang.remove(mh);
-			return true;
-		}
+	public Enumeration<MatHang> getEnumeration(){
+		return dsMatHang.elements();
 	}
 	
-	public BigDecimal tinhTien(){
-		BigDecimal kq = new BigDecimal(0);
-		for (MonHang mh : dsMonHang) {
-			tongTien = tongTien.add(mh.getDonGia().multiply(new BigDecimal(mh.getSoLuong())));
+	public float layTongTien(){
+		Enumeration<MatHang> ds = dsMatHang.elements();
+		float kq = 0.00f;
+		while(ds.hasMoreElements()){
+			MatHang mh = ds.nextElement();
+			kq += mh.getSanPham().getGia() * mh.getSoLuong();
 		}
 		return kq;
 	}
-
-	public GioHang() {
-		super();
+	
+	public int laySoLuongMatHang(){
+		return dsMatHang.size();
 	}
 	
-	public GioHang(List<MonHang> dsMonHang, BigDecimal tongTien) {
-		super();
-		this.dsMonHang = dsMonHang;
-		this.tongTien = tongTien;
+	public void xoaTatCa(){
+		dsMatHang.clear();
 	}
-
-	public List<MonHang> getDsMonHang() {
-		return dsMonHang;
-	}
-
-	public void setDsMonHang(List<MonHang> dsMonHang) {
-		this.dsMonHang = dsMonHang;
-	}
-
-	public BigDecimal getTongTien() {
-		return tongTien;
-	}
-
-	public void setTongTien(BigDecimal tongTien) {
-		this.tongTien = tongTien;
-	}
-
 }
