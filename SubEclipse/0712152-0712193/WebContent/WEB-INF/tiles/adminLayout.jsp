@@ -172,7 +172,7 @@
 		$(document).pngFix();
 	});
 </script>
-<sj:head />
+<sj:head jqueryui="true"/>
 </head>
 <body>
 	<div id="main_container">

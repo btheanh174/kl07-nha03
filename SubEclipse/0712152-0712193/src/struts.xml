@@ -95,13 +95,13 @@
 
 		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction"
 			method="themDanhMuc">
-			<result name="success" type="tiles">Categories.tiles</result>
+			<result name="success" type="redirect">QuanLyCategories.action</result>
 		</action>
 
 		<action name="DanhMuc_xoaDanhMuc" class="action.DanhMucAction"
 			method="xoaDanhMuc">
-			<result name="success" type="tiles">Categories.tiles</result>
-			<result name="input" type="tiles">DeleteCategory.tiles</result>
+			<result name="success" type="redirect">QuanLyCategories.action</result>
+			<result name="input" type="redirect">QuanLyCategories.action</result>
 		</action>
 
 
@@ -159,7 +159,12 @@
 			<result name="input" type="tiles">AdminCategories.tiles</result>
 		</action>
 
-		<action name="TestAction">
+		<action name="echo" class="action.DanhMucAction"
+			method="themDanhMuc">
+			<result name="success" type="tiles">Categories.tiles</result>
+		</action>
+		
+		<action name="TestAction" class="action.DanhMucAction">
 			<result name="success">admin/test.jsp</result>
 			<result name="input">admin/test.jsp</result>
 		</action>
