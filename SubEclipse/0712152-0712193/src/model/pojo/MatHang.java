@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class MatHang {
 	
 	private SanPham sanPham;
-	private int soLuong=1;
+	private Integer soLuong;
 	
 	
 	public MatHang() {
@@ -30,7 +30,7 @@ public class MatHang {
 	public int getSoLuong() {
 		return soLuong;
 	}
-	public void setSoLuong(int soLuong) {
+	public void setSoLuong(Integer soLuong) {
 		this.soLuong = soLuong;
 	}
 }
