@@ -1,12 +1,22 @@
+<%@page import="model.pojo.GioHang"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
+<%
+GioHang gh = (GioHang)session.getAttribute("gh");
+if(gh == null){
+	gh = new GioHang();
+	session.setAttribute("gh", gh);	
+}
+%>
+
 <div class="center_title_bar">Giỏ hàng</div>
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:if test="#session['gioHang'] == null">
+		<s:if test="#session['gh'].laySoLuongMatHang() == 0">
 		Giỏ hàng chưa có sản phẩm nào!
 		<s:a action="show_index">Tiếp tục mua</s:a>
 		</s:if>
@@ -76,7 +86,7 @@
 				<table>
 				<tbody>
 				<tr>
-				<td align="right" width="100%"><b>Tổng số tiền: £3.44</b></td><td></td>
+				<td align="right" width="100%"><b>Tổng số tiền:  VNĐ</b></td><td></td>
 				</tr>
 				</tbody>
 				</table>

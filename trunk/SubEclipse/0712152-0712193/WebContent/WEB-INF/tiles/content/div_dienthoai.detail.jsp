@@ -39,15 +39,10 @@
 				</div>
 			</div>
 
-			<s:form action="GioHang_execute" method="get" name="maSanPham">	
-				<s:url id="addtocart" action="GioHang_them">
-					<s:param name="maSanPham" value="maSanPham"></s:param>
-				</s:url>
-				<s:textfield label="Số lượng" name="soLuong" size="4"></s:textfield>
-				<a href="${addtocart }">Chọn mua</a>
-			
-				<s:hidden name="maSanPham" value="<s:property value='maSanPham'/>"></s:hidden>
-				<s:submit value="Test"></s:submit>
+			<s:form action="GioHang_them" method="post">	
+				<s:hidden name="sanPham" value="[0]"></s:hidden>
+				<s:textfield label="Số lượng" name="soLuong" size="4" value="1"></s:textfield>
+				<s:submit value="Chọn mua"></s:submit>
 			</s:form>
 		</div>
 	</div>
