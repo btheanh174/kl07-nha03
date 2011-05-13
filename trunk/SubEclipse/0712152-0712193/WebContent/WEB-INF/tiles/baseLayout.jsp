@@ -12,13 +12,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title> <tiles:getAsString name="pageTitle" /> </title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/stickytooltip.css" />
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="iecss.css" />
 <![endif]-->
 <script type="text/javascript" src="js/boxOver.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/stickytooltip.js"></script>
 
 <sj:head />
-
 
 </head>
 <body>
