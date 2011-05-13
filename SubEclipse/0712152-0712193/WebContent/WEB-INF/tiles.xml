@@ -107,33 +107,21 @@
 	<definition name="AdminCategories.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý danh mục" />
 		<put-attribute name="center"
-			value="/WEB-INF/tiles/admin/body_categories.jsp" />
+			value="/WEB-INF/tiles/admin/category/body_categories.jsp" />
 	</definition>
 
-	<definition name="Categories.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Danh mục sản phẩm" />
+	<definition name="AdminAddProducts1.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
 		<put-attribute name="center"
-			value="/WEB-INF/tiles/content/body_categories.jsp" />
+			value="/WEB-INF/tiles/admin/product/body_addProducts_step1.jsp" />
 	</definition>
-
-	<definition name="AddCategory.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Thêm danh mục sản phẩm" />
+	
+	<definition name="AdminAddProductsLaptop2.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
 		<put-attribute name="center"
-			value="/WEB-INF/tiles/admin/body_addcategory.jsp" />
+			value="/WEB-INF/tiles/admin/product/body_addProducts_step2.jsp" />
 	</definition>
-
-	<definition name="DeleteCategory.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Xóa danh mục sản phẩm" />
-		<put-attribute name="center"
-			value="/WEB-INF/tiles/admin/body_deletecategory.jsp" />
-	</definition>
-
-	<definition name="UpdateCategory.tiles" extends="baseLayout">
-		<put-attribute name="pageTitle" value="Cập nhật danh mục sản phẩm" />
-		<put-attribute name="center"
-			value="/WEB-INF/tiles/admin/body_updatecategory.jsp" />
-	</definition>
-
+	
 
 	<!-- Profile layout -->
 	<definition name="profileLayout" template="/WEB-INF/tiles/profile/profileLayout.jsp">
