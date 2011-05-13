@@ -9,13 +9,15 @@ import java.util.Set;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
+import model.dao.HinhAnhDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.GioHang;
+import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
@@ -215,13 +217,9 @@ public class Testing {
 		
 		//testSanPham();
 		
-		GioHang gh = new GioHang();
-		System.out.println("So san pham trong gio hang = " + gh.laySoLuongMatHang());
-		for(int i = 0; i < gh.laySoLuongMatHang(); i++){
-			
-		}
 		
-		System.out.println("Tong so tien la = " + gh.layTongTien());
+		
+		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

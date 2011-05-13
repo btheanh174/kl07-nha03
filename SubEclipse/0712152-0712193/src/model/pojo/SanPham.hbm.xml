@@ -34,7 +34,9 @@
         
         <list name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="true" inverse="true">
         	<key column="SAN_PHAM"></key>
-        	<list-index></list-index>
+        	<list-index>
+        		<column name="MA_HINH_ANH"></column>
+        	</list-index>
         	<one-to-many class="model.pojo.HinhAnh"/>
         </list>
         

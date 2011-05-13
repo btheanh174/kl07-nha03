@@ -4,9 +4,11 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.dao.HinhAnhDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
+import model.pojo.HinhAnh;
 import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
@@ -23,9 +25,12 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private static final long serialVersionUID = -6399634351690725889L;
 	
 	SanPhamDAO spDao = new SanPhamDAO();
+	HinhAnhDAO haDao = new HinhAnhDAO();
 	private int maSanPham;
 	private SanPham sanPham;
+	private String url;
 	private List<SanPham> listSanPham;
+	
 	
 	private SanPhamTieuChi tieuChi;
 	private DienThoaiTieuChi dt = new DienThoaiTieuChi();
@@ -43,7 +48,14 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	
 	public String chiTiet(){
 		sanPham = spDao.lay(maSanPham);
+		setUrl(layHinhAnhDauTien(sanPham));
 		return SUCCESS;
+	}
+	
+	public String layHinhAnhDauTien(SanPham sp){
+		List<HinhAnh> listHinhAnh = haDao.layDanhSach(sp);
+		
+		return (listHinhAnh.size() > 0) ? listHinhAnh.get(0).getUrlHinhAnh(): "";
 	}
 	
 	public String timNhanh(){
@@ -170,5 +182,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	public void setLoaiSanPham(String loaiSanPham) {
 		this.loaiSanPham = loaiSanPham;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
