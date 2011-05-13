@@ -158,7 +158,21 @@
 			<result name="success" type="tiles">AdminCategories.tiles</result>
 			<result name="input" type="tiles">AdminCategories.tiles</result>
 		</action>
+		
+		<action name="QuanLyProducts" class="action.SanPhamAction">
+			<result name="success" type="tiles">AdminAddProducts1.tiles</result>
+			<result name="input" type="tiles">AdminAddProducts1.tiles</result>
+		</action>
+		
+		<action name="SanPham_themSanPham_*" class="action.SanPhamAction" method="themSanPham_step{1}" >
+			<result name="laptop" type="tiles">AdminAddProductsLaptop2.tiles</result>
+			<result name="dienthoai" type="tiles">AdminAddProducts2.tiles</result>
+		</action>
 
+
+		
+		
+		
 		<action name="echo" class="action.DanhMucAction"
 			method="themDanhMuc">
 			<result name="success" type="tiles">Categories.tiles</result>

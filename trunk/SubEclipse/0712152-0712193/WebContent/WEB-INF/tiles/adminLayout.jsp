@@ -11,8 +11,7 @@
 <head>
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1252" />
-<title><tiles:getAsString name="pageTitle" />
-</title>
+<title><tiles:getAsString name="pageTitle" /></title>
 <link rel="stylesheet" href="css/screen.css" type="text/css"
 	media="screen" title="default" />
 <!--[if IE]>
@@ -172,30 +171,25 @@
 		$(document).pngFix();
 	});
 </script>
-<sj:head jqueryui="true"/>
+<sj:head jqueryui="true" />
 </head>
 <body>
-	<div id="main_container">
-
-		<tiles:insertAttribute name="header"></tiles:insertAttribute>
-		<div class="clear">&nbsp;</div>
 
 
-		<div id="menu_tab">
-			<tiles:insertAttribute name="menu"></tiles:insertAttribute>
-		</div>
-		<div class="clear"></div>
-		<div class="center_content">
-			<tiles:insertAttribute name="center"></tiles:insertAttribute>
-		</div>
-		<!-- end of center content -->
+	<tiles:insertAttribute name="header"></tiles:insertAttribute>
+	<div class="clear">&nbsp;</div>
 
+	<tiles:insertAttribute name="menu"></tiles:insertAttribute>
 
+	<div class="clear"></div>
 
-		<div class="footer">
-			<tiles:insertAttribute name="footer"></tiles:insertAttribute>
-		</div>
-	</div>
+	<tiles:insertAttribute name="center"></tiles:insertAttribute>
+
+	<!-- end of center content -->
+	<div class="clear">&nbsp;</div>
+
+	<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+
 	<!-- end of main_container -->
 </body>
 </html>

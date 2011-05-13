@@ -3,12 +3,16 @@ package action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import model.dao.HinhAnhDAO;
 import model.dao.SanPhamDAO;
+import model.pojo.DanhMuc;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
+import model.pojo.GianHang;
 import model.pojo.HinhAnh;
+import model.pojo.Laptop;
 import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
@@ -23,11 +27,14 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	 * 
 	 */
 	private static final long serialVersionUID = -6399634351690725889L;
+	public static final String DIENTHOAI = "dienthoai"; 
+	public static final String LAPTOP = "laptop";
 	
 	SanPhamDAO spDao = new SanPhamDAO();
 	HinhAnhDAO haDao = new HinhAnhDAO();
 	private int maSanPham;
 	private SanPham sanPham;
+	private Laptop laptop;
 	private String url;
 	private List<SanPham> listSanPham;
 	
@@ -84,6 +91,28 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		}else{
 			return "error";
 		}
+	}
+	
+	public String themSanPham_step1()
+	{
+		if (sanPham.getLoaiSanPham().equals("1")) //Là laptop
+		{
+/*			laptop = new Laptop(sanPham.getTenSanPham(),sanPham.getGia(), sanPham.getHangSanXuat(),
+						sanPham.getDsHinhAnh(), sanPham.getDanhMuc(), sanPham.getDsGianHang());*/
+			return LAPTOP;
+		}
+		else
+		{
+			return DIENTHOAI;
+		}
+	}
+	
+
+
+	public String themSanPham_step2()
+	{
+		System.out.println(laptop.getTenSanPham());
+		return SUCCESS;
 	}
 
 	@Override
@@ -190,5 +219,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+
+	public Laptop getLaptop() {
+		return laptop;
 	}
 }

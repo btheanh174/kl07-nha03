@@ -64,7 +64,8 @@
 				<div class="nav-divider">&nbsp;</div>
 
 				<ul class="select">
-					<li><a href="#nogo"><b>Products</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
+					<li><a href="<s:url action="QuanLyProducts.action"/> ">
+					<b>Products</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
 						<!--[if lte IE 6]><table><tr><td><![endif]-->
 						<div class="select_sub show">
 							<ul class="sub">
