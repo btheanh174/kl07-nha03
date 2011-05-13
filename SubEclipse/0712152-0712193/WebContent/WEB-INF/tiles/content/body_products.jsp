@@ -18,11 +18,25 @@
 				<div class="product_title">
 					<a href="${productDetail}"><s:property value="tenSanPham" /> </a>
 				</div>
+				
+				<!-- Noi dung se duoc hien thi trong tooltip -->
+				<div id="mystickytooltip" class="stickytooltip">
+					<div id="sticky1" style="width: 200px;">
+					<s:property value="toShortString()"/>
+					<img alt="" src="images/product/6_01.jpg">
+					<s:property value="toLongString()"/>
+					</div>
+				</div>
+				<!--  -->
+				
 				<div class="product_img">
-					<a href="${productDetail}"> <img
-						src="<s:property value="dsHinhAnh.get(0).urlHinhAnh"/>" alt=""
+					<a href="${productDetail}" data-tooltip="sticky1"> <img
+						src="images/product/6_01.jpg" alt=""
 						title="" border="0" /> </a>
 				</div>
+				
+				
+				
 				<div class="prod_price">
 					<span class="reduce">350$</span> <span class="price"><s:property
 							value="gia" /> </span>
