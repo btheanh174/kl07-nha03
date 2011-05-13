@@ -146,8 +146,8 @@
 		
 		<action name="GioHang_*" class="action.XuLyGioHangAction"
 			method="{1}">
-			<result name="success" type="tiles">ShoppingCart.tiles</result>
-			<result name="input" type="tiles">Index.tiles</result>
+			<result name="success" type="redirect">XemGioHang.action</result>
+			<result name="input" type="redirect">show_index.action</result>
 		</action>
 
 		<!-- -->

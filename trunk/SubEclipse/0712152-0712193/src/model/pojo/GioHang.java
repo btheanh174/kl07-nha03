@@ -1,14 +1,18 @@
 package model.pojo;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
+
+import model.dao.SanPhamDAO;
 
 public class GioHang {
 
 	private Hashtable<Integer, MatHang> dsMatHang = new Hashtable<Integer, MatHang>();
 
 	public GioHang() {
-
+		
 	}
 
 	public void themMatHang(MatHang matHang) {
@@ -47,6 +51,8 @@ public class GioHang {
 	public Enumeration<MatHang> getEnumeration(){
 		return dsMatHang.elements();
 	}
+	
+	
 	
 	public float layTongTien(){
 		Enumeration<MatHang> ds = dsMatHang.elements();
