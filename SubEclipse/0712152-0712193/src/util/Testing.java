@@ -15,13 +15,12 @@ import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
+import model.pojo.GioHang;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
-import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
-import action.SanPhamAction;
 
 
 public class Testing {
@@ -216,18 +215,13 @@ public class Testing {
 		
 		//testSanPham();
 		
-		SanPhamAction spAction = new SanPhamAction();
-		SanPhamTieuChi tc = new SanPhamTieuChi("","","","");
-		
-		spAction.setTieuChi(tc);
-		
-		spAction.timNhanh();
-		
-		System.out.println(spAction.getListSanPham().size());
-		for (SanPham sp : spAction.getListSanPham()) {
+		GioHang gh = new GioHang();
+		System.out.println("So san pham trong gio hang = " + gh.laySoLuongMatHang());
+		for(int i = 0; i < gh.laySoLuongMatHang(); i++){
 			
-			System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getLoaiSanPham());
 		}
+		
+		System.out.println("Tong so tien la = " + gh.layTongTien());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

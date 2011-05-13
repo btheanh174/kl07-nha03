@@ -38,9 +38,9 @@
 			</div>
 
 
-			<s:form>
-				<s:hidden name="maSanPham" value="maSanpham"></s:hidden>
-				<!-- <a href="#" class="addtocart">Chọn mua</a> -->
+			<s:form action="GioHang_them" method="post">
+				<s:hidden name="maSanPham" value="%{top.maSanPham}"></s:hidden>
+				<s:textfield label="Số lượng" name="soLuong" size="4" value="1"></s:textfield>
 				<s:submit value="Chọn mua"></s:submit>
 			</s:form>
 		</div>
