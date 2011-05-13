@@ -5,10 +5,12 @@ import java.util.List;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
+import model.pojo.HinhAnh;
 import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 

@@ -39,8 +39,9 @@ public class HinhAnhDAO extends AbstractDAO{
 	public List<HinhAnh> layDanhSach(SanPham sanPham){
 		List<HinhAnh> kq = null;
 		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			Query query = session.createQuery("from HinhAnh where sanPham =: sp");
+			Query query = session.createQuery("from HinhAnh as ha where ha.sanPham =:sp");
 			query.setParameter("sp", sanPham);
 			kq = query.list();
 			tx.commit();

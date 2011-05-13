@@ -14,12 +14,13 @@
 				title="header=[Zoom] body=[&nbsp;] fade=[on]"><img
 				src="images/laptop.gif" alt="" title="" border="0" /> </a>
 			<div class="thumbs">
-				<a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img
+				<!--<a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img
 					src="images/thumb1.gif" alt="" title="" border="0" /> </a> <a href="#"
 					title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img
 					src="images/thumb1.gif" alt="" title="" border="0" /> </a> <a href="#"
 					title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img
 					src="images/thumb1.gif" alt="" title="" border="0" /> </a>
+			-->
 			</div>
 		</div>
 		<div class="details_big_box">
