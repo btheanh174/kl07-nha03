@@ -97,6 +97,26 @@
 														list="#{'1':'Laptop', '2':'Điện thoại'}" /></td>
 												<td></td>
 											</tr>
+											
+											<tr>
+												<th>Hình 1:</th>
+
+												<td><s:file name="userImage" label="User Image" /></td>
+												<td></td>
+											</tr>
+											
+											<tr>
+												<th>Hình 2:</th>
+
+												<td><s:file name="userImage" label="User Image" /></td>
+												<td></td>
+											</tr>
+											<tr>
+												<th>Hình 3:</th>
+
+												<td><s:file name="userImage" label="User Image" /></td>
+												<td></td>
+											</tr>
 											<tr>
 												<th></th>
 

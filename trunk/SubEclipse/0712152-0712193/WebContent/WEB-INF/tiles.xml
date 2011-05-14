@@ -122,6 +122,12 @@
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step2.jsp" />
 	</definition>
 	
+	<definition name="AdminAddProducts3.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/product/body_addProducts_step3.jsp" />
+	</definition>
+	
 
 	<!-- Profile layout -->
 	<definition name="profileLayout" template="/WEB-INF/tiles/profile/profileLayout.jsp">

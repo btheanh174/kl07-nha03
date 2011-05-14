@@ -3,14 +3,19 @@ package action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import model.dao.DanhMucDAO;
 import model.dao.HinhAnhDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.GioHang;
 import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.LaptopTieuChi;
@@ -21,7 +26,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>,Preparable {
+public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>,Preparable, SessionAware {
 
 	/**
 	 * 
@@ -29,9 +34,10 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private static final long serialVersionUID = -6399634351690725889L;
 	public static final String DIENTHOAI = "dienthoai"; 
 	public static final String LAPTOP = "laptop";
-	
+	private Map<String, Object> session;
 	SanPhamDAO spDao = new SanPhamDAO();
 	HinhAnhDAO haDao = new HinhAnhDAO();
+	DanhMucDAO dmDao = new DanhMucDAO();
 	private int maSanPham;
 	private SanPham sanPham;
 	private Laptop laptop;
@@ -95,10 +101,13 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	
 	public String themSanPham_step1()
 	{
+		DanhMuc dmTemp = dmDao.lay(sanPham.getDanhMuc().getMaDanhMuc());
 		if (sanPham.getLoaiSanPham().equals("1")) //Là laptop
 		{
-/*			laptop = new Laptop(sanPham.getTenSanPham(),sanPham.getGia(), sanPham.getHangSanXuat(),
-						sanPham.getDsHinhAnh(), sanPham.getDanhMuc(), sanPham.getDsGianHang());*/
+			session.remove("lt");
+			laptop = new Laptop(sanPham.getTenSanPham(),sanPham.getGia(), sanPham.getHangSanXuat(),
+						sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHang());
+			session.put("lt", laptop);
 			return LAPTOP;
 		}
 		else
@@ -111,7 +120,14 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	public String themSanPham_step2()
 	{
-		System.out.println(laptop.getTenSanPham());
+		Laptop laptopTemp = (Laptop)session.get("lt"); 
+		laptop.setTenSanPham(laptopTemp.getTenSanPham());
+		laptop.setGia(laptopTemp.getGia());
+		laptop.setHangSanXuat(laptopTemp.getHangSanXuat());
+		laptop.setDsHinhAnh(laptopTemp.getDsHinhAnh());
+		laptop.setDanhMuc(laptopTemp.getDanhMuc());
+		laptop.setDsGianHang(laptopTemp.getDsGianHang());
+		System.out.println(laptop.getTenSanPham());	
 		return SUCCESS;
 	}
 
@@ -227,5 +243,11 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	public Laptop getLaptop() {
 		return laptop;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		// TODO Auto-generated method stub
+		this.session = session;
 	}
 }
