@@ -168,6 +168,7 @@
 			<result name="laptop" type="tiles">AdminAddProductsLaptop2.tiles</result>
 			<result name="dienthoai" type="tiles">AdminAddProductsDienThoai2.tiles</result>
 			<result name="success" type="tiles">AdminAddProducts3.tiles</result>
+			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
 
 
