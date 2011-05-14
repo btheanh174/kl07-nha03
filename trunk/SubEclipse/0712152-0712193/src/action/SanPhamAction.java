@@ -12,10 +12,12 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import model.dao.DanhMucDAO;
+import model.dao.DienThoaiDAO;
 import model.dao.HinhAnhDAO;
 import model.dao.LaptopDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DienThoai;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
@@ -37,8 +39,7 @@ public class SanPhamAction extends ActionSupport implements
 	 * 
 	 */
 	private static final long serialVersionUID = -6399634351690725889L;
-	public static final String DIENTHOAI = "dienthoai";
-	public static final String LAPTOP = "laptop";
+	public static final String STEP2 = "step2";
 	public static final String FINISH = "finish";
 
 	private Map<String, Object> session;
@@ -54,6 +55,7 @@ public class SanPhamAction extends ActionSupport implements
 	private int maSanPham;
 	private SanPham sanPham;
 	private Laptop laptop;
+	private DienThoai dienthoai;
 	private String url;
 	private List<SanPham> listSanPham;
 
@@ -141,45 +143,76 @@ public class SanPhamAction extends ActionSupport implements
 		DanhMuc dmTemp = dmDao.lay(sanPham.getDanhMuc().getMaDanhMuc());
 		if (sanPham.getLoaiSanPham().equals("1")) // Là laptop
 		{
-			session.remove("lt");
 			laptop = new Laptop(sanPham.getTenSanPham(), sanPham.getGia(),
 					sanPham.getHangSanXuat(), sanPham.getDsHinhAnh(), dmTemp,
 					sanPham.getDsGianHang());
 			session.put("lt", laptop);
-			return LAPTOP;
+
 		} else {
-			return DIENTHOAI;
+			dienthoai = new DienThoai(sanPham.getTenSanPham(),
+					sanPham.getGia(), sanPham.getHangSanXuat(),
+					sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHang());
+			session.put("dt", dienthoai);
 		}
+		session.put("loai", sanPham.getLoaiSanPham());
+		return STEP2;
 	}
 
 	public String themSanPham_step2() {
-		Laptop laptopTemp = (Laptop) session.get("lt");
-		laptop.setTenSanPham(laptopTemp.getTenSanPham());
-		laptop.setGia(laptopTemp.getGia());
-		laptop.setHangSanXuat(laptopTemp.getHangSanXuat());
-		laptop.setDsHinhAnh(laptopTemp.getDsHinhAnh());
-		laptop.setDanhMuc(laptopTemp.getDanhMuc());
-		laptop.setDsGianHang(laptopTemp.getDsGianHang());
-		System.out.println(laptop.getTenSanPham());
-		session.put("lt", laptop);
+		loaiSanPham = (String) session.get("loai");
+		if (loaiSanPham.equals("1")) {
+			Laptop laptopTemp = (Laptop) session.get("lt");
+			laptop.setTenSanPham(laptopTemp.getTenSanPham());
+			laptop.setGia(laptopTemp.getGia());
+			laptop.setHangSanXuat(laptopTemp.getHangSanXuat());
+			laptop.setDsHinhAnh(laptopTemp.getDsHinhAnh());
+			laptop.setDanhMuc(laptopTemp.getDanhMuc());
+			laptop.setDsGianHang(laptopTemp.getDsGianHang());
+			session.put("lt", laptop);
+		} else {
+			DienThoai dienthoaiTemp = (DienThoai) session.get("dt");
+			dienthoai.setTenSanPham(dienthoaiTemp.getTenSanPham());
+			dienthoai.setGia(dienthoaiTemp.getGia());
+			dienthoai.setHangSanXuat(dienthoaiTemp.getHangSanXuat());
+			dienthoai.setDsHinhAnh(dienthoaiTemp.getDsHinhAnh());
+			dienthoai.setDanhMuc(dienthoaiTemp.getDanhMuc());
+			dienthoai.setDsGianHang(dienthoaiTemp.getDsGianHang());
+			session.put("dt", dienthoai);
+		}
+		
 		return SUCCESS;
 	}
 
 	public String themSanPham_step3() {
 		try {
-			laptop = (Laptop) session.get("lt");
-
-			LaptopDAO ltDao = new LaptopDAO();
-			ltDao.them(laptop);
-
-			// Lưu hình vào csdl
-
+			String loai = (String) session.get("loai");
 			List<HinhAnh> dsHinhAnh = (List<HinhAnh>) session.get("dsHinhAnh");
-			for (int i = 0; i < dsHinhAnh.size(); i++) {
-				dsHinhAnh.get(i).setSanPham(laptop);
-				haDao.them(dsHinhAnh.get(i));
-			}
+			if (loai.equals("1")) {
+				laptop = (Laptop) session.get("lt");
+				LaptopDAO ltDao = new LaptopDAO();
+				ltDao.them(laptop);
+				// Lưu hình vào csdl
 
+				for (int i = 0; i < dsHinhAnh.size(); i++) {
+					dsHinhAnh.get(i).setSanPham(laptop);
+					haDao.them(dsHinhAnh.get(i));
+				}
+				session.remove("lt");
+			}
+			else
+			{
+				dienthoai = (DienThoai) session.get("dt");
+				DienThoaiDAO dtDao = new DienThoaiDAO();
+				dtDao.them(dienthoai);
+				// Lưu hình vào csdl
+
+				for (int i = 0; i < dsHinhAnh.size(); i++) {
+					dsHinhAnh.get(i).setSanPham(dienthoai);
+					haDao.them(dsHinhAnh.get(i));
+				}
+				session.remove("dt");
+			}
+			
 			return FINISH;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -329,5 +362,13 @@ public class SanPhamAction extends ActionSupport implements
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;
+	}
+
+	public void setDienthoai(DienThoai dienthoai) {
+		this.dienthoai = dienthoai;
+	}
+
+	public DienThoai getDienthoai() {
+		return dienthoai;
 	}
 }
