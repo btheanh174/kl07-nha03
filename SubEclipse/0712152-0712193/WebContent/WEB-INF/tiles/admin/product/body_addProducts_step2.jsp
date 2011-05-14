@@ -57,9 +57,7 @@
 									</div> <!--  end step-holder --> <!-- start id-form --> <s:form
 										action="SanPham_themSanPham_2.action" method="post"
 										theme="simple">
-										<s:param name="temp" value="%{sanPham.danhMuc}" />
-										<s:param name="laptop.danhMuc" value="%{temp}" />
-										
+																			
 										<%-- <s:hidden name="laptop.tenSanPham" value = "%{sanPham.tenSanPham}"></s:hidden>
 										<s:hidden name="laptop.gia" value = "%{sanPham.gia}"></s:hidden>
 										<s:hidden name="laptop.hangSanXuat" value = "%{sanPham.hangSanXuat}"></s:hidden>
