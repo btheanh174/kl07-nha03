@@ -21,15 +21,13 @@
 			<tr>
 				<th rowspan="3" class="sized"><img
 					src="images/shared/side_shadowleft.jpg" width="20" height="300"
-					alt="" />
-				</th>
+					alt="" /></th>
 				<th class="topleft"></th>
 				<td id="tbl-border-top">&nbsp;</td>
 				<th class="topright"></th>
 				<th rowspan="3" class="sized"><img
 					src="images/shared/side_shadowright.jpg" width="20" height="300"
-					alt="" />
-				</th>
+					alt="" /></th>
 			</tr>
 			<tr>
 				<td id="tbl-border-left"></td>
@@ -59,99 +57,115 @@
 										theme="simple">
 
 										<table width="400" border="1" align="center" cellpadding="25"
-											cellspacing="30" style="font-size: 15px;line-height: 25px">
+											cellspacing="30" style="font-size: 15px; line-height: 25px">
 											<tr>
 												<td align="center">Tên sản phẩm:</td>
-												<td align="center"><s:property value="laptop.tenSanPham" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.tenSanPham" /></td>
 											</tr>
 											<tr>
 												<td align="center">Giá tham khảo:</td>
-												<td align="center"><s:property value="laptop.gia" />
-												</td>
+												<td align="center"><s:property value="laptop.gia" /></td>
 											</tr>
 											<tr>
 												<td align="center">Danh mục:</td>
-												<td align="center"><s:property value="laptop.danhMuc.tenDanhMuc" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.danhMuc.tenDanhMuc" /></td>
 											</tr>
 											<tr>
 												<td align="center">Hãng sản xuất:</td>
-												<td align="center"><s:property value="laptop.hangSanXuat" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.hangSanXuat" /></td>
 											</tr>
 											<tr>
 												<td align="center">HDD:</td>
-												<td align="center"><s:property value="laptop.hdd" /></td>
+												<td align="center"><s:property value="laptop.hdd" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">RAM:</td>
-												<td align="center"><s:property value="laptop.ram" /></td>
+												<td align="center"><s:property value="laptop.ram" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">CPU:</td>
-												<td align="center"><s:property value="laptop.cpu" /></td>
+												<td align="center"><s:property value="laptop.cpu" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">VGA:</td>
-												<td align="center"><s:property value="laptop.vga" /></td>
+												<td align="center"><s:property value="laptop.vga" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">OS:</td>
-												<td align="center"><s:property value="laptop.heDieuHanh" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.heDieuHanh" /></td>
 											</tr>
 											<tr>
 												<td align="center">Chuột:</td>
-												<td align="center"><s:property value="laptop.chuot" /></td>
+												<td align="center"><s:property value="laptop.chuot" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">Cổng USB:</td>
-												<td align="center"><s:property value="laptop.usb" /></td>
+												<td align="center"><s:property value="laptop.usb" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">LAN:</td>
-												<td align="center"><s:property value="laptop.lan" /></td>
+												<td align="center"><s:property value="laptop.lan" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">WIFI:</td>
-												<td align="center"><s:property value="laptop.wifi" /></td>
+												<td align="center"><s:property value="laptop.wifi" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">Pin:</td>
-												<td align="center"><s:property value="laptop.pin" /></td>
+												<td align="center"><s:property value="laptop.pin" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">Trọng lượng:</td>
-												<td align="center"><s:property value="laptop.trongLuong" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.trongLuong" /></td>
 											</tr>
 											<tr>
 												<td align="center">Độ phân giải:</td>
-												<td align="center"><s:property value="laptop.doPhanGiai" />
-												</td>
+												<td align="center"><s:property
+														value="laptop.doPhanGiai" /></td>
 											</tr>
 											<tr>
 												<td align="center">Kích thước màn hình:</td>
 												<td align="center"><s:property
-														value="laptop.kichThuocManHinh" /></td>
+														value="laptop.kichThuocManHinh" />
+												</td>
 											</tr>
 											<tr>
 												<td align="center">Tính năng khác:</td>
 												<td align="center"><s:property
-														value="laptop.tinhNangKhac" />
-												</td>
+														value="laptop.tinhNangKhac" /></td>
 											</tr>
+											<tr>
+												<th></th>
+
+												<td><s:submit key="  Đồng ý  " style="margin-top:30px;" />
+												</td>
+												<td></td>
+											</tr>
+
 										</table>
 
 										<!-- end id-form  -->
-									</s:form></td>
+									</s:form>
+								</td>
 								<td></td>
 							</tr>
 							<tr>
 								<td><img src="images/shared/blank.gif" width="695"
-									height="1" alt="blank" />
-								</td>
+									height="1" alt="blank" /></td>
 								<td></td>
 							</tr>
 						</table>
@@ -159,7 +173,8 @@
 						<div class="clear"></div>
 
 
-					</div> <!--  end content-table-inner  --></td>
+					</div> <!--  end content-table-inner  -->
+				</td>
 				<td id="tbl-border-right"></td>
 			</tr>
 			<tr>

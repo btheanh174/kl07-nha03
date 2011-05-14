@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import model.dao.DanhMucDAO;
 import model.dao.HinhAnhDAO;
+import model.dao.LaptopDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoaiTieuChi;
@@ -34,9 +35,11 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	private static final long serialVersionUID = -6399634351690725889L;
 	public static final String DIENTHOAI = "dienthoai"; 
 	public static final String LAPTOP = "laptop";
+	public static final String FINISH = "finish";
 	private Map<String, Object> session;
 	SanPhamDAO spDao = new SanPhamDAO();
 	HinhAnhDAO haDao = new HinhAnhDAO();
+
 	DanhMucDAO dmDao = new DanhMucDAO();
 	private int maSanPham;
 	private SanPham sanPham;
@@ -128,9 +131,26 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 		laptop.setDanhMuc(laptopTemp.getDanhMuc());
 		laptop.setDsGianHang(laptopTemp.getDsGianHang());
 		System.out.println(laptop.getTenSanPham());	
+		session.put("lt",laptop);
 		return SUCCESS;
 	}
-
+	
+	public String themSanPham_step3()
+	{
+		laptop = (Laptop)session.get("lt");
+		try
+		{
+			LaptopDAO ltDao = new LaptopDAO();
+			ltDao.them(laptop);
+			return FINISH;
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return ERROR;
+	}
+	
 	@Override
 	public SanPham getModel() {
 		// TODO Auto-generated method stub
