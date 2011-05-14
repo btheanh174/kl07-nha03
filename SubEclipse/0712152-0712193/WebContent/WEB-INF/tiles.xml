@@ -116,7 +116,7 @@
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step1.jsp" />
 	</definition>
 	
-	<definition name="AdminAddProductsLaptop2.tiles" extends="adminLayout">
+	<definition name="AdminAddProducts2.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step2.jsp" />

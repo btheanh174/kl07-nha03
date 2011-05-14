@@ -165,8 +165,7 @@
 		</action>
 		
 		<action name="SanPham_themSanPham_*" class="action.SanPhamAction" method="themSanPham_step{1}" >
-			<result name="laptop" type="tiles">AdminAddProductsLaptop2.tiles</result>
-			<result name="dienthoai" type="tiles">AdminAddProductsDienThoai2.tiles</result>
+			<result name="step2" type="tiles">AdminAddProducts2.tiles</result>
 			<result name="success" type="tiles">AdminAddProducts3.tiles</result>
 			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
