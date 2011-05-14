@@ -56,7 +56,7 @@
 										<div class="clear"></div>
 									</div> <!--  end step-holder --> <!-- start id-form --> <s:form
 										action="SanPham_themSanPham_1.action" method="post"
-										theme="simple">
+										theme="simple" enctype="multipart/form-data">
 										<table border="0" cellpadding="0" cellspacing="0" id="id-form">
 											<tr>
 												<th>Tên sản phẩm:</th>
@@ -101,20 +101,20 @@
 											<tr>
 												<th>Hình 1:</th>
 
-												<td><s:file name="userImage" label="User Image" /></td>
+												<td><s:file name="dsImages" /></td>
 												<td></td>
 											</tr>
 											
 											<tr>
 												<th>Hình 2:</th>
 
-												<td><s:file name="userImage" label="User Image" /></td>
+												<td><s:file name="dsImages"/></td>
 												<td></td>
 											</tr>
 											<tr>
 												<th>Hình 3:</th>
 
-												<td><s:file name="userImage" label="User Image" /></td>
+												<td><s:file name="dsImages"/></td>
 												<td></td>
 											</tr>
 											<tr>

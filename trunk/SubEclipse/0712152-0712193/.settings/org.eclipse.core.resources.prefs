@@ -1,4 +1,4 @@
-#Fri May 13 22:57:06 ICT 2011
+#Sat May 14 21:26:45 ICT 2011
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/content/body_product.detail.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/content/div_dienthoai.detail.jsp=UTF-8
@@ -13,6 +13,7 @@ encoding//WebContent/admin/test.jsp=UTF-8
 encoding//WebContent/myprofile/password.jsp=UTF-8
 encoding//src/action/DanhMucAction.java=UTF-8
 encoding//src/action/DienThoaiTimKiemAction.java=UTF-8
+encoding//src/action/SanPhamAction.java=UTF-8
 encoding//src/action/XuLyTimKiemAction.java=UTF-8
 encoding//src/action/user/LoginAction.properties=UTF-8
 encoding//src/action/user/ProfileAction.java=UTF-8
