@@ -12,13 +12,13 @@ public class GioHang {
 	private Hashtable<Integer, MatHang> dsMatHang = new Hashtable<Integer, MatHang>();
 
 	public GioHang() {
-		SanPhamDAO spDao = new SanPhamDAO();
+		/*SanPhamDAO spDao = new SanPhamDAO();
 		SanPham sp1 = spDao.lay(6);
 		MatHang mh1 = new MatHang(sp1, 1);
 		themMatHang(mh1);
 		SanPham sp2 = spDao.lay(12);
 		MatHang mh2 = new MatHang(sp2, 2);
-		themMatHang(mh2);
+		themMatHang(mh2);*/
 	}
 
 	public void themMatHang(MatHang matHang) {
