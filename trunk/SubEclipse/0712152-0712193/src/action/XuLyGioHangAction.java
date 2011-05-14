@@ -1,63 +1,101 @@
 package action;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.interceptor.RequestAware;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.SessionAware;
 
 import model.dao.SanPhamDAO;
 import model.pojo.GioHang;
 import model.pojo.MatHang;
 import model.pojo.SanPham;
 
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
 
-public class XuLyGioHangAction extends ActionSupport implements ModelDriven<MatHang>, ServletRequestAware, SessionAware{
-	
-	
+public class XuLyGioHangAction extends ActionSupport implements
+		ModelDriven<MatHang>, ServletRequestAware, SessionAware {
+
 	private MatHang matHang;
+
 	private int soLuong;
+	private String dsSoLuong;
 	private int maSanPham;
-	private GioHang gioHang = new GioHang();
+	private String dsMaSanPham;
+
+	private List<Integer> dsDuocChon;
+
+	private GioHang gioHang;
+	private SanPhamDAO spDao = new SanPhamDAO();
+
 	private HttpServletRequest servletRequest;
 	private Map<String, Object> session;
+
 	@Override
 	public String execute() throws Exception {
 		System.out.println("Execute");
 		return SUCCESS;
 	}
 
-	public String them(){
-		gioHang = (GioHang)session.get("gh"); 
-		if(gioHang == null){
+	public String them() {
+		gioHang = (GioHang) session.get("gh");
+		if (gioHang == null) {
 			gioHang = new GioHang();
 			session.put("gh", gioHang);
 		}
-		SanPham sp = new SanPhamDAO().lay(maSanPham);
+		SanPham sp = spDao.lay(maSanPham);
 		matHang = new MatHang(sp, soLuong);
 		System.out.println("Them vao gio hang");
 		System.out.println(matHang.getSoLuong());
 		gioHang.themMatHang(matHang);
 		System.out.println(gioHang.laySoLuongMatHang());
-		
+
 		return SUCCESS;
 	}
 
-	public void capNhat(){
-		
+	public String capNhat() {
+
+		gioHang = (GioHang) session.get("gh");
+		String[] ds1 = dsMaSanPham.split(", ");
+		String[] ds2 = dsSoLuong.split(", ");
+		if (ds1 != null) {
+			if (ds2.length == 1) {
+				int sl = Integer.parseInt(ds2[0]);
+				int masp = Integer.parseInt(ds1[0]);
+				gioHang.capNhatSoLuong(masp, sl);
+			} else {
+				for (int i = 0; i < ds1.length; i++) {
+					try {
+						int sl = Integer.parseInt(ds2[i]);
+						int masp = Integer.parseInt(ds1[i]);
+						gioHang.capNhatSoLuong(masp, sl);
+					} catch (Exception e) {
+					}
+				}
+			}
+		}
+		if (dsDuocChon != null) {
+			for (Integer i : dsDuocChon) {
+				gioHang.xoaMatHang(i);
+			}
+		}
+
+		return SUCCESS;
 	}
-	
-	public void xoaTatca(){
-		
+
+	public String xoaTatCa() {
+		gioHang = (GioHang) session.get("gh");
+		if (gioHang != null)
+			gioHang.xoaTatCa();
+		return SUCCESS;
 	}
-	
-	public void thanhToan(){
-		
+
+	public void thanhToan() {
+
 	}
 
 	public MatHang getMatHang() {
@@ -84,14 +122,36 @@ public class XuLyGioHangAction extends ActionSupport implements ModelDriven<MatH
 		this.maSanPham = maSanPham;
 	}
 
+	public String getDsSoLuong() {
+		return dsSoLuong;
+	}
+
+	public void setDsSoLuong(String dsSoLuong) {
+		this.dsSoLuong = dsSoLuong;
+	}
+
+	public String getDsMaSanPham() {
+		return dsMaSanPham;
+	}
+
+	public void setDsMaSanPham(String dsMaSanPham) {
+		this.dsMaSanPham = dsMaSanPham;
+	}
+
+	public List<Integer> getDsDuocChon() {
+		return dsDuocChon;
+	}
+
+	public void setDsDuocChon(List<Integer> dsDuocChon) {
+		this.dsDuocChon = dsDuocChon;
+	}
+
 	@Override
 	public MatHang getModel() {
 		// TODO Auto-generated method stub
 		matHang = new MatHang();
 		return matHang;
 	}
-
-	
 
 	@Override
 	public void setServletRequest(HttpServletRequest servletRequest) {

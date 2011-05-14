@@ -6,10 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import action.XuLyGioHangAction;
+
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
-import model.dao.HinhAnhDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.SanPhamDAO;
@@ -17,8 +18,9 @@ import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.HinhAnh;
+import model.pojo.GioHang;
 import model.pojo.Laptop;
+import model.pojo.MatHang;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
@@ -217,7 +219,13 @@ public class Testing {
 		
 		//testSanPham();
 		
+		/* Test cap nhat gio hang
+		XuLyGioHangAction action = new XuLyGioHangAction();
 		
+		action.setDsMaSanPham("6, 12");
+		action.setDsSoLuong("2, 3");
+		action.capNhat();
+		*/
 		
 		
 	}
