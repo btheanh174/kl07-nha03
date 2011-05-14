@@ -1,11 +1,14 @@
 package action;
 
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import model.dao.DanhMucDAO;
@@ -27,130 +30,163 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>,Preparable, SessionAware {
+public class SanPhamAction extends ActionSupport implements
+		ModelDriven<SanPham>, Preparable, SessionAware {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6399634351690725889L;
-	public static final String DIENTHOAI = "dienthoai"; 
+	public static final String DIENTHOAI = "dienthoai";
 	public static final String LAPTOP = "laptop";
 	public static final String FINISH = "finish";
+
 	private Map<String, Object> session;
+
+	private List<File> dsImages = new ArrayList<File>(3);
+
+	private List<String> dsImagesContentType = new ArrayList<String>(3);
+	private List<String> dsImagesFileName = new ArrayList<String>(3);
+
 	SanPhamDAO spDao = new SanPhamDAO();
 	HinhAnhDAO haDao = new HinhAnhDAO();
-
 	DanhMucDAO dmDao = new DanhMucDAO();
 	private int maSanPham;
 	private SanPham sanPham;
 	private Laptop laptop;
 	private String url;
 	private List<SanPham> listSanPham;
-	
-	
+
 	private SanPhamTieuChi tieuChi;
 	private DienThoaiTieuChi dt = new DienThoaiTieuChi();
 	private LaptopTieuChi lt = new LaptopTieuChi();
 	private String loaiSanPham;
-	
+
 	private int trang = 1;
 	private int tongSoTrang;
 	private List<Integer> soTrang = new ArrayList<Integer>();
-	
-	public String execute(){
+
+	public String execute() {
 		listSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
-	
-	public String chiTiet(){
+
+	public String chiTiet() {
 		sanPham = spDao.lay(maSanPham);
 		setUrl(layHinhAnhDauTien(sanPham));
 		return SUCCESS;
 	}
-	
-	public String layHinhAnhDauTien(SanPham sp){
+
+	public String layHinhAnhDauTien(SanPham sp) {
 		List<HinhAnh> listHinhAnh = haDao.layDanhSach(sp);
-		
-		return (listHinhAnh.size() > 0) ? listHinhAnh.get(0).getUrlHinhAnh(): "";
+
+		return (listHinhAnh.size() > 0) ? listHinhAnh.get(0).getUrlHinhAnh()
+				: "";
 	}
-	
-	public String timNhanh(){
-		System.out.println("Trang hien tai = " +  trang);
+
+	public String timNhanh() {
+		System.out.println("Trang hien tai = " + trang);
 		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang);
 		tongSoTrang = duLieuTrang.getTongSoTrang();
-		System.out.println("Tong so trang = " +  tongSoTrang);
+		System.out.println("Tong so trang = " + tongSoTrang);
 		listSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
-	
-	public String timNangCao(){
-		
+
+	public String timNangCao() {
+
 		System.out.println(loaiSanPham);
-		if("DIENTHOAI".equalsIgnoreCase(loaiSanPham)){
+		if ("DIENTHOAI".equalsIgnoreCase(loaiSanPham)) {
 			System.out.println(dt.getTenSanPham());
 			DuLieuTrang duLieuTrang = spDao.timKiem(dt, trang);
 			tongSoTrang = duLieuTrang.getTongSoTrang();
 			listSanPham = duLieuTrang.getDsDuLieu();
 			return SUCCESS;
-		}else if("LAPTOP".equalsIgnoreCase(loaiSanPham)){
+		} else if ("LAPTOP".equalsIgnoreCase(loaiSanPham)) {
 			DuLieuTrang duLieuTrang = spDao.timKiem(lt, trang);
 			tongSoTrang = duLieuTrang.getTongSoTrang();
 			listSanPham = duLieuTrang.getDsDuLieu();
 			return SUCCESS;
-		}else{
+		} else {
 			return "error";
 		}
 	}
-	
-	public String themSanPham_step1()
-	{
+
+	public String themSanPham_step1() {
+
+		ServletContext servletContext = ServletActionContext
+				.getServletContext();
+		// String dataDir = servletContext.getRealPath("/WEB-INF");
+
+		String dataDir = servletContext.getRealPath("/WEB-INF")
+				+ "\\uploadPicture";
+		File folder = new File(dataDir);
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+
+		List<HinhAnh> dsHinhAnh = new ArrayList<HinhAnh>();
+		for (int i = 0; i < dsImages.size(); i++)
+			if (dsImages.get(i) != null) {
+				// attachment will be null if there's an error,
+				// such as if the uploaded file is too large
+
+				File savedFile = new File(dataDir, dsImagesFileName.get(i));
+				dsImages.get(i).renameTo(savedFile);
+				dsHinhAnh.add(new HinhAnh(sanPham.getTenSanPham(),
+						dsImagesFileName.get(i), null));
+
+			}
+		session.put("dsHinhAnh", dsHinhAnh);
 		DanhMuc dmTemp = dmDao.lay(sanPham.getDanhMuc().getMaDanhMuc());
-		if (sanPham.getLoaiSanPham().equals("1")) //L� laptop
+		if (sanPham.getLoaiSanPham().equals("1")) // Là laptop
 		{
 			session.remove("lt");
-			laptop = new Laptop(sanPham.getTenSanPham(),sanPham.getGia(), sanPham.getHangSanXuat(),
-						sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHang());
+			laptop = new Laptop(sanPham.getTenSanPham(), sanPham.getGia(),
+					sanPham.getHangSanXuat(), sanPham.getDsHinhAnh(), dmTemp,
+					sanPham.getDsGianHang());
 			session.put("lt", laptop);
 			return LAPTOP;
-		}
-		else
-		{
+		} else {
 			return DIENTHOAI;
 		}
 	}
-	
 
-
-	public String themSanPham_step2()
-	{
-		Laptop laptopTemp = (Laptop)session.get("lt"); 
+	public String themSanPham_step2() {
+		Laptop laptopTemp = (Laptop) session.get("lt");
 		laptop.setTenSanPham(laptopTemp.getTenSanPham());
 		laptop.setGia(laptopTemp.getGia());
 		laptop.setHangSanXuat(laptopTemp.getHangSanXuat());
 		laptop.setDsHinhAnh(laptopTemp.getDsHinhAnh());
 		laptop.setDanhMuc(laptopTemp.getDanhMuc());
 		laptop.setDsGianHang(laptopTemp.getDsGianHang());
-		System.out.println(laptop.getTenSanPham());	
-		session.put("lt",laptop);
+		System.out.println(laptop.getTenSanPham());
+		session.put("lt", laptop);
 		return SUCCESS;
 	}
-	
-	public String themSanPham_step3()
-	{
-		laptop = (Laptop)session.get("lt");
-		try
-		{
+
+	public String themSanPham_step3() {
+		try {
+			laptop = (Laptop) session.get("lt");
+
 			LaptopDAO ltDao = new LaptopDAO();
 			ltDao.them(laptop);
+
+			// Lưu hình vào csdl
+
+			List<HinhAnh> dsHinhAnh = (List<HinhAnh>) session.get("dsHinhAnh");
+			for (int i = 0; i < dsHinhAnh.size(); i++) {
+				dsHinhAnh.get(i).setSanPham(laptop);
+				haDao.them(dsHinhAnh.get(i));
+			}
+
 			return FINISH;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
+			return ERROR;
 		}
-		
-		return ERROR;
 	}
-	
+
 	@Override
 	public SanPham getModel() {
 		// TODO Auto-generated method stub
@@ -183,9 +219,9 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	@Override
 	public void prepare() throws Exception {
-		if(maSanPham != 0){
+		if (maSanPham != 0) {
 			sanPham = spDao.lay(maSanPham);
-		}else{
+		} else {
 			sanPham = new SanPham();
 		}
 	}
@@ -223,7 +259,7 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 	}
 
 	public List<Integer> getSoTrang() {
-		for(int i = 1; i <= getTongSoTrang(); i++){
+		for (int i = 1; i <= getTongSoTrang(); i++) {
 			soTrang.add(i);
 		}
 		return soTrang;
@@ -263,6 +299,30 @@ public class SanPhamAction extends ActionSupport implements ModelDriven<SanPham>
 
 	public Laptop getLaptop() {
 		return laptop;
+	}
+
+	public List<File> getDsImages() {
+		return dsImages;
+	}
+
+	public void setDsImages(List<File> dsImages) {
+		this.dsImages = dsImages;
+	}
+
+	public List<String> getDsImagesContentType() {
+		return dsImagesContentType;
+	}
+
+	public void setDsImagesContentType(List<String> dsImagesContentType) {
+		this.dsImagesContentType = dsImagesContentType;
+	}
+
+	public List<String> getDsImagesFileName() {
+		return dsImagesFileName;
+	}
+
+	public void setDsImagesFileName(List<String> dsImagesFileName) {
+		this.dsImagesFileName = dsImagesFileName;
 	}
 
 	@Override
