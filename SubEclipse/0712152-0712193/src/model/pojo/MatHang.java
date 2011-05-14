@@ -6,6 +6,7 @@ public class MatHang {
 	
 	private SanPham sanPham;
 	private Integer soLuong;
+	private float thanhTien;
 	
 	
 	public MatHang() {
@@ -32,5 +33,13 @@ public class MatHang {
 	}
 	public void setSoLuong(Integer soLuong) {
 		this.soLuong = soLuong;
+	}
+
+	public float getThanhTien() {
+		return soLuong * sanPham.getGia();
+	}
+
+	public void setThanhTien(float thanhTien) {
+		this.thanhTien = thanhTien;
 	}
 }
