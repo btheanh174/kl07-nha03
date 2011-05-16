@@ -76,11 +76,26 @@ public class DanhMucAction extends ActionSupport implements
 	}
 
 	public String xoaDanhMuc() {
-		khoiTaodsDanhMuc();
-		danhMuc = dsDanhMuc.get(timViTriDanhMuc(idCatalogue));
-		dmDao.xoa(danhMuc);
-		danhMuc = null;
-		return SUCCESS;
+		 khoiTaodsDanhMuc();
+         danhMuc = dsDanhMuc.get(timViTriDanhMuc(idCatalogue));
+         dmDao.xoa(danhMuc);
+         danhMuc = null;
+         return SUCCESS;
+	}
+	
+	public String capNhatDanhMuc(){
+		 khoiTaodsDanhMuc();
+         DanhMuc danhMucCha = dsDanhMuc.get(timViTriDanhMuc(idCatalogue));
+         
+         if (danhMucCha.getMaDanhMuc() == danhMuc.getMaDanhMuc())
+         {
+        	 return ERROR;
+         }
+         danhMuc.setDanhMucCha(danhMucCha);
+         danhMuc.setCapDanhMuc(danhMucCha.getCapDanhMuc()+1);
+         dmDao.capNhat(danhMuc);
+         danhMuc = null;
+         return SUCCESS;
 	}
 
 	public String layDanhSachSanPham() {

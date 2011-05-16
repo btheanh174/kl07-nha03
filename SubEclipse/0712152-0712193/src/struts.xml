@@ -103,6 +103,13 @@
 			<result name="success" type="redirect">QuanLyCategories.action</result>
 			<result name="input" type="redirect">QuanLyCategories.action</result>
 		</action>
+		
+		<action name="DanhMuc_capNhatDanhMuc" class="action.DanhMucAction"
+			method="capNhatDanhMuc">
+			<result name="success" type="redirect">QuanLyCategories.action</result>
+			<result name="input" type="redirect">QuanLyCategories.action</result>
+			<result name="error">/global/error.jsp</result>
+		</action>
 
 
 		<!-- San pham -->
