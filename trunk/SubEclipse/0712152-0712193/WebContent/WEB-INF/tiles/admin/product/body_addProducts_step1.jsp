@@ -60,14 +60,15 @@
 										<table border="0" cellpadding="0" cellspacing="0" id="id-form">
 											<tr>
 												<th>Tên sản phẩm:</th>
-												<td><s:textfield name="sanPham.tenSanPham" value ="Dell Pro" size="30"></s:textfield>
+												<td><s:textfield name="sanPham.tenSanPham"
+														value="Dell Pro" size="30"></s:textfield>
 												</td>
 												<td></td>
 											</tr>
 											<tr>
 												<th>Giá bán:</th>
-												<td><s:textfield name="sanPham.gia" size="30" value ="24000000"
-														theme="simple"></s:textfield></td>
+												<td><s:textfield name="sanPham.gia" size="30"
+														value="24000000" theme="simple"></s:textfield></td>
 												<td><s:select name="donViTinh" theme="simple"
 														style="margin-left:30px;" list="#{'1':'VNĐ', '2':'USD'}" />
 												</td>
@@ -75,7 +76,8 @@
 											<tr>
 											<tr>
 												<th>Hãng sản xuất:</th>
-												<td><s:textfield name="sanPham.hangSanXuat" value ="Nhà máy Dell" size="30"></s:textfield>
+												<td><s:textfield name="sanPham.hangSanXuat"
+														value="Nhà máy Dell" size="30"></s:textfield>
 												</td>
 												<td></td>
 											</tr>
@@ -87,9 +89,9 @@
 														list="#danhMucAction.dsDanhMucShow" listKey="maDanhMuc"
 														listValue="tenDanhMuc"
 														value="%{#danhMucAction.dsDanhMucShow.{maDanhMuc}}" />
+												</td>
 												<td></td>
 											</tr>
-
 											<tr>
 												<th>Loại sản phẩm:</th>
 
@@ -97,24 +99,24 @@
 														list="#{'1':'Laptop', '2':'Điện thoại'}" /></td>
 												<td></td>
 											</tr>
-											
+
 											<tr>
 												<th>Hình 1:</th>
 
 												<td><s:file name="dsImages" /></td>
 												<td></td>
 											</tr>
-											
+
 											<tr>
 												<th>Hình 2:</th>
 
-												<td><s:file name="dsImages"/></td>
+												<td><s:file name="dsImages" /></td>
 												<td></td>
 											</tr>
 											<tr>
 												<th>Hình 3:</th>
 
-												<td><s:file name="dsImages"/></td>
+												<td><s:file name="dsImages" /></td>
 												<td></td>
 											</tr>
 											<tr>
