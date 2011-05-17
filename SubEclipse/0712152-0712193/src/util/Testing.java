@@ -226,8 +226,10 @@ public class Testing {
 		action.setDsSoLuong("2, 3");
 		action.capNhat();
 		*/
+		System.out.println("Debug lấy sản phẩm");
+		SanPham sp = new SanPhamDAO().lay(8);
 		
-		
+		System.out.println(sp.getDsHinhAnh().size());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

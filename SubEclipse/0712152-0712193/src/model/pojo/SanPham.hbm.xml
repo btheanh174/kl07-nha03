@@ -32,13 +32,17 @@
         <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
         </many-to-one>
         
-        <list name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="true" inverse="true">
+        <!-- <list name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="false" inverse="true" fetch="join">
         	<key column="SAN_PHAM"></key>
         	<list-index>
         		<column name="MA_HINH_ANH"></column>
         	</list-index>
         	<one-to-many class="model.pojo.HinhAnh"/>
-        </list>
+        </list> -->
+		<set name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="true" inverse="true" fetch="join">
+			<key column="SAN_PHAM"></key>
+			<one-to-many class="model.pojo.HinhAnh"/>
+		</set>        
         
         <set name="dsGianHang" table="gian_hang_san_pham" cascade="all" lazy="true">
         	<meta attribute="quan he nhieu nhieu voi gian hang"></meta>

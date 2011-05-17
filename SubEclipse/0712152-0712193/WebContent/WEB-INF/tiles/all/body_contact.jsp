@@ -2,5 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 <div>
-Nội dung phần thân
+<!-- Hiển thị thông tin của gian hàng
+được người dùng đăng ký
+ -->
 </div>

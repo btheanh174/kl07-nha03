@@ -13,7 +13,7 @@ public class SanPham {
 	protected String loaiSanPham;
 	
 	protected DanhMuc danhMuc;
-	protected List<HinhAnh> dsHinhAnh;
+	protected Set<HinhAnh> dsHinhAnh;
 	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
 	
 	
@@ -22,7 +22,7 @@ public class SanPham {
 	}
 	
 	public SanPham(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+			Set<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.gia = gia;
@@ -76,11 +76,11 @@ public class SanPham {
 		this.danhMuc = danhMuc;
 	}
 
-	public List<HinhAnh> getDsHinhAnh() {
+	public Set<HinhAnh> getDsHinhAnh() {
 		return dsHinhAnh;
 	}
 
-	public void setDsHinhAnh(List<HinhAnh> dsHinhAnh) {
+	public void setDsHinhAnh(Set<HinhAnh> dsHinhAnh) {
 		this.dsHinhAnh = dsHinhAnh;
 	}
 

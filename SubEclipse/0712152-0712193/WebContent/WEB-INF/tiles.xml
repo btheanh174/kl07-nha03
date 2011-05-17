@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-
+	
 	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
 		<put-attribute name="pageTitle" value="Template" />
 		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
@@ -172,5 +172,21 @@
 			value="/WEB-INF/tiles/content/body_shoppingcart.jsp" />
 	</definition>
 	
+	<!--  -->
+	
+	<!-- Phần định nghĩa dành cho các site thành viên -->
+	<definition name="siteLayout" template="/WEB-INF/tiles/all/layout.jsp">
+		<put-attribute name="pageTitle" value="Template" />
+		<put-attribute name="top" value="/WEB-INF/tiles/all/top.jsp" />
+		<put-attribute name="left" value="/WEB-INF/tiles/all/left.jsp" />
+		<put-attribute name="bannner" value="/WEB-INF/tiles/all/banner.jsp" />
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/all/footer.jsp" />
+	</definition>
+	
+	<definition name="siteContact" extends="siteLayout">
+		<put-attribute name="pageTitile" value="Liên hệ"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_contact.jsp"></put-attribute>
+	</definition>
 	<!--  -->
 </tiles-definitions>

@@ -23,8 +23,30 @@ public class SanPhamDAO extends AbstractDAO {
 		super();
 	}
 
-	public SanPham lay(int id) {
+	/*public SanPham lay(int id) {
 		return (SanPham) super.find(SanPham.class, id);
+	}*/
+	
+	public SanPham lay(int id){
+		SanPham kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "from SanPham as sp where sp.maSanPham =:id";
+			Query query = session.createQuery(hql);
+			query.setParameter("id", id);
+			kq = (SanPham) query.uniqueResult();
+			Hibernate.initialize(kq);
+			Hibernate.initialize(kq.getDsHinhAnh());
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 
 	public List<SanPham> layDanhSach() {
