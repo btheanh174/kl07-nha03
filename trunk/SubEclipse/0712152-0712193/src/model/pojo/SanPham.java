@@ -1,6 +1,9 @@
 
 package model.pojo;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -98,5 +101,9 @@ public class SanPham {
 
 	public void setLoaiSanPham(String loaiSanPham) {
 		this.loaiSanPham = loaiSanPham;
+	}
+	
+	public Enumeration<HinhAnh> getDsHinhAnhEnumeration(){
+		return Collections.enumeration(dsHinhAnh);
 	}
 }

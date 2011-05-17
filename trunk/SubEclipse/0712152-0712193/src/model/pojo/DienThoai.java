@@ -30,7 +30,7 @@ public class DienThoai extends SanPham {
 	}
 	
 	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+			Set<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 	}
 
@@ -68,7 +68,7 @@ public class DienThoai extends SanPham {
 	}
 
 	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
+			Set<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
 			String trongLuong, String kichThuoc, String kieuChuong, Integer rung,
