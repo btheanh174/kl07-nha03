@@ -64,13 +64,13 @@
 				<div class="nav-divider">&nbsp;</div>
 
 				<ul class="select">
-					<li><a href="<s:url action="QuanLyProducts.action"/> ">
+					<li><a href="#nogo">
 					<b>Products</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
 						<!--[if lte IE 6]><table><tr><td><![endif]-->
 						<div class="select_sub show">
 							<ul class="sub">
-								<li><a href="#nogo">View all products</a></li>
-								<li class="sub_show"><a href="#nogo">Add product</a></li>
+								<li><a href="<s:url action="SanPham_xemDanhSachSanPham.action"/> ">View all products</a></li>
+								<li class="sub_show"><a href="<s:url action="QuanLyProducts.action"/> ">Add product</a></li>
 								<li><a href="#nogo">Delete products</a></li>
 							</ul>
 						</div> <!--[if lte IE 6]></td></tr></table></a><![endif]-->

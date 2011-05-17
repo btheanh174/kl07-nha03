@@ -2,9 +2,11 @@ package action;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Iterator;
 
 import javax.servlet.ServletContext;
 
@@ -127,7 +129,7 @@ public class SanPhamAction extends ActionSupport implements
 			folder.mkdir();
 		}
 
-		List<HinhAnh> dsHinhAnh = new ArrayList<HinhAnh>();
+		Set<HinhAnh> dsHinhAnh = new HashSet<HinhAnh>();
 		for (int i = 0; i < dsImages.size(); i++)
 			if (dsImages.get(i) != null) {
 				// attachment will be null if there's an error,
@@ -186,16 +188,21 @@ public class SanPhamAction extends ActionSupport implements
 	public String themSanPham_step3() {
 		try {
 			String loai = (String) session.get("loai");
-			List<HinhAnh> dsHinhAnh = (List<HinhAnh>) session.get("dsHinhAnh");
+			Set<HinhAnh> dsHinhAnh = (Set<HinhAnh>) session.get("dsHinhAnh");
 			if (loai.equals("1")) {
 				laptop = (Laptop) session.get("lt");
 				LaptopDAO ltDao = new LaptopDAO();
 				ltDao.them(laptop);
 				// Lưu hình vào csdl
-
-				for (int i = 0; i < dsHinhAnh.size(); i++) {
-					dsHinhAnh.get(i).setSanPham(laptop);
-					haDao.them(dsHinhAnh.get(i));
+				
+				
+				// Iterating over the elements in the set
+				Iterator<HinhAnh> it = dsHinhAnh.iterator();
+				while (it.hasNext()) {
+				    // Get element
+				    HinhAnh element = it.next();
+				    element.setSanPham(laptop);
+				    haDao.them(element);
 				}
 				session.remove("lt");
 			}
@@ -206,9 +213,14 @@ public class SanPhamAction extends ActionSupport implements
 				dtDao.them(dienthoai);
 				// Lưu hình vào csdl
 
-				for (int i = 0; i < dsHinhAnh.size(); i++) {
-					dsHinhAnh.get(i).setSanPham(dienthoai);
-					haDao.them(dsHinhAnh.get(i));
+
+				// Iterating over the elements in the set
+				Iterator<HinhAnh> it = dsHinhAnh.iterator();
+				while (it.hasNext()) {
+				    // Get element
+				    HinhAnh element = it.next();
+				    element.setSanPham(dienthoai);
+				    haDao.them(element);
 				}
 				session.remove("dt");
 			}
