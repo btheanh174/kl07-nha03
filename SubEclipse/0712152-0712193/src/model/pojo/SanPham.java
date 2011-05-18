@@ -14,12 +14,20 @@ public class SanPham {
 	protected float gia;
 	protected String hangSanXuat;
 	protected String loaiSanPham;
-
+	
 	protected DanhMuc danhMuc;
 	protected List<HinhAnh> dsHinhAnh;
 	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
 
 	protected String hinhAnh;
+	
+	
+	//Các thuộc tính hỗ trợ khác
+	protected String tenDanhMuc; //Do JSON ko xử lý composite được
+	protected String urlHinh1;
+	protected String urlHinh2;
+	protected String urlHinh3;
+	
 	
 	public SanPham() {
 		super();
@@ -122,4 +130,37 @@ public class SanPham {
 		this.hinhAnh = hinhAnh;
 	}
 
+	public String getTenDanhMuc() {
+		return tenDanhMuc;
+	}
+
+	public void setTenDanhMuc(String tenDanhMuc) {
+		this.tenDanhMuc = tenDanhMuc;
+	}
+
+	public String getUrlHinh1() {
+		return urlHinh1;
+	}
+
+	public void setUrlHinh1(String urlHinh1) {
+		this.urlHinh1 = urlHinh1;
+	}
+
+	public String getUrlHinh2() {
+		return urlHinh2;
+	}
+
+	public void setUrlHinh2(String urlHinh2) {
+		this.urlHinh2 = urlHinh2;
+	}
+
+	public String getUrlHinh3() {
+		return urlHinh3;
+	}
+
+	public void setUrlHinh3(String urlHinh3) {
+		this.urlHinh3 = urlHinh3;
+	}
+
+	
 }
