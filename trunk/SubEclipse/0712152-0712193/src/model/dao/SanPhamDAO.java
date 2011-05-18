@@ -37,8 +37,11 @@ public class SanPhamDAO extends AbstractDAO {
 			Query query = session.createQuery(hql);
 			query.setParameter("id", id);
 			kq = (SanPham) query.uniqueResult();
-			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsHinhAnh());
+			/*
+			 * Su dung khi lazy cua association voi HinhAnh la true
+			 * Hibernate.initialize(kq);
+			 * Hibernate.initialize(kq.getDsHinhAnh()); 
+			 */
 			
 			tx.commit();
 		}catch(HibernateException e){
@@ -63,6 +66,15 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setParameter("dm", danhMuc);
 			
 			kq = query.list();
+			/*
+			 * Su dung khi lazy cua association voi HinhAnh la true
+			for (SanPham sanPham : kq) {
+				Hibernate.initialize(sanPham);
+				Hibernate.initialize(sanPham.getDsHinhAnh());
+			}
+			*/
+			Hibernate.initialize(kq);
+			
 			tx.commit();
 
 		} catch (HibernateException e) {
