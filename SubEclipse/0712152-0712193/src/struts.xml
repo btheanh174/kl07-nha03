@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="default"
-		extends="struts-default,tiles-default,jcaptcha4struts2-default">
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
 		<interceptors>
 			<interceptor name="LastActionInterceptor" class="action.user.LastActionInterceptor"></interceptor>
 			<interceptor-stack name="MyLoginStack">
@@ -183,9 +183,15 @@
 			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
 
-		<action name="SanPham_xemDanhSachSanPham" class="action.SanPhamAction">
+
+		<action name="SanPham_xemDanhSachSanPham">
 			<result name="success" type="tiles">AdminViewProducts.tiles</result>
-			<result name="finish" type="redirect">show_admin_index.action</result>
+			<result name="error" type="redirect">show_admin_index.action</result>
+		</action>
+		
+		<action name="jsonBangSanPham" class ="action.sanpham.JsonTable">
+			<result name="success" type="json"></result>
+			<result name="error" type="redirect">show_admin_index.action</result>
 		</action>
 
 		<action name="TestAction" class="action.DanhMucAction">
