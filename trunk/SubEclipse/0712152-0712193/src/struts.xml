@@ -20,7 +20,7 @@
 
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
 
-		<action name="show_index">
+		<action name="Index">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success" type="tiles">Index.tiles</result>
 		</action>
@@ -31,6 +31,7 @@
 		</action>
 
 		<action name="show3_*_*_*">
+			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success">/{1}/{2}/{3}.jsp</result>
 		</action>
 
@@ -159,7 +160,11 @@
 
 		<!-- -->
 
-
+		<!-- Admin -->
+		<action name="Admin">
+			<interceptor-ref name="MyLoginStack"></interceptor-ref>
+			<result name="success">/admin/index.jsp</result>
+		</action>
 
 		<action name="QuanLyCategories" class="action.DanhMucAction">
 			<result name="success" type="tiles">AdminCategories.tiles</result>
@@ -178,17 +183,15 @@
 			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
 
-		<action name="SanPham_xemDanhSachSanPham" class="action.SanPhamAction"
-			>
+		<action name="SanPham_xemDanhSachSanPham" class="action.SanPhamAction">
 			<result name="success" type="tiles">AdminViewProducts.tiles</result>
 			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
-
-
 
 		<action name="TestAction" class="action.DanhMucAction">
 			<result name="success">admin/test.jsp</result>
 			<result name="input">admin/test.jsp</result>
 		</action>
+		<!-- end Admin -->
 	</package>
 </struts>

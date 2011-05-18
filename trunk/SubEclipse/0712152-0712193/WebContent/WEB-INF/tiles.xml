@@ -100,7 +100,7 @@
 
 	<!-- Admin layout -->
 	
-	<definition name="AdminIndex.tiles" extends="adminLayout">
+	<definition name="Admin.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý trang web" />
 	</definition>
 	

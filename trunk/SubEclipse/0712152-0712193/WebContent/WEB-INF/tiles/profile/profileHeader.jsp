@@ -32,7 +32,7 @@
                          <li class="right_divider"></li>
                          <li><a href="<s:url action=""/>" class="right_nav2">Sản phẩm</a></li>
 						 <li class="right_divider"></li>
-                         <li><a href="<s:url action="show_index"/>" class="right_nav1">  Trang chủ </a></li>
+                         <li><a href="<s:url action="Index"/>" class="right_nav1">  Trang chủ </a></li>
                          
                     </ul>
 

@@ -5,7 +5,7 @@
 <div class="left_menu_corner"></div>
 
 <ul class="menu">
-	<li><a href="<s:url action="show_index"/>" class="nav1"> Trang
+	<li><a href="<s:url action="Index"/>" class="nav1"> Trang
 			chủ </a>
 	</li>
 	<li class="divider"></li>
