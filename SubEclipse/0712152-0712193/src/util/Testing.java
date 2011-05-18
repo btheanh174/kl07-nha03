@@ -2,6 +2,7 @@
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,7 @@ import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.GioHang;
+import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.MatHang;
 import model.pojo.NhomNguoiDung;
@@ -227,9 +229,14 @@ public class Testing {
 		action.capNhat();
 		*/
 		System.out.println("Debug lấy sản phẩm");
-		SanPham sp = new SanPhamDAO().lay(8);
+		DanhMuc dm = new DanhMucDAO().lay(11);
+		List<SanPham> dssp = new SanPhamDAO().layDanhSach(dm);
 		
-		System.out.println(sp.getDsHinhAnh().size());
+		
+		
+		
+		
+		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

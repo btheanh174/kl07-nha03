@@ -1,6 +1,6 @@
-
 package model.pojo;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -14,18 +14,19 @@ public class SanPham {
 	protected float gia;
 	protected String hangSanXuat;
 	protected String loaiSanPham;
-	
+
 	protected DanhMuc danhMuc;
-	protected Set<HinhAnh> dsHinhAnh;
+	protected List<HinhAnh> dsHinhAnh;
 	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
-	
+
+	protected String hinhAnh;
 	
 	public SanPham() {
 		super();
 	}
-	
+
 	public SanPham(String tenSanPham, float gia, String hangSanXuat,
-			Set<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.gia = gia;
@@ -34,11 +35,11 @@ public class SanPham {
 		this.danhMuc = danhMuc;
 		this.dsGianHang = dsGianHang;
 	}
-	
-	public String toShortString(){
+
+	public String toShortString() {
 		return "";
 	}
-	
+
 	public String toLongString() {
 		return "";
 	}
@@ -46,24 +47,27 @@ public class SanPham {
 	public int getMaSanPham() {
 		return maSanPham;
 	}
+
 	public void setMaSanPham(int maSanPham) {
 		this.maSanPham = maSanPham;
 	}
-	
+
 	public String getTenSanPham() {
 		return tenSanPham;
 	}
+
 	public void setTenSanPham(String tenSanPham) {
 		this.tenSanPham = tenSanPham;
 	}
-	
+
 	public float getGia() {
 		return gia;
 	}
+
 	public void setGia(float gia) {
 		this.gia = gia;
 	}
-	
+
 	public String getHangSanXuat() {
 		return hangSanXuat;
 	}
@@ -75,15 +79,16 @@ public class SanPham {
 	public DanhMuc getDanhMuc() {
 		return danhMuc;
 	}
+
 	public void setDanhMuc(DanhMuc danhMuc) {
 		this.danhMuc = danhMuc;
 	}
 
-	public Set<HinhAnh> getDsHinhAnh() {
+	public List<HinhAnh> getDsHinhAnh() {
 		return dsHinhAnh;
 	}
 
-	public void setDsHinhAnh(Set<HinhAnh> dsHinhAnh) {
+	public void setDsHinhAnh(List<HinhAnh> dsHinhAnh) {
 		this.dsHinhAnh = dsHinhAnh;
 	}
 
@@ -103,7 +108,18 @@ public class SanPham {
 		this.loaiSanPham = loaiSanPham;
 	}
 	
-	public Enumeration<HinhAnh> getDsHinhAnhEnumeration(){
-		return Collections.enumeration(dsHinhAnh);
+	
+	public String getHinhAnh() {
+		
+		if(dsHinhAnh == null)
+			this.hinhAnh = "";
+		else
+			this.hinhAnh = dsHinhAnh.get(0).getUrlHinhAnh();
+		return this.hinhAnh;
 	}
+
+	public void setHinhAnh(String hinhAnh) {
+		this.hinhAnh = hinhAnh;
+	}
+
 }

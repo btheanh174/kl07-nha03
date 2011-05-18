@@ -58,7 +58,6 @@ public class SanPhamAction extends ActionSupport implements
 	private SanPham sanPham;
 	private Laptop laptop;
 	private DienThoai dienthoai;
-	private String url;
 	private List<SanPham> listSanPham;
 
 	private SanPhamTieuChi tieuChi;
@@ -77,15 +76,7 @@ public class SanPhamAction extends ActionSupport implements
 
 	public String chiTiet() {
 		sanPham = spDao.lay(maSanPham);
-		setUrl(layHinhAnhDauTien(sanPham));
 		return SUCCESS;
-	}
-
-	public String layHinhAnhDauTien(SanPham sp) {
-		List<HinhAnh> listHinhAnh = haDao.layDanhSach(sp);
-
-		return (listHinhAnh.size() > 0) ? listHinhAnh.get(0).getUrlHinhAnh()
-				: "";
 	}
 
 	public String timNhanh() {
@@ -330,13 +321,6 @@ public class SanPhamAction extends ActionSupport implements
 		this.loaiSanPham = loaiSanPham;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
 
 	public void setLaptop(Laptop laptop) {
 		this.laptop = laptop;
