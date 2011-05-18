@@ -171,7 +171,7 @@
 		$(document).pngFix();
 	});
 </script>
-<sj:head jqueryui="true" />
+<sj:head jqueryui="true" jquerytheme="redmond" />
 </head>
 <body>
 
