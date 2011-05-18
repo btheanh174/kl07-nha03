@@ -44,7 +44,7 @@
 						<td class="col_1"></td>
 						<td class="col_2">
 						<div class="picture_small"><a href="" class="tooltip"><img
-							src="" alt=""> </a></div>
+							src="${hinhAnh }" alt=""> </a></div>
 						</td>
 						<td class="col_3">
 						<s:url action="SanPham_chiTiet"

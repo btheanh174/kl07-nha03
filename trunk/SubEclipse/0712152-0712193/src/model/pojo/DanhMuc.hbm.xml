@@ -26,11 +26,11 @@
 		<many-to-one name="danhMucCha" class="model.pojo.DanhMuc"
 			column="DANH_MUC_CHA"></many-to-one>
 
-		<set name="dsSanPham" cascade="all" table="san_pham" lazy="true"
+		<bag name="dsSanPham" cascade="all" table="san_pham" lazy="true"
 			inverse="true">
 			<key column="DANH_MUC"></key>
 			<one-to-many class="model.pojo.SanPham" />
-		</set>
+		</bag>
 
 		<set name="dsGianHang" table="gian_hang_danh_muc" cascade="all"
 			lazy="true">

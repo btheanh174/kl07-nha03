@@ -66,6 +66,7 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setParameter("dm", danhMuc);
 			
 			kq = query.list();
+			
 			/*
 			 * Su dung khi lazy cua association voi HinhAnh la true
 			for (SanPham sanPham : kq) {

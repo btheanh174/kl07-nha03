@@ -12,7 +12,7 @@ public class DanhMuc {
 	private DanhMuc danhMucCha;
 	private List<DanhMuc> dsDanhMucCon;
 	
-	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
+	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
 	private Set<GianHang> dsGianHang = new HashSet<GianHang>();
 
 	public DanhMuc() {
@@ -20,7 +20,7 @@ public class DanhMuc {
 	}
 
 	public DanhMuc(String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha,
-			List<DanhMuc> dsDanhMucCon, Set<SanPham> dsSanPham,
+			List<DanhMuc> dsDanhMucCon, List<SanPham> dsSanPham,
 			Set<GianHang> dsGianHang) {
 		super();
 		this.tenDanhMuc = tenDanhMuc;
@@ -91,11 +91,11 @@ public class DanhMuc {
 		this.danhMucCha = danhMucCha;
 	}
 
-	public Set<SanPham> getDsSanPham() {
+	public List<SanPham> getDsSanPham() {
 		return dsSanPham;
 	}
 
-	public void setDsSanPham(Set<SanPham> dsSanPham) {
+	public void setDsSanPham(List<SanPham> dsSanPham) {
 		this.dsSanPham = dsSanPham;
 	}
 
@@ -106,5 +106,4 @@ public class DanhMuc {
 	public void setDsGianHang(Set<GianHang> dsGianHang) {
 		this.dsGianHang = dsGianHang;
 	}
-	
 }
