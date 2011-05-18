@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import model.dao.SanPhamDAO;
+import model.pojo.DanhMuc;
 import model.pojo.SanPham;
 import util.SanPhamUtil;
 
@@ -46,6 +47,24 @@ public class JsonTable extends ActionSupport implements SessionAware {
 			// myCustomers = spDao.buildList();
 			myProducts = spDao.layDanhSach();
 			for (int i = 0; i < myProducts.size(); i++) {
+
+				myProducts.get(i).setTenDanhMuc(
+						myProducts.get(i).getDanhMuc().getTenDanhMuc());
+				for (int j = 0; i < myProducts.get(i).getDsHinhAnh().size(); j++) {
+					if (j == 0)
+						myProducts.get(i).setUrlHinh1(
+								myProducts.get(i).getDsHinhAnh().get(0)
+										.getUrlHinhAnh());
+					if (j == 1)
+						myProducts.get(i).setUrlHinh2(
+								myProducts.get(i).getDsHinhAnh().get(1)
+										.getUrlHinhAnh());
+					if (j == 2)
+						myProducts.get(i).setUrlHinh3(
+								myProducts.get(i).getDsHinhAnh().get(2)
+										.getUrlHinhAnh());
+				}
+				
 				myProducts.get(i).setDanhMuc(null);
 				myProducts.get(i).setDsGianHang(null);
 				myProducts.get(i).setDsHinhAnh(null);
@@ -53,7 +72,7 @@ public class JsonTable extends ActionSupport implements SessionAware {
 		}
 
 		if (getSord() != null && getSord().equalsIgnoreCase("asc")) {
-			 //Collections.sort(myProducts);
+			// Collections.sort(myProducts);
 		}
 		if (getSord() != null && getSord().equalsIgnoreCase("desc")) {
 			// Collections.sort(myCustomers);

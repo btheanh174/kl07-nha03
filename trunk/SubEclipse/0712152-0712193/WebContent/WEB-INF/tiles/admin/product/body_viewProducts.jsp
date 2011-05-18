@@ -77,12 +77,20 @@
 			<sjg:gridColumn name="gia" index="gia" title="Giá tham khảo"
 				align="right" formatter="currency" editable="true" edittype="text"
 				sortable="false" search="false" />
-			<sjg:gridColumn name="hangSanXuat" index="hangSanXuat" title="Hãng sản xuất"
-				sortable="false"/>
+			<sjg:gridColumn name="hangSanXuat" index="hangSanXuat"
+				title="Hãng sản xuất" sortable="false" />
 			<sjg:gridColumn name="loaiSanPham" index="loaiSanPham" title="Loại"
 				editable="true" edittype="select"
 				editoptions="{value:'LAPTOP:LAPTOP;DIENTHOAI:DIENTHOAI'}"
 				sortable="false" search="false" />
+			<sjg:gridColumn name="tenDanhMuc" index="tenDanhMuc" title="Danh mục"
+				editable="true" edittype="select" sortable="false" search="false" />
+			<sjg:gridColumn name="urlHinh1" index="urlHinhAnh1" title="Hình 1"
+				editable="true" edittype="select" sortable="false" search="false" />
+			<sjg:gridColumn name="urlHinh2" index="urlHinh2" title="Hình 2"
+				editable="true" edittype="select" sortable="false" search="false" />
+			<sjg:gridColumn name="urlHinh3" index="urlHinh3" title="Hình 3"
+				editable="true" edittype="select" sortable="false" search="false" />
 		</sjg:grid>
 		<br />
 		<sj:submit id="grid_edit_addbutton" value="Add Row"
