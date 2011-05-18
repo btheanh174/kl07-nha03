@@ -29,7 +29,7 @@
         </property>
         
         
-        <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC">
+        <many-to-one name="danhMuc" class="model.pojo.DanhMuc" column="DANH_MUC" lazy="false">
         </many-to-one>
         
         <bag name="dsHinhAnh" table="hinh_anh" cascade="all" lazy="false" inverse="true" fetch="join">
