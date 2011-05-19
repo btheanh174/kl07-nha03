@@ -13,10 +13,7 @@
 	<div class="h_right">
 		<div id="page" class="section">
 			<div id="PageList1" class="widget PageList">
-				<ul>
-					<li><a href="">Giỏ hàng</a>
-					</li>
-				</ul>
+				
 			</div>
 		</div>
 	</div>
