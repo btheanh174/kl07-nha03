@@ -9,4 +9,4 @@ if(session.getAttribute("tk") == null){
 	response.sendRedirect("show_user_login.action");
 }
 %>
-<tiles:insertDefinition name="Profile.newmessage.tiles"></tiles:insertDefinition>
+<tiles:insertDefinition name="Message.tiles"></tiles:insertDefinition>
