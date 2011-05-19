@@ -5,11 +5,15 @@
 <div id="main_navi" class="clearfix">
 	<div id="main_navi_in">
 		<ul id="nav">
-			<li><a href="">Estore.com</a>
+			<li><a href="">eStore.com</a>
 			</li>
 			<li><a href="">Trang chủ</a>
 				<ul class="children">
 					<li><a href="">Category</a>
+					<ul>
+					<li><a href="">sub1</a></li>
+					<li><a href="">sub2</a></li>
+					</ul>
 					</li>
 					<li><a href="">Category</a>
 					</li>
@@ -19,6 +23,8 @@
 			<li><a href="">Giới thiệu</a>
 			</li>
 			<li><a href="">Liên hệ</a>
+			</li>
+			<li><a href="">Giỏ hàng</a>
 			</li>
 		</ul>
 		<div class="searchform">

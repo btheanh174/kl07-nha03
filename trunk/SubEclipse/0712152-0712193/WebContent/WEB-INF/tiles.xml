@@ -201,7 +201,7 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_index.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="siteIndex.tiles" extends="siteLayout">
+	<definition name="siteProducts.tiles" extends="siteLayout">
 		<put-attribute name="title" value="Sản phẩm"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_products.jsp"></put-attribute>
 	</definition>
