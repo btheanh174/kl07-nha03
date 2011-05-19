@@ -65,7 +65,7 @@
 
 		<action name="Profile_hienThi" class="action.user.ProfileAction"
 			method="hienThi">
-			<result name="success" type="redirect">show_myprofile_information.action
+			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
 
@@ -74,7 +74,7 @@
 			method="capNhatThongTin">
 			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
-			<result name="input" type="redirect">show_myprofile_information.action
+			<result name="input" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
 
@@ -82,7 +82,7 @@
 			method="test">
 
 			<result name="success" type="redirect">show_index.action</result>
-			<result name="input" type="redirect">show_myprofile_password.action
+			<result name="input" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
 

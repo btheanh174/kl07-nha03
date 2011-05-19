@@ -148,28 +148,30 @@
 	</definition>
 
 	<definition name="Profile.tiles" extends="profileLayout">
-		<put-attribute name="pageTitle" value="Thông tin người dùng"></put-attribute>
+		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/profile/body_profile.jsp"></put-attribute>
 	</definition>
 
-	<definition name="Profile.password.tiles" extends="profileLayout">
-		<put-attribute name="pageTitle" value="Thay đổi mật khẩu"></put-attribute>
+
+	<definition name="Account.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Tài khoản"></put-attribute>
 		<put-attribute name="center"
-			value="/WEB-INF/tiles/profile/body_password.jsp"></put-attribute>
+			value="/WEB-INF/tiles/profile/body_account.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Message.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Quản lý tin nhắn"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_message.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Store.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Quản lý cửa hàng"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_store.jsp"></put-attribute>
 	</definition>
 
-	<definition name="Profile.information.tiles" extends="profileLayout">
-		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
-		<put-attribute name="center"
-			value="/WEB-INF/tiles/profile/body_information.jsp"></put-attribute>
-	</definition>
-
-	<definition name="Profile.newmessage.tiles" extends="profileLayout">
-		<put-attribute name="pageTitle" value="Gửi tin nhắn"></put-attribute>
-		<put-attribute name="center"
-			value="/WEB-INF/tiles/profile/body_newmessage.jsp"></put-attribute>
-	</definition>
 	<!-- End Profile layout -->
 	<!-- Shopping cart -->
 	
