@@ -1,5 +1,7 @@
-#Sat May 14 21:26:45 ICT 2011
+#Thu May 19 16:47:29 ICT 2011
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/tiles/all/header.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/all/menu.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/content/body_product.detail.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/content/div_dienthoai.detail.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/content/div_laptop.detail.jsp=UTF-8

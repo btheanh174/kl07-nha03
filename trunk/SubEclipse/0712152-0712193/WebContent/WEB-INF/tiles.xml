@@ -182,18 +182,28 @@
 	<!--  -->
 	
 	<!-- Phần định nghĩa dành cho các site thành viên -->
-	<definition name="siteLayout" template="/WEB-INF/tiles/all/layout.jsp">
-		<put-attribute name="pageTitle" value="Template" />
-		<put-attribute name="top" value="/WEB-INF/tiles/all/top.jsp" />
-		<put-attribute name="left" value="/WEB-INF/tiles/all/left.jsp" />
-		<put-attribute name="bannner" value="/WEB-INF/tiles/all/banner.jsp" />
+	<definition name="siteLayout" template="/WEB-INF/tiles/all/siteLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="navbar" value="/WEB-INF/tiles/all/navbar.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/all/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/all/menu.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/tiles/all/sidebar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/all/footer.jsp" />
 	</definition>
 	
-	<definition name="siteContact" extends="siteLayout">
-		<put-attribute name="pageTitile" value="Liên hệ"></put-attribute>
+	<definition name="siteContact.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Liên hệ"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_contact.jsp"></put-attribute>
+	</definition>
+	<definition name="siteIndex.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Trang chủ"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_index.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="siteIndex.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Sản phẩm"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_products.jsp"></put-attribute>
 	</definition>
 	<!--  -->
 </tiles-definitions>
