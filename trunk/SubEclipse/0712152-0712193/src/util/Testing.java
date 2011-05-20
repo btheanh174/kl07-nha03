@@ -228,15 +228,10 @@ public class Testing {
 		action.setDsSoLuong("2, 3");
 		action.capNhat();
 		*/
-		System.out.println("Debug lấy sản phẩm");
-		DanhMuc dm = new DanhMucDAO().lay(11);
-		List<SanPham> dssp = new SanPhamDAO().layDanhSach(dm);
 		
+		TaiKhoan tk = new TaiKhoanDAO().lay(16);
 		
-		
-		
-		
-		
+		System.out.println();
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

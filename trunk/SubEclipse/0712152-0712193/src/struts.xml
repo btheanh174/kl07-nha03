@@ -68,7 +68,17 @@
 			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
-
+		
+		<action name="Profile_doiMatKhau" class="action.user.ProfileAction"
+			method="doiMatKhau">
+			<result name="success">/myprofile/profile.jsp</result>
+		</action>
+		
+		<action name="Profile_doiEmail" class="action.user.ProfileAction"
+			method="doiEmail">
+			<result name="success" type="redirect">show_myprofile_profile.action
+			</result>
+		</action>
 
 		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction"
 			method="capNhatThongTin">
@@ -85,6 +95,15 @@
 			<result name="input" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
+		<!-- end Profile -->
+		
+		<!-- Store -->
+		<action name="Store_*" class="action.gianhang.GianHangAction" method="{1}">
+			<result name="success" >/myprofile/store.jsp</result>
+			
+		</action>
+		
+		<!-- end Store -->
 
 		<!-- Danh muc -->
 
@@ -188,8 +207,8 @@
 			<result name="success" type="tiles">AdminViewProducts.tiles</result>
 			<result name="error" type="redirect">show_admin_index.action</result>
 		</action>
-		
-		<action name="jsonBangSanPham" class ="action.sanpham.JsonTable">
+
+		<action name="jsonBangSanPham" class="action.sanpham.JsonTable">
 			<result name="success" type="json"></result>
 			<result name="error" type="redirect">show_admin_index.action</result>
 		</action>
