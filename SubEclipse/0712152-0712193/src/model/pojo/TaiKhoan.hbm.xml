@@ -33,7 +33,7 @@
 			<meta attribute="Quan hệ 1 - 1 với bảng thành viên"></meta>
 		</one-to-one>
 
-		<one-to-one name="gianHang" property-ref="taiKhoan">
+		<one-to-one name="gianHang" property-ref="taiKhoan" fetch="join">
 			<meta attribute="">Quan hệ với gian hàng: 1 tài khoản có thể có
 				hoặc ko có gian hàng</meta>
 		</one-to-one>

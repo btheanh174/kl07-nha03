@@ -16,70 +16,104 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-public class ProfileAction extends ActionSupport implements SessionAware, Preparable, ModelDriven<ThanhVien>{
-	
+public class ProfileAction extends ActionSupport implements SessionAware,
+		Preparable, ModelDriven<ThanhVien> {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5141509964117628106L;
-	private Map<String,Object> sessionMap;
-	
-	
-	
+	private Map<String, Object> sessionMap;
+
 	private int maTaiKhoan;
-	private TaiKhoan taiKhoan;
-	private ThanhVien thanhVien;
+	private TaiKhoan taiKhoan = new TaiKhoan();
+	private ThanhVien thanhVien = new ThanhVien();
 	private TaiKhoanDAO tkDao = new TaiKhoanDAO();
 	private ThanhVienDAO tvDao = new ThanhVienDAO();
-	
+
 	private String matKhauCu;
 	private String matKhauMoi;
 	private String xacNhanMatKhau;
-	
-	
+
+	private String matKhau;
+	private String email;
+
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
 	}
-	
-	public String test(){
-		
-		System.out.println("Test");
-		taiKhoan = (TaiKhoan)sessionMap.get("tk");
-		
-		String salt = taiKhoan.getSalt();
-		String hashedPassword = null;
-		try {
-			hashedPassword = HashUtil.generateHash(salt + getMatKhauCu());
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		if(hashedPassword.equals(taiKhoan.getMatKhau())){
-			return ERROR;
-		}else{
+
+	public String doiMatKhau() {
+
+		System.out.println("Doi mat khau");
+		taiKhoan = (TaiKhoan) sessionMap.get("tk");
+		if (taiKhoan != null) {
+			String salt = taiKhoan.getSalt();
+			String hashedPassword = null;
 			try {
-				hashedPassword = HashUtil.generateHash(salt + getMatKhauMoi());
+				hashedPassword = HashUtil.generateHash(salt + getMatKhauCu());
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
-			taiKhoan.setMatKhau(hashedPassword);
-			return SUCCESS;
+			if (!hashedPassword.equals(taiKhoan.getMatKhau())) {
+				return ERROR;
+			} else {
+				try {
+					hashedPassword = new String(HashUtil.generateHash(salt
+							+ getMatKhauMoi()));
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				taiKhoan.setMatKhau(hashedPassword);
+				tkDao.capNhat(taiKhoan);
+				return SUCCESS;
+			}
+		}else{
+			return ERROR;
 		}
 	}
-	
-	public String capNhatThongTin(){
+
+	public String doiEmail() {
+		System.out.println("Doi email");
+		taiKhoan = (TaiKhoan)sessionMap.get("tk");
+		if(taiKhoan != null){
+			String salt = taiKhoan.getSalt();
+			String hashedPassword = null;
+			try {
+				hashedPassword = HashUtil.generateHash(salt + getMatKhau());
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			
+			if(!hashedPassword.equals(taiKhoan.getMatKhau())){
+				return ERROR;
+			}else{
+				thanhVien = taiKhoan.getThanhVien();
+				thanhVien.setEmail(getEmail());
+				
+				taiKhoan.setThanhVien(thanhVien);
+				tkDao.capNhat(taiKhoan);
+				return SUCCESS;
+			}
+		}else{
+			return ERROR;
+		}
+		
+	}
+
+	public String capNhatThongTin() {
 		System.out.println("Cap nhat thong tin");
 		tkDao.capNhat(getTaiKhoan());
 		tvDao.capNhat(getThanhVien());
 		return SUCCESS;
 	}
-	
-	public String hienThi(){
+
+	public String hienThi() {
 		System.out.println("Hien thi");
-		taiKhoan  = tkDao.lay(maTaiKhoan);
+		taiKhoan = tkDao.lay(maTaiKhoan);
 		thanhVien = tvDao.lay(maTaiKhoan);
 		return SUCCESS;
 	}
-	
+
 	public int getMaTaiKhoan() {
 		return maTaiKhoan;
 	}
@@ -104,16 +138,12 @@ public class ProfileAction extends ActionSupport implements SessionAware, Prepar
 		this.thanhVien = thanhVien;
 	}
 
-	
 	@Override
 	public void prepare() throws Exception {
-		
-		if(maTaiKhoan != 0){
+
+		if (maTaiKhoan != 0) {
 			taiKhoan = tkDao.lay(maTaiKhoan);
 			thanhVien = taiKhoan.getThanhVien();
-		}else{
-			taiKhoan = new TaiKhoan();
-			thanhVien = new ThanhVien();
 		}
 	}
 
@@ -144,5 +174,21 @@ public class ProfileAction extends ActionSupport implements SessionAware, Prepar
 
 	public void setXacNhanMatKhau(String xacNhanMatKhau) {
 		this.xacNhanMatKhau = xacNhanMatKhau;
+	}
+
+	public String getMatKhau() {
+		return matKhau;
+	}
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

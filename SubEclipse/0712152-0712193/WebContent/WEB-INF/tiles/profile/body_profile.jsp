@@ -17,7 +17,7 @@
 			<s:form action="Profile_capNhatThongTin" method="post"
 				validate="true">
 
-				<s:hidden name="maTaiKhoan" value="maTaiKhoan"></s:hidden>
+				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
 				<s:file label="Logo/Avatar" name="file" value="" />
 				<s:textfield label="Họ tên" name="hoTen"
 					value="%{#session['tk'].thanhVien.hoTen}" />
@@ -48,9 +48,9 @@
 			</s:form>
 		</div>
 		<div id="div2">
-			<s:form action="" method="post">
+			<s:form action="Profile_doiMatKhau" method="post" validate="true">
 				<s:actionerror />
-				<s:hidden name="maTaiKhoan" value="maTaiKhoan"></s:hidden>
+				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
 				<s:password label="Mật khẩu cũ" name="matKhauCu" />
 				<s:password label="Mật khẩu mới" name="matKhauMoi" />
 				<s:password label="Xác nhận mật khẩu" name="xacNhanMatKhau" />
@@ -59,9 +59,9 @@
 			</s:form>
 		</div>
 		<div id="div3">
-			<s:form action="" method="post">
+			<s:form action="Profile_doiEmail" method="post" validate="true">
 				<s:actionerror />
-				<s:hidden name="maTaiKhoan" value="maTaiKhoan"></s:hidden>
+				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
 				<s:password label="Mật khẩu" name="matKhau" labelposition="left" />
 				<s:textfield name="email" label="Email" labelposition="left"></s:textfield>
 				<s:submit value="Cập nhật" />

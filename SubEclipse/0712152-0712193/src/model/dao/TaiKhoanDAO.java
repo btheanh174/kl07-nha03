@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 
 import util.HibernateUtil;
@@ -20,9 +21,30 @@ public class TaiKhoanDAO extends AbstractDAO{
 		return (TaiKhoan)super.find(TaiKhoan.class, id);
 	}
 	
+	/*public TaiKhoan lay(int id){
+		TaiKhoan tk = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			tk = (TaiKhoan) session.createQuery("from TaiKhoan as tk where tk.maTaiKhoan =:id")
+			.setParameter("id", id)
+			.uniqueResult();
+			Hibernate.initialize(tk);
+			//Hibernate.initialize(tk.getGianHang());
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return tk;
+	}*/
+	
 	public TaiKhoan lay(String userName){
 		TaiKhoan tk = null;
 		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			tk = (TaiKhoan) session.createQuery("from TaiKhoan as tk where lower(tk.tenTruyCap) like '" +userName.toLowerCase() +"'").uniqueResult();
 			tx.commit();
