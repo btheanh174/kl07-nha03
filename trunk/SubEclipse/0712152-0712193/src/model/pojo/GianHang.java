@@ -10,6 +10,7 @@ public class GianHang {
 	private String diaChi;
 	private String dienThoai;
 	private String fax;
+	private String yahoo;
 	private String thongTin;
 	private String banner;
 	private String logo;
@@ -136,4 +137,13 @@ public class GianHang {
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
+
+	public String getYahoo() {
+		return yahoo;
+	}
+
+	public void setYahoo(String yahoo) {
+		this.yahoo = yahoo;
+	}
+	
 }

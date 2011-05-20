@@ -22,6 +22,10 @@
 		<property name="fax" type="java.lang.String">
 			<column name="FAX"></column>
 		</property>
+		
+		<property name="yahoo" type="java.lang.String">
+			<column name="YAHOO"></column>
+		</property>
 
 		<property name="thongTin" type="java.lang.String">
 			<column name="THONG_TIN"></column>
