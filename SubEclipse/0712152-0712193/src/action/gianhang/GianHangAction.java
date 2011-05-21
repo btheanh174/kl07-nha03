@@ -1,6 +1,8 @@
 package action.gianhang;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -14,6 +16,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -28,9 +31,9 @@ public class GianHangAction extends ActionSupport implements
 
 	private TaiKhoan tk = new TaiKhoan();
 	// Danh cho upload
-	private File[] images;
-	private String[] imagesFileName;
-	private String[] imagesContentType;
+	private List<File> images = new ArrayList<File>(2);
+	private List<String> imagesFileName = new ArrayList<String>(2);
+	private List<String> imagesContentType = new ArrayList<String>(2);
 
 	public String hienThi() {
 		System.out.println("Hien thi store");
@@ -44,27 +47,31 @@ public class GianHangAction extends ActionSupport implements
 	public String capNhat() {
 		System.out.println("Cap nhat store");
 
+		this.session = ActionContext.getContext().getSession();
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
+		GianHang gh = null;
 		if (tk != null) {
-			gianHang = tk.getGianHang();
+			gh = tk.getGianHang();
 		} else {
-			gianHang = new GianHang();
+			gh = new GianHang();
 		}
 
 		ServletContext servletContext = ServletActionContext
 				.getServletContext();
 		String dataDir = servletContext.getRealPath("/WEB-INF");
 
-		if (images != null) {
-			String logo = "logo_" + gianHang.getMaGianHang();
-			String banner = "banner_" + gianHang.getMaGianHang();
-			for (int i = 0; i < images.length; i++) {
-				File savedFile = new File(dataDir, imagesFileName[i]);
-				images[i].renameTo(savedFile);
-			}
+		String logo = "logo_" + gh.getMaGianHang();
+		String banner = "banner_" + gh.getMaGianHang();
 
-			gianHang.setLogo(logo);
-			gianHang.setBanner(banner);
+		File logoFile = new File(dataDir, logo);
+		File bannerFile = new File(dataDir, banner);
+		if (images.get(0) != null) {
+			images.get(0).renameTo(logoFile);
+			gh.setLogo(logo);
+		}
+		if (images.get(1) != null) {
+			images.get(1).renameTo(bannerFile);
+			gh.setBanner(banner);
 		}
 
 		ghDao.capNhat(gianHang);
@@ -104,27 +111,27 @@ public class GianHangAction extends ActionSupport implements
 		this.gianHang = gianHang;
 	}
 
-	public File[] getImages() {
+	public List<File> getImages() {
 		return images;
 	}
 
-	public void setImages(File[] images) {
+	public void setImages(List<File> images) {
 		this.images = images;
 	}
 
-	public String[] getImagesFileName() {
+	public List<String> getImagesFileName() {
 		return imagesFileName;
 	}
 
-	public void setImagesFileName(String[] imagesFileName) {
+	public void setImagesFileName(List<String> imagesFileName) {
 		this.imagesFileName = imagesFileName;
 	}
 
-	public String[] getImagesContentType() {
+	public List<String> getImagesContentType() {
 		return imagesContentType;
 	}
 
-	public void setImagesContentType(String[] imagesContentType) {
+	public void setImagesContentType(List<String> imagesContentType) {
 		this.imagesContentType = imagesContentType;
 	}
 

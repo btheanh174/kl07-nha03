@@ -16,21 +16,19 @@
 				<div class="setup">
 					<div class="photo relative1">
 						<p>
-							<img width="120" height="120" ectype="store_logo"
-								src="${#session['tk'].gianHang.logo}">
+							<img width="120" height="120" src="<s:property value="%{#session['tk'].gianHang.logo}"/>">
 						</p>
-						<b><s:file name="images"></s:file>
+						<b><s:file name="images" label="Logo"></s:file>
 							<div class="txt">Sửa logo</div> </b> <span class="explain">Kích
 							thước logo là 100*100</span>
 					</div>
 					<div class="photo relative2">
 						<p>
-							<img width="607" height="120" ectype="store_banner"
-								src="${#session['tk'].gianHang.banner }">
+							<img width="607" height="120" src="<s:property value="%{#session['tk'].gianHang.banner}"/>">
 						</p>
 						<b>
 						 <span class="file1">
-						 <s:file name="images"></s:file>
+						 <s:file name="images" label="Banner"></s:file>
 				     	</span>
 							<div class="txt">Sửa Banner</div> </b> <span class="explain">Kích
 							thước banner là 1000*120</span>
@@ -52,7 +50,7 @@
 						<tr>
 							<th></th>
 							<td><s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
-								<sj:autocompleter label="Tỉnh/thành phố" name="tinhThanhPho"
+								<sj:autocompleter label="Tỉnh/thành phố" name="gianHang.tinhThanhPho"
 									list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho"
 									listValue="tenTinhThanhPho"
 									value="%{#session['tk'].gianHang.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
@@ -62,26 +60,26 @@
 							<th></th>
 							<td>
 								<p class="td_block">
-									<s:textfield name="diaChi" label="Địa chỉ" value="%{#session['tk'].gianHang.diaChi}"></s:textfield>
+									<s:textfield name="gianHang.diaChi" label="Địa chỉ" value="%{#session['tk'].gianHang.diaChi}"></s:textfield>
 								</p></td>
 						</tr>
 						<tr>
 							<th></th>
-							<td><s:textfield name="fax" label="Fax" value="%{#session['tk'].gianHang.fax}"></s:textfield></td>
+							<td><s:textfield name="gianHang.fax" label="Fax" value="%{#session['tk'].gianHang.fax}"></s:textfield></td>
 						</tr>
 						<tr>
 							<th></th>
-							<td><s:textfield name="dienThoai" label="Điện thoại" value="%{#session['tk'].gianHang.dienThoai}"></s:textfield>
+							<td><s:textfield name="gianHang.dienThoai" label="Điện thoại" value="%{#session['tk'].gianHang.dienThoai}"></s:textfield>
 							</td>
 						</tr>
 
 						<tr>
 							<th></th>
-							<td><s:textfield name="yahoo" label="Yahoo" value="%{#session['tk'].gianHang.yahoo}"></s:textfield></td>
+							<td><s:textfield name="gianHang.yahoo" label="Yahoo" value="%{#session['tk'].gianHang.yahoo}"></s:textfield></td>
 						</tr>
 						<tr>
 							<td><sjr:ckeditor id="richtextEditor" width="500" value="%{#session['tk'].gianHang.thongTin}"
-									label="Giới thiệu SHOP" name="thongTin" rows="10" cols="80">
+									label="Giới thiệu SHOP" name="gianHang.thongTin" rows="10" cols="80">
 								</sjr:ckeditor>
 								<div class="clear"></div></td>
 						</tr>
