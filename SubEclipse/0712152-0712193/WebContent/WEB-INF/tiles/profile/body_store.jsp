@@ -11,7 +11,7 @@
 	<sj:tabbedpanel id="panelStore" animate="true" collapsible="true">
 		<sj:tab id="tab1" target="div1" label="Quản lý cửa hàng"></sj:tab>
 		<div id="div1">
-			<s:form action="Store_capNhat" method="post">
+			<s:form action="Store_capNhat" method="post" enctype="multipart/form-data">
 
 				<div class="setup">
 					<div class="photo relative1">
@@ -19,7 +19,7 @@
 							<img width="120" height="120" ectype="store_logo"
 								src="${#session['tk'].gianHang.logo}">
 						</p>
-						<b class="ie6hack"> <span class="file1"><s:file name="logo"></s:file></span>
+						<b><s:file name="images"></s:file>
 							<div class="txt">Sửa logo</div> </b> <span class="explain">Kích
 							thước logo là 100*100</span>
 					</div>
@@ -30,7 +30,7 @@
 						</p>
 						<b>
 						 <span class="file1">
-						 <s:file name="banner"></s:file>
+						 <s:file name="images"></s:file>
 				     	</span>
 							<div class="txt">Sửa Banner</div> </b> <span class="explain">Kích
 							thước banner là 1000*120</span>
