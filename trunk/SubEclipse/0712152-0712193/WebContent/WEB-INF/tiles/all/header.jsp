@@ -5,15 +5,20 @@
 	<div class="header_left">
 		<div id="logo" class="section">
 			<div id="HTML23" class="widget HTML">
-				<a href=""> <img src="all/images/simplexeshop.jpg" class="logo">
+				<a href=""> <img src="${logo }" class="logo">
 				</a>
 			</div>
 		</div>
 	</div>
 	<div class="h_right">
-		<div id="page" class="section">
+		<!-- <div id="page" class="section">
 			<div id="PageList1" class="widget PageList">
 				
+			</div>
+		</div> -->
+		<div id="banner" class="section">
+			<div>
+				<img alt="" src="">
 			</div>
 		</div>
 	</div>

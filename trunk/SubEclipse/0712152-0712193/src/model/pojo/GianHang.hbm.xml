@@ -49,17 +49,17 @@
 			<column name="TINH_THANH_PHO" />
 		</many-to-one>
 
-		<set name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all"
+		<bag name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all"
 			inverse="true" lazy="true">
 			<key column="MA_GIAN_HANG" />
 			<many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
-		</set>
+		</bag>
 
-		<set name="dsSanPham" table="gian_hang_san_pham" cascade="all"
+		<bag name="dsSanPham" table="gian_hang_san_pham" cascade="all"
 			inverse="true" lazy="true">
 			<key column="MA_GIAN_HANG" />
 			<many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" />
-		</set>
+		</bag>
 
 	</class>
 </hibernate-mapping>

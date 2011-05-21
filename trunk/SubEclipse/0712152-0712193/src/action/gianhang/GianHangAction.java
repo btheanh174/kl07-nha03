@@ -26,6 +26,7 @@ public class GianHangAction extends ActionSupport implements
 	private int maGianHang;
 	private GianHang gianHang = new GianHang();
 	private GianHangDAO ghDao = new GianHangDAO();
+	
 	private Map<String, Object> session;
 	private HttpServletRequest servletRequest;
 
@@ -75,6 +76,16 @@ public class GianHangAction extends ActionSupport implements
 		}
 
 		ghDao.capNhat(gianHang);
+		return SUCCESS;
+	}
+
+	@Override
+	public String execute() throws Exception {
+		// Hien thi store
+		gianHang = ghDao.lay(maGianHang);
+		
+		
+		
 		return SUCCESS;
 	}
 

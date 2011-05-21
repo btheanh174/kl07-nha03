@@ -1,28 +1,22 @@
  package util;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import action.XuLyGioHangAction;
 
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.GioHang;
-import model.pojo.HinhAnh;
 import model.pojo.Laptop;
-import model.pojo.MatHang;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
@@ -230,7 +224,7 @@ public class Testing {
 		*/
 		
 		TaiKhoan tk = new TaiKhoanDAO().lay(16);
-		
+		GianHang gh = new GianHangDAO().lay(tk);
 		System.out.println();
 	}
 	private static void xuatSanPham(SanPham sp){
@@ -302,7 +296,7 @@ public class Testing {
 		TaiKhoan tk = new TaiKhoanDAO().lay(1);
 		System.out.println(tk.getTenTruyCap());
 		
-		Set<GianHang> dsGianHang = new HashSet<GianHang>();
+		List<GianHang> dsGianHang = new ArrayList<GianHang>();
 		
 		GianHang gh1 = new GianHang();
 		gh1.setTenGianHang("LLH");
@@ -327,7 +321,7 @@ public class Testing {
 		dm2.setDsGianHang(dsGianHang);
 		
 		
-		Set<DanhMuc> dsDanhMuc = new HashSet<DanhMuc>();
+		List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
 		dsDanhMuc.add(dm1);
 		dsDanhMuc.add(dm2);
 		
