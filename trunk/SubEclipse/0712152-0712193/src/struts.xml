@@ -68,12 +68,12 @@
 			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
-		
+
 		<action name="Profile_doiMatKhau" class="action.user.ProfileAction"
 			method="doiMatKhau">
 			<result name="success">/myprofile/profile.jsp</result>
 		</action>
-		
+
 		<action name="Profile_doiEmail" class="action.user.ProfileAction"
 			method="doiEmail">
 			<result name="success" type="redirect">show_myprofile_profile.action
@@ -96,13 +96,22 @@
 			</result>
 		</action>
 		<!-- end Profile -->
-		
+
 		<!-- Store -->
-		<action name="Store_*" class="action.gianhang.GianHangAction" method="{1}">
-			<result name="success" >/myprofile/store.jsp</result>
-			
+		<action name="Store_hienThi" class="action.gianhang.GianHangAction"
+			method="hienThi">
+			<result name="success">/myprofile/store.jsp</result>
 		</action>
-		
+		<action name="Store_capNhat" class="action.gianhang.GianHangAction"
+			method="capNhat">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/gif,image/jpeg,image/png
+				</param>
+			</interceptor-ref>
+			<result name="success">/myprofile/store.jsp</result>
+		</action>
+
 		<!-- end Store -->
 
 		<!-- Danh muc -->
