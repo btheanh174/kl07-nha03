@@ -561,3 +561,14 @@ width: 60px;}
     position: relative;
     z-index: 1;
 }
+.siteLogo{
+	display: block;
+	float: left;
+	height: 100px;
+	width: 250px;
+	margin: 5px;
+}
+.siteInfo{
+	float: left;
+	width: 250px;
+}

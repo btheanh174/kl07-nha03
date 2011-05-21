@@ -39,13 +39,18 @@
 				<div class="setup info shop">
 				
 				<s:hidden name="maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:hidden>
+				
 					<table style="width: 100%">
 						<tr>
 							<th></th>
 							<td>
 								<p class="td_block">
 									<s:textfield name="tenGianHang" value="%{#session['tk'].gianHang.tenGianHang}" label="Tên cửa hàng (*)"></s:textfield>
-								</p><a target="_blank" href="store/354">Xem cửa hàng</a></td>
+								</p>
+								<s:url id="store" action="Store">
+									<s:param name="maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:param>
+								</s:url>
+								<a target="_blank" href="${store}">Xem cửa hàng</a></td>
 						</tr>
 						<tr>
 							<th></th>

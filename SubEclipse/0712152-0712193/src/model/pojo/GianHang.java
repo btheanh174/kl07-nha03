@@ -1,6 +1,7 @@
 package model.pojo;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class GianHang {
@@ -17,8 +18,8 @@ public class GianHang {
 	private TaiKhoan taiKhoan;
 	private TinhThanhPho tinhThanhPho;
 	
-	private Set<DanhMuc> dsDanhMuc  = new HashSet<DanhMuc>();
-	private Set<SanPham> dsSanPham = new HashSet<SanPham>();
+	private List<DanhMuc> dsDanhMuc  = new ArrayList<DanhMuc>();
+	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
 	
 	public GianHang() {
 	
@@ -27,7 +28,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			Set<DanhMuc> dsDanhMuc, Set<SanPham> dsSanPham) {
+			List<DanhMuc> dsDanhMuc, List<SanPham> dsSanPham) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -74,19 +75,19 @@ public class GianHang {
 		this.tinhThanhPho = tinhThanhPho;
 	}
 
-	public Set<DanhMuc> getDsDanhMuc() {
+	public List<DanhMuc> getDsDanhMuc() {
 		return dsDanhMuc;
 	}
 
-	public void setDsDanhMuc(Set<DanhMuc> dsDanhMuc) {
+	public void setDsDanhMuc(List<DanhMuc> dsDanhMuc) {
 		this.dsDanhMuc = dsDanhMuc;
 	}
 
-	public Set<SanPham> getDsSanPham() {
+	public List<SanPham> getDsSanPham() {
 		return dsSanPham;
 	}
 
-	public void setDsSanPham(Set<SanPham> dsSanPham) {
+	public void setDsSanPham(List<SanPham> dsSanPham) {
 		this.dsSanPham = dsSanPham;
 	}
 
