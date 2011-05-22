@@ -18,7 +18,7 @@
 	</s:iterator>
 </ul>
 
-<div class="title_box">Sản phẩm đặc biệt</div>
+<%-- <div class="title_box">Sản phẩm đặc biệt</div>
 <div class="border_box">
 	<div class="product_title">
 		<a href="details.html">Motorola 156 MX-VL</a>
@@ -31,7 +31,7 @@
 		<span class="reduce">350$</span> <span class="price">270$</span>
 	</div>
 </div>
-
+ 
 
 <div class="title_box">Newsletter</div>
 <div class="border_box">
@@ -40,3 +40,4 @@
 </div>
 
 <div class="banner_adds"></div>
+--%>

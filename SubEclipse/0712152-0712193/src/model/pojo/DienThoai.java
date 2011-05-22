@@ -29,8 +29,8 @@ public class DienThoai extends SanPham {
 	public DienThoai() {
 	}
 	
-	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+	public DienThoai(String tenSanPham, Integer gia, String hangSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
 		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 	}
 
@@ -67,8 +67,8 @@ public class DienThoai extends SanPham {
 		this.tinhNangKhac = tinhNangKhac;
 	}
 
-	public DienThoai(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
+	public DienThoai(String tenSanPham, Integer gia, String hangSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
 			String trongLuong, String kichThuoc, String kieuChuong, Integer rung,

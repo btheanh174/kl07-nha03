@@ -16,7 +16,7 @@
             <column name="TEN_SAN_PHAM" />
         </property>
         
-        <property name="gia" type="float">
+        <property name="gia" type="java.lang.Integer">
             <column name="GIA" />
         </property>
         
@@ -37,11 +37,11 @@
         	<one-to-many class="model.pojo.HinhAnh"/>
         </bag>
 		
-        <set name="dsGianHang" table="gian_hang_san_pham" cascade="all" lazy="true">
+        <bag name="dsGianHang" table="gian_hang_san_pham" cascade="all" lazy="true">
         	<meta attribute="quan he nhieu nhieu voi gian hang"></meta>
         	<key column="MA_SAN_PHAM"></key>
         	<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
-        </set>
+        </bag>
         
     </class>
 </hibernate-mapping>

@@ -6,8 +6,11 @@
 <div id="main_navi" class="clearfix">
 	<div id="main_navi_in">
 		<ul id="nav">
-			<li><a href="">eStore.com</a></li>
-			<li><a href="">Trang chủ</a></li>
+			<li><a href="<s:url action="Index"/>">eStore.com</a></li>
+			<s:url id="store">
+				<s:param name="maGianHang" value="maGianHang"></s:param>
+			</s:url>
+			<li><a href="${store }">Trang chủ</a></li>
 			<li><a href="">Sản phẩm</a>
 				<ul>
 				<s:iterator value="dsDanhMuc">
@@ -19,7 +22,7 @@
 			</li>
 			<li><a href="">Giới thiệu</a></li>
 			<li><a href="">Liên hệ</a></li>
-			<li><a href="">Giỏ hàng</a></li>
+			<li><a href="<s:url action="XemGioHang"/>">Giỏ hàng</a></li>
 		</ul>
 		<div class="searchform">
 			<form method="get" id="searchform" action="/search">
