@@ -7,36 +7,35 @@
 	<!-- shopping cart -->
 	<div class="widget cart_section">
 		<div class="cart_section_bottom clearfix">
-			<h2>Đăng nhập</h2>
-			<div class="clear"></div>
-			<div class="login">
-				<s:url var="register" action="User_register"></s:url>
-				<s:url var="login" action="User_login"></s:url>
-				<form onsubmit="check_form_login(); return false;" method="post"
-					action="%{login}" name="form_login">
-					<br>
-					<div class="name">
-						<span lang="vi">Tên đăng nhập</span>
-					</div>
-					<div class="control">
-						<input type="text" name="loginname" class="form_control">
-					</div>
-					<div class="name">
-						<span lang="vi">Mật khẩu</span>
-					</div>
-					<div class="control">
-						<input type="password" name="password" class="form_control">
-					</div>
-					<div class="button">
-						<input type="submit" value="Đăng nhập" class="form_button">
-					</div>
-					<div class="link">
+			<s:if test="#session['tk'] == null">
+				<h2>Đăng nhập</h2>
+				<div class="clear"></div>
+				<div class="login">
+					<s:url var="register" action="User_register"></s:url>
+					<s:url var="login" action="User_login"></s:url>
+					<s:form method="post" action="User_login" name="form_login">
+						<s:textfield name="taiKhoan.tenTruyCap" label="Tên đăng nhập"
+							labelposition="top"></s:textfield>
+						<s:password name="taiKhoan.matKhau" label="Mật khẩu"
+							labelposition="top"></s:password>
+						<s:submit value="Đăng nhập"></s:submit>
 
-						<a lang="vi" href="%{register}">Đăng ký</a>&nbsp; | &nbsp;<a
-							lang="vi" href="">Quên mật khẩu</a>
-					</div>
-				</form>
-			</div>
+						<div class="link">
+							<a lang="vi" href="${register}">Đăng ký</a>&nbsp; | &nbsp;<a
+								lang="vi" href="">Quên mật khẩu</a>
+						</div>
+					</s:form>
+				</div>
+			</s:if>
+			<s:else>
+				<h2>Đăng nhập</h2>
+				<div class="clear"></div>
+				<div class="login">
+				Xin chào, <s:property value="tenTruyCap"/>
+				<br>
+				<s:a action="User_logout">Đăng xuất</s:a>
+				</div>
+			</s:else>
 		</div>
 	</div>
 	<!-- end shopping cart -->
@@ -48,7 +47,8 @@
 			<div class="widget-content">
 				<ul>
 					<s:iterator id="root" value="dsDanhMuc">
-						<li><a href=""><s:property value="tenDanhMuc"/></a></li>
+						<li><a href=""><s:property value="tenDanhMuc" /> </a>
+						</li>
 					</s:iterator>
 				</ul>
 				<div class="clear"></div>

@@ -27,16 +27,16 @@ public class Laptop extends SanPham {
 	}
 
 	
-	public Laptop(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+	public Laptop(String tenSanPham, Integer gia, String hangSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
 		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
 	}
 
 
 
 
-	public Laptop(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang,
+	public Laptop(String tenSanPham, Integer gia, String hangSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang,
 			String loaiSanPham, String mainboard, String cpu, String hdd,
 			String ram, String vga, String usb, String lan, String wifi,
 			String heDieuHanh, String chuot, String pin, String trongLuong,

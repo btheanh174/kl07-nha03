@@ -3,15 +3,14 @@
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
@@ -223,9 +222,8 @@ public class Testing {
 		action.capNhat();
 		*/
 		
-		TaiKhoan tk = new TaiKhoanDAO().lay(16);
-		GianHang gh = new GianHangDAO().lay(tk);
-		System.out.println();
+		SanPham sp = new SanPhamDAO().lay(12);
+		System.out.println(sp.getDsGianHang().size());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

@@ -35,7 +35,7 @@
 				</p>
 			</div>
 			<div class="prod_price_big">
-				<span class="price"> <s:property value="gia" /> </span>
+				<span class="price"> <s:property value="giaText" /> VNĐ</span>
 			</div>
 
 
@@ -53,85 +53,76 @@
 <div class="prod_box_big">
 	<div class="center_prod_box_big">
 
-		<sj:div cssClass="">
+		<div>
 			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true"
-				selectedTab="0">
+				>
 
-				<sj:tab id="tabThongSo" target="two" label="Thông số kỹ thuật"></sj:tab>
-				<sj:tab id="tabSanPhamLienQuan" target="three"
+				<sj:tab id="tabThongSo" target="one" label="Thông số kỹ thuật"></sj:tab>
+				<sj:tab id="tabSanPhamLienQuan" target="two"
 					label="Các sản phẩm liên quan"></sj:tab>
+				<sj:tab id="tabGianHangBanSanPham" target="three"
+					label="Gian hàng bán sản phẩm">
+				</sj:tab>
 				<sj:tab id="tabHinhAnh" target="four" label="Hình ảnh"></sj:tab>
-				<div id="two">
+				<div id=one">
 					<table width="500" border="1" align="center" cellpadding="5"
 						cellspacing="0">
 						<tr>
 							<td align="right">Hãng sản xuất:</td>
-							<td align="left"><s:property value="hangSanXuat" /></td>
+							<td align="left"><s:property value="hangSanXuat" />
+							</td>
 						</tr>
 						<tr>
 							<td align="right">HDD:</td>
-							<td align="left"><s:property value="hdd" />
-							</td>
+							<td align="left"><s:property value="hdd" /></td>
 						</tr>
 						<tr>
 							<td align="right">RAM:</td>
-							<td align="left"><s:property value="ram" />
-							</td>
+							<td align="left"><s:property value="ram" /></td>
 						</tr>
 						<tr>
 							<td align="right">CPU:</td>
-							<td align="left"><s:property value="cpu" />
-							</td>
+							<td align="left"><s:property value="cpu" /></td>
 						</tr>
 						<tr>
 							<td align="right">VGA:</td>
-							<td align="left"><s:property value="vga" />
-							</td>
+							<td align="left"><s:property value="vga" /></td>
 						</tr>
 						<tr>
 							<td align="right">OS:</td>
-							<td align="left"><s:property value="heDieuHanh" />
-							</td>
+							<td align="left"><s:property value="heDieuHanh" /></td>
 						</tr>
 						<tr>
 							<td align="right">Chuột:</td>
-							<td align="left"><s:property value="chuot" />
-							</td>
+							<td align="left"><s:property value="chuot" /></td>
 						</tr>
 						<tr>
 							<td align="right">Cổng USB:</td>
-							<td align="left"><s:property value="usb" />
-							</td>
+							<td align="left"><s:property value="usb" /></td>
 						</tr>
 						<tr>
 							<td align="right">LAN:</td>
-							<td align="left"><s:property value="lan" />
-							</td>
+							<td align="left"><s:property value="lan" /></td>
 						</tr>
 						<tr>
 							<td align="right">WIFI:</td>
-							<td align="left"><s:property value="wifi" />
-							</td>
+							<td align="left"><s:property value="wifi" /></td>
 						</tr>
 						<tr>
 							<td align="right">Pin:</td>
-							<td align="left"><s:property value="pin" />
-							</td>
+							<td align="left"><s:property value="pin" /></td>
 						</tr>
 						<tr>
 							<td align="right">Trọng lượng:</td>
-							<td align="left"><s:property value="trongLuong" />
-							</td>
+							<td align="left"><s:property value="trongLuong" /></td>
 						</tr>
 						<tr>
 							<td align="right">Độ phân giải:</td>
-							<td align="left"><s:property value="doPhanGiai" />
-							</td>
+							<td align="left"><s:property value="doPhanGiai" /></td>
 						</tr>
 						<tr>
 							<td align="right">Kích thước màn hình:</td>
-							<td align="left"><s:property value="kichThuocManHinh" />
-							</td>
+							<td align="left"><s:property value="kichThuocManHinh" /></td>
 						</tr>
 						<tr>
 							<td align="right">Tính năng khác:</td>
@@ -143,11 +134,18 @@
 									<li>Headphone</li>
 									<li>Bluetooth</li>
 									<li>RJ-11 Modem</li>
-								</ul> --> <s:property value="tinhNangKhac" /></td>
+								</ul> --> <s:property value="tinhNangKhac" />
+							</td>
 						</tr>
 					</table>
 				</div>
-				<div id="three">Các sản phẩm liên quan</div>
+				<div id="two">Các sản phẩm liên quan</div>
+				<div id="three">
+				Danh sách các gian hàng bán sản phẩm này.
+					<s:iterator value="dsGianHang">
+					Cửa hàng: <s:property value="tenGianHang" />
+					</s:iterator>
+				</div>
 				<div id="four">
 					<s:iterator value="dsHinhAnh">
 						<div>
@@ -156,6 +154,6 @@
 					</s:iterator>
 				</div>
 			</sj:tabbedpanel>
-		</sj:div>
+		</div>
 	</div>
 </div>

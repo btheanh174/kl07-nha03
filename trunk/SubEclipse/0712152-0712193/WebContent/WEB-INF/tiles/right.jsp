@@ -16,14 +16,14 @@
             <div class="cart_icon"><a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
     	</div>
      	-->
-     <div class="title_box">Sản phẩm mới</div>  
+     <%-- <div class="title_box">Sản phẩm mới</div>  
      <div class="border_box">
          <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
          <div class="product_img"><a href="details.html"><img src="images/p2.gif" alt="" title="" border="0" /></a></div>
          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
      </div>  
      
-     <%-- 
+     
      
     <div class="title_box">Nhà sản xuất</div>
     

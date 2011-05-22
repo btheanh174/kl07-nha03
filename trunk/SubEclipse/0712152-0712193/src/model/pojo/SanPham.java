@@ -11,30 +11,29 @@ import java.util.Set;
 public class SanPham {
 	protected int maSanPham;
 	protected String tenSanPham;
-	protected float gia;
+	protected Integer gia;
 	protected String hangSanXuat;
 	protected String loaiSanPham;
-	
+
 	protected DanhMuc danhMuc;
 	protected List<HinhAnh> dsHinhAnh;
-	protected Set<GianHang> dsGianHang = new HashSet<GianHang>();
+	protected List<GianHang> dsGianHang = new ArrayList<GianHang>();
 
 	protected String hinhAnh;
-	
-	
-	//Các thuộc tính hỗ trợ khác
-	protected String tenDanhMuc; //Do JSON ko xử lý composite được
+	protected String giaText;
+
+	// Các thuộc tính hỗ trợ khác
+	protected String tenDanhMuc; // Do JSON ko xử lý composite được
 	protected String urlHinh1;
 	protected String urlHinh2;
 	protected String urlHinh3;
-	
-	
+
 	public SanPham() {
 		super();
 	}
 
-	public SanPham(String tenSanPham, float gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, Set<GianHang> dsGianHang) {
+	public SanPham(String tenSanPham, Integer gia, String hangSanXuat,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.gia = gia;
@@ -68,11 +67,11 @@ public class SanPham {
 		this.tenSanPham = tenSanPham;
 	}
 
-	public float getGia() {
+	public Integer getGia() {
 		return gia;
 	}
 
-	public void setGia(float gia) {
+	public void setGia(Integer gia) {
 		this.gia = gia;
 	}
 
@@ -100,11 +99,11 @@ public class SanPham {
 		this.dsHinhAnh = dsHinhAnh;
 	}
 
-	public Set<GianHang> getDsGianHang() {
+	public List<GianHang> getDsGianHang() {
 		return dsGianHang;
 	}
 
-	public void setDsGianHang(Set<GianHang> dsGianHang) {
+	public void setDsGianHang(List<GianHang> dsGianHang) {
 		this.dsGianHang = dsGianHang;
 	}
 
@@ -115,11 +114,10 @@ public class SanPham {
 	public void setLoaiSanPham(String loaiSanPham) {
 		this.loaiSanPham = loaiSanPham;
 	}
-	
-	
+
 	public String getHinhAnh() {
-		
-		if(dsHinhAnh == null)
+
+		if (dsHinhAnh == null)
 			this.hinhAnh = "";
 		else
 			this.hinhAnh = dsHinhAnh.get(0).getUrlHinhAnh();
@@ -162,5 +160,13 @@ public class SanPham {
 		this.urlHinh3 = urlHinh3;
 	}
 
-	
+	public String getGiaText() {
+		StringBuilder str = new StringBuilder(String.valueOf(gia));
+		str.reverse();
+		for (int i = 3; i < str.length(); i += 4) {
+			str.insert(i, ".");
+		}
+		str.reverse();
+		return str.toString();
+	}
 }

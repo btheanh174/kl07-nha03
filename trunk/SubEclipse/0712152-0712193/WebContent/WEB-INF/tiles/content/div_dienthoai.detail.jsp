@@ -42,7 +42,7 @@
 			</div>
 			<div class="prod_price_big">
 				<div class="prod_price_big">
-					<span class="price"><s:property value="gia" /> VNĐ</span>
+					<span class="price"><s:property value="giaText" /> VNĐ</span>
 				</div>
 			</div>
 
@@ -62,11 +62,12 @@
 		<sj:div cssClass="">
 			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true"
 				selectedTab="0">
-				<sj:tab id="tabThongSo" target="two" label="Thông số kỹ thuật"></sj:tab>
-				<sj:tab id="tabSanPhamLienQuan" target="three"
+				<sj:tab id="tabThongSo" target="one" label="Thông số kỹ thuật"></sj:tab>
+				<sj:tab id="tabSanPhamLienQuan" target="two"
 					label="Các sản phẩm liên quan"></sj:tab>
+				<sj:tab id="tabGianHangBanSanPham" target="three" label="Gian hàng bán sản phẩm"></sj:tab>
 				<sj:tab id="tabHinhAnh" target="four" label="Hình ảnh"></sj:tab>
-				<div id="two">
+				<div id="one">
 					<table width="500" border="1" align="center" cellpadding="5"
 						cellspacing="0">
 						<tr>
@@ -176,7 +177,13 @@
 						</tr>
 					</table>
 				</div>
-				<div id="three">Các sản phẩm liên quan</div>
+				<div id="two">Các sản phẩm liên quan</div>
+				<div id="three">
+				Danh sách các gian hàng bán sản phẩm này.
+					<s:iterator value="dsGianHang">
+					Cửa hàng: <s:property value="tenGianHang" />
+					</s:iterator>
+				</div>
 				<div id="four">
 					<s:iterator value="dsHinhAnh">
 						<div>

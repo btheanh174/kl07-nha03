@@ -40,7 +40,7 @@
 		<action name="User_register" class="action.user.RegisterAction"
 			method="register">
 			<interceptor-ref name="jcaptchaDefaultStack" /> <!-- Tich hop jcaptcha4pluginstruts2 -->
-			<result name="success" type="redirect">show_index.action</result>
+			<result name="success" type="redirect">Index.action</result>
 			<result name="input" type="redirect">show_user_register.action</result>
 			<result name="error" type="tiles">Contact.tiles</result>
 		</action>
@@ -50,7 +50,7 @@
 		<action name="User_login" class="action.user.LoginAction"
 			method="login">
 			<result name="success" type="redirectAction">
-				<param name="actionName">${#session['prevAction']}.action</param>
+				<param name="actionName">${#session['prevAction']}</param>
 			</result>
 			<result name="input" type="redirect">show_user_login.action</result>
 			<result name="error" type="redirect">show_user_register.action</result>

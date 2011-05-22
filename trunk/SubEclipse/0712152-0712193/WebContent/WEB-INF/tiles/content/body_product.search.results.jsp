@@ -73,7 +73,7 @@
 						<div class="clear"></div>
 						</td>
 						<td class="col_4">
-						<div class="price"><s:property value="gia" /></div>
+						<div class="price"><s:property value="giaText" /> VNĐ</div>
 						<div class="price_usd"></div>
 						<div><!-- <a href="" class="text_link">Có <b>1</b> gian hàng bán</a> -->
 						</div>
