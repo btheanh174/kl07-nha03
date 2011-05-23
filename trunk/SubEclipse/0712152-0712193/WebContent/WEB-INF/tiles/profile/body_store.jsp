@@ -47,7 +47,7 @@
 								<p class="td_block">
 									<s:textfield name="tenGianHang" value="%{#session['tk'].gianHang.tenGianHang}" label="Tên cửa hàng (*)"></s:textfield>
 								</p>
-								<s:url id="store" action="Store">
+								<s:url id="store" action="store" namespace="/store">
 									<s:param name="maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:param>
 								</s:url>
 								<a target="_blank" href="${store}">Xem cửa hàng</a></td>
