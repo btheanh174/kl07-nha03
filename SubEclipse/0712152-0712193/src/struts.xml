@@ -115,6 +115,10 @@
 		<action name="Store" class="action.gianhang.GianHangAction">
 			<result name="success">/all/index.jsp</result>
 		</action>
+		
+		<action name="Store_*" class="action.gianhang.GianHangAction" method="{1}">
+			<result name="success">/all/{1}.jsp</result>
+		</action>
 
 		<!-- end Store -->
 

@@ -18,7 +18,7 @@
 <div class="center_prod_box_big"><s:if
 	test="#session['gh'].laySoLuongMatHang() == 0">
 		Giỏ hàng chưa có sản phẩm nào!
-		<s:a action="show_index">Tiếp tục mua</s:a>
+		<s:a action="Index">Tiếp tục mua</s:a>
 </s:if> <s:else>
 	<s:form method="get" action="GioHang_capNhat">
 		<table cellspacing="0" cellpadding="0" border="0" width="100%">

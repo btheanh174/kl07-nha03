@@ -83,11 +83,29 @@ public class GianHangAction extends ActionSupport implements
 	public String execute() throws Exception {
 		// Hien thi store
 		gianHang = ghDao.lay(maGianHang);
-		
-		
-		
 		return SUCCESS;
 	}
+	
+	public String contact(){
+		gianHang = ghDao.lay(maGianHang);
+		return SUCCESS;
+	}
+	public String intro(){
+		gianHang = ghDao.lay(maGianHang);
+		return SUCCESS;
+	}
+	
+	public String shoppingcart(){
+		gianHang = ghDao.lay(maGianHang);
+		return SUCCESS;
+	}
+	
+	public String policy(){
+		gianHang = ghDao.lay(maGianHang);
+		return SUCCESS;
+	}
+	
+	
 
 	@Override
 	public GianHang getModel() {

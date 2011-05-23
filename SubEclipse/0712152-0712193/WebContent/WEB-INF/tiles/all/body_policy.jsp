@@ -3,8 +3,5 @@
 	
 	<%@ taglib prefix="s" uri="/struts-tags" %>
 <div id="main" class="main section">
-	<div id="Blog1" class="widget Blog">
-	Tên cửa hàng: <s:property value="tenGianHang"/>
-	<s:property value="thongTin"/>
-	</div>
+	Chính sách của công ty.
 </div>
