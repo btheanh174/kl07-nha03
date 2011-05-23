@@ -6,6 +6,8 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="default"
 		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
+
+		<!-- interceptor -->
 		<interceptors>
 			<interceptor name="LastActionInterceptor" class="action.user.LastActionInterceptor"></interceptor>
 			<interceptor-stack name="MyLoginStack">
@@ -19,6 +21,13 @@
 		</interceptors>
 
 		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
+		<!-- end interceptor -->
+
+		<!-- global result -->
+		<global-results>
+			<result name="error">/global/error.jsp</result>
+		</global-results>
+		<!-- end global result -->
 
 		<action name="Index">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
@@ -110,14 +119,6 @@
 				</param>
 			</interceptor-ref>
 			<result name="success">/myprofile/store.jsp</result>
-		</action>
-		
-		<action name="Store" class="action.gianhang.GianHangAction">
-			<result name="success">/all/index.jsp</result>
-		</action>
-		
-		<action name="Store_*" class="action.gianhang.GianHangAction" method="{1}">
-			<result name="success">/all/{1}.jsp</result>
 		</action>
 
 		<!-- end Store -->
@@ -235,5 +236,18 @@
 			<result name="input">admin/test.jsp</result>
 		</action>
 		<!-- end Admin -->
+
+		<!-- sub site -->
+		<action name="store" class="action.gianhang.GianHangAction">
+			<result name="index">/all/index.jsp</result>
+			<result name="intro">/all/intro.jsp</result>
+			<result name="contact">/all/contact.jsp</result>
+			<result name="policy">/all/policy.jsp</result>
+		</action>
+		
+		<!-- end sub site -->
 	</package>
+
+	<!-- sub site -->
+	<include file="store-struts.xml"></include>
 </struts>

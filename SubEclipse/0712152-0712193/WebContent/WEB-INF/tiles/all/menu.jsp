@@ -20,17 +20,21 @@
 				</s:iterator>
 				</ul>
 			</li>
-			<s:url id="store_policy" action="Store_policy">
+			<s:url id="store_policy" action="store">
 				<s:param name="maGianHang" value="maGianHang"></s:param>
+				<s:param name="module">policy</s:param>
 			</s:url>
 			<li><a href="${store_policy }">Chính sách</a></li>
-			<s:url id="store_intro" action="Store_intro">
+			<s:url id="store_intro" action="store">
 				<s:param name="maGianHang" value="maGianHang"></s:param>
+				<s:param name="module">intro</s:param>
 			</s:url>
+			
 			<li><a href="${store_intro }">Giới thiệu</a></li>
 			
-			<s:url id="store_contact" action="Store_contact">
+			<s:url id="store_contact" action="store">
 				<s:param name="maGianHang" value="maGianHang"></s:param>
+				<s:param name="module">contact</s:param>
 			</s:url>
 			<li><a href="${store_contact }">Liên hệ</a></li>
 			

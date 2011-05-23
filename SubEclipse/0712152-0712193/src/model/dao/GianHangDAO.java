@@ -24,7 +24,7 @@ public class GianHangDAO extends AbstractDAO{
 		return (GianHang)super.find(GianHang.class, id);
 	}*/
 	
-	public GianHang lay(int id){
+	public GianHang lay(int id) throws NullPointerException{
 		GianHang kq = null;
 		try{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();

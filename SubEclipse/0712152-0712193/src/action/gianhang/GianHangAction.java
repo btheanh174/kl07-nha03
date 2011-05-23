@@ -24,9 +24,10 @@ import com.opensymphony.xwork2.Preparable;
 public class GianHangAction extends ActionSupport implements
 		ModelDriven<GianHang>, Preparable, SessionAware, ServletRequestAware {
 	private int maGianHang;
+	private String module;
 	private GianHang gianHang = new GianHang();
 	private GianHangDAO ghDao = new GianHangDAO();
-	
+
 	private Map<String, Object> session;
 	private HttpServletRequest servletRequest;
 
@@ -82,30 +83,19 @@ public class GianHangAction extends ActionSupport implements
 	@Override
 	public String execute() throws Exception {
 		// Hien thi store
-		gianHang = ghDao.lay(maGianHang);
-		return SUCCESS;
+
+		System.out.println("invoke execute in GianHangAction");
+		System.out.println(module);
+		try {
+			gianHang = ghDao.lay(maGianHang);
+		} catch (NullPointerException e) {
+			return "error";
+		}
+		if (module != null) {
+			return module;
+		}
+		return "index";
 	}
-	
-	public String contact(){
-		gianHang = ghDao.lay(maGianHang);
-		return SUCCESS;
-	}
-	public String intro(){
-		gianHang = ghDao.lay(maGianHang);
-		return SUCCESS;
-	}
-	
-	public String shoppingcart(){
-		gianHang = ghDao.lay(maGianHang);
-		return SUCCESS;
-	}
-	
-	public String policy(){
-		gianHang = ghDao.lay(maGianHang);
-		return SUCCESS;
-	}
-	
-	
 
 	@Override
 	public GianHang getModel() {
@@ -167,5 +157,13 @@ public class GianHangAction extends ActionSupport implements
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.servletRequest = request;
+	}
+
+	public String getModule() {
+		return module;
+	}
+
+	public void setModule(String module) {
+		this.module = module;
 	}
 }
