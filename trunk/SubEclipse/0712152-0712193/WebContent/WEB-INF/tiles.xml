@@ -98,6 +98,15 @@
 	</definition>
 	<!-- End Product Layout -->
 
+	<!-- Store Layout -->
+	<definition name="Stores.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Danh sách cửa hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_stores.jsp" />
+	</definition>
+	
+	<!-- end Store Layout -->
+	
 	<!-- Admin layout -->
 	
 	<definition name="Admin.tiles" extends="adminLayout">
@@ -206,6 +215,21 @@
 	<definition name="siteProducts.tiles" extends="siteLayout">
 		<put-attribute name="title" value="Sản phẩm"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_products.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="siteIntro.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Giới thiệu"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_intro.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="siteShoppingCart.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Giỏ hàng"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_shoppingcart.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="sitePolicy.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Chính sách"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_policy.jsp"></put-attribute>
 	</definition>
 	<!--  -->
 </tiles-definitions>

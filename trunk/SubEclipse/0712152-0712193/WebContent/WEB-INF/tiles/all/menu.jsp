@@ -20,9 +20,20 @@
 				</s:iterator>
 				</ul>
 			</li>
-			<li><a href="">Giới thiệu</a></li>
-			<li><a href="">Liên hệ</a></li>
-			<li><a href="<s:url action="XemGioHang"/>">Giỏ hàng</a></li>
+			<s:url id="store_policy" action="Store_policy">
+				<s:param name="maGianHang" value="maGianHang"></s:param>
+			</s:url>
+			<li><a href="${store_policy }">Chính sách</a></li>
+			<s:url id="store_intro" action="Store_intro">
+				<s:param name="maGianHang" value="maGianHang"></s:param>
+			</s:url>
+			<li><a href="${store_intro }">Giới thiệu</a></li>
+			
+			<s:url id="store_contact" action="Store_contact">
+				<s:param name="maGianHang" value="maGianHang"></s:param>
+			</s:url>
+			<li><a href="${store_contact }">Liên hệ</a></li>
+			
 		</ul>
 		<div class="searchform">
 			<form method="get" id="searchform" action="/search">
