@@ -225,13 +225,6 @@ public class Testing {
 		*/
 		
 		
-		DanhMuc dm = new DanhMucDAO().lay(11);
-		SanPhamTieuChi tieuChi = new SanPhamTieuChi("", "", "", "");
-		DuLieuTrang dlt = new SanPhamDAO().timKiem(tieuChi, 1);
-		for (Object sanPham : dlt.getDsDuLieu()) {
-			System.out.println(((SanPham)sanPham).getDsGianHang().size());
-		}
-		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

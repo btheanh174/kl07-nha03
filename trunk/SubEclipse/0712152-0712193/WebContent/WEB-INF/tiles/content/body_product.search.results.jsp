@@ -17,7 +17,7 @@
 <div class="prod_box_big_full">
 	<div class="top_prod_box_big_full"></div>
 	<div class="center_prod_box_big_full"> -->
-<s:if test="listSanPham.size() > 0">
+<s:if test="dsSanPham.size() > 0">
 	<div>
 		<s:form>
 			<table class="view_list_table">
@@ -31,7 +31,7 @@
 						<td class="col_4" align="center"><b>Giá bán</b>
 						</td>
 					</tr>
-					<s:iterator value="listSanPham" status="spStatus">
+					<s:iterator value="dsSanPham" status="spStatus">
 						<tr class="tr">
 							<s:url action="SanPham_chiTiet" var="productDetail">
 								<s:param name="maSanPham" value="maSanPham"></s:param>
