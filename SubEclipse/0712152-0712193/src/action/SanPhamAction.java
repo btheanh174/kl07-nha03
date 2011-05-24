@@ -3,32 +3,31 @@ package action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Iterator;
 
 import javax.servlet.ServletContext;
-
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.SessionAware;
 
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.HinhAnhDAO;
 import model.dao.LaptopDAO;
 import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
-import model.pojo.GianHang;
-import model.pojo.GioHang;
 import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
+
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -54,11 +53,13 @@ public class SanPhamAction extends ActionSupport implements
 	SanPhamDAO spDao = new SanPhamDAO();
 	HinhAnhDAO haDao = new HinhAnhDAO();
 	DanhMucDAO dmDao = new DanhMucDAO();
+	ThamSoDAO tsDao = new ThamSoDAO();
+	
 	private int maSanPham;
 	private SanPham sanPham;
 	private Laptop laptop;
 	private DienThoai dienthoai;
-	private List<SanPham> listSanPham;
+	private List<SanPham> dsSanPham;
 
 	private SanPhamTieuChi tieuChi;
 	private DienThoaiTieuChi dt = new DienThoaiTieuChi();
@@ -70,7 +71,7 @@ public class SanPhamAction extends ActionSupport implements
 	private List<Integer> soTrang = new ArrayList<Integer>();
 
 	public String execute() {
-		listSanPham = spDao.layDanhSach();
+		dsSanPham = spDao.layDanhSach();
 		return SUCCESS;
 	}
 
@@ -81,10 +82,11 @@ public class SanPhamAction extends ActionSupport implements
 
 	public String timNhanh() {
 		System.out.println("Trang hien tai = " + trang);
-		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang);
+		int soSanPhamTrenTrang = tsDao.layGiaTri(1);
+		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang, soSanPhamTrenTrang);
 		tongSoTrang = duLieuTrang.getTongSoTrang();
 		System.out.println("Tong so trang = " + tongSoTrang);
-		listSanPham = duLieuTrang.getDsDuLieu();
+		dsSanPham = duLieuTrang.getDsDuLieu();
 		return SUCCESS;
 	}
 
@@ -95,12 +97,12 @@ public class SanPhamAction extends ActionSupport implements
 			System.out.println(dt.getTenSanPham());
 			DuLieuTrang duLieuTrang = spDao.timKiem(dt, trang);
 			tongSoTrang = duLieuTrang.getTongSoTrang();
-			listSanPham = duLieuTrang.getDsDuLieu();
+			dsSanPham = duLieuTrang.getDsDuLieu();
 			return SUCCESS;
 		} else if ("LAPTOP".equalsIgnoreCase(loaiSanPham)) {
 			DuLieuTrang duLieuTrang = spDao.timKiem(lt, trang);
 			tongSoTrang = duLieuTrang.getTongSoTrang();
-			listSanPham = duLieuTrang.getDsDuLieu();
+			dsSanPham = duLieuTrang.getDsDuLieu();
 			return SUCCESS;
 		} else {
 			return "error";
@@ -237,16 +239,24 @@ public class SanPhamAction extends ActionSupport implements
 		this.sanPham = sanPham;
 	}
 
-	public List<SanPham> getListSanPham() {
+	/*public List<SanPham> getListSanPham() {
 		return listSanPham;
 	}
 
 	public void setListSanPham(List<SanPham> listSanPham) {
 		this.listSanPham = listSanPham;
-	}
+	}*/
 
 	public int getMaSanPham() {
 		return maSanPham;
+	}
+
+	public List<SanPham> getDsSanPham() {
+		return dsSanPham;
+	}
+
+	public void setDsSanPham(List<SanPham> dsSanPham) {
+		this.dsSanPham = dsSanPham;
 	}
 
 	public void setMaSanPham(int maSanPham) {

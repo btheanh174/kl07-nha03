@@ -89,7 +89,7 @@ public class SanPhamDAO extends AbstractDAO {
 	
 	// Lay san pham theo danh muc co phan trang
 	// Voi tham so dau vao la: trang, danhMuc
-	public List<SanPham> layDanhSach(DanhMuc danhMuc, int trang) {
+	public List<SanPham> layDanhSach(DanhMuc danhMuc, int trang, int soSanPhamTrenTrang) {
 		List<SanPham> kq = null;
 		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -99,7 +99,6 @@ public class SanPhamDAO extends AbstractDAO {
 					.createQuery("from SanPham as sp where sp.danhMuc =:dm");
 			query.setParameter("dm", danhMuc);
 
-			int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 			int batDau = (trang - 1) * soSanPhamTrenTrang;
 			
 			query.setFirstResult(batDau);
@@ -110,7 +109,7 @@ public class SanPhamDAO extends AbstractDAO {
 			// * Su dung khi lazy cua association voi HinhAnh la true
 			for (SanPham sanPham : kq) {
 				Hibernate.initialize(sanPham);
-				//Hibernate.initialize(sanPham.getDsHinhAnh());
+				Hibernate.initialize(sanPham.getDsHinhAnh());
 				Hibernate.initialize(sanPham.getDsGianHang());
 			}
 
@@ -123,6 +122,39 @@ public class SanPhamDAO extends AbstractDAO {
 		}
 		return kq;
 	}
+	
+	public List<SanPham> layDanhSach(int trang, int soSanPhamTrenTrang) {
+		List<SanPham> kq = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			Query query = session
+					.createQuery("from SanPham");
+
+			int batDau = (trang - 1) * soSanPhamTrenTrang;
+			
+			query.setFirstResult(batDau);
+			query.setMaxResults(soSanPhamTrenTrang);
+
+			kq = query.list();
+			
+			// * Su dung khi lazy cua association voi HinhAnh la true
+			for (SanPham sanPham : kq) {
+				Hibernate.initialize(sanPham);
+				Hibernate.initialize(sanPham.getDsGianHang());
+			}
+
+			tx.commit();
+
+		} catch (HibernateException e) {
+			handleException(e);
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+
 
 	public void them(SanPham sanPham) {
 		super.saveOrUpdate(sanPham);
@@ -212,9 +244,8 @@ public class SanPhamDAO extends AbstractDAO {
 	}
 	*/
 
-	public DuLieuTrang timKiem(SanPhamTieuChi tieuChi, int trang){
+	public DuLieuTrang timKiem(SanPhamTieuChi tieuChi, int trang, int soSanPhamTrenTrang){
 		DuLieuTrang kq = null;
-		int soSanPhamTrenTrang = new ThamSoDAO().layGiaTri(1);
 		try{
 			System.out.println("Tim kiem dao");
 			session = HibernateUtil.getSessionFactory().getCurrentSession();

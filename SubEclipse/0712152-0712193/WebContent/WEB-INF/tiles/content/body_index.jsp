@@ -12,7 +12,7 @@
 	<s:a href="SanPham_timKiem.action?loaiSanPham=laptop">Tìm kiếm laptop
 	</s:a> --%>
 
-<div class="center_title_bar">Máy tính Laptop</div>
+<div class="center_title_bar_full">Máy tính Laptop</div>
 <s:iterator var="dienthoai" value="(6).{#this}">
 	<div class="prod_box">
 		<div class="top_prod_box"></div>
@@ -41,7 +41,7 @@
 
 </s:iterator>
 <br>
-<div class="center_title_bar">Điện thoại</div>
+<div class="center_title_bar_full">Điện thoại</div>
 <s:iterator var="laptop" value="(6).{#this}">
 	<div class="prod_box">
 		<div class="top_prod_box"></div>

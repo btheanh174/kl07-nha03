@@ -129,12 +129,6 @@
 
 		<!-- Danh muc -->
 
-		<action name="DanhMuc_layDanhSachSanPham" class="action.DanhMucAction"
-			method="layDanhSachSanPham">
-			<result type="tiles">Products.tiles</result>
-			<result name="input" type="tiles">Products.tiles</result>
-		</action>
-
 		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction"
 			method="themDanhMuc">
 			<result name="success" type="redirect">QuanLyCategories.action</result>
@@ -161,9 +155,9 @@
 			<result name="success">/admin/product/detail.jsp</result>
 		</action>
 
-		<action name="SanPham_danhSach" class="action.SanPhamAction"
+		<action name="SanPham_danhSach" class="action.sanpham.ListingSanPhamAction"
 			method="execute">
-			<result name="success" type="tiles">Products.tiles</result>
+			<result name="list">/content/product/products.jsp</result>
 		</action>
 
 		<action name="SanPham_timNhanh" class="action.SanPhamAction"
