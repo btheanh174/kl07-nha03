@@ -29,7 +29,7 @@
    			<tiles:insertAttribute name="left"></tiles:insertAttribute>
    		</div><!-- end of left content -->
    
-   		<div class="center_content">
+   		<div class="center_content_full">
    			<tiles:insertAttribute name="center"></tiles:insertAttribute>
    		</div><!-- end of center content -->   
             

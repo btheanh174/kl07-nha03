@@ -398,8 +398,29 @@ width:585px;
 float:left;
 padding:5px 10px;
 }
+
+.center_content_full{
+width:784px;
+float:left;
+padding:5px 10px;
+}
+
 .center_title_bar{
 width:520px;
+height:33px;
+float:left;
+padding:0 0 0 40px;
+margin:0 0 0 12px;
+_margin:0 0 0 6px;
+line-height:33px;
+font-size:12px;
+color:#847676;
+font-weight:bold;
+background:url(../images/bar_bg.gif) no-repeat center;
+}
+
+.center_title_bar_full{
+width:730px;
 height:33px;
 float:left;
 padding:0 0 0 40px;
@@ -509,6 +530,26 @@ width:554px;height:12px;background:url(../images/details_box_bottom.gif) no-repe
 .center_prod_box_big{
 width:554px;height: auto;background:url(../images/details_box_center.gif) repeat-y;float:left; text-align:center;padding:0px; margin:0px;
 }
+
+/*prod_box_big_full*/
+.prod_box_big_full{
+width:764px;
+height:auto;
+float:left;
+padding:10px 10px 10px 15px;
+}
+.top_prod_box_big_full{
+width:764px;height:12px;background:url(../images/details_box_top.gif) no-repeat center bottom;float:left; padding:0px; margin:0px;
+}
+.bottom_prod_box_big_full{
+width:764px;height:12px;background:url(../images/details_box_bottom.gif) no-repeat center top;float:left;padding:0px; margin:0px;
+}
+.center_prod_box_big_full{
+width:764px;height: auto;background:url(../images/details_box_center.gif) repeat-y;float:left; text-align:center;padding:0px; margin:0px;
+}
+/*end*/
+
+
 .product_img_big{
 width:170px;
 padding:5px 0 5px 10px;
@@ -661,3 +702,126 @@ color:#666666;
 padding:10px 0 0 60px;
 }
 #content .inner_copy {border:0;color:#f00;float:left;width:50%!important;margin:-202px 0 0 0;overflow:hidden;line-height:0;padding:0;font-size:12px}
+
+
+/*CSS d? phân trang*/
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.pagination{
+padding: 2px;
+}
+
+.pagination ul{
+margin: 0;
+padding: 0;
+text-align: right; /*Set to "right" to right align pagination interface*/
+font-size: 12px;
+}
+
+.pagination li{
+list-style-type: none;
+display: inline;
+padding-bottom: 1px;
+}
+
+.pagination a, .pagination a:visited{
+padding: 0 5px;
+border: 1px solid #9aafe5;
+text-decoration: none; 
+color: #2e6ab1;
+}
+
+.pagination a:hover, .pagination a:active{
+border: 1px solid #2b66a5;
+color: #000;
+background-color: #FFFF80;
+}
+
+.pagination a.currentpage{
+background-color: #2e6ab1;
+color: #FFF !important;
+border-color: #2b66a5;
+font-weight: bold;
+cursor: default;
+}
+
+.pagination a.disablelink, .pagination a.disablelink:hover{
+background-color: white;
+cursor: default;
+color: #929292;
+border-color: #929292;
+font-weight: normal !important;
+}
+
+.pagination a.prevnext{
+font-weight: bold;
+}
+
+/*CSS de layout ket qua tim kiem san pham*/
+.view_list_table .tr {
+    background: url("../images/line_h.gif") repeat-x scroll center bottom transparent;
+}
+
+.view_list_table .text_title {
+    font-weight: bold;
+    text-align: center;
+}
+
+* {
+    font-family: Arial,Tahoma;
+}
+
+.view_list_table .name, .view_list_table div.price_usd {
+    margin-bottom: 5px;
+}
+
+.view_list_table .name, .view_list_table .price {
+    font-size: 14px;
+    font-weight: bold;
+}
+.view_list_table .name a {
+    color: #003399;
+}
+
+a {
+    color: #605D57;
+}
+
+a {
+    text-decoration: none;
+}
+.view_list_table .col_1 {
+    width: 1%;
+}
+.view_list_table .col_2 {
+    text-align: center;
+    width: 1%;
+}
+.view_list_table .col_3 {
+    vertical-align: top;
+    width: 97%;
+}
+.view_list_table .col_4 {
+    text-align: center;
+    white-space: nowrap;
+    width: 1%;
+}
+.view_list_table .name a {
+    color: #003399;
+}
+.view_list_table .name a:hover {
+    color: #E97D13;
+}
+.view_list_table .name span {
+    color: #E97D13;
+}
+.view_list_table .name img {
+    margin-left: 5px;
+}
+.view_list_table .picture_small {
+    overflow: hidden;
+    width: 140px;
+}
+
+/*end*/

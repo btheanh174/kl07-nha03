@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 
-<div class="center_title_bar">
+<div class="center_title_bar_full">
 	<s:property value="tenDanhMuc" />
 </div>
 <s:if test="listSanPham.size() > 0">

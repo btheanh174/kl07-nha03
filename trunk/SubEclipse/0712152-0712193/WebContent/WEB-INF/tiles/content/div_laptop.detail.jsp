@@ -35,7 +35,7 @@
 				</p>
 			</div>
 			<div class="prod_price_big">
-				<span class="price"> <s:property value="giaText" /> VNĐ</span>
+				<strong><span class="price"><b><s:property value="giaText" /></b> </span> VNĐ</strong>
 			</div>
 
 

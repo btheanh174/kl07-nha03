@@ -14,10 +14,12 @@ import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
+import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
@@ -222,8 +224,14 @@ public class Testing {
 		action.capNhat();
 		*/
 		
-		SanPham sp = new SanPhamDAO().lay(12);
-		System.out.println(sp.getDsGianHang().size());
+		
+		DanhMuc dm = new DanhMucDAO().lay(11);
+		SanPhamTieuChi tieuChi = new SanPhamTieuChi("", "", "", "");
+		DuLieuTrang dlt = new SanPhamDAO().timKiem(tieuChi, 1);
+		for (Object sanPham : dlt.getDsDuLieu()) {
+			System.out.println(((SanPham)sanPham).getDsGianHang().size());
+		}
+		
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
