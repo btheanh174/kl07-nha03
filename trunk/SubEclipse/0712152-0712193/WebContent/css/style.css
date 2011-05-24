@@ -757,6 +757,15 @@ font-weight: normal !important;
 .pagination a.prevnext{
 font-weight: bold;
 }
+/* Mot kieu paging css khac*/
+#pagination{clear:both;margin:0 0 .5em 0;padding:2.5em 0 1em 0;}
+#pagination a{border:1px solid #999;text-decoration:none;background:white;color:#0066CC}
+#pagination a:hover{background:#3774D0;color:white;}
+#pagination a,#pagination span{padding:0.3em 0.5em;}
+#pagination a.pn{border:1px solid #fff;}
+#pagination a.pn b{font-weight:normal;}
+#pagination a.pn:hover{border:1px solid #999;}
+#pagination p{color:#999;}
 
 /*CSS de layout ket qua tim kiem san pham*/
 .view_list_table .tr {
@@ -825,3 +834,95 @@ a {
 }
 
 /*end*/
+
+/*shop table*/
+.text_link, .text_link_2, .text_link_bold {
+    color: #003399;
+}
+
+.text_link:hover, .text_link_2:hover, .text_link_bold:hover, .text_link_pale:hover {
+    color: #E97D13;
+}
+.text_link_2 {
+    text-decoration: underline;
+}
+.text_link_bold {
+    font-weight: bold;
+}
+.shop_table {
+    width: 100%;
+}
+.shop_table .text_title {
+    font-weight: bold;
+    text-align: center;
+}
+.shop_table .text_title td {
+    vertical-align: middle;
+}
+.shop_table .tr {
+    background: url("line_h.gif") repeat-x scroll center bottom transparent;
+}
+.shop_table .col_1, .shop_table .col_2, .shop_table .col_3, .shop_table .col_4 {
+    padding: 10px 10px 11px;
+}
+.shop_table .col_1 {
+    width: 1%;
+}
+.shop_table .col_2 {
+    text-align: center;
+    width: 1%;
+}
+.shop_table .col_3 {
+    vertical-align: top;
+    width: 70%;
+}
+.shop_table .col_4 {
+    text-align: center;
+}
+.shop_table .verified, .shop_table .professional {
+    float: right;
+    height: 60px;
+    margin-left: 10px;
+    width: 44px;
+}
+.shop_table .verified {
+    background: url("icon_estore_verified.gif") no-repeat scroll 0 0 transparent;
+}
+.shop_table .professional {
+    background: url("icon_estore_professional.gif") no-repeat scroll 0 0 transparent;
+}
+.shop_table .company_name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.shop_table .address, .shop_table .count_product {
+    line-height: 18px;
+}
+.shop_table .count_product {
+    color: #999999;
+}
+.shop_table .count_product .update {
+    background: url("icon_replace.gif") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+}
+.shop_table .rating, .shop_table .policy {
+    margin-top: 5px;
+}
+
+.shop_table .policy a {
+    background: url("icon_information_1.gif") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+}
+.shop_table .phone, .shop_table .fax, .shop_table .website {
+    margin-bottom: 3px;
+}
+.shop_table .yahoo {
+    margin-top: 8px;
+}
+.No {
+    color: #E97D13;
+    font-weight: bold;
+    text-align: center;
+}
+/**/

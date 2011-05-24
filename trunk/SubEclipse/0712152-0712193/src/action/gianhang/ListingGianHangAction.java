@@ -1,8 +1,11 @@
 package action.gianhang;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.GianHangDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
 import model.pojo.SanPham;
 
@@ -13,10 +16,71 @@ public class ListingGianHangAction extends ActionSupport {
 	private List<GianHang> dsGianHang;
 	private SanPham sanPham;
 	private GianHangDAO ghDao = new GianHangDAO();
+	
+	private int trang = 1;
+	private int tongSoTrang;
+	private List<Integer> soTrang = new ArrayList<Integer>();
+	
 	@Override
 	public String execute() throws Exception {
-		dsGianHang = ghDao.layDanhSach();
+		
+		int soGianHangTrenTrang = new ThamSoDAO().layGiaTri(3);
+		DuLieuTrang dlt = ghDao.layDanhSach(soGianHangTrenTrang, trang);
+		tongSoTrang = dlt.getTongSoTrang();
+		dsGianHang = dlt.getDsDuLieu();
+		
 		return "list";
 	}
-	
+
+	public GianHang getGianHang() {
+		return gianHang;
+	}
+
+	public void setGianHang(GianHang gianHang) {
+		this.gianHang = gianHang;
+	}
+
+	public List<GianHang> getDsGianHang() {
+		return dsGianHang;
+	}
+
+	public void setDsGianHang(List<GianHang> dsGianHang) {
+		this.dsGianHang = dsGianHang;
+	}
+
+	public SanPham getSanPham() {
+		return sanPham;
+	}
+
+	public void setSanPham(SanPham sanPham) {
+		this.sanPham = sanPham;
+	}
+
+	public int getTrang() {
+		return trang;
+	}
+
+	public void setTrang(int trang) {
+		this.trang = trang;
+	}
+
+	public int getTongSoTrang() {
+		return tongSoTrang;
+	}
+
+	public void setTongSoTrang(int tongSoTrang) {
+		this.tongSoTrang = tongSoTrang;
+	}
+
+	public List<Integer> getSoTrang() {
+		for(int i = 1; i <= getTongSoTrang(); i++){
+			this.soTrang.add(i);
+		}
+		return soTrang;
+	}
+
+	public void setSoTrang(List<Integer> soTrang) {
+		
+		this.soTrang = soTrang;
+	}
 }

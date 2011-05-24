@@ -24,9 +24,12 @@
 				<tbody>
 					<tr class="tr text_title">
 						<td class="col_1"></td>
-						<td class="col_2" align="center"><b>Ảnh</b></td>
-						<td class="col_3" align="center"><b>Tên sản phẩm</b></td>
-						<td class="col_4" align="center"><b>Giá bán</b></td>
+						<td class="col_2" align="center"><b>Ảnh</b>
+						</td>
+						<td class="col_3" align="center"><b>Tên sản phẩm</b>
+						</td>
+						<td class="col_4" align="center"><b>Giá bán</b>
+						</td>
 					</tr>
 					<s:iterator value="listSanPham" status="spStatus">
 						<tr class="tr">
@@ -36,9 +39,10 @@
 							<td class="col_1"></td>
 							<td class="col_2">
 								<div class="picture_small">
-									<a href="${productDetail }" class="tooltip"><img src="${hinhAnh }" alt="">
-									</a>
-								</div></td>
+									<a href="${productDetail }" class="tooltip"><img
+										src="${hinhAnh }" alt=""> </a>
+								</div>
+							</td>
 							<td class="col_3">
 								<div class="name">
 									<a href="${productDetail }"><b> <s:property
@@ -60,7 +64,8 @@
 										</div>
 									</div> --%>
 
-								<div class="clear"></div></td>
+								<div class="clear"></div>
+							</td>
 							<td class="col_4">
 								<div>
 									<strong><span class="price"><b><s:property
@@ -69,8 +74,7 @@
 								<div>
 									<a href="#">Có <b><s:property value="dsGianHang.size()" />
 									</b> gian hàng bán</a>
-								</div>
-							</td>
+								</div></td>
 						</tr>
 
 					</s:iterator>
@@ -79,26 +83,43 @@
 			<br>
 		</s:form>
 	</div>
-	<div class="pagination">
-		<ul>
-			<li><a href="#" class="prevnext disablelink">« Trước</a>
-			</li>
+	<div id="pagination">
+		<s:url id="prev" action="SanPham_timNhanh">
+			<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
+			<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
+			<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
+			<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
+			<s:param name="trang" value="trang - 1"></s:param>
+		</s:url>
+		<s:if test="trang > 1">
+			<a href="${prev }" class="pn next">&lt;&lt;Trước</a>
+		</s:if>
 
-			<s:iterator value="soTrang" status="stat">
-				<s:url id="timNhanh" action="SanPham_timNhanh">
-					<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
-					<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
-					<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
-					<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
-					<s:param name="trang" value="%{#stat.count}"></s:param>
-				</s:url>
-				<li><a href="${timNhanh }"> <s:property /> </a>
-				</li>
-			</s:iterator>
-
-			<li><a href="#" class="prevnext">Sau »</a>
-			</li>
-		</ul>
+		<s:iterator value="soTrang" status="stat">
+			<s:url id="timNhanh" action="SanPham_timNhanh">
+				<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
+				<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
+				<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
+				<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
+				<s:param name="trang" value="%{#stat.count}"></s:param>
+			</s:url>
+			<s:if test="trang == #stat.count">
+				<span><s:property /> </span>
+			</s:if>
+			<s:else>
+				<a href="${timNhanh }"> <s:property /> </a>
+			</s:else>
+		</s:iterator>
+		<s:url id="next" action="SanPham_timNhanh">
+			<s:param name="tieuChi.loaiSanPham" value="tieuChi.loaiSanPham"></s:param>
+			<s:param name="tieuChi.tenSanPham" value="tieuChi.tenSanPham"></s:param>
+			<s:param name="tieuChi.giaDuoi" value="tieuChi.giaDuoi"></s:param>
+			<s:param name="tieuChi.giaTren" value="tieuChi.giaTren"></s:param>
+			<s:param name="trang" value="trang + 1"></s:param>
+		</s:url>
+		<s:if test="trang < tongSoTrang">
+			<a href="${next }" class="pn next">Sau »</a>
+		</s:if>
 	</div>
 </s:if>
 <s:else>

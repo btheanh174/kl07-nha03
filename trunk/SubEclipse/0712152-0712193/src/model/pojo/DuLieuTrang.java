@@ -7,7 +7,6 @@ public class DuLieuTrang {
 
 	private boolean laTrangCuoi = false;
 	private int batdau;
-	private int trangHienTai;
 	private int tongSoTrang;
 	private List dsDuLieu = new ArrayList();
 	
@@ -15,19 +14,21 @@ public class DuLieuTrang {
 		
 	}
 	
+	public DuLieuTrang(boolean laTrangCuoi, int batdau, int tongSoTrang,
+			List dsDuLieu) {
+		super();
+		this.laTrangCuoi = laTrangCuoi;
+		this.batdau = batdau;
+		this.tongSoTrang = tongSoTrang;
+		this.dsDuLieu = dsDuLieu;
+	}
+
+
+
 	public DuLieuTrang(int tongSoTrang){
 		this.tongSoTrang = tongSoTrang;
 	}
 
-	public DuLieuTrang(boolean laTrangCuoi, int batdau, int trangHienTai,
-			int tongSoTrang, List<Object> dsDuLieu) {
-		super();
-		this.laTrangCuoi = laTrangCuoi;
-		this.batdau = batdau;
-		this.trangHienTai = trangHienTai;
-		this.tongSoTrang = tongSoTrang;
-		this.dsDuLieu = dsDuLieu;
-	}
 
 	public boolean isLaTrangCuoi() {
 		return laTrangCuoi;
@@ -59,13 +60,5 @@ public class DuLieuTrang {
 
 	public void setDsDuLieu(List dsDuLieu) {
 		this.dsDuLieu = dsDuLieu;
-	}
-
-	public int getTrangHienTai() {
-		return trangHienTai;
-	}
-
-	public void setTrangHienTai(int trangHienTai) {
-		this.trangHienTai = trangHienTai;
 	}
 }

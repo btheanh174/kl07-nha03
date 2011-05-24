@@ -17,7 +17,7 @@
 	</li>
 	-->
 	<li class="divider"></li>
-	<li><a href="<s:url action=""/>" class="nav3">Cửa hàng</a>
+	<li><a href="<s:url action="GianHang_danhSach"/>" class="nav3">Cửa hàng</a>
 	</li>
 	<li class="divider"></li>
 	<li><a href="<s:url action="show_contact_contact"/>" class="nav6">Liên
