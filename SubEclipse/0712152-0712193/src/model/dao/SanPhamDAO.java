@@ -69,14 +69,13 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			kq = query.list();
 			
-			/*
-			 * Su dung khi lazy cua association voi HinhAnh la true
+			
+			// * Su dung khi lazy cua association voi HinhAnh la true
 			for (SanPham sanPham : kq) {
 				Hibernate.initialize(sanPham);
-				Hibernate.initialize(sanPham.getDsHinhAnh());
+				//Hibernate.initialize(sanPham.getDsHinhAnh());
+				Hibernate.initialize(sanPham.getDsGianHang());
 			}
-			*/
-			Hibernate.initialize(kq);
 			
 			tx.commit();
 
@@ -107,6 +106,13 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setMaxResults(soSanPhamTrenTrang);
 
 			kq = query.list();
+			
+			// * Su dung khi lazy cua association voi HinhAnh la true
+			for (SanPham sanPham : kq) {
+				Hibernate.initialize(sanPham);
+				//Hibernate.initialize(sanPham.getDsHinhAnh());
+				Hibernate.initialize(sanPham.getDsGianHang());
+			}
 
 			tx.commit();
 
@@ -151,8 +157,13 @@ public class SanPhamDAO extends AbstractDAO {
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
 			
-			tx.commit();
 			kq = query.list();
+			for (SanPham sp : kq) {
+				Hibernate.initialize(sp);
+				Hibernate.initialize(sp.getDsGianHang());
+			}
+			tx.commit();
+			
 		}catch(HibernateException e){
 			handleException(e);
 		}finally{
@@ -223,7 +234,14 @@ public class SanPhamDAO extends AbstractDAO {
 			.setParameter("min", tieuChi.getGiaDuoi())
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
-			int temp = query.list().size();
+			
+			List<SanPham> list = query.list();
+			for (SanPham sp : list) {
+				Hibernate.initialize(sp);
+				Hibernate.initialize(sp.getDsGianHang());
+			}
+			
+			int temp = list.size();
 			
 			int tongSoTrang = temp / soSanPhamTrenTrang;
 			if(temp % soSanPhamTrenTrang != 0){
@@ -238,8 +256,9 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			kq.setBatdau(batdau);
 			kq.setTrangHienTai(trang);
-			kq.setDsDuLieu(query.list());
+			kq.setDsDuLieu(list);
 			kq.setLaTrangCuoi(false);
+			
 			if(trang * soSanPhamTrenTrang >= tongSoTrang){
 				kq.setLaTrangCuoi(true);
 			}

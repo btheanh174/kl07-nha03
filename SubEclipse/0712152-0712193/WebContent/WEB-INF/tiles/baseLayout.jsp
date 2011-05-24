@@ -42,13 +42,13 @@
    			<tiles:insertAttribute name="left"></tiles:insertAttribute>
    		</div><!-- end of left content -->
    
-   		<div class="center_content">
+   		<div class="center_content_full">
    			<tiles:insertAttribute name="center"></tiles:insertAttribute>
    		</div><!-- end of center content -->
-   
+   <%-- 
    		<div class="right_content">
    			<tiles:insertAttribute name="right"></tiles:insertAttribute>
-   		</div><!-- end of right content -->   
+   		</div> --%><!-- end of right content -->   
             
    </div><!-- end of main content -->
    
