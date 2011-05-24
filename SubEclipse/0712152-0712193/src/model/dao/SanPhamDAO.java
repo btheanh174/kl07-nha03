@@ -235,16 +235,12 @@ public class SanPhamDAO extends AbstractDAO {
 			.setParameter("max", tieuChi.getGiaTren())
 			.setParameter("loai", loai);
 			
-			List<SanPham> list = query.list();
-			for (SanPham sp : list) {
-				Hibernate.initialize(sp);
-				Hibernate.initialize(sp.getDsGianHang());
-			}
 			
-			int temp = list.size();
 			
-			int tongSoTrang = temp / soSanPhamTrenTrang;
-			if(temp % soSanPhamTrenTrang != 0){
+			int soSanPham = query.list().size();
+			
+			int tongSoTrang = soSanPham / soSanPhamTrenTrang;
+			if(soSanPham % soSanPhamTrenTrang != 0){
 				tongSoTrang++;
 			}
 			kq = new DuLieuTrang(tongSoTrang);
@@ -254,12 +250,18 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setFirstResult(batdau);
 			query.setMaxResults(soSanPhamTrenTrang);
 			
+			List<SanPham> list = query.list();
+			
+			for (SanPham sp : list) {
+				Hibernate.initialize(sp);
+				Hibernate.initialize(sp.getDsGianHang());
+			}
+			
 			kq.setBatdau(batdau);
-			kq.setTrangHienTai(trang);
 			kq.setDsDuLieu(list);
 			kq.setLaTrangCuoi(false);
 			
-			if(trang * soSanPhamTrenTrang >= tongSoTrang){
+			if(trang * soSanPhamTrenTrang >= soSanPham){
 				kq.setLaTrangCuoi(true);
 			}
 			
@@ -385,7 +387,6 @@ public class SanPhamDAO extends AbstractDAO {
 			query.setMaxResults(soSanPhamTrenTrang);
 			
 			kq.setBatdau(batdau);
-			kq.setTrangHienTai(trang);
 			kq.setDsDuLieu(query.list());
 			kq.setLaTrangCuoi(false);
 			if(trang * soSanPhamTrenTrang >= tongSoTrang){

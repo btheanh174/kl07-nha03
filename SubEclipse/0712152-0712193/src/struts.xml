@@ -120,6 +120,10 @@
 			</interceptor-ref>
 			<result name="success">/myprofile/store.jsp</result>
 		</action>
+		
+		<action name="GianHang_danhSach" class="action.gianhang.ListingGianHangAction">
+			<result name="list">/content/store/stores.jsp</result>
+		</action>
 
 		<!-- end Store -->
 
