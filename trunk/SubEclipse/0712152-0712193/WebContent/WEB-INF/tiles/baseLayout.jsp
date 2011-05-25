@@ -11,17 +11,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title> <tiles:getAsString name="pageTitle" /> </title>
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/stickytooltip.css" />
+<!--
+  jCarousel skin stylesheet
+--> 
+<link rel="stylesheet" type="text/css" href="css/slider/skin.css" /> 
+<!--
+  Product slider overwrite
+--> 
+<link rel="stylesheet" type="text/css" href="css/slider/product-slider-skin.css" /> 
+
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="iecss.css" />
 <![endif]-->
+
 <script type="text/javascript" src="js/boxOver.js"></script>
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/stickytooltip.js"></script>
+<!--
+  jCarousel library
+--> 
+<script type="text/javascript" src="js/jcarousel/jquery.jcarousel.min.js"></script> 
 
 <sj:head />
+<script type="text/javascript">
+	jQuery(document).ready(function() {
 
+		jQuery('#products').jcarousel({
+			start : 1
+		});
+	});
+</script>
 </head>
 <body>
 <div id="main_container">
