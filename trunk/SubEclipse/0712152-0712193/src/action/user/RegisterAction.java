@@ -3,10 +3,7 @@ package action.user;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +13,11 @@ import model.dao.NhomNguoiDungDAO;
 import model.dao.TaiKhoanDAO;
 import model.dao.ThanhVienDAO;
 import model.dao.TinhThanhPhoDAO;
-import model.pojo.HinhAnh;
+import model.pojo.GianHang;
 import model.pojo.NhomNguoiDung;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 import model.pojo.TinhThanhPho;
-import model.pojo.GianHang;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -53,6 +49,7 @@ public class RegisterAction extends ActionSupport implements
 	private File banner;
 	private String bannerContentType;
 	private String bannerFileName;
+	private int vung;
 
 	Map session;
 	HttpServletRequest servletRequest;
@@ -71,6 +68,8 @@ public class RegisterAction extends ActionSupport implements
 	}
 
 	public String register() throws UnsupportedEncodingException {
+		System.out.println("Dang ky");
+		
 		String salt = HashUtil.generateSalt(6);
 		String saltedPassword = salt + getMatKhau();
 		String hashedPassword = HashUtil.generateHash(saltedPassword);
@@ -97,6 +96,10 @@ public class RegisterAction extends ActionSupport implements
 
 		if (moGianHang == true) {
 			// Thêm gian hàng tại đây
+			System.out.println(vung);
+			TinhThanhPho t = new TinhThanhPhoDAO().lay(vung);
+			gianHang.setTinhThanhPho(t);
+			
 			ServletContext servletContext = ServletActionContext
 					.getServletContext();
 			String dataDir = servletContext.getRealPath("/WEB-INF")
@@ -215,14 +218,7 @@ public class RegisterAction extends ActionSupport implements
 		this.dsTinhThanhPho = dsTinhThanhPho;
 	}
 
-	public GianHang getGianhang() {
-		return gianHang;
-	}
-
-	public void setGianhang(GianHang gianHang) {
-		this.gianHang = gianHang;
-	}
-
+	
 	public File getLogo() {
 		return logo;
 	}
@@ -277,5 +273,22 @@ public class RegisterAction extends ActionSupport implements
 
 	public void setMoGianHang(Boolean moGianHang) {
 		this.moGianHang = moGianHang;
+	}
+
+
+	public int getVung() {
+		return vung;
+	}
+
+	public void setVung(int vung) {
+		this.vung = vung;
+	}
+
+	public GianHang getGianHang() {
+		return gianHang;
+	}
+
+	public void setGianHang(GianHang gianHang) {
+		this.gianHang = gianHang;
 	}
 }
