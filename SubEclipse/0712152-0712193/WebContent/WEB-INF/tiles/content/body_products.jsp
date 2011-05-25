@@ -81,7 +81,50 @@
 		</s:if>
 
 	</div>
+
 </s:if>
 <s:else>
 	Không có sản phẩm nào!
+	
 </s:else>
+
+<!-- product slider -->
+<div id="wrap">
+	<div class="jcarousel-skin-tango">
+		<div class="jcarousel-container jcarousel-container-horizontal"
+			id="products" style="position: relative; display: block;">
+			<div class="jcarousel-clip jcarousel-clip-horizontal"
+				style="overflow: hidden; position: relative;">
+				<ul class="jcarousel-list jcarousel-list-horizontal"
+					style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: 1270px;">
+					<s:iterator value="dsSanPham" status="stat">
+					<li
+						class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-2-horizontal"
+						style="float: left; list-style: none outside none;"
+						jcarouselindex="#stat.count"><a id="image2" href="#">
+						<img
+							width="120" height="100" border="0" alt=""
+							src="${hinhAnh }">
+					</a><br><s:property value="tenSanPham"/><br>
+					<b><s:property value="giaText"/></b>
+					</li>
+					</s:iterator>
+				</ul>
+			</div>
+			<div
+				class="jcarousel-prev jcarousel-prev-disabled jcarousel-prev-horizontal jcarousel-prev-disabled-horizontal"
+				disabled="true" style="display: block;"></div>
+			<div class="jcarousel-next jcarousel-next-horizontal"
+				style="display: block;" disabled="false"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+
+		jQuery('#products').jcarousel({
+			start : 1
+		});
+	});
+</script>
+<!-- end product slider -->
