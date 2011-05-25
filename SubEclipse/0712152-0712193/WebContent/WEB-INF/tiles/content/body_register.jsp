@@ -99,7 +99,8 @@
 						</td>
 						<td></td>
 					</tr>
-					<tr>
+
+ 					<tr>
 						<th>Mở gian hàng:</th>
 						<td align="left"><s:checkbox name="moGianHang"
 								onchange="show_gianHang()" id="cbMoGianHang" />
@@ -125,7 +126,7 @@
 						</tr>
 						<tr>
 							<th>Tỉnh/Thành phố:</th>
-							<td><s:select name="gianHang.tinhThanhPho"
+							<td><s:select name="vung"
 									list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho"
 									listValue="tenTinhThanhPho" label="Tỉnh/Thành phố"></s:select>
 							</td>
