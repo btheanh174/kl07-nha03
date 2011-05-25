@@ -46,7 +46,6 @@ public class SanPhamAction extends ActionSupport implements
 	private Map<String, Object> session;
 
 	private List<File> dsImages = new ArrayList<File>(3);
-
 	private List<String> dsImagesContentType = new ArrayList<String>(3);
 	private List<String> dsImagesFileName = new ArrayList<String>(3);
 

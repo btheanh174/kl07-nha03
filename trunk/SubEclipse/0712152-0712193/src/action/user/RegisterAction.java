@@ -1,20 +1,29 @@
 package action.user;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import model.dao.GianHangDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.TaiKhoanDAO;
 import model.dao.ThanhVienDAO;
 import model.dao.TinhThanhPhoDAO;
+import model.pojo.HinhAnh;
 import model.pojo.NhomNguoiDung;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 import model.pojo.TinhThanhPho;
+import model.pojo.GianHang;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -22,7 +31,8 @@ import util.HashUtil;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class RegisterAction  extends ActionSupport implements ServletRequestAware, SessionAware{
+public class RegisterAction extends ActionSupport implements
+		ServletRequestAware, SessionAware {
 	private String tenTruyCap;
 	private String matKhau;
 	private String xacNhanMatKhau;
@@ -34,24 +44,33 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 	private String dienThoai;
 	private int tinhThanhPho;
 	private ArrayList<TinhThanhPho> dsTinhThanhPho;
-	
+	private Boolean moGianHang;
+
+	private GianHang gianHang;
+	private File logo;
+	private String logoContentType;
+	private String logoFileName;
+	private File banner;
+	private String bannerContentType;
+	private String bannerFileName;
+
 	Map session;
 	HttpServletRequest servletRequest;
 	TaiKhoanDAO tkDao = new TaiKhoanDAO();
 	ThanhVienDAO tvDao = new ThanhVienDAO();
 	NhomNguoiDungDAO nndDao = new NhomNguoiDungDAO();
-	
+
 	@Override
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
-	
-	public String register() throws UnsupportedEncodingException{
+
+	public String register() throws UnsupportedEncodingException {
 		String salt = HashUtil.generateSalt(6);
 		String saltedPassword = salt + getMatKhau();
 		String hashedPassword = HashUtil.generateHash(saltedPassword);
@@ -59,94 +78,204 @@ public class RegisterAction  extends ActionSupport implements ServletRequestAwar
 		taiKhoan.setTenTruyCap(getTenTruyCap());
 		taiKhoan.setSalt(salt);
 		taiKhoan.setMatKhau(hashedPassword);
-		
+
 		NhomNguoiDung member = nndDao.lay(1);
 		taiKhoan.setNhomNguoiDung(member);
-		
+
 		ThanhVien thanhVien = new ThanhVien();
 		thanhVien.setHoTen(getHoTen());
 		thanhVien.setEmail(getEmail());
 		thanhVien.setDiaChi(getDiaChi());
 		thanhVien.setDienThoai(getDienThoai());
-		
+
 		TinhThanhPho ttp = new TinhThanhPhoDAO().lay(getTinhThanhPho());
 		thanhVien.setTinhThanhPho(ttp);
-		
-		
+
 		taiKhoan.setThanhVien(thanhVien);
 		thanhVien.setTaiKhoan(taiKhoan);
-		
 		tkDao.them(taiKhoan);
-		
+
+		if (moGianHang == true) {
+			// Thêm gian hàng tại đây
+			ServletContext servletContext = ServletActionContext
+					.getServletContext();
+			String dataDir = servletContext.getRealPath("/WEB-INF")
+					+ "\\uploadPicture";
+			File folder = new File(dataDir);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+			
+			if (logo != null)
+			{
+				File savedFile = new File(dataDir, logoFileName);
+				logo.renameTo(savedFile);
+				gianHang.setLogo(logoFileName);
+			}
+			if (banner != null)
+			{
+				File savedFile = new File(dataDir, bannerFileName);
+				banner.renameTo(savedFile);
+				gianHang.setLogo(bannerFileName);
+			}
+			gianHang.setTaiKhoan(taiKhoan);
+			GianHangDAO ghDao = new GianHangDAO();
+			ghDao.them(gianHang);
+			
+		}
+
 		return SUCCESS;
 	}
-	
+
 	public String getTenTruyCap() {
 		return tenTruyCap;
 	}
+
 	public void setTenTruyCap(String tenTruyCap) {
 		this.tenTruyCap = tenTruyCap;
 	}
+
 	public String getMatKhau() {
 		return matKhau;
 	}
+
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
 	}
+
 	public String getXacNhanMatKhau() {
 		return xacNhanMatKhau;
 	}
+
 	public void setXacNhanMatKhau(String xacNhanMatKhau) {
 		this.xacNhanMatKhau = xacNhanMatKhau;
 	}
+
 	public String getHoTen() {
 		return hoTen;
 	}
+
 	public void setHoTen(String hoTen) {
 		this.hoTen = hoTen;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getXacNhanEmail() {
 		return xacNhanEmail;
 	}
+
 	public void setXacNhanEmail(String xacNhanEmail) {
 		this.xacNhanEmail = xacNhanEmail;
 	}
+
 	public String getDiaChi() {
 		return diaChi;
 	}
+
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
 	}
+
 	public String getGioiTinh() {
 		return gioiTinh;
 	}
+
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
+
 	public String getDienThoai() {
 		return dienThoai;
 	}
+
 	public void setDienThoai(String dienThoai) {
 		this.dienThoai = dienThoai;
 	}
-	
+
 	public int getTinhThanhPho() {
 		return tinhThanhPho;
 	}
-	
+
 	public void setTinhThanhPho(int tinhThanhPho) {
 		this.tinhThanhPho = tinhThanhPho;
 	}
+
 	public ArrayList<TinhThanhPho> getDsTinhThanhPho() {
 		return dsTinhThanhPho;
 	}
+
 	public void setDsTinhThanhPho(ArrayList<TinhThanhPho> dsTinhThanhPho) {
 		this.dsTinhThanhPho = dsTinhThanhPho;
+	}
+
+	public GianHang getGianhang() {
+		return gianHang;
+	}
+
+	public void setGianhang(GianHang gianHang) {
+		this.gianHang = gianHang;
+	}
+
+	public File getLogo() {
+		return logo;
+	}
+
+	public void setLogo(File logo) {
+		this.logo = logo;
+	}
+
+	public String getLogoContentType() {
+		return logoContentType;
+	}
+
+	public void setLogoContentType(String logoContentType) {
+		this.logoContentType = logoContentType;
+	}
+
+	public String getLogoFileName() {
+		return logoFileName;
+	}
+
+	public void setLogoFileName(String logoFileName) {
+		this.logoFileName = logoFileName;
+	}
+
+	public File getBanner() {
+		return banner;
+	}
+
+	public void setBanner(File banner) {
+		this.banner = banner;
+	}
+
+	public String getBannerContentType() {
+		return bannerContentType;
+	}
+
+	public void setBannerContentType(String bannerContentType) {
+		this.bannerContentType = bannerContentType;
+	}
+
+	public String getBannerFileName() {
+		return bannerFileName;
+	}
+
+	public void setBannerFileName(String bannerFileName) {
+		this.bannerFileName = bannerFileName;
+	}
+
+	public Boolean getMoGianHang() {
+		return moGianHang;
+	}
+
+	public void setMoGianHang(Boolean moGianHang) {
+		this.moGianHang = moGianHang;
 	}
 }

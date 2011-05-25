@@ -120,7 +120,7 @@
 			</interceptor-ref>
 			<result name="success">/myprofile/store.jsp</result>
 		</action>
-		
+
 		<action name="GianHang_danhSach" class="action.gianhang.ListingGianHangAction">
 			<result name="list">/content/store/stores.jsp</result>
 		</action>
@@ -242,7 +242,7 @@
 			<result name="contact">/all/contact.jsp</result>
 			<result name="policy">/all/policy.jsp</result>
 		</action>
-		
+
 		<!-- end sub site -->
 	</package>
 
