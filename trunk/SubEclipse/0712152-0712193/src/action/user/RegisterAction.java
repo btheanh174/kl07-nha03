@@ -92,9 +92,13 @@ public class RegisterAction extends ActionSupport implements
 
 		taiKhoan.setThanhVien(thanhVien);
 		thanhVien.setTaiKhoan(taiKhoan);
-		tkDao.them(taiKhoan);
+		
 
 		if (moGianHang == true) {
+			
+			member = nndDao.lay(2);
+			taiKhoan.setNhomNguoiDung(member);
+			tkDao.them(taiKhoan);
 			// Thêm gian hàng tại đây
 			System.out.println(vung);
 			TinhThanhPho t = new TinhThanhPhoDAO().lay(vung);
@@ -125,6 +129,10 @@ public class RegisterAction extends ActionSupport implements
 			GianHangDAO ghDao = new GianHangDAO();
 			ghDao.them(gianHang);
 			
+		}
+		else
+		{
+			tkDao.them(taiKhoan);
 		}
 
 		return SUCCESS;

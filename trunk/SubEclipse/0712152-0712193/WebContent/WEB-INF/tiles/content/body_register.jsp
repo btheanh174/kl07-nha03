@@ -25,7 +25,7 @@
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
-		<s:form method="post" action="User_register" validate="true"
+		<s:form method="post" action="User_register" validate="true" enctype="multipart/form-data"
 			theme="simple">
 			<s:actionerror />
 			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
@@ -117,7 +117,7 @@
 				<fieldset>
 					<legend align="left">Thông tin gian hàng: </legend>
 
-					<table border="0" cellpadding="0" cellspacing="0" id="id-form2">
+					<table border="0" cellpadding="0" cellspacing="0" id="id-form2" >
 						<tr>
 							<th>Tên gian hàng (*):</th>
 							<td><s:textfield name="gianHang.tenGianHang" value="Cửa hàng 1"></s:textfield>
