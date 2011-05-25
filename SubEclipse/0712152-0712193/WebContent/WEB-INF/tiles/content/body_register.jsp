@@ -26,7 +26,7 @@
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
 		<s:form method="post" action="User_register" validate="true"
-			>
+			theme="simple">
 			<s:actionerror />
 			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 			<fieldset>
