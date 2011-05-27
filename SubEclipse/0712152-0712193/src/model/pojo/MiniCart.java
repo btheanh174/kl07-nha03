@@ -1,6 +1,8 @@
 package model.pojo;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
 
 import model.dao.GianHangDAO;
@@ -9,13 +11,14 @@ import util.NumberUtil;
 public class MiniCart {
 
 	private int maGianHang;
-	private List<MatHang> dsMatHang = new ArrayList<MatHang>();
+	
+	private Hashtable<Integer, MatHang> dsMatHang = new Hashtable<Integer, MatHang>();
 
 	public MiniCart() {
 		super();
 	}
 
-	public MiniCart(int maGianHang, List<MatHang> dsMatHang) {
+	public MiniCart(int maGianHang, Hashtable<Integer, MatHang> dsMatHang) {
 		super();
 		this.maGianHang = maGianHang;
 		this.dsMatHang = dsMatHang;
@@ -27,38 +30,53 @@ public class MiniCart {
 	
 
 	public void themMatHang(MatHang matHang) {
-		if (dsMatHang.contains(matHang)) {
-			MatHang mh = (MatHang) dsMatHang.get(dsMatHang.indexOf(matHang));
+		int key = matHang.getSanPham().getMaSanPham();
+		if (dsMatHang.containsKey(key)) {
+			MatHang mh = (MatHang) dsMatHang.get(key);
 			mh.setSoLuong(matHang.getSoLuong() + mh.getSoLuong());
 		} else {
-			dsMatHang.add(matHang);
+			dsMatHang.put(key, matHang);
 		}
 	}
 
-	public void xoaMatHang(MatHang matHang) {
-		if (dsMatHang.contains(matHang)) {
-			dsMatHang.remove(matHang);
+	public void xoaMatHang(int maSanPham) {
+		if (dsMatHang.containsKey(maSanPham)) {
+			dsMatHang.remove(maSanPham);
 		}
 	}
 
 
 	public void capNhatSoLuong(MatHang matHang, int soLuong) {
 		
-		if (dsMatHang.contains(matHang)) {
-			MatHang mh = (MatHang) dsMatHang.get(dsMatHang.indexOf(matHang));
+		int key = matHang.getSanPham().getMaSanPham();
+		if (dsMatHang.containsKey(key)) {
+			MatHang mh = (MatHang) dsMatHang.get(key);
 			mh.setSoLuong(soLuong);
 		} else {
 			MatHang mh = new MatHang();
 			mh.setSanPham(matHang.getSanPham());
 			mh.setSoLuong(soLuong);
-			dsMatHang.add(mh);
+			dsMatHang.put(key, mh);
 		}
+	}
+	
+	public void capNhatSoLuong(int maSanPham, int soLuong){
+		if(dsMatHang.containsKey(maSanPham)){
+			MatHang mh = (MatHang)dsMatHang.get(maSanPham);
+			mh.setSoLuong(soLuong);
+		}
+	}
+	
+	public Enumeration<MatHang> layDsMatHang(){
+		return dsMatHang.elements();
 	}
 
 	public Integer layTongTien() {
 		Integer kq = 0;
-		for (MatHang matHang : dsMatHang) {
-			kq += matHang.getThanhTien();
+		Enumeration<MatHang> list = dsMatHang.elements();
+		while(list.hasMoreElements()){
+			MatHang mh = list.nextElement();
+			kq += mh.getThanhTien();
 		}
 		return kq;
 	}
@@ -75,11 +93,11 @@ public class MiniCart {
 		dsMatHang.clear();
 	}
 
-	public List<MatHang> getDsMatHang() {
+	public Hashtable<Integer, MatHang> getDsMatHang() {
 		return dsMatHang;
 	}
 
-	public void setDsMatHang(List<MatHang> dsMatHang) {
+	public void setDsMatHang(Hashtable<Integer, MatHang> dsMatHang) {
 		this.dsMatHang = dsMatHang;
 	}
 
