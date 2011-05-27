@@ -10,7 +10,7 @@
 @import "all/css/adminStyle.css";
 </style>
 </head>
-
+<sj:head jqueryui="true" jquerytheme="redmond" />
 <body>
 
 	<div id="main">

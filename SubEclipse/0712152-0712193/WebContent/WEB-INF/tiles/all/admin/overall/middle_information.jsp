@@ -18,21 +18,30 @@
 
 	<br /> <br /> <br />
 
-	<s:form action="Store_capNhat" method="post" enctype="multipart/form-data" theme="simple">
-		<s:actionerror />
+	<s:form action="Store_capNhat" method="post"
+		enctype="multipart/form-data" theme="simple">
+		<s:hidden name="maGianHang"
+			value="%{#session['tk'].gianHang.maGianHang}"></s:hidden>
 		<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 		<fieldset>
 			<legend align="left">Thông tin người dùng: </legend>
 			<table border="0" cellpadding="0" cellspacing="0" id="id-form">
 				<tr>
-					<th>Tên truy cập (*):</th>
-					<td><s:textfield name="tenTruyCap"></s:textfield></td>
-					<td></td>
+					<th>Hình logo:</th>
+					<td><img width="120" height="120"
+						src="<s:property value="%{#session['tk'].gianHang.logo}"/>">
+					</td>
+					<td><s:file name="images" label="Logo"></s:file>
+						<div class="txt">Sửa logo</div>
+					</td>
 				</tr>
 				<tr>
-					<th>Mật khẩu (*):</th>
-					<td><s:password name="matKhau" value="123456"></s:password></td>
-					<td></td>
+					<th>Hình banner:</th>
+					<td><img width="607" height="120"
+						src="<s:property value="%{#session['tk'].gianHang.banner}"/>">
+					</td>
+					<td><s:file name="images" label="Banner"></s:file>
+					</td>
 				</tr>
 				<tr>
 					<th>Xác nhận mật khẩu (*):</th>
@@ -41,59 +50,64 @@
 					<td></td>
 				</tr>
 				<tr>
-					<th>Họ tên (*):</th>
-					<td><s:textfield name="hoTen" value="Tên tuổi"></s:textfield>
+					<th>Tên gian hàng:</th>
+					<td><s:textfield name="tenGianHang"
+							value="%{#session['tk'].gianHang.tenGianHang}"></s:textfield>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<th>Email (*):</th>
-					<td><s:textfield name="email" value="email123123123@yahoo.com"></s:textfield>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Xác nhận email (*):</th>
-					<td><s:textfield name="xacNhanEmail"
-							value="email123123123@yahoo.com"></s:textfield></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Giới tính:</th>
-					<td><s:radio name="gioiTinh" list="{'Nam', 'Nữ'}"
-							label="Giới tính"></s:radio></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Tỉnh/Thành phố:</th>
-					<td><s:select name="tinhThanhPho"
+					<th>Tỉnh/thành phố:</th>
+					<td><sj:autocompleter name="gianHang.tinhThanhPho"
 							list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho"
-							listValue="tenTinhThanhPho" label="Tỉnh/Thành phố"></s:select>
+							listValue="tenTinhThanhPho"
+							value="%{#session['tk'].gianHang.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<th>Địa chỉ (*):</th>
-					<td><s:textfield name="diaChi" value="123 Đường A"></s:textfield>
+					<th>Địa chỉ:</th>
+					<td><s:textfield name="gianHang.diaChi"
+							value="%{#session['tk'].gianHang.diaChi}"></s:textfield>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<th>Điện thoại:</th>
-					<td><s:textfield name="dienThoai" value="0909123456"></s:textfield>
+					<th>Fax:</th>
+					<td><s:textfield name="gianHang.fax"
+							value="%{#session['tk'].gianHang.fax}"></s:textfield></td>
 					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Mã an toàn:</th>
-					<td><jcaptcha:image height="150" width="300" /></td>
 					<td></td>
 				</tr>
 
 				<tr>
-					<th>Mở gian hàng:</th>
-					<td align="left"><s:checkbox name="moGianHang"
-							onchange="show_gianHang()" id="cbMoGianHang" /></td>
+					<th>Điện thoại:</th>
+					<td><s:textfield name="gianHang.dienThoai"
+							value="%{#session['tk'].gianHang.dienThoai}"></s:textfield></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>Yahoo:</th>
+					<td><s:textfield name="gianHang.yahoo"
+							value="%{#session['tk'].gianHang.yahoo}"></s:textfield></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>Giới thiệu cửa hàng:</th>
+					<td><sjr:ckeditor id="richtextEditor" width="500"
+							value="%{#session['tk'].gianHang.thongTin}"
+							name="gianHang.thongTin" rows="10"
+							cols="80">
+						</sjr:ckeditor></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+
+							<s:submit value="Lưu"></s:submit>
+
+					</td>
 					<td></td>
 				</tr>
 			</table>
