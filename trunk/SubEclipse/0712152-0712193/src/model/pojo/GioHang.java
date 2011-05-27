@@ -69,7 +69,7 @@ public class GioHang {
 	public GioHang() {
 		super();
 		// Khoi tao du lieu gia de test
-		MiniCart cart1 = new MiniCart();
+		/*MiniCart cart1 = new MiniCart();
 		cart1.setMaGianHang(1);
 		MatHang mh1 = new MatHang();
 		SanPhamDAO spDao = new SanPhamDAO();
@@ -89,6 +89,7 @@ public class GioHang {
 		
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		session.put("gh", this);
+*/	
 	}
 
 	public void themMiniCart(MiniCart cart) {
@@ -106,9 +107,10 @@ public class GioHang {
 	public void themMatHang(int maGianHang, MatHang matHang) {
 		if (dsMiniCart.containsKey(maGianHang)) {
 			MiniCart cart = dsMiniCart.get(maGianHang);
-			List<MatHang> dsMH = cart.getDsMatHang();
-			if (dsMH.contains(matHang)) {
-				MatHang mh = dsMH.get(dsMH.indexOf(matHang));
+			Hashtable<Integer, MatHang> dsMH = cart.getDsMatHang();
+			int key = matHang.getSanPham().getMaSanPham();
+			if (dsMH.contains(key)) {
+				MatHang mh = dsMH.get(key);
 				mh.setSoLuong(matHang.getSoLuong() + mh.getSoLuong());
 			} else {
 				cart.themMatHang(matHang);
@@ -121,30 +123,42 @@ public class GioHang {
 		}
 	}
 
-	public void capNhatMatHang(int maGianHang, MatHang matHang, int soLuong) {
+	public void capNhatSoLuong(int maGianHang, int maSanPham, int soLuong) {
 		if (dsMiniCart.containsKey(maGianHang)) {
 			MiniCart cart = dsMiniCart.get(maGianHang);
-			List<MatHang> dsMH = cart.getDsMatHang();
-			if (dsMH.contains(matHang)) {
-				MatHang mh = dsMH.get(dsMH.indexOf(matHang));
+			Hashtable<Integer, MatHang> dsMH = cart.getDsMatHang();
+			if (dsMH.containsKey(maSanPham)) {
+				MatHang mh = dsMH.get(maSanPham);
 				mh.setSoLuong(soLuong);
-			} else {
-				cart.themMatHang(matHang);
 			}
-		} else {
-			MiniCart cart = new MiniCart();
-			cart.setMaGianHang(maGianHang);
-			cart.capNhatSoLuong(matHang, soLuong);
-			dsMiniCart.put(maGianHang, cart);
-		}
+		} 
 	}
 
 	public void xoaMatHang(int maGianHang, MatHang matHang) {
 		if (dsMiniCart.containsKey(maGianHang)) {
 			MiniCart cart = dsMiniCart.get(maGianHang);
-			if (cart.getDsMatHang().contains(matHang))
-				cart.xoaMatHang(matHang);
+			int key = matHang.getSanPham().getMaSanPham();
+			if (cart.getDsMatHang().containsKey(key)){
+				cart.xoaMatHang(key);
+				if(cart.getDsMatHang().size()==0){
+					dsMiniCart.remove(maGianHang);
+				}
+			}
+			
 		}
+	}
+	
+	public void xoaMatHang(int maGianHang, int maSanPham){
+		if (dsMiniCart.containsKey(maGianHang)) {
+			MiniCart cart = dsMiniCart.get(maGianHang);
+			if (cart.getDsMatHang().containsKey(maSanPham)){
+				cart.xoaMatHang(maSanPham);
+			}
+			if(cart.getDsMatHang().size()==0){
+				dsMiniCart.remove(maGianHang);
+			}
+		}
+		
 	}
 
 	public Enumeration<MiniCart> layMiniCartEnumeration() {

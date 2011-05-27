@@ -128,15 +128,13 @@ public class XuLyGioHangAction extends ActionSupport implements
 			if (ds2.length == 1) {
 				int sl = Integer.parseInt(ds2[0]);
 				int masp = Integer.parseInt(ds1[0]);
-				//gioHang.capNhatSoLuong(masp, sl);
-				gioHang.capNhatMatHang(maGianHang, matHang, sl);
+				gioHang.capNhatSoLuong(maGianHang, masp, sl);
 			} else {
 				for (int i = 0; i < ds1.length; i++) {
 					try {
 						int sl = Integer.parseInt(ds2[i]);
 						int masp = Integer.parseInt(ds1[i]);
-						//gioHang.capNhatSoLuong(masp, sl);
-						gioHang.capNhatMatHang(maGianHang, matHang, sl);
+						gioHang.capNhatSoLuong(maGianHang, masp, sl);
 					} catch (Exception e) {
 					}
 				}
@@ -144,8 +142,7 @@ public class XuLyGioHangAction extends ActionSupport implements
 		}
 		if (dsDuocChon != null) {
 			for (Integer i : dsDuocChon) {
-				//gioHang.xoaMatHang(i);
-				gioHang.xoaMatHang(maGianHang, matHang);
+				gioHang.xoaMatHang(maGianHang, i);
 			}
 		}
 
