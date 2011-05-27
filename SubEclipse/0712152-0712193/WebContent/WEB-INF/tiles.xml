@@ -239,6 +239,11 @@
 		<put-attribute name="title" value="Chính sách"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_policy.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="siteDetail.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Chi tiết sản phẩm"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_detail.jsp"></put-attribute>
+	</definition>
 	<!-- Admin Store -->	
 	
 	<definition name="AdminStore.tiles" extends="adminStoreLayout">
