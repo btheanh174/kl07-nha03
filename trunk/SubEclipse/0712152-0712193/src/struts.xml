@@ -29,7 +29,7 @@
 		</global-results>
 		<!-- end global result -->
 
-		<action name="Index">
+		<action name="Index" class="action.IndexAction" method="execute">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success" type="tiles">Index.tiles</result>
 		</action>
@@ -183,14 +183,14 @@
 		<!-- End San pham -->
 
 		<!-- Gio hang -->
-		<action name="XemGioHang">
+		<action name="XemGioHang" class="action.XuLyGioHangAction">
 			<result name="success">/content/shoppingcart/shoppingcart.jsp</result>
 		</action>
 
 		<action name="GioHang_*" class="action.XuLyGioHangAction"
 			method="{1}">
 			<result name="success" type="redirect">XemGioHang.action</result>
-			<result name="input" type="redirect">show_index.action</result>
+			<result name="input" type="redirect">Index.action</result>
 		</action>
 
 		<!-- -->

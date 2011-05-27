@@ -31,9 +31,10 @@
 				<h2>Đăng nhập</h2>
 				<div class="clear"></div>
 				<div class="login">
-				Xin chào, <s:property value="tenTruyCap"/>
-				<br>
-				<s:a action="User_logout">Đăng xuất</s:a>
+					Xin chào,
+					<s:property value="tenTruyCap" />
+					<br>
+					<s:a action="User_logout">Đăng xuất</s:a>
 				</div>
 			</s:else>
 		</div>
@@ -47,8 +48,7 @@
 			<div class="widget-content">
 				<ul>
 					<s:iterator id="root" value="dsDanhMuc">
-						<li><a href=""><s:property value="tenDanhMuc" /> </a>
-						</li>
+						<li><a href=""><s:property value="tenDanhMuc" /> </a></li>
 					</s:iterator>
 				</ul>
 				<div class="clear"></div>
@@ -65,8 +65,15 @@
 					<s:property value="tenGianHang" />
 					<br>
 					<div class="siteLogo">
-						<img width="200" height="150" alt=""
-							src="<s:property value="logo"/>">
+						<s:if test="logo != null">
+							<img width="200" height="150" alt=""
+								src="<s:property value="logo"/>">
+						</s:if>
+						<s:else>
+							<img width="200" height="150" alt=""
+								src="images/no_photo_x_small.gif">
+						</s:else>
+
 					</div>
 					<br>
 					<div class="siteInfo">

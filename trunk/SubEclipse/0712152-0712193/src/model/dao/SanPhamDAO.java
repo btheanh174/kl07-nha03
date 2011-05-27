@@ -243,6 +243,49 @@ public class SanPhamDAO extends AbstractDAO {
 		return kq;
 	}
 	*/
+	public DuLieuTrang layDanhSachTheoLoai(String loaiSanPham, int trang, int soSanPhamTrenTrang){
+		DuLieuTrang kq = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			Query query = session
+					.createQuery("from SanPham as sp where sp.loaiSanPham like :loai");
+			query.setParameter("loai", loaiSanPham);
+
+			int batDau = (trang - 1) * soSanPhamTrenTrang;
+			int soSanPham = query.list().size();
+			int tongSoTrang = soSanPham / soSanPhamTrenTrang;
+			if(soSanPham %soSanPhamTrenTrang != 0){
+				tongSoTrang++;
+			}
+			
+			kq = new DuLieuTrang(tongSoTrang);
+			
+			query.setFirstResult(batDau);
+			query.setMaxResults(soSanPhamTrenTrang);
+
+			kq.setBatdau(batDau);
+			kq.setDsDuLieu(query.list());
+			kq.setLaTrangCuoi(false);
+			if(trang * soSanPhamTrenTrang >= soSanPham){
+				kq.setLaTrangCuoi(true);
+			}
+			// * Su dung khi lazy cua association voi HinhAnh la true
+			for (Object sanPham : kq.getDsDuLieu()) {
+				Hibernate.initialize(((SanPham)sanPham));
+				Hibernate.initialize(((SanPham)sanPham).getDsGianHang());
+			}
+
+			tx.commit();
+
+		} catch (HibernateException e) {
+			handleException(e);
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
 
 	public DuLieuTrang timKiem(SanPhamTieuChi tieuChi, int trang, int soSanPhamTrenTrang){
 		DuLieuTrang kq = null;

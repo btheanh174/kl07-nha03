@@ -10,16 +10,14 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
-import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.GioHang;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
-import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
@@ -224,7 +222,8 @@ public class Testing {
 		action.capNhat();
 		*/
 		
-		
+		GioHang gh = new GioHang();
+
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

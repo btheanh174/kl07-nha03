@@ -1,5 +1,8 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NumberUtil {
 	public static int parse(String str){
 		int kq = 0;
@@ -27,6 +30,24 @@ public class NumberUtil {
 			
 		}
 		
+		return kq;
+	}
+	
+	public static String getNumberText(Integer number){
+		StringBuilder str = new StringBuilder(String.valueOf(number));
+		str.reverse();
+		for (int i = 3; i < str.length(); i += 4) {
+			str.insert(i, ".");
+		}
+		str.reverse();
+		return str.toString();
+	}
+	
+	public static List<Integer> getIntListFromInt(Integer number){
+		List<Integer> kq = new ArrayList<Integer>();
+		for (int i = 1; i <= number; i++) {
+			kq.add(i);
+		}
 		return kq;
 	}
 }
