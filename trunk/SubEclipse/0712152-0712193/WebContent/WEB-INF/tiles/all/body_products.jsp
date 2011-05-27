@@ -11,7 +11,7 @@
 		
 		<!-- Hien thi danh sach san pham -->
 		<ul class="display thumb_view clearfix">
-
+			<s:property value="dsSanPham.size()"/>
 			<s:iterator value="dsSanPham">
 
 				<div style="display: block;" id="maSanPham">

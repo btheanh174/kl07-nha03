@@ -3,5 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <div>
-<%-- <s:include value="/WEB-INF/tiles/all/body_products.jsp"></s:include> --%>
+Chi tiết sản phẩm
+<s:property value="sanPham.tenSanPham"/>
 </div>
