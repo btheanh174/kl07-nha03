@@ -1,6 +1,5 @@
 package model.pojo;
 
-import java.math.BigDecimal;
 
 public class MatHang {
 	
