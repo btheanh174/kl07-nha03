@@ -34,6 +34,7 @@ public class IndexAction extends ActionSupport{
 		
 		DuLieuTrang dlt2 =  spDao.layDanhSachTheoLoai("DIENTHOAI", trang2, soSanPhamTrenTrang);
 		tongSoTrang2 = dlt2.getTongSoTrang();
+		soTrang2 = NumberUtil.getIntListFromInt(tongSoTrang2);
 		dsDienThoai = dlt2.getDsDuLieu();
 		
 		return SUCCESS;
