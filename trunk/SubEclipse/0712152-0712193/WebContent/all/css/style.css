@@ -141,23 +141,7 @@ padding: 5px;
 .subscribe {  padding-top:10px; margin-top:20px; padding-bottom:30px; clear:both;  }
 #sidebar .subscribe h3 { font:bold 14px Palatino Linotype, Georgia, Times, serif;  }
 #sidebar .subscribe p { font:11px Arial, Helvetica, sans-serif; text-align:center; }
-/*---------COMMENTS --------- */
-#comments h3{ font-size: 18px; padding:0 0 5px 0; margin:0 0 20px 0; }
-#comments .commentlist { padding:0; margin:0 }
-#comments .commentlist li p { margin:0; padding:0; }
-#comments ol{padding:20px 0;}
-#content #comments .comment { margin: 10px 0 30px 0; padding:0; width: 100%; background:none; list-style:none }
-#comments .comment a{ text-decoration:none; padding:1px 0 }
-#content #comments  p.authorcomment { margin:3px 0 0 0; padding:0; line-height:normal;  font-size:11px; font-weight:bold; }
-#comments  p.authorcomment a { text-decoration:none; }
-#comments  p.authorcomment a:hover { text-decoration:none; }
-#comments .comment .meta-left { width: 90px; float:left;}
-#comments .comment .meta-left p{ padding:0; margin:0 }
-#comments .comment .meta-left .meta-wrap {width: 90px; overflow: hidden; padding-right: 7px; min-height:70px; }
-#comments .comment small {font-size: 11px }
-#comments .comment .text-right { min-height:70px; margin:0; padding: 12px; margin-left:100px; float:none }
-#comments .comment .text-right p { line-height: 18px; padding: 0 0 8px 13px; font-size:12px; }
-#respond { padding:10px 0 0 0; margin:0 }
+
 /* ----------------------------------------
 product listing view
 ------------------------------------*/
@@ -197,7 +181,7 @@ a.switch_thumb { width:122px; height:26px; margin-bottom:10px; float:right; padd
 #content .display li .b_viewdetails a { display:block; float:left; padding:4px 8px 0px 8px; overflow:hidden; line-height:20px;   }
 #content .display li .b_viewdetails a  { padding-top:3px; }
 /* product details --------------------- */
-.price { font-size:15px; font-weight:normal; }
+.price { font-size:15px; font-weight:bold;color: #FF3300 }
 #content .fav_link  { margin:0; padding:0 0 10px 0; clear:both; height:100%; overflow:hidden; }
 #content .fav_link  li { float:left; margin:0 18px 0 0; padding:5px 0 15px 28px;  font:bold 13px Arial, Helvetica, sans-serif;   }
 #content .fav_link  li a { text-decoration:none }
@@ -298,26 +282,15 @@ a:hover.swap { color:#000; }
 #content p.post_bottom a { color:#3c1f19; }
 #content p.post_bottom a:hover { color:#81800e; }
 .cart_section_bottom { padding-bottom:20px; margin-bottom:20px;  }
-/*---------COMMENTS --------- */
-#comments h3{ border-bottom:1px dotted #ccc; }
-#comments .comment {background:none; }
-#comments  p.authorcomment a {  color:#666; }
-#comments  p.authorcomment a:hover { color:#000; }
-#comments .comment .meta-left { color:#aaa }
-#comments .comment .text-right { border:none; background:#e9e7e7 url(../images/commentbg.png) no-repeat center left; }
+
 #content ul.display li { background:none; border-bottom:1px dashed #ccc; }
 #content ul.display li a {  }
 #content ul.display li a:hover { color:#2c1104; }
-#content ul.thumb_view li{ border-bottom:none; }
-#content ul.display li a.product_thumb { border:1px solid #ccc; }
-#content ul.display li a:hover.product_thumb { border:1px solid #333; }
-a.switch_thumb { background:url(../images/switch.gif) no-repeat right top; outline:none; color:#444; }
-a.swap { background-position:right bottom; color:#000; }
-a:hover.swap { color:#000; }
+
+
+
 .price { color:#555; }
-#content ul.display li p.sale_price { color:#000; }
-#content ul.thumb_view li p.sale_price { color:#000; }
-#content .display li p.sale_price s { color:#bbb;  }
+
 /* Related Products-----------------------------------*/
 #content .realated_products li { background:none; }
 #content .realated_products li a.product_thumb { border:1px solid #ccc;  }
@@ -340,66 +313,8 @@ width: 12px;
 .pagination li.current a {
 background-position: 0 -12px;
 }
-.cartHeaders div {float:left;padding:10px 0px;font-weight:bold;}
-.cartHeaders .itemName { width: 80px;}
-.cartHeaders .itemPrice {  width: 50px;}
-.cartHeaders div.itemQuantity {
-float: left;
-padding-left: 5px;
-text-align: right;
-width: 50px;
-}
-.cartHeaders div.itemTotal {
-float: right;
-text-align: right;
-width: 60px;
-}
-.itemContainer div {float:left;}
-.cartHeaders div.itemQuantity {padding-left:5px;}
-p.cart {padding:10px;}
-.total {
-background: none repeat scroll 0 0 #E3E3E3;
-border-top: 1px solid #CDCDCD;
-clear: both;
-margin-bottom: 10px;
-padding: 10px;
-text-align: right;
-}
-.simpleCart_empty {
-background: url("../images/shopping-cart-remove-icon.png") no-repeat scroll 0 0 transparent;
-display: block;
-float: left;
-height: 32px;
-text-indent: -999px;
-width: 32px;
-}
-.simpleCart_checkout {
-background: url("../images/shopping-cart-accept-icon.png") no-repeat scroll 0 0 transparent;
-display: block;
-float: right;
-height: 32px;
-text-indent: -9999px;
-width: 32px;
-}
-.item_add {
-background: url("../images/shopping-cart-add-icon.png") no-repeat scroll 0 0 transparent;
-display: block;
-float: left;
-height: 32px;
-margin-top: 20px;
-text-indent: -9999px;
-width: 32px;
-}
-.item_quantity {width:75px;}
-.simpleCart_shelfItem {
-background: none repeat scroll 0 0 #EEEEEE;
-border: 1px solid #CCCCCC;
-float: left;
-font-weight: bold;
-margin: 10px 0;
-padding: 20px;
-width: 300px;
-}
+
+
 #sidebar h4 {
 background: none repeat scroll 0 0 #CC0000;
 color: #FFFFFF;
@@ -521,19 +436,6 @@ margin: 0 auto;
 width: 960px;
 }
 #copyright div {float:right;margin-bottom:20px;}
-.itemContainer .itemName {
-clear: both;
-margin-bottom: 10px;
-padding-right: 10px;
-width: 70px;
-}
-.itemContainer .itemPrice {padding-right: 10px;
-width: 60px;}
-.itemContainer .itemQuantity {text-align: center;
-width: 20px;}
-.itemContainer .itemTotal { padding-left: 8px;
-text-align: right;
-width: 60px;}
 
 /* Them vao de layout cua hang */
 
@@ -564,11 +466,60 @@ width: 60px;}
 .siteLogo{
 	display: block;
 	float: left;
-	height: 100px;
 	width: 250px;
-	margin: 5px;
+	padding: 10px 0px 10px 0px; 
+}
+img.logo{
+	width: 200px;
+	height: 200px;
 }
 .siteInfo{
 	float: left;
+	padding: 10px 0px 10px 0px;
 	width: 250px;
+	display: block;
+}
+
+/* Hien thi chi tiet san pham*/
+.product_detail{
+	width: 680px;
+	overflow: hidden;
+}
+.product_detail .fl{
+	float: left;
+	width: 310px;
+}
+
+.picture_fullzie{
+	padding: 10px 5px 5px 5px;
+}
+
+.picture_thumb_list{
+	
+}	
+
+img.chitiet_mobile{
+	border:medium;
+	width: 300px;
+	height: 400px;
+}
+img.chitiet_laptop{
+	border: medium;
+	width: 300px;
+	height: 300px;
+}
+
+.product_detail .fr{
+	float: left;
+	width: 370px;
+}
+.product_sell{
+	float: left;
+	margin: 20px 0px 0px 10px;
+	padding: 10px;
+}
+.item_info{
+	color: #0066CC;
+	font-size: 14px;
+	font-weight: bold;
 }

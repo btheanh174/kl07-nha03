@@ -7,17 +7,16 @@
 <div class="center_title_bar">
 	<s:property value="tenSanPham" />
 </div>
+
+<!-- Hiển thị hình ảnh chi tiết sản phẩm và một số thông tin -->
 <div class="prod_box_big">
 	<div class="top_prod_box_big"></div>
-	<div class="center_prod_box_big">
+	<div class="center_prod_box_big_full">
 
 		<div class="product_img_big">
-
 			<a href="javascript:popImage('images/big_pic.jpg','Some Title')"
-				title="header=[Zoom] body=[&nbsp;] fade=[on]"> <img
+				title="header=[Zoom] body=[&nbsp;] fade=[on]"> <img class="chitiet_mobile"
 				src="${hinhAnh}" alt="" title="" border="0" /> </a>
-
-
 			<div class="thumbs">
 				<!--<a href="#"
 	title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img
@@ -57,9 +56,10 @@
 	<div class="bottom_prod_box_big"></div>
 </div>
 
+<!-- Hiển thị thông số kỹ thuật và những thông tin khác -->
 
-<div class="prod_box_big">
-	<div class="center_prod_box_big">
+<div class="prod_box_big_full">
+	<div class="center_prod_box_big_full">
 		<sj:div cssClass="">
 			<sj:tabbedpanel id="dienthoai" animate="true" collapsible="true"
 				selectedTab="0">
@@ -177,6 +177,7 @@
 									<tr class="tr">
 										<s:url action="store" id="store">
 											<s:param name="maGianHang" value="getGianHang().maGianHang"></s:param>
+											<s:param name="maSanPham" value="maSanPham"></s:param>
 										</s:url>
 										<td class="col_1"><div class="No">
 												<s:property value="#status.count" />
