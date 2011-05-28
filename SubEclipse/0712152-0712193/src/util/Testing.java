@@ -223,14 +223,31 @@ public class Testing {
 		action.capNhat();
 		*/
 		
-		GianHang gh  = new GianHangDAO().lay(1);
-		for (GianHangSanPham sp : gh.getDsGianHangSanPham()) {
-			
-			System.out.println(sp.getSanPham().getTenSanPham() + " - " + sp.getGiaRieng());
-		}
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gh  = ghDao.lay(1);
 		
-		SanPham s = new SanPhamDAO().lay(12);
-		System.out.println(s.getDsGianHangSanPham().size());
+		SanPhamDAO spDao = new SanPhamDAO();
+		DanhMucDAO dmDao = new DanhMucDAO();
+		DanhMuc danhMuc = dmDao.lay(9);
+		SanPham sp = spDao.lay(17);
+		
+		GianHangSanPham ghsp = new GianHangSanPham();
+		
+		
+		ghsp.setSanPham(sp);
+		ghsp.setGianHang(gh);
+		ghsp.setBaoHanh(12);
+		ghsp.setGiaRieng(12234000);
+		ghsp.setSoLuong(100);
+		
+		
+		sp.getDsGianHangSanPham().add(ghsp);
+		
+		spDao.capNhat(sp);
+		
+		System.out.println("Xong");
+		
+		
 
 	}
 	private static void xuatSanPham(SanPham sp){

@@ -25,7 +25,7 @@
 				<div id="mystickytooltip" class="stickytooltip">
 					<div id="${maSanPham }" style="width: 200px;">
 						<s:property value="toShortString()" />
-						<img alt="" src="${hinhAnh}" width="150" height="150">
+						<img alt="" src="${hinhAnh}" class="hinhtooltip" >
 						<s:property value="toLongString()" />
 					</div>
 				</div>
@@ -35,8 +35,7 @@
 
 				<div class="product_img">
 					<a href="${productDetail}" data-tooltip="${maSanPham }"> <img
-						src="${hinhAnh}" alt="" title="" border="0" width="120"
-						height="120" /> </a>
+						src="${hinhAnh}" alt="" title="" border="0" class="danhsach" /> </a>
 				</div>
 
 

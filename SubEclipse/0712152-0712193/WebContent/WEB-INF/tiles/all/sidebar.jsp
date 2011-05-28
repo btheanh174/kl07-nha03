@@ -70,7 +70,7 @@
 					<br>
 					<div class="siteLogo">
 						<s:if test="logo != null">
-							<img width="200" height="150" alt=""
+							<img class="logo" alt=""
 								src="<s:property value="logo"/>">
 						</s:if>
 						<s:else>

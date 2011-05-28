@@ -551,9 +551,33 @@ width:764px;height: auto;background:url(../images/details_box_center.gif) repeat
 
 
 .product_img_big{
-width:170px;
-padding:5px 0 5px 10px;
+width:215px;
+padding:5px 5px 5px 10px;
 float:left;
+}
+img.chitiet_mobile
+{
+	border: medium;
+	width: 200px;
+	height: 400px;
+	cursor: pointer;
+}
+img.chitiet_laptop
+{
+	border: medium;
+	width: 200px;
+	height: 200px;
+	cursor: pointer;
+}
+img.danhsach
+{
+	border: medium;
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+}
+img.hinhtooltip
+{
 }
 .details_big_box{
 width:345px;
