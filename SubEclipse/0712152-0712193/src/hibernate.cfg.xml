@@ -11,31 +11,25 @@
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.current_session_context_class">thread</property>
   <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
-  
   <mapping resource="model/pojo/GianHang.hbm.xml"/>
-  
   <mapping resource="model/pojo/DanhMuc.hbm.xml"/>
   <mapping resource="model/pojo/SanPham.hbm.xml"/>
-  
   <mapping resource="model/pojo/DienThoai.hbm.xml"/>
   <mapping resource="model/pojo/Laptop.hbm.xml"/>
-  
   <mapping resource="model/pojo/HinhAnh.hbm.xml"/>
-  
   <mapping resource="model/pojo/NhomNguoiDung.hbm.xml"/>
   <mapping resource="model/pojo/TaiKhoan.hbm.xml"/>
   <mapping resource="model/pojo/ThanhVien.hbm.xml"/>
   <mapping resource="model/pojo/NguoiNhan.hbm.xml"/>
   <mapping resource="model/pojo/TinRaoVat.hbm.xml"/>
-  
   <mapping resource="model/pojo/ThamSo.hbm.xml"/>
   <mapping resource="model/pojo/TinhThanhPho.hbm.xml"/>
   <mapping resource="model/pojo/TinhTrangHoaDon.hbm.xml"/>
   <mapping resource="model/pojo/HinhThucVanChuyen.hbm.xml"/>
   <mapping resource="model/pojo/PhuongThucThanhToan.hbm.xml"/>
   <mapping resource="model/pojo/HoaDon.hbm.xml"/>
-  
   <mapping resource="model/pojo/TinNhan.hbm.xml"/>
-  
+  <mapping class="model.pojo.GianHangSanPhamPK"/>
+  <mapping class="model.pojo.GianHangSanPham"/>
  </session-factory>
 </hibernate-configuration>

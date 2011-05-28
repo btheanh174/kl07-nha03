@@ -55,10 +55,11 @@
 			<many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
 		</bag>
 
-		<bag name="dsSanPham" table="gian_hang_san_pham" cascade="all"
+		<bag name="dsGianHangSanPham" table="gian_hang_san_pham" cascade="all"
 			inverse="true" lazy="true">
 			<key column="MA_GIAN_HANG" />
-			<many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" />
+			<!-- <many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" /> -->
+			<one-to-many class="model.pojo.GianHangSanPham"/>
 		</bag>
 
 	</class>

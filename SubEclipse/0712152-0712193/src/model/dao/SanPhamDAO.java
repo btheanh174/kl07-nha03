@@ -43,7 +43,7 @@ public class SanPhamDAO extends AbstractDAO {
 			 * Hibernate.initialize(kq.getDsHinhAnh()); 
 			 */
 			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsGianHang());
+			Hibernate.initialize(kq.getDsGianHangSanPham());
 			
 			tx.commit();
 		}catch(HibernateException e){
@@ -74,7 +74,7 @@ public class SanPhamDAO extends AbstractDAO {
 			for (SanPham sanPham : kq) {
 				Hibernate.initialize(sanPham);
 				//Hibernate.initialize(sanPham.getDsHinhAnh());
-				Hibernate.initialize(sanPham.getDsGianHang());
+				Hibernate.initialize(sanPham.getDsGianHangSanPham());
 			}
 			
 			tx.commit();
@@ -110,7 +110,7 @@ public class SanPhamDAO extends AbstractDAO {
 			for (SanPham sanPham : kq) {
 				Hibernate.initialize(sanPham);
 				Hibernate.initialize(sanPham.getDsHinhAnh());
-				Hibernate.initialize(sanPham.getDsGianHang());
+				Hibernate.initialize(sanPham.getDsGianHangSanPham());
 			}
 
 			tx.commit();
@@ -142,7 +142,7 @@ public class SanPhamDAO extends AbstractDAO {
 			// * Su dung khi lazy cua association voi HinhAnh la true
 			for (SanPham sanPham : kq) {
 				Hibernate.initialize(sanPham);
-				Hibernate.initialize(sanPham.getDsGianHang());
+				Hibernate.initialize(sanPham.getDsGianHangSanPham());
 			}
 
 			tx.commit();
@@ -192,7 +192,7 @@ public class SanPhamDAO extends AbstractDAO {
 			kq = query.list();
 			for (SanPham sp : kq) {
 				Hibernate.initialize(sp);
-				Hibernate.initialize(sp.getDsGianHang());
+				Hibernate.initialize(sp.getDsGianHangSanPham());
 			}
 			tx.commit();
 			
@@ -274,7 +274,7 @@ public class SanPhamDAO extends AbstractDAO {
 			// * Su dung khi lazy cua association voi HinhAnh la true
 			for (Object sanPham : kq.getDsDuLieu()) {
 				Hibernate.initialize(((SanPham)sanPham));
-				Hibernate.initialize(((SanPham)sanPham).getDsGianHang());
+				Hibernate.initialize(((SanPham)sanPham).getDsGianHangSanPham());
 			}
 
 			tx.commit();
@@ -328,7 +328,7 @@ public class SanPhamDAO extends AbstractDAO {
 			
 			for (SanPham sp : list) {
 				Hibernate.initialize(sp);
-				Hibernate.initialize(sp.getDsGianHang());
+				Hibernate.initialize(sp.getDsGianHangSanPham());
 			}
 			
 			kq.setBatdau(batdau);

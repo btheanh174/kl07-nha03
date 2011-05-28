@@ -139,13 +139,13 @@ public class SanPhamAction extends ActionSupport implements
 		{
 			laptop = new Laptop(sanPham.getTenSanPham(), sanPham.getGia(),
 					sanPham.getHangSanXuat(), sanPham.getDsHinhAnh(), dmTemp,
-					sanPham.getDsGianHang());
+					sanPham.getDsGianHangSanPham());
 			session.put("lt", laptop);
 
 		} else {
 			dienthoai = new DienThoai(sanPham.getTenSanPham(),
 					sanPham.getGia(), sanPham.getHangSanXuat(),
-					sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHang());
+					sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHangSanPham());
 			session.put("dt", dienthoai);
 		}
 		session.put("loai", sanPham.getLoaiSanPham());
@@ -161,7 +161,7 @@ public class SanPhamAction extends ActionSupport implements
 			laptop.setHangSanXuat(laptopTemp.getHangSanXuat());
 			laptop.setDsHinhAnh(laptopTemp.getDsHinhAnh());
 			laptop.setDanhMuc(laptopTemp.getDanhMuc());
-			laptop.setDsGianHang(laptopTemp.getDsGianHang());
+			laptop.setDsGianHangSanPham(laptopTemp.getDsGianHangSanPham());
 			session.put("lt", laptop);
 		} else {
 			DienThoai dienthoaiTemp = (DienThoai) session.get("dt");
@@ -170,7 +170,7 @@ public class SanPhamAction extends ActionSupport implements
 			dienthoai.setHangSanXuat(dienthoaiTemp.getHangSanXuat());
 			dienthoai.setDsHinhAnh(dienthoaiTemp.getDsHinhAnh());
 			dienthoai.setDanhMuc(dienthoaiTemp.getDanhMuc());
-			dienthoai.setDsGianHang(dienthoaiTemp.getDsGianHang());
+			dienthoai.setDsGianHangSanPham(dienthoaiTemp.getDsGianHangSanPham());
 			session.put("dt", dienthoai);
 		}
 		
