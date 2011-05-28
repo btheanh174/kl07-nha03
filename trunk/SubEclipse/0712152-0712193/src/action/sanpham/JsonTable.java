@@ -66,7 +66,7 @@ public class JsonTable extends ActionSupport implements SessionAware {
 				}
 				
 				myProducts.get(i).setDanhMuc(null);
-				myProducts.get(i).setDsGianHang(null);
+				myProducts.get(i).setDsGianHangSanPham(null);
 				myProducts.get(i).setDsHinhAnh(null);
 			}
 		}

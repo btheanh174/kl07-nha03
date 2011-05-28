@@ -28,20 +28,20 @@ public class Laptop extends SanPham {
 
 	
 	public Laptop(String tenSanPham, Integer gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
-		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHangSanPham> dsGianHangSanPham) {
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHangSanPham);
 	}
 
 
 
 
 	public Laptop(String tenSanPham, Integer gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHangSanPham> dsGianHangSanPham,
 			String loaiSanPham, String mainboard, String cpu, String hdd,
 			String ram, String vga, String usb, String lan, String wifi,
 			String heDieuHanh, String chuot, String pin, String trongLuong,
 			String kichThuocManHinh, String doPhanGiai, String tinhNangKhac) {
-		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHangSanPham);
 		this.mainboard = mainboard;
 		this.cpu = cpu;
 		this.hdd = hdd;

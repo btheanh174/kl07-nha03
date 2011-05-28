@@ -17,7 +17,7 @@ public class SanPham {
 
 	protected DanhMuc danhMuc;
 	protected List<HinhAnh> dsHinhAnh;
-	protected List<GianHang> dsGianHang = new ArrayList<GianHang>();
+	protected List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
 
 	protected String hinhAnh;
 	protected String giaText;
@@ -33,14 +33,14 @@ public class SanPham {
 	}
 
 	public SanPham(String tenSanPham, Integer gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHangSanPham> dsGianHangSanPham) {
 		super();
 		this.tenSanPham = tenSanPham;
 		this.gia = gia;
 		this.hangSanXuat = hangSanXuat;
 		this.dsHinhAnh = dsHinhAnh;
 		this.danhMuc = danhMuc;
-		this.dsGianHang = dsGianHang;
+		this.dsGianHangSanPham = dsGianHangSanPham;
 	}
 
 	public String toShortString() {
@@ -99,12 +99,12 @@ public class SanPham {
 		this.dsHinhAnh = dsHinhAnh;
 	}
 
-	public List<GianHang> getDsGianHang() {
-		return dsGianHang;
+	public List<GianHangSanPham> getDsGianHangSanPham() {
+		return dsGianHangSanPham;
 	}
 
-	public void setDsGianHang(List<GianHang> dsGianHang) {
-		this.dsGianHang = dsGianHang;
+	public void setDsGianHangSanPham(List<GianHangSanPham> dsGianHangSanPham) {
+		this.dsGianHangSanPham = dsGianHangSanPham;
 	}
 
 	public String getLoaiSanPham() {

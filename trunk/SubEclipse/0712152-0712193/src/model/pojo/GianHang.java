@@ -19,7 +19,7 @@ public class GianHang {
 	private TinhThanhPho tinhThanhPho;
 	
 	private List<DanhMuc> dsDanhMuc  = new ArrayList<DanhMuc>();
-	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
+	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
 	
 	public GianHang() {
 	
@@ -28,7 +28,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			List<DanhMuc> dsDanhMuc, List<SanPham> dsSanPham) {
+			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -40,7 +40,7 @@ public class GianHang {
 		this.taiKhoan = taiKhoan;
 		this.tinhThanhPho = tinhThanhPho;
 		this.dsDanhMuc = dsDanhMuc;
-		this.dsSanPham = dsSanPham;
+		this.dsGianHangSanPham = dsGianHangSanPham;
 	}
 
 	public int getMaGianHang() {
@@ -83,12 +83,12 @@ public class GianHang {
 		this.dsDanhMuc = dsDanhMuc;
 	}
 
-	public List<SanPham> getDsSanPham() {
-		return dsSanPham;
+	public List<GianHangSanPham> getDsGianHangSanPham() {
+		return dsGianHangSanPham;
 	}
 
-	public void setDsSanPham(List<SanPham> dsSanPham) {
-		this.dsSanPham = dsSanPham;
+	public void setDsGianHangSanPham(List<GianHangSanPham> dsGianHangSanPham) {
+		this.dsGianHangSanPham = dsGianHangSanPham;
 	}
 
 	public String getDiaChi() {

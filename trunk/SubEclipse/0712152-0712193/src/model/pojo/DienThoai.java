@@ -30,8 +30,8 @@ public class DienThoai extends SanPham {
 	}
 	
 	public DienThoai(String tenSanPham, Integer gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang) {
-		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHangSanPham> dsGianHangSanPham) {
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHangSanPham);
 	}
 
 	
@@ -68,14 +68,14 @@ public class DienThoai extends SanPham {
 	}
 
 	public DienThoai(String tenSanPham, Integer gia, String hangSanXuat,
-			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHang> dsGianHang,
+			List<HinhAnh> dsHinhAnh, DanhMuc danhMuc, List<GianHangSanPham> dsGianHangSanPham,
 			String mang, String kieuDang, String manHinh, String doPhanGiai,
 			String heDieuHanh, String boNhoTrong, String ram, String tinNhan,
 			String trongLuong, String kichThuoc, String kieuChuong, Integer rung,
 			String camera, String mauSac, String pin, String thoiGianDamThoai,
 			String thoiGianCho, String sim, String theNho, String tinhNang,
 			String tinhNangKhac) {
-		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHang);
+		super(tenSanPham, gia, hangSanXuat, dsHinhAnh, danhMuc, dsGianHangSanPham);
 		this.mang = mang;
 		this.kieuDang = kieuDang;
 		this.manHinh = manHinh;
