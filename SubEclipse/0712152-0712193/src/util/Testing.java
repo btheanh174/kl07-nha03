@@ -10,6 +10,7 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
@@ -224,8 +225,12 @@ public class Testing {
 		
 		GianHang gh  = new GianHangDAO().lay(1);
 		for (GianHangSanPham sp : gh.getDsGianHangSanPham()) {
+			
 			System.out.println(sp.getSanPham().getTenSanPham() + " - " + sp.getGiaRieng());
 		}
+		
+		SanPham s = new SanPhamDAO().lay(12);
+		System.out.println(s.getDsGianHangSanPham().size());
 
 	}
 	private static void xuatSanPham(SanPham sp){

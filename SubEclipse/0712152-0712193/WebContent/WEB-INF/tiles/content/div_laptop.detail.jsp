@@ -167,10 +167,11 @@
 										<td class="col_4" align="center"><b>Liên hệ</b>
 										</td>
 									</tr>
-									<s:iterator value="dsGianHang" status="status">
+									<s:iterator value="dsGianHangSanPham" status="status">
 										<tr class="tr">
 											<s:url action="store" id="store">
-												<s:param name="maGianHang" value="maGianHang"></s:param>
+												<s:param name="maGianHang"
+													value="getGianHang().maGianHang"></s:param>
 											</s:url>
 											<td class="col_1"><div class="No">
 													<s:property value="#status.count" />
@@ -178,17 +179,19 @@
 											</td>
 											<td class="col_2">
 												<div class="picture_small">
-													<a href="${store }" class="tooltip"><img src="${logo }"
-														width="80" height="60" alt=""> </a>
+													<a href="${store }" class="tooltip"><img
+														src="<s:property value="getGianHang().logo"/>" width="80"
+														height="60" alt=""> </a>
 												</div></td>
 											<td class="col_3">
 												<div class="company_name">
 													<a href="${store }" class="text_link" target="_blank"><s:property
-															value="tenGianHang" /> </a>
+															value="getGianHang().tenGianHang" /> </a>
 												</div>
 												<div class="address">
-													<s:property value="diaChi" />
-													<b>(<s:property value="tinhThanhPho.tenTinhThanhPho" />)</b>
+													<s:property value="getGianHang().diaChi" />
+													<b>(<s:property
+															value="getGianHang().tinhThanhPho.tenTinhThanhPho" />)</b>
 												</div>
 												<div class="clear"></div>
 											</td>
@@ -197,7 +200,9 @@
 
 													<script type="text/javascript"
 														src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
-													<a href="skype:<s:property value="dienThoai" />?call"><img
+													<a
+														href="skype:<s:property value="getGianHang().dienThoai" />?call">
+														<img
 														src="http://download.skype.com/share/skypebuttons/buttons/call_blue_white_124x52.png"
 														style="border: none;" width="124" height="52"
 														alt="Skype Me™!" /> </a>
@@ -205,12 +210,13 @@
 												</div>
 												<div class="fax">
 													Fax:
-													<s:property value="fax" />
+													<s:property value="getGianHang().fax" />
 												</div>
 												<div class="yahoo">
-													<a href="ymsgr:sendim?<s:property value="yahoo"/>"
+													<a
+														href="ymsgr:sendim?<s:property value="getGianHang().yahoo"/>"
 														title="Hỗ trợ trực tuyến"> <img
-														src="http://opi.yahoo.com/online?u=<s:property value="yahoo"/>&m=g&t=1">
+														src="http://opi.yahoo.com/online?u=<s:property value="getGianHang().yahoo"/>&m=g&t=1">
 													</a>
 												</div>
 											</td>
@@ -220,35 +226,6 @@
 							</table>
 							<br>
 						</s:form>
-					</div>
-					<!-- Phan trang -->
-					<div id="pagination">
-						<s:if test="tongSoTrang > 1">
-							<s:url id="prev" action="GianHang_danhSach">
-								<s:param name="trang" value="trang - 1"></s:param>
-							</s:url>
-							<s:if test="trang > 1">
-								<a href="${prev }" class="pn next">&lt;&lt;Trước</a>
-							</s:if>
-							<s:iterator value="soTrang" status="stat">
-								<s:url id="danhSach" action="GianHang_danhSach">
-									<s:param name="trang" value="%{#stat.count}"></s:param>
-								</s:url>
-								<s:if test="trang == #stat.count">
-									<span><s:property /> </span>
-								</s:if>
-								<s:else>
-									<a href="${danhSach }"> <s:property /> </a>
-								</s:else>
-							</s:iterator>
-							<s:url id="next" action="GianHang_danhSach">
-								<s:param name="trang" value="trang + 1"></s:param>
-							</s:url>
-
-							<s:if test="trang < tongSoTrang">
-								<a href="${next }" class="pn next">Sau »</a>
-							</s:if>
-						</s:if>
 					</div>
 				</div>
 				<div id="four">

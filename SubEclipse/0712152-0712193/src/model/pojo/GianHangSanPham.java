@@ -52,7 +52,7 @@ public class GianHangSanPham {
 		getPk().setGianHang(gianHang);
 	}
 
-	@Column(name="GIA_RIENG", length=10)
+	@Column(name="GIA_RIENG")
 	public Integer getGiaRieng() {
 		return giaRieng;
 	}
