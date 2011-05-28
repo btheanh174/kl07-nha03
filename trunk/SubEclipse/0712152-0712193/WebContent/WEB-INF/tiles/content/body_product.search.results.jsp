@@ -72,7 +72,7 @@
 													value="giaText" /> </b> </span> VNĐ</strong>
 								</div>
 								<div>
-									<a href="#">Có <b><s:property value="dsGianHang.size()" />
+									<a href="#">Có <b><s:property value="dsGianHangSanPham.size()" />
 									</b> gian hàng bán</a>
 								</div></td>
 						</tr>
