@@ -173,11 +173,22 @@ padding:80px 0; margin-bottom:5px; }
 #content .display li a.product_thumb { margin-bottom:5px; overflow:hidden; width:210px; height:180px; display:block; float:left; }
 #content .display li p.sale_price { width:auto; float:none; margin:0 0 5px 0; padding:0; font-size:12px; font-weight:bold; }
 #content .display li { position:relative;  }
-#content .thumb_view li .content div.b_viewdetails { display:none; }
+
+/* #content .thumb_view li .content div.b_viewdetails { 
+	
+} */
+#content .thumb_view li div.b_viewdetails { 
+	 width: auto;
+	 float: none;
+	 margin: 0;
+	 padding: 0;
+	 text-align: center;
+}
 #content .thumb_view li p.regular_price { width:auto; float:none; margin:0 0 0 10px; padding:0; font-size:12px; }
 #content .thumb_view li p.sale_price { width:auto; float:none; margin:0; padding:0;  font-size:12px; font-weight:bold;  }
 a.switch_thumb { width:122px; height:26px; margin-bottom:10px; float:right; padding:0; font-weight:bold; line-height:30px; display:block; outline:none; }
 .product_thumb { overflow:hidden; }
+
 #content .display li .b_viewdetails a { display:block; float:left; padding:4px 8px 0px 8px; overflow:hidden; line-height:20px;   }
 #content .display li .b_viewdetails a  { padding-top:3px; }
 /* product details --------------------- */
@@ -508,6 +519,10 @@ img.chitiet_laptop{
 	width: 300px;
 	height: 300px;
 }
+img.danhsach{
+	border: medium;
+	width: 210px;
+	height:184px;
 
 .product_detail .fr{
 	float: left;
@@ -523,3 +538,6 @@ img.chitiet_laptop{
 	font-size: 14px;
 	font-weight: bold;
 }
+.button_xemchitiet{
+	
+}	

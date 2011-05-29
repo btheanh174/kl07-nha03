@@ -105,6 +105,7 @@ public class XuLyGioHangAction extends ActionSupport implements
 */
 	
 	public String them(){
+		System.out.println("Add to cart");
 		gioHang = (GioHang) session.get("gh");
 		if (gioHang == null) {
 			gioHang = new GioHang();
