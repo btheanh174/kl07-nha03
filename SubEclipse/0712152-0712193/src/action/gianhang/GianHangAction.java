@@ -38,6 +38,7 @@ public class GianHangAction extends ActionSupport implements
 	
 	private int maSanPham;
 	private SanPham sanPham = new SanPham();
+	private List<SanPham> dsSanPhamCungLoai = new ArrayList<SanPham>();
 	private int trang;
 	private int tongSoTrang;
 	private List<Integer> soTrang;
@@ -115,6 +116,7 @@ public class GianHangAction extends ActionSupport implements
 		else if(maSanPham > 0){
 			System.out.println("Chi tiet san pham");
 			sanPham = spDao.lay(maSanPham);
+			dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
 			return "detail";
 		}else if(maDanhMuc > 0){
 			System.out.println("Lay danh sach san pham cua danh muc: " + maDanhMuc);
@@ -251,5 +253,13 @@ public class GianHangAction extends ActionSupport implements
 
 	public void setMaDanhMuc(int maDanhMuc) {
 		this.maDanhMuc = maDanhMuc;
+	}
+
+	public List<SanPham> getDsSanPhamCungLoai() {
+		return dsSanPhamCungLoai;
+	}
+
+	public void setDsSanPhamCungLoai(List<SanPham> dsSanPhamCungLoai) {
+		this.dsSanPhamCungLoai = dsSanPhamCungLoai;
 	}
 }

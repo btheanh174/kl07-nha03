@@ -154,7 +154,8 @@
 																	<td align="right" class="main"><s:a>
 																			<img border="0" title=" Checkout " alt="Checkout"
 																				src="images/button_checkout.gif">
-																		</s:a></td>
+																		</s:a>
+																	</td>
 																	<td width="10"></td>
 																</tr>
 															</tbody>

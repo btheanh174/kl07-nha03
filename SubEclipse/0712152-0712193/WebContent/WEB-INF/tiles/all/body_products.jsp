@@ -6,38 +6,45 @@
 
 
 <div id="main" class="main section">
-	<div id="Blog1" class="widget Blog">
+	<div class="widget">
 		<h1 class="head">Sản phẩm mới nhất</h1>
-		
+		<div class="breadcrumb clearfix"></div>
 		<!-- Hien thi danh sach san pham -->
 		<ul class="display thumb_view clearfix">
-			<s:property value="dsSanPham.size()"/>
-			<s:iterator value="dsSanPham">
 
-				<div style="display: block;" id="maSanPham">
-					<li><a href="" class="product_thumb product_thumb_"> <img
-							width="210" height="184" src="${hinhAnh }">
-					</a>
+			<s:iterator value="dsSanPham">
+				<li>
+				<s:url id="chitiet" action="store">
+					<s:param name="maGianHang" value="maGianHang"></s:param>
+					<s:param name="maSanPham" value="maSanPham"></s:param>
+				</s:url>
+					<div style="display: block;" id="maSanPham">
+						<a href="${chitiet }" class="product_thumb product_thumb_"> <img
+							class="danhsach" src="${hinhAnh }"> </a>
 						<div class="content">
 							<h3>
-								<a href=""><s:property value="tenSanPham"/></a>
+								<a href="${chitiet }"><s:property value="tenSanPham" /> </a>
 							</h3>
-							<p class="contentp">Thông tin sản phẩm: <s:property value="toShortString()"/>...</p>
+							<p class="contentp">
+								Thông tin sản phẩm:
+								<s:property value="toShortString()" />
+								...
+							</p>
 							<p class="sale_price">
-								<strong><span class="price"><b><s:property value="giaText" /></b> </span> VNĐ</strong>
+								<strong><span class="price"><b><s:property
+												value="giaText" /> </b> </span> VNĐ</strong>
 							</p>
 							<div class="b_viewdetails">
-								<a href="#">View Details »</a>
+								<a href="${chitiet }">Xem chi tiết »</a>
 							</div>
-						</div></li>
-				</div>
-
+						</div>
+					</div>
+				</li>
 			</s:iterator>
 
 		</ul>
 		<!-- ket thuc hien thi danh sach san pham -->
 
 	</div>
-	<!-- end Blog1 -->
 </div>
 <!-- end main -->
