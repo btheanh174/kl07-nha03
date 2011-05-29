@@ -169,4 +169,23 @@ public class SanPham {
 		str.reverse();
 		return str.toString();
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if(this == o)
+			return true;
+		if(o == null)
+			return false;
+		if(getClass() != o.getClass())
+			return false;
+		SanPham sp = (SanPham)o;
+		if(this.getMaSanPham() != sp.getMaSanPham())
+			return false;
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return (this != null)? (31 * getMaSanPham()): 0;
+	}
 }

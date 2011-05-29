@@ -58,7 +58,8 @@ public class SanPhamAction extends ActionSupport implements
 	private SanPham sanPham;
 	private Laptop laptop;
 	private DienThoai dienthoai;
-	private List<SanPham> dsSanPham;
+	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
+	private List<SanPham> dsSanPhamCungLoai = new ArrayList<SanPham>();
 
 	private SanPhamTieuChi tieuChi;
 	private DienThoaiTieuChi dt = new DienThoaiTieuChi();
@@ -76,6 +77,10 @@ public class SanPhamAction extends ActionSupport implements
 
 	public String chiTiet() {
 		sanPham = spDao.lay(maSanPham);
+		dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
+		if(dsSanPhamCungLoai.contains(sanPham)){
+			dsSanPhamCungLoai.remove(sanPham);
+		}
 		return SUCCESS;
 	}
 
@@ -376,4 +381,13 @@ public class SanPhamAction extends ActionSupport implements
 	public DienThoai getDienthoai() {
 		return dienthoai;
 	}
+
+	public List<SanPham> getDsSanPhamCungLoai() {
+		return dsSanPhamCungLoai;
+	}
+
+	public void setDsSanPhamCungLoai(List<SanPham> dsSanPhamCungLoai) {
+		this.dsSanPhamCungLoai = dsSanPhamCungLoai;
+	}
+	
 }

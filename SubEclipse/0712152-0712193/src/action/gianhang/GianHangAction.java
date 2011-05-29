@@ -117,6 +117,11 @@ public class GianHangAction extends ActionSupport implements
 			System.out.println("Chi tiet san pham");
 			sanPham = spDao.lay(maSanPham);
 			dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
+			if(dsSanPhamCungLoai.contains(sanPham)){
+				System.out.println("blah");
+				dsSanPhamCungLoai.remove(sanPham);
+			}
+			
 			return "detail";
 		}else if(maDanhMuc > 0){
 			System.out.println("Lay danh sach san pham cua danh muc: " + maDanhMuc);

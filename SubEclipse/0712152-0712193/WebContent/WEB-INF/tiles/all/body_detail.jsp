@@ -20,16 +20,11 @@
 						<table>
 							<tbody>
 								<tr>
-									<td
-										style="border: 1px solid #CCCCCC; text-align: center; cursor: pointer;">
-										<a><img height="50px" width="50px"
-											src='<s:property value="%{sanPham.hinhAnh}"/>' alt="">
-									</a>
-									</td>
-									<s:iterator value="dsHinhAnh">
-										<td><a><img alt=""
-												src='<s:property value="urlHinhAnh"/>'> </a>
-										</td>
+									<s:iterator value="sanPham.dsHinhAnh">
+										<td 
+											style="border: 1px solid #CCCCCC; text-align: center; cursor: pointer;"><a><img
+												alt="" height="50px" width="50px"
+												src='<s:property value="urlHinhAnh"/>'> </a></td>
 									</s:iterator>
 								</tr>
 							</tbody>
@@ -43,8 +38,7 @@
 							<tbody>
 								<tr>
 									<td class="item_info">Mã sản phẩm</td>
-									<td>: <b> <s:property value="maSanPham" /> </b>
-									</td>
+									<td>: <b> <s:property value="maSanPham" /> </b></td>
 								</tr>
 								<tr>
 									<td class="item_info">Bảo hành</td>
@@ -52,7 +46,8 @@
 								</tr>
 								<tr>
 									<td class="item_info">Giá bán</td>
-									<td>: <span class="price">14.700.000 Đ </span></td>
+									<td>: <span class="price">14.700.000 Đ </span>
+									</td>
 								</tr>
 								<tr>
 									<td class="item_info">Số lượng</td>
@@ -66,10 +61,9 @@
 						</table>
 
 						<s:form action="GioHang_them" method="post">
-							<s:hidden name="maGianHang" value="maGianHang"></s:hidden>
-							<s:hidden name="maSanPham" value="%{top.maSanPham}"></s:hidden>
-							<!-- <input type="hidden" name="soLuong" value="1"> -->
-							<s:textfield label="Số lượng" name="soLuong" value="1"></s:textfield>
+							<s:hidden name="maGianHang" value="%{maGianHang}"></s:hidden>
+							<s:hidden name="maSanPham" value="%{maSanPham}"></s:hidden>
+							<input type="hidden" name="soLuong" value="1">
 							<s:submit type="image" src="images/datmua.gif"></s:submit>
 						</s:form>
 					</div>
@@ -124,14 +118,12 @@
 					<s:param name="maGianHang" value="maGianHang"></s:param>
 					<s:param name="maSanPham" value="#relate.maSanPham"></s:param>
 				</s:url>
-				<li>
-				<s:property value="#relate.maSanPham"/>
-				<a title="<s:property value="tenSanPham"/>" href="${chitiet }"
+				<li><s:property value="#relate.maSanPham" /> <a
+					title="<s:property value="tenSanPham"/>" href="${chitiet }"
 					class="product_thumb"> <img src='<s:property value="hinhAnh"/>'
 						alt="" class="danhsach"> </a><a
 					title="<s:property value="tenSanPham"/>" href="${chitiet }"> <s:property
-							value="tenSanPham" /> </a>
-				</li>
+							value="tenSanPham" /> </a></li>
 			</s:iterator>
 		</ul>
 		<div class="clear"></div>
