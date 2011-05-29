@@ -15,17 +15,15 @@
 
 		<div class="product_img_big">
 			<a href="javascript:popImage('images/big_pic.jpg','Some Title')"
-				title="header=[Zoom] body=[&nbsp;] fade=[on]"> <img class="chitiet_mobile"
-				src="${hinhAnh}" alt="" title="" border="0" /> </a>
+				title="header=[Zoom] body=[&nbsp;] fade=[on]"> <img
+				class="chitiet_mobile" src="${hinhAnh}" alt="" title="" border="0" />
+			</a>
 			<div class="thumbs">
-				<!--<a href="#"
-	title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img
-	src="images/thumb1.gif" alt="" title="" border="0" /> </a> <a href="#"
-	title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img
-	src="images/thumb1.gif" alt="" title="" border="0" /> </a> <a href="#"
-	title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img
-	src="images/thumb1.gif" alt="" title="" border="0" /> </a>
-	-->
+				<s:iterator value="dsHinhAnh">
+					<a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img
+						width="50" height="50" src="${urlHinhAnh}" alt="" title=""
+						border="0" /> </a>
+				</s:iterator>
 			</div>
 		</div>
 
@@ -158,7 +156,53 @@
 						</tr>
 					</table>
 				</div>
-				<div id="two"></div>
+				<div id="two">
+					<s:iterator value="dsSanPhamCungLoai">
+						<s:url action="SanPham_chiTiet" var="productDetail">
+							<s:param name="maSanPham" value="maSanPham"></s:param>
+						</s:url>
+
+						<div class="prod_box">
+							<div class="top_prod_box"></div>
+							<div class="center_prod_box">
+								<div class="product_title">
+									<a href="${productDetail}"><s:property value="tenSanPham" />
+									</a>
+								</div>
+
+
+								<!-- Noi dung se duoc hien thi trong tooltip -->
+								<div id="mystickytooltip" class="stickytooltip">
+									<div id="${maSanPham }" style="width: 200px;">
+										<s:property value="toShortString()" />
+										<img alt="" src="${hinhAnh}" class="hinhtooltip">
+										<s:property value="toLongString()" />
+									</div>
+								</div>
+								<!--  -->
+
+								<div class="product_img">
+									<a href="${productDetail}" data-tooltip="${maSanPham }"> <img
+										src="${hinhAnh}" alt="" title="" border="0" class="danhsach" />
+									</a>
+								</div>
+
+
+								<div class="prod_price">
+									<span class="reduce"></span> <span class="price"><s:property
+											value="giaText" /> VNĐ</span>
+								</div>
+							</div>
+							<div class="bottom_prod_box"></div>
+							<div class="prod_details_tab">
+								<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+									src="images/cart.gif" alt="" title="" border="0"
+									class="left_bt" /> </a><a href="${productDetail}"
+									class="prod_details">Chi tiết</a>
+							</div>
+						</div>
+					</s:iterator>
+				</div>
 				<div id="three">
 					<s:form>
 						<table class="shop_table" cellpadding="0" cellspacing="0">

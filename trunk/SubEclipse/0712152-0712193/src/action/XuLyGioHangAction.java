@@ -43,8 +43,6 @@ public class XuLyGioHangAction extends ActionSupport implements
 	public String execute() throws Exception {
 		System.out.println("Execute");
 		gioHang = (GioHang)session.get("gh");
-		// Dung de test thoi
-		//gioHang = new GioHang();
 		
 		return SUCCESS;
 	}
@@ -57,53 +55,6 @@ public class XuLyGioHangAction extends ActionSupport implements
 		this.gioHang = gioHang;
 	}
 
-	/*public String them() {
-		gioHang = (GioHang) session.get("gh");
-		if (gioHang == null) {
-			gioHang = new GioHang();
-			session.put("gh", gioHang);
-		}
-		SanPham sp = spDao.lay(maSanPham);
-		matHang = new MatHang(sp, soLuong);
-		System.out.println("Them vao gio hang");
-		System.out.println(matHang.getSoLuong());
-		gioHang.themMatHang(matHang);
-		System.out.println(gioHang.laySoLuongMatHang());
-
-		return SUCCESS;
-	}
-
-	public String capNhat() {
-
-		gioHang = (GioHang) session.get("gh");
-		String[] ds1 = dsMaSanPham.split(", ");
-		String[] ds2 = dsSoLuong.split(", ");
-		if (ds1 != null) {
-			if (ds2.length == 1) {
-				int sl = Integer.parseInt(ds2[0]);
-				int masp = Integer.parseInt(ds1[0]);
-				gioHang.capNhatSoLuong(masp, sl);
-			} else {
-				for (int i = 0; i < ds1.length; i++) {
-					try {
-						int sl = Integer.parseInt(ds2[i]);
-						int masp = Integer.parseInt(ds1[i]);
-						gioHang.capNhatSoLuong(masp, sl);
-					} catch (Exception e) {
-					}
-				}
-			}
-		}
-		if (dsDuocChon != null) {
-			for (Integer i : dsDuocChon) {
-				gioHang.xoaMatHang(i);
-			}
-		}
-
-		return SUCCESS;
-	}
-*/
-	
 	public String them(){
 		System.out.println("Add to cart");
 		gioHang = (GioHang) session.get("gh");

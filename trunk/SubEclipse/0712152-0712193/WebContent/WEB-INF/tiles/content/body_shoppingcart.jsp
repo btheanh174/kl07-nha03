@@ -33,7 +33,6 @@
 				<div class="center_prod_box_big">
 
 					<s:form method="get" action="GioHang_capNhat">
-						<s:property value="%{top.maGianHang}" />
 						<s:hidden name="maGianHang" value="%{top.maGianHang}"></s:hidden>
 						<table cellspacing="0" cellpadding="0" border="0" width="100%">
 							<tbody>
