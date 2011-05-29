@@ -68,7 +68,6 @@
 						<s:form action="GioHang_them" method="post">
 							<s:hidden name="maGianHang" value="maGianHang"></s:hidden>
 							<s:hidden name="maSanPham" value="%{top.maSanPham}"></s:hidden>
-							<%-- <s:hidden name="soLuong" value="%(1)"></s:hidden> --%>
 							<!-- <input type="hidden" name="soLuong" value="1"> -->
 							<s:textfield label="Số lượng" name="soLuong" value="1"></s:textfield>
 							<s:submit type="image" src="images/datmua.gif"></s:submit>
