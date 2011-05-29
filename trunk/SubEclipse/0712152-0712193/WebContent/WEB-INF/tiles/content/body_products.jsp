@@ -3,9 +3,34 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 
-<div class="center_title_bar_full">
+<div id="category_path">
+	Bạn đang xem: <a href="/">Trang chủ</a> &gt;&gt; <a
+		href="">Điện thoại</a>
+</div>
+<div class="spacer"></div>
+<%-- <div class="center_title_bar_full">
 	<s:property value="tenDanhMuc" />
 </div>
+ --%>
+<table class="big_table" id="pro_list_custom">
+	<tbody>
+		<tr>
+			<td><img src="images/tron.gif"> Có <b
+				style="color: #FF0000">3059</b> sản phẩm</td>
+			<td align="right"><select onchange="sortProduct(this.value)"
+				name="inorder">
+					<option value="">Chọn sắp xếp sản phẩm</option>
+					<option value="new">Mới nhất trước</option>
+					<option value="rank">Xếp hạng tốt nhất</option>
+					<option value="sale">Nhiều gian hàng bán nhất</option>
+			</select>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="spacer"></div>
+
 <s:if test="dsSanPham.size() > 0">
 	<s:iterator value="dsSanPham" status="statusSanPham">
 
@@ -13,7 +38,30 @@
 			<s:param name="maSanPham" value="maSanPham"></s:param>
 		</s:url>
 
-		<div class="prod_box">
+		<!-- Hien thi thu -->
+		<div class="product_box jTip">
+			<div class="product_image">
+				<div class="product_image_holder">
+					<a target="_blank" class="jTip" rel="" href=""> <img
+						id="block_tip_1" alt="Điện thoại di động Apple iPhone 3GS"
+						src="${hinhAnh }"> </a>
+				</div>
+			</div>
+			<div class="product_seller">
+				<b>30</b> gian hàng bán
+			</div>
+			<div class="product_seller">
+				<!-- Lay gia thap nhat trong tat ca cac gian hang -->
+				Giá từ: <b>8.300.000 VNĐ</b>
+			</div>
+			<div class="product_name">
+				<a target="_blank" title='<s:property value="tenSanPham"/>' href="">
+					<s:property value="tenSanPham" /> </a>
+			</div>
+		</div>
+		<!-- ket thuc -->
+
+		<%-- 	<div class="prod_box">
 			<div class="top_prod_box"></div>
 			<div class="center_prod_box">
 				<div class="product_title">
@@ -25,7 +73,7 @@
 				<div id="mystickytooltip" class="stickytooltip">
 					<div id="${maSanPham }" style="width: 200px;">
 						<s:property value="toShortString()" />
-						<img alt="" src="${hinhAnh}" class="hinhtooltip" >
+						<img alt="" src="${hinhAnh}" class="hinhtooltip">
 						<s:property value="toLongString()" />
 					</div>
 				</div>
@@ -51,6 +99,7 @@
 				</a><a href="${productDetail}" class="prod_details">Chi tiết</a>
 			</div>
 		</div>
+ --%>
 	</s:iterator>
 
 

@@ -18,7 +18,7 @@
 						</td>
 					</tr>
 					<s:iterator value="dsGianHang" status="status">
-						<tr class="tr">
+						<tr class="<s:if test="(#status.count % 2) != 0">tr_odd</s:if> <s:else>tr</s:else>"  >
 							<s:url action="store" id="store">
 								<s:param name="maGianHang" value="maGianHang"></s:param>
 							</s:url>
