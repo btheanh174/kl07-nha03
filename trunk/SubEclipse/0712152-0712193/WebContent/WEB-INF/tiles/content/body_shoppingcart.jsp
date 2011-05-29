@@ -105,16 +105,26 @@
 								<tr>
 									<td>&nbsp;</td>
 								</tr>
-								<tr>
+								<tr align="right">
 									<td>
 										<table>
 											<tbody>
 												<tr>
-													<td align="right" width="100%"><b>Tổng số tiền: <span
-															class="price"> <s:property
-																	value="layChuoiTongTien()" /> </span> VNĐ </b>
-													</td>
 													<td></td>
+													<td width="150px">
+														<table  >
+															<tr>
+																<td><span><b>Tổng tiền</b></span></td>
+																<td><b>VNĐ</b></td>
+																<td><s:property value="layChuoiTongTienVND()" /></td>
+															</tr>
+															<tr>
+																<td></td>
+																<td><b>USD</b></td>
+																<td><s:property value="layChuoiTongTienUSD()" /></td>
+															</tr>
+														</table>
+														</td>
 												</tr>
 											</tbody>
 										</table>
@@ -151,7 +161,8 @@
 																				src="images/button_continue_shopping.gif">
 
 																		</s:a></td>
-																	<td align="right" class="main"><s:a action="step2_Information">
+																	<td align="right" class="main"><s:a
+																			action="step2_Information">
 																			<img border="0" title=" Checkout " alt="Checkout"
 																				src="images/button_checkout.gif">
 																		</s:a>
@@ -169,7 +180,7 @@
 							</tbody>
 						</table>
 					</s:form>
-					
+
 
 				</div>
 				<div class="bottom_prod_box_big"></div>
