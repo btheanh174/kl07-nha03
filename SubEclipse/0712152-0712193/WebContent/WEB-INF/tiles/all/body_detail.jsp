@@ -21,10 +21,11 @@
 							<tbody>
 								<tr>
 									<s:iterator value="sanPham.dsHinhAnh">
-										<td 
+										<td
 											style="border: 1px solid #CCCCCC; text-align: center; cursor: pointer;"><a><img
 												alt="" height="50px" width="50px"
-												src='<s:property value="urlHinhAnh"/>'> </a></td>
+												src='<s:property value="urlHinhAnh"/>'> </a>
+										</td>
 									</s:iterator>
 								</tr>
 							</tbody>
@@ -38,7 +39,8 @@
 							<tbody>
 								<tr>
 									<td class="item_info">Mã sản phẩm</td>
-									<td>: <b> <s:property value="maSanPham" /> </b></td>
+									<td>: <b> <s:property value="maSanPham" /> </b>
+									</td>
 								</tr>
 								<tr>
 									<td class="item_info">Bảo hành</td>
@@ -46,8 +48,7 @@
 								</tr>
 								<tr>
 									<td class="item_info">Giá bán</td>
-									<td>: <span class="price">14.700.000 Đ </span>
-									</td>
+									<td>: <span class="price">14.700.000 Đ </span></td>
 								</tr>
 								<tr>
 									<td class="item_info">Số lượng</td>
@@ -71,37 +72,12 @@
 				<div class="clear"></div>
 			</div>
 			<div style="clear: both;">
-				<br> <br> <br> <br> PRODUCT INFORMATION:<br>
-				<br> UNLOCKED NOKIA N86 IS A CAMERAPHONE THAT EXCELS<br> <br>
-				<br> <br> Many phones can function with a cool camera but
-				only the N86 functions as a camera phone that performs in all areas<br>
-				<br> <br> <br> Stunning beauty is only the first
-				aspect of this unlocked cell phone that sticks out. With its curved
-				edges and simple key layout, this GSM phone will be a reliable
-				product to have by your side. By utilizing the latest technology
-				such as Xenon flash, Carl Zeiss optics and a 5 Megapixel Camera this
-				is a cell phone for the photographer that everyone yearns to be.<br>
-				<br> <br> <br> FEATURES IN A SNAP<br> <br>
-				<br> <br> The 3.5mm audio jack allows you to plug in a
-				pair of headphones and simply listen to music. The internal memory
-				has a huge capacity that lets you store dozens of movies for
-				entertainment on the go. EDGE connectivity allows you to download
-				multimedia on the go. The unlocked cell phone is also a dedicated
-				MP3 player with Bluetooth technology so you can listen to music
-				through the wireless headphones.<br> <br> <br> <br>
-				KEY FEATURES OF NOKIA N86:<br> <br> <br> <br> -
-				2G Quad-Band Connectivity<br> <br> - 3G Tri-Band
-				Connectivity<br> <br> - 5 Megapixel Camera<br> <br>
-				- Lightweight<br> <br> - AMOLED display<br> <br>
-				- 2.6-Inch screen<br> <br> - 8GB internal memory<br>
-				<br> - 3.5mm audio jack<br> <br> - GPRS<br> <br>
-				- EDGE<br> <br> - USB<br> <br> <br> <br>
-				The unlocked Nokia N86, cell phones accessories and unlocked cell
-				phones are available on Cellhut’s website &ndash; www.cellhut.com,
-				where You Choose Your Phone, Not Your Service. Cellhut, Your Key To
-				Unlocking Wireless Freedom.<br> PACKAGE CONTENTS:<br> <br>
-				* Nokia N86 (Unlocked)<br> * User Manual<br> * Travel
-				Charger<br> * Battery<br> <br> <br>
+				<s:if test="'DIENTHOAI'.equals(sanPham.loaiSanPham)">
+				<s:include value="/WEB-INF/tiles/all/detail_mobile.jsp"></s:include>
+				</s:if>
+				<s:else>
+					<s:include value="/WEB-INF/tiles/all/detail_laptop.jsp"></s:include>
+				</s:else>
 			</div>
 		</div>
 		<div class="fix"></div>
@@ -118,12 +94,13 @@
 					<s:param name="maGianHang" value="maGianHang"></s:param>
 					<s:param name="maSanPham" value="#relate.maSanPham"></s:param>
 				</s:url>
-				<li><s:property value="#relate.maSanPham" /> <a
+				<li><a
 					title="<s:property value="tenSanPham"/>" href="${chitiet }"
 					class="product_thumb"> <img src='<s:property value="hinhAnh"/>'
 						alt="" class="danhsach"> </a><a
 					title="<s:property value="tenSanPham"/>" href="${chitiet }"> <s:property
-							value="tenSanPham" /> </a></li>
+							value="tenSanPham" /> </a>
+				</li>
 			</s:iterator>
 		</ul>
 		<div class="clear"></div>

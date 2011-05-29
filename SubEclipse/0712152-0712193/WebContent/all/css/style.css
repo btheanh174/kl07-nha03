@@ -165,7 +165,8 @@ text-align: center;
 width: 210px;
 }
 #content .thumb_view li h3 { display: inline; text-align:center; font:12px Arial,Helvetica,sans-serif; font-weight:bold;  }
-#content .thumb_view li .content { width:auto; float:none; }
+#content .thumb_view li .content { width:auto; float:none;
+}
 #content .thumb_view li .content p.contentp { display:none; }
 #content .thumb_view li a.product_thumb { height:180px; margin-bottom:5px; overflow:hidden; display:block; }
 a.product_thumb img {width:200px;height:184px;}
