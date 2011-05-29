@@ -236,7 +236,8 @@
 		<!-- end Admin -->
 
 		<!-- sub site -->
-		<action name="store" class="action.gianhang.GianHangAction" method="execute">
+		<action name="store" class="action.gianhang.GianHangAction"
+			method="execute">
 			<result name="index">/all/index.jsp</result>
 			<result name="intro">/all/intro.jsp</result>
 			<result name="contact">/all/contact.jsp</result>
@@ -246,8 +247,16 @@
 		</action>
 
 		<!-- end sub site -->
+
+	
+
 	</package>
 
 	<!-- sub site -->
+
+
+
+
 	<include file="store-struts.xml"></include>
+	<include file="payment-struts.xml"></include>
 </struts>

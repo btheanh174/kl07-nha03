@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="payment"
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
+		<!-- global result -->
+		<global-results>
+			<result name="error">/global/error.jsp</result>
+		</global-results>
+		<!-- end global result -->
+
+		<action name="step2_Information" class="action.payment.HoaDonAction">
+			<result name="success">content/payment/Step2_Information.jsp
+			</result>
+		
+		</action>
+
+		<action name="step3_PaymentMethod" class="action.payment.HoaDonAction"
+			method="xulyNguoiNhanHang">
+			<result name="success">
+				content/payment/Step3_PaymentMethod.jsp
+			</result>
+		
+		</action>
+
+	</package>
+</struts>
