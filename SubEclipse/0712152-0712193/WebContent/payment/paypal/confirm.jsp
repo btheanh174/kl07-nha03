@@ -1,8 +1,9 @@
 <%@page import="model.pojo.GioHang"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%! HashMap nvp; %>
+<%!HashMap nvp;%>
 
 <%
 	/*==================================================================
@@ -15,10 +16,10 @@
 <%@include file="paypalfunctions.jsp"%>
 <%
 	/*
-			'------------------------------------
-			' Get the token parameter value stored in the session 
-			' from the previous SetExpressCheckout call
-			'------------------------------------
+																	'------------------------------------
+																	' Get the token parameter value stored in the session 
+																	' from the previous SetExpressCheckout call
+																	'------------------------------------
 		 */
 		//String token =  session.getAttribute("TOKEN")toString();
 
@@ -42,8 +43,7 @@
 		'-------------------------------------------------
 		 */
 
-		nvp = ConfirmPayment(finalPaymentAmount,
-				session, request);
+		nvp = ConfirmPayment(finalPaymentAmount, session, request);
 		String strAck = nvp.get("ACK").toString();
 		/* if (strAck != null
 				&& (strAck.equalsIgnoreCase("Success") || strAck
@@ -117,15 +117,58 @@
 %>
 
 
+
+
+
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Refresh" content="5;url=show_index.action">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirm</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="iecss.css" />
+<![endif]-->
+<style>
+#logoutDiv {
+	width: 600px;
+	left: 50%;
+	position: absolute;
+	margin-left: -300px;
+}
+</style>
+<title>Thông báo</title>
 </head>
 <body>
-<% if ( nvp.get("ACK").toString().equals("Success"))
-%>
-<b>Giao dich thanh cong</b>
+	<div id="logoutDiv">
+		<div align="center" style="position: absolute;">
+			<div class="prod_box_big">
+				<div class="top_prod_box_big"></div>
+				<div class="center_prod_box_big">
+
+					<%
+						if (nvp.get("ACK").toString().equals("Success")) {
+					%>
+					Bạn đã mua hàng thành công, món hàng sẽ gửi đến trong thời gian sớm
+					nhất! Nhấn <a href="<s:url action="Index"/>">vào đây</a> để quay
+					lại trang chủ. Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong
+					vòng 5s.
+					<%
+						} else {
+					%>
+					Có lỗi xảy ra khi thanh toán! Nhấn <a
+						href="<s:url action="Index"/>">vào đây</a> để quay lại trang chủ.
+					Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong vòng 5s.
+					<%
+						}
+					%>
+				</div>
+				<div class="bottom_prod_box_big"></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

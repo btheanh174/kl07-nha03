@@ -152,14 +152,9 @@
 																				src="images/button_continue_shopping.gif">
 
 																		</s:a></td>
-																	<td align="right" class="main"><s:a>
-																			<form action='expresscheckout.jsp' METHOD='POST'>
-																				<input type='image' name='submit'
-																					src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
-																					border='0' align='top' alt='Check out with PayPal' />
-																			</form>
-																			<!-- <img border="0" title=" Checkout " alt="Checkout"
-																				src="images/button_checkout.gif"> -->
+																	<td align="right" class="main"><s:a action="step2_Information">
+																			<img border="0" title=" Checkout " alt="Checkout"
+																				src="images/button_checkout.gif">
 																		</s:a>
 																	</td>
 																	<td width="10"></td>
@@ -175,11 +170,7 @@
 							</tbody>
 						</table>
 					</s:form>
-					<form action='payment/paypal/expresscheckout.jsp' METHOD='POST'>
-						<input type='image' name='submit'
-							src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
-							border='0' align='top' alt='Check out with PayPal' />
-					</form>
+					
 
 				</div>
 				<div class="bottom_prod_box_big"></div>

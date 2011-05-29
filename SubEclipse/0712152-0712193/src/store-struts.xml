@@ -11,8 +11,6 @@
 			<result name="error">/global/error.jsp</result>
 		</global-results>
 		<!-- end global result -->
-
-		
 		
 	</package>
 </struts>

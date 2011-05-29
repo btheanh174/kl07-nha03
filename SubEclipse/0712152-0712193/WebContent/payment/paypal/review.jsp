@@ -82,8 +82,11 @@
 <body>
 
 	<form action='confirm.jsp' METHOD='POST'>
-		<input type='image' name='submit'
-			src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
+	Bạn có chắc thành toán mua các mặt hàng sau:
+	....
+	Tổng cộng: 100USD = 2.000.000 triệu VNĐ
+		<input type="button" name='Xác nhận'
+			
 			border='0' align='top' alt='Check out with PayPal' />
 	</form>
 
