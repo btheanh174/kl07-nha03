@@ -1,17 +1,19 @@
 package model.pojo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
 import model.dao.GianHangDAO;
+import util.CurrencyConverter;
 import util.NumberUtil;
 
 public class MiniCart {
 
 	private int maGianHang;
-	
+
 	private Hashtable<Integer, MatHang> dsMatHang = new Hashtable<Integer, MatHang>();
 
 	public MiniCart() {
@@ -23,11 +25,10 @@ public class MiniCart {
 		this.maGianHang = maGianHang;
 		this.dsMatHang = dsMatHang;
 	}
-	
-	public String layTenGianHang(){
+
+	public String layTenGianHang() {
 		return new GianHangDAO().lay(maGianHang).getTenGianHang();
 	}
-	
 
 	public void themMatHang(MatHang matHang) {
 		int key = matHang.getSanPham().getMaSanPham();
@@ -45,9 +46,8 @@ public class MiniCart {
 		}
 	}
 
-
 	public void capNhatSoLuong(MatHang matHang, int soLuong) {
-		
+
 		int key = matHang.getSanPham().getMaSanPham();
 		if (dsMatHang.containsKey(key)) {
 			MatHang mh = (MatHang) dsMatHang.get(key);
@@ -59,30 +59,39 @@ public class MiniCart {
 			dsMatHang.put(key, mh);
 		}
 	}
-	
-	public void capNhatSoLuong(int maSanPham, int soLuong){
-		if(dsMatHang.containsKey(maSanPham)){
-			MatHang mh = (MatHang)dsMatHang.get(maSanPham);
+
+	public void capNhatSoLuong(int maSanPham, int soLuong) {
+		if (dsMatHang.containsKey(maSanPham)) {
+			MatHang mh = (MatHang) dsMatHang.get(maSanPham);
 			mh.setSoLuong(soLuong);
 		}
 	}
-	
-	public Enumeration<MatHang> layDsMatHang(){
+
+	public Enumeration<MatHang> layDsMatHang() {
 		return dsMatHang.elements();
 	}
 
 	public Integer layTongTien() {
 		Integer kq = 0;
 		Enumeration<MatHang> list = dsMatHang.elements();
-		while(list.hasMoreElements()){
+		while (list.hasMoreElements()) {
 			MatHang mh = list.nextElement();
 			kq += mh.getThanhTien();
 		}
 		return kq;
 	}
-	
-	public String layChuoiTongTien(){
+
+	public String layChuoiTongTienVND() {
 		return NumberUtil.getNumberText(layTongTien());
+	}
+
+	public String layChuoiTongTienUSD() {
+		float usd = CurrencyConverter.convertVNDtoUSD(layTongTien());
+	
+		DecimalFormat df = new DecimalFormat("0.0");
+		String str = df.format(usd);
+		
+		return str;
 	}
 
 	public int laySoLuongMatHang() {
