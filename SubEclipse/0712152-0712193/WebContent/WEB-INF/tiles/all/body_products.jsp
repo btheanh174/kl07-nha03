@@ -22,21 +22,24 @@
 						<a href="${chitiet }" class="product_thumb product_thumb_"> <img
 							class="danhsach" src="${hinhAnh }"> </a>
 						<div class="content">
+							
 							<h3>
 								<a href="${chitiet }"><s:property value="tenSanPham" /> </a>
 							</h3>
-							<p class="contentp">
-								Thông tin sản phẩm:
-								<s:property value="toShortString()" />
-								...
-							</p>
+							
+							
 							<p class="sale_price">
 								<strong><span class="price"><b><s:property
 												value="giaText" /> </b> </span> VNĐ</strong>
 							</p>
-							<div class="b_viewdetails">
+							<%-- <p class="contentp">
+								Thông tin sản phẩm:
+								<s:property value="toShortString()" />
+								...
+							</p> --%>
+							<%-- <div class="b_viewdetails">
 								<a href="${chitiet }">Xem chi tiết »</a>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 				</li>

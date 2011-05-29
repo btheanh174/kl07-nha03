@@ -886,6 +886,10 @@ a {
 .shop_table .tr {
     background: url("line_h.gif") repeat-x scroll center bottom transparent;
 }
+.shop_table .tr_odd
+{
+	background: url("line_h.gif") repeat-x scroll center bottom #EEE6E6;
+}
 .shop_table .col_1, .shop_table .col_2, .shop_table .col_3, .shop_table .col_4 {
     padding: 10px 10px 11px;
 }

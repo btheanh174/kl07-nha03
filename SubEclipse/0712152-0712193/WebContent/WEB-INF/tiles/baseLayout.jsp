@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/stickytooltip.css" />
+<link rel="stylesheet" type="text/css" href="css/xitai.css"/>
 <!--
   jCarousel skin stylesheet
 --> 
