@@ -111,8 +111,9 @@
 										<table>
 											<tbody>
 												<tr>
-													<td align="right" width="100%"><b>Tổng số tiền: <span class="price"> <s:property
-																value="layChuoiTongTien()" /></span> VNĐ </b>
+													<td align="right" width="100%"><b>Tổng số tiền: <span
+															class="price"> <s:property
+																	value="layChuoiTongTien()" /> </span> VNĐ </b>
 													</td>
 													<td></td>
 												</tr>
@@ -152,8 +153,13 @@
 
 																		</s:a></td>
 																	<td align="right" class="main"><s:a>
-																			<img border="0" title=" Checkout " alt="Checkout"
-																				src="images/button_checkout.gif">
+																			<form action='expresscheckout.jsp' METHOD='POST'>
+																				<input type='image' name='submit'
+																					src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
+																					border='0' align='top' alt='Check out with PayPal' />
+																			</form>
+																			<!-- <img border="0" title=" Checkout " alt="Checkout"
+																				src="images/button_checkout.gif"> -->
 																		</s:a>
 																	</td>
 																	<td width="10"></td>
@@ -169,6 +175,12 @@
 							</tbody>
 						</table>
 					</s:form>
+					<form action='payment/paypal/expresscheckout.jsp' METHOD='POST'>
+						<input type='image' name='submit'
+							src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
+							border='0' align='top' alt='Check out with PayPal' />
+					</form>
+
 				</div>
 				<div class="bottom_prod_box_big"></div>
 			</div>
