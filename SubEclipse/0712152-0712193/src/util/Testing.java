@@ -8,14 +8,14 @@ import java.util.List;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
+import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.GianHangSanPham;
+import model.pojo.HoaDon;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
@@ -223,7 +223,7 @@ public class Testing {
 		action.capNhat();
 		*/
 		
-		GianHangDAO ghDao = new GianHangDAO();
+		/*GianHangDAO ghDao = new GianHangDAO();
 		GianHang gh  = ghDao.lay(1);
 		
 		SanPhamDAO spDao = new SanPhamDAO();
@@ -247,8 +247,13 @@ public class Testing {
 		
 		System.out.println("Xong");
 		
-		
+		*/
 
+		GianHang gh = new GianHangDAO().lay(1);
+		System.out.println(gh.getDsHoaDon().size());
+		
+		HoaDon hd = new HoaDonDAO().lay(1);
+		System.out.println(hd.getMaHoaDon());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

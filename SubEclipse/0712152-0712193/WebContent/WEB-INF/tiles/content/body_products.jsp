@@ -4,8 +4,10 @@
 
 
 <div id="category_path">
-	Bạn đang xem: <a href="/">Trang chủ</a> &gt;&gt; <a
-		href="">Điện thoại</a>
+	Bạn đang xem: <a href="<s:url action="Index"/>">Trang chủ</a>
+		<s:iterator value="duongDan">
+			<a href="#">&gt;&gt;<s:property/></a>
+		</s:iterator>
 </div>
 <div class="spacer"></div>
 <%-- <div class="center_title_bar_full">
@@ -16,15 +18,15 @@
 	<tbody>
 		<tr>
 			<td><img src="images/tron.gif"> Có <b
-				style="color: #FF0000">3059</b> sản phẩm</td>
+				style="color: #FF0000"> <s:property value="soSanPham" />
+			</b> sản phẩm</td>
 			<td align="right"><select onchange="sortProduct(this.value)"
 				name="inorder">
 					<option value="">Chọn sắp xếp sản phẩm</option>
 					<option value="new">Mới nhất trước</option>
 					<option value="rank">Xếp hạng tốt nhất</option>
 					<option value="sale">Nhiều gian hàng bán nhất</option>
-			</select>
-			</td>
+			</select></td>
 		</tr>
 	</tbody>
 </table>
@@ -99,7 +101,8 @@
 				</a><a href="${productDetail}" class="prod_details">Chi tiết</a>
 			</div>
 		</div>
- --%>
+ 	--%>
+ 	
 	</s:iterator>
 
 
@@ -134,7 +137,8 @@
 
 
 	<!-- product slider -->
-	<div id="wrap">
+
+	<%-- <div id="wrap">
 		<div class="jcarousel-skin-tango">
 			<div class="jcarousel-container jcarousel-container-horizontal"
 				id="products" style="position: relative; display: block;">
@@ -169,6 +173,8 @@
 			});
 		});
 	</script>
+	
+ 	--%>
 	<!-- end product slider -->
 </s:if>
 <s:else>

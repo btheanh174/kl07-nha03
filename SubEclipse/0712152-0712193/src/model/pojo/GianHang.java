@@ -21,6 +21,8 @@ public class GianHang {
 	private List<DanhMuc> dsDanhMuc  = new ArrayList<DanhMuc>();
 	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
 	
+	private List<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
+	
 	public GianHang() {
 	
 	}
@@ -28,7 +30,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham) {
+			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -41,6 +43,7 @@ public class GianHang {
 		this.tinhThanhPho = tinhThanhPho;
 		this.dsDanhMuc = dsDanhMuc;
 		this.dsGianHangSanPham = dsGianHangSanPham;
+		this.dsHoaDon = dsHoaDon;
 	}
 
 	public int getMaGianHang() {
@@ -145,6 +148,14 @@ public class GianHang {
 
 	public void setYahoo(String yahoo) {
 		this.yahoo = yahoo;
+	}
+
+	public List<HoaDon> getDsHoaDon() {
+		return dsHoaDon;
+	}
+
+	public void setDsHoaDon(List<HoaDon> dsHoaDon) {
+		this.dsHoaDon = dsHoaDon;
 	}
 	
 }

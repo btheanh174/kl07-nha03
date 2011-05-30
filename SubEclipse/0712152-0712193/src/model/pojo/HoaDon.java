@@ -14,6 +14,8 @@ public class HoaDon {
 	private TinhTrangHoaDon tinhTrang;
 	private List<ChiTietHoaDon> dsChiTietHoaDon;
 	
+	private GianHang gianHang;
+	
 	public HoaDon() {
 	}
 
@@ -80,4 +82,13 @@ public class HoaDon {
 	public void setDsChiTietHoaDon(List<ChiTietHoaDon> dsChiTietHoaDon) {
 		this.dsChiTietHoaDon = dsChiTietHoaDon;
 	}
+
+	public GianHang getGianHang() {
+		return gianHang;
+	}
+
+	public void setGianHang(GianHang gianHang) {
+		this.gianHang = gianHang;
+	}
+	
 }

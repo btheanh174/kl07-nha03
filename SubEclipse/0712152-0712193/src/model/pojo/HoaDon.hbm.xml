@@ -35,5 +35,9 @@
             	<many-to-one name="sanPham" column="SAN_PHAM"></many-to-one>
             </composite-element>
         </list>
+        
+        <many-to-one name="gianHang" class="model.pojo.GianHang" cascade="all">
+        	<column name="GIAN_HANG"></column>
+        </many-to-one>
     </class>
 </hibernate-mapping>

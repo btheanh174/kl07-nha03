@@ -61,6 +61,11 @@
 			<!-- <many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" /> -->
 			<one-to-many class="model.pojo.GianHangSanPham"/>
 		</bag>
+		
+		<bag name="dsHoaDon" table="hoa_don" cascade="all" inverse="true" lazy="false">
+			<key column="GIAN_HANG"></key>
+			<one-to-many class="model.pojo.HoaDon"/>
+		</bag>
 
 	</class>
 </hibernate-mapping>
