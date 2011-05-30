@@ -18,6 +18,7 @@
 	</tbody>
 </table>
 
+<div class="clear"></div>
 <div class="product_box jTip">
 	<div class="product_image">
 		<div class="product_image_holder">

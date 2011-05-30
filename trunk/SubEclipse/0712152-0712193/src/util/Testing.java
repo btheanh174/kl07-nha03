@@ -10,13 +10,18 @@ import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
+import model.dao.NguoiNhanDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
+import model.dao.ThanhVienDAO;
+import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.HoaDon;
 import model.pojo.Laptop;
+import model.pojo.NguoiNhan;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
@@ -250,10 +255,34 @@ public class Testing {
 		*/
 
 		GianHang gh = new GianHangDAO().lay(1);
-		System.out.println(gh.getDsHoaDon().size());
 		
-		HoaDon hd = new HoaDonDAO().lay(1);
-		System.out.println(hd.getMaHoaDon());
+		NguoiNhan nn = new NguoiNhan("LLH", "TN", "email", "12345678", "abcxyz", null);
+		
+		ThanhVienDAO tvDao = new ThanhVienDAO();
+		ThanhVien tv = tvDao.lay(14);
+		
+		nn.setThanhVien(tv);
+		
+		
+		new NguoiNhanDAO().them(nn);
+		System.out.println(nn.getMaNguoiNhan());
+		
+		SanPham sanPham  = new SanPhamDAO().lay(17);
+		ChiTietHoaDon ct = new ChiTietHoaDon(2, 100, sanPham);
+		ChiTietHoaDon ct1 = new ChiTietHoaDon(3, 1, sanPham);
+		List<ChiTietHoaDon> ds = new ArrayList<ChiTietHoaDon>();
+		ds.add(ct);
+		ds.add(ct1);
+		
+		HoaDon hd = new HoaDon(tv,null, null, nn, null, ds, gh);
+		
+		tv.getDsHoaDon().add(hd);
+		
+		tvDao.capNhat(tv);
+		
+		
+		System.out.println("Xong");
+		System.out.println(tv.getDsHoaDon().size());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

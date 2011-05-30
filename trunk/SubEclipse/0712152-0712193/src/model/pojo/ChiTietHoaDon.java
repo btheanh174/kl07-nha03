@@ -5,22 +5,18 @@ public class ChiTietHoaDon {
 	private int soLuong;
 	private float donGia;
 	private SanPham sanPham;
-	private HoaDon hoaDon;
 	
 	
 	public ChiTietHoaDon() {
 		
 	}
 	
-	public ChiTietHoaDon(int soLuong, float donGia, SanPham sanPham,
-			HoaDon hoaDon) {
+	public ChiTietHoaDon(int soLuong, float donGia, SanPham sanPham) {
 		super();
 		this.soLuong = soLuong;
 		this.donGia = donGia;
 		this.sanPham = sanPham;
-		this.hoaDon = hoaDon;
 	}
-
 
 
 	public SanPham getSanPham() {
@@ -47,11 +43,4 @@ public class ChiTietHoaDon {
 		this.donGia = donGia;
 	}
 
-	public HoaDon getHoaDon() {
-		return hoaDon;
-	}
-
-	public void setHoaDon(HoaDon hoaDon) {
-		this.hoaDon = hoaDon;
-	}
 }

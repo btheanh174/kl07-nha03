@@ -87,6 +87,7 @@ public class GianHangDAO extends AbstractDAO {
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getDsDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
+			Hibernate.initialize(kq.getDsHoaDon());
 
 			tx.commit();
 		} catch (HibernateException e) {

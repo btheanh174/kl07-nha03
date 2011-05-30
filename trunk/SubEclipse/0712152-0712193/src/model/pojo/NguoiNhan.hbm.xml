@@ -6,7 +6,7 @@
     <class name="model.pojo.NguoiNhan" table="nguoi_nhan">
         <id name="maNguoiNhan" type="int">
             <column name="MA_NGUOI_NHAN" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="tenNguoiNhan" type="java.lang.String">
             <column name="TEN_NGUOI_NHAN" />
@@ -28,5 +28,6 @@
         <many-to-one name="thanhVien"  class="model.pojo.ThanhVien" fetch="join">
             <column name="THANH_VIEN" />
         </many-to-one>
+        
     </class>
 </hibernate-mapping>

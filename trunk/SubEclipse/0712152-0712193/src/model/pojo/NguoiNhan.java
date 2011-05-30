@@ -1,5 +1,8 @@
 package model.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NguoiNhan {
 
 	private int maNguoiNhan;
@@ -9,15 +12,14 @@ public class NguoiNhan {
 	private String dienThoai;
 	private String ghiChu;
 	private ThanhVien thanhVien;
-	
+
 	public NguoiNhan() {
-		
+
 	}
 
-	public NguoiNhan(int maNguoiNhan, String tenNguoiNhan, String diaChi,
-			String email, String dienThoai, String ghiChu, ThanhVien thanhVien) {
+	public NguoiNhan(String tenNguoiNhan, String diaChi, String email,
+			String dienThoai, String ghiChu, ThanhVien thanhVien) {
 		super();
-		this.maNguoiNhan = maNguoiNhan;
 		this.tenNguoiNhan = tenNguoiNhan;
 		this.diaChi = diaChi;
 		this.email = email;

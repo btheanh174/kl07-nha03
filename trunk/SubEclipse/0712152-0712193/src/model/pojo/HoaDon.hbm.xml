@@ -3,15 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 24, 2011 1:18:31 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.pojo.HoaDon" table="hoa_don">
+    <class name="model.pojo.HoaDon" table="hoa_don" lazy="true">
         <id name="maHoaDon" type="int">
             <column name="MA_HOA_DON" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="ngayLap" type="java.util.Date">
             <column name="NGAY_LAP" />
         </property>
-        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" fetch="join">
+        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" fetch="join" cascade="all">
             <column name="THANH_VIEN" />
         </many-to-one>
         <many-to-one name="nguoiNhan" class="model.pojo.NguoiNhan" fetch="join">
@@ -23,20 +23,22 @@
         <many-to-one name="hinhThuc" class="model.pojo.HinhThucVanChuyen" fetch="join">
             <column name="HINH_THUC_VAN_CHUYEN" />
         </many-to-one>
-        <many-to-one name="tinhTrang" class="model.pojo.TinhTrangHoaDon" fetch="join">
+        
+        <many-to-one name="tinhTrang" class="model.pojo.TinhTrangHoaDon" fetch="join" cascade="all">
             <column name="TINH_TRANG" />
         </many-to-one>
-        <list name="dsChiTietHoaDon" inverse="true" table="chi_tiet_hoa_don" lazy="true" cascade="all">
-            <key column="MA_HOA_DON"></key>
+        <list name="dsChiTietHoaDon" table="chi_tiet_hoa_don" cascade="all">
+            <key column="MA_HOA_DON">
+            </key>
             <list-index column="SO_THU_TU"></list-index>
             <composite-element class="model.pojo.ChiTietHoaDon">
-            	<property name="soLuong" type="int"></property>
-            	<property name="donGia" type="float"></property>
+            	<property name="soLuong" column="SO_LUONG" type="int"></property>
+            	<property name="donGia" column="DON_GIA" type="float"></property>
             	<many-to-one name="sanPham" column="SAN_PHAM"></many-to-one>
             </composite-element>
         </list>
         
-        <many-to-one name="gianHang" class="model.pojo.GianHang" cascade="all">
+        <many-to-one name="gianHang" class="model.pojo.GianHang" fetch="join">
         	<column name="GIAN_HANG"></column>
         </many-to-one>
     </class>
