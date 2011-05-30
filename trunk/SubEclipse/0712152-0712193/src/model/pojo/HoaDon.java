@@ -18,6 +18,19 @@ public class HoaDon {
 	
 	public HoaDon() {
 	}
+	
+	
+
+	public HoaDon(ThanhVien thanhVien, NguoiNhan nguoiNhan,
+			TinhTrangHoaDon tinhTrang, List<ChiTietHoaDon> dsChiTietHoaDon) {
+		super();
+		this.thanhVien = thanhVien;
+		this.nguoiNhan = nguoiNhan;
+		this.tinhTrang = tinhTrang;
+		this.dsChiTietHoaDon = dsChiTietHoaDon;
+	}
+
+
 
 	public int getMaHoaDon() {
 		return maHoaDon;
