@@ -1,7 +1,7 @@
 
 
 #pro_list_custom {
-    border: 1px solid #9DDE00;
+    border: 1px solid #CCCCCC;
 }
 #pro_list_custom td {
     font-family: Tahoma,Geneva,sans-serif;
@@ -192,4 +192,61 @@
     margin-bottom: 10px;
     margin-top: 4px;
     padding-left: 5px;
+}
+
+/* Roundbox css 
+
+<div class="round_box">
+		<div class="round_top_left">
+			<div class="round_top_right"></div>
+		</div>
+		<div class="round_content">
+			Nội dung chèn ở đây		
+		</div>
+		<div class="round_bottom_left">
+			<div class="round_bottom_right"></div>
+		</div>
+	</div>
+
+*/
+.round_top_left {
+    background: url("../images/round_top_l.gif") no-repeat scroll left center transparent;
+}
+.round_top_right {
+    background: url("../images/round_top_r.gif") no-repeat scroll right center transparent;
+    font-size: 1px;
+    height: 6px;
+}
+.round_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-collapse: collapse;
+    border-color: -moz-use-text-color #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid;
+    border-width: 0 1px;
+    padding: 3px 10px;
+}
+.round_bottom_left {
+    background: url("../images/round_bt_l.gif") no-repeat scroll left center transparent;
+}
+.round_bottom_right {
+    background: url("../images/round_bt_r.gif") no-repeat scroll right center transparent;
+    font-size: 1px;
+    height: 5px;
+}
+
+
+
+/* Block square */
+.square_item_block{
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	width: auto;
+	height: auto;
+	margin: 0px;
 }

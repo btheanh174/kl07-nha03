@@ -24,10 +24,12 @@ public class ListingSanPhamAction extends ActionSupport {
 	private ThamSoDAO tsDao = new ThamSoDAO();
 	private SanPhamDAO spDao =  new SanPhamDAO();
 	private DanhMucDAO dmDao = new DanhMucDAO();
+	
+	private int soSanPham;
+	private List<String> duongDan = new ArrayList<String>();
 	@Override
 	public String execute() throws Exception {
 		int soSanPhamTrenTrang = tsDao.layGiaTri(1);
-		int soSanPham = 0;
 		
 		if(maDanhMuc > 0){
 			DanhMuc danhMuc = dmDao.lay(maDanhMuc);
@@ -37,6 +39,8 @@ public class ListingSanPhamAction extends ActionSupport {
 				tongSoTrang++;
 			}
 			dsSanPham = spDao.layDanhSach(danhMuc, trang, soSanPhamTrenTrang);
+			
+			duongDan.add(danhMuc.getTenDanhMuc());
 		}
 		else{
 			soSanPham  = spDao.layDanhSach().size();
@@ -92,5 +96,17 @@ public class ListingSanPhamAction extends ActionSupport {
 	}
 	public void setMaDanhMuc(int maDanhMuc) {
 		this.maDanhMuc = maDanhMuc;
+	}
+	public int getSoSanPham() {
+		return soSanPham;
+	}
+	public void setSoSanPham(int soSanPham) {
+		this.soSanPham = soSanPham;
+	}
+	public List<String> getDuongDan() {
+		return duongDan;
+	}
+	public void setDuongDan(List<String> duongDan) {
+		this.duongDan = duongDan;
 	}
 }
