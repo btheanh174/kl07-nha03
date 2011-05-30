@@ -1,5 +1,6 @@
 package model.pojo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,29 +9,30 @@ public class HoaDon {
 	private int maHoaDon;
 	private Date ngayLap;
 	private ThanhVien thanhVien;
-	private NguoiNhan nguoiNhan;
 	private PhuongThucThanhToan phuongThuc;
 	private HinhThucVanChuyen hinhThuc;
+	private NguoiNhan nguoiNhan;
 	private TinhTrangHoaDon tinhTrang;
-	private List<ChiTietHoaDon> dsChiTietHoaDon;
+	private List<ChiTietHoaDon> dsChiTietHoaDon = new ArrayList<ChiTietHoaDon>();
 	
 	private GianHang gianHang;
 	
 	public HoaDon() {
 	}
 	
-	
-
-	public HoaDon(ThanhVien thanhVien, NguoiNhan nguoiNhan,
-			TinhTrangHoaDon tinhTrang, List<ChiTietHoaDon> dsChiTietHoaDon) {
+	public HoaDon(ThanhVien thanhVien, PhuongThucThanhToan phuongThuc,
+			HinhThucVanChuyen hinhThuc, NguoiNhan nguoiNhan,
+			TinhTrangHoaDon tinhTrang, List<ChiTietHoaDon> dsChiTietHoaDon,
+			GianHang gianHang) {
 		super();
 		this.thanhVien = thanhVien;
+		this.phuongThuc = phuongThuc;
+		this.hinhThuc = hinhThuc;
 		this.nguoiNhan = nguoiNhan;
 		this.tinhTrang = tinhTrang;
 		this.dsChiTietHoaDon = dsChiTietHoaDon;
+		this.gianHang = gianHang;
 	}
-
-
 
 	public int getMaHoaDon() {
 		return maHoaDon;
@@ -64,21 +66,6 @@ public class HoaDon {
 		this.nguoiNhan = nguoiNhan;
 	}
 
-	public PhuongThucThanhToan getPhuongThuc() {
-		return phuongThuc;
-	}
-
-	public void setPhuongThuc(PhuongThucThanhToan phuongThuc) {
-		this.phuongThuc = phuongThuc;
-	}
-
-	public HinhThucVanChuyen getHinhThuc() {
-		return hinhThuc;
-	}
-
-	public void setHinhThuc(HinhThucVanChuyen hinhThuc) {
-		this.hinhThuc = hinhThuc;
-	}
 
 	public TinhTrangHoaDon getTinhTrang() {
 		return tinhTrang;
@@ -103,5 +90,20 @@ public class HoaDon {
 	public void setGianHang(GianHang gianHang) {
 		this.gianHang = gianHang;
 	}
-	
+
+	public PhuongThucThanhToan getPhuongThuc() {
+		return phuongThuc;
+	}
+
+	public void setPhuongThuc(PhuongThucThanhToan phuongThuc) {
+		this.phuongThuc = phuongThuc;
+	}
+
+	public HinhThucVanChuyen getHinhThuc() {
+		return hinhThuc;
+	}
+
+	public void setHinhThuc(HinhThucVanChuyen hinhThuc) {
+		this.hinhThuc = hinhThuc;
+	}
 }

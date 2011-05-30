@@ -59,6 +59,12 @@
 
 	<!-- Product Layout -->
 
+	<definition name="List.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Danh sách" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/store/body_list.jsp" />
+	</definition>
+	
 	<definition name="Products.tiles" extends="baseLayout">
 		<put-attribute name="pageTitle" value="Danh sách sản phẩm" />
 		<put-attribute name="center"

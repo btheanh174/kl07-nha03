@@ -48,11 +48,10 @@
             <one-to-many class="model.pojo.TinNhan"/>
         </list>
         
-        <list name="dsNguoiNhan" inverse="true" table="nguoi_nhan" lazy="true">
+        <bag name="dsNguoiNhan" inverse="true" table="nguoi_nhan">
         	<key column="THANH_VIEN"></key>
-        	<list-index></list-index>
         	<one-to-many class="model.pojo.NguoiNhan"/>
-        </list>
+        </bag>
         
         <list name="dsTinRaoVat" inverse="true" table="tin_rao_vat" lazy="true">
         	<key column="THANH_VIEN"></key>
@@ -60,11 +59,10 @@
         	<one-to-many class="model.pojo.TinRaoVat"/>
         </list>
         
-        <list name="dsHoaDon" inverse="true" table="hoa_don" lazy="true">
+        <bag name="dsHoaDon" inverse="true" cascade="all">
         	<key column="THANH_VIEN"></key>
-        	<list-index></list-index>
         	<one-to-many class="model.pojo.HoaDon"/>
-        </list>
+        </bag>
         
     </class>
 </hibernate-mapping>
