@@ -12,6 +12,7 @@
 	}
 %>
 
+
 <div class="center_title_bar">Giỏ hàng</div>
 
 <s:if test="#session['gh'].laySoMiniCart() == 0">
@@ -33,7 +34,9 @@
 				<div class="center_prod_box_big">
 
 					<s:form method="get" action="GioHang_capNhat">
-						<s:hidden name="maGianHang" value="%{top.maGianHang}"></s:hidden>
+						<s:hidden id="idMaGianHang" name="maGianHang"
+							value="%{top.maGianHang}"></s:hidden>
+						<s:hidden name="viTriMiniCart" value="%{top.maGianHang}"></s:hidden>
 						<table cellspacing="0" cellpadding="0" border="0" width="100%">
 							<tbody>
 								<tr>
@@ -43,12 +46,12 @@
 												<tr>
 													<td style="font-size: 18; color: blue; font-weight: bold;"><b>Giỏ
 															hàng của bạn tại công ty: <s:property
-																value="layTenGianHang()" /> </b></td>
+																value="layTenGianHang()" /> </b>
+													</td>
 													<td align="right" class="pageHeading"></td>
 												</tr>
 											</tbody>
-										</table>
-									</td>
+										</table></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
@@ -61,19 +64,21 @@
 												<tr>
 													<td align="center" class="productListing-heading"><b>Xóa</b>
 													</td>
-													<td class="productListing-heading"><b>Sản phẩm</b></td>
+													<td class="productListing-heading"><b>Sản phẩm</b>
+													</td>
 													<td align="center" class="productListing-heading"><b>Số
-															lượng</b></td>
+															lượng</b>
+													</td>
 													<td align="center" class="productListing-heading"><b>Thành
-															tiền</b></td>
+															tiền</b>
+													</td>
 												</tr>
 
 												<s:iterator value="layDsMatHang()" status="stat">
 													<tr>
 														<td align="center" valign="top"><input
 															type="checkbox" name="dsDuocChon"
-															value="${sanPham.maSanPham }">
-														</td>
+															value="${sanPham.maSanPham }"></td>
 														<td>
 															<table cellspacing="2" cellpadding="2" border="0">
 																<tbody>
@@ -83,24 +88,25 @@
 																			<s:param name="maSanPham" value="sanPham.maSanPham"></s:param>
 																		</s:url>
 
-																		<td align="center"><a href=""></a></td>
+																		<td align="center"><a href=""></a>
+																		</td>
 																		<td valign="top"><a href="${productDetail }"><b>
-																					<s:property value="%{sanPham.tenSanPham}" /> </b> </a></td>
+																					<s:property value="%{sanPham.tenSanPham}" /> </b> </a>
+																		</td>
 																	</tr>
 																</tbody>
-															</table>
-														</td>
+															</table></td>
 														<td align="center" valign="top"><input type="text"
 															size="4" value="${soLuong }" name="dsSoLuong" /> <input
 															type="hidden" name="dsMaSanPham"
 															value="${sanPham.maSanPham}">
 														<td align="center" valign="top"><b> <s:property
-																	value="thanhTien" /> VNĐ</b></td>
+																	value="thanhTien" /> VNĐ</b>
+														</td>
 													</tr>
 												</s:iterator>
 											</tbody>
-										</table>
-									</td>
+										</table></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
@@ -112,23 +118,26 @@
 												<tr>
 													<td></td>
 													<td width="150px">
-														<table  >
+														<table>
 															<tr>
-																<td><span><b>Tổng tiền</b></span></td>
-																<td><b>VNĐ</b></td>
-																<td><s:property value="layChuoiTongTienVND()" /></td>
+																<td><span><b>Tổng tiền</b> </span>
+																</td>
+																<td><b>VNĐ</b>
+																</td>
+																<td><s:property value="layChuoiTongTienVND()" />
+																</td>
 															</tr>
 															<tr>
 																<td></td>
-																<td><b>USD</b></td>
-																<td><s:property value="layChuoiTongTienUSD()" /></td>
+																<td><b>USD</b>
+																</td>
+																<td><s:property value="layChuoiTongTienUSD()" />
+																</td>
 															</tr>
-														</table>
-														</td>
+														</table></td>
 												</tr>
 											</tbody>
-										</table>
-									</td>
+										</table></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
@@ -146,8 +155,7 @@
 																<tr>
 																	<td width="10"></td>
 																	<td class="main"><input type="image"
-																		src="images/button_update_cart.gif">
-																	</td>
+																		src="images/button_update_cart.gif"></td>
 
 																	<!--<td>
 												<s:url var="clear" action="GioHang_xoaTatCa"></s:url>
@@ -160,22 +168,25 @@
 																				alt="Continue Shopping"
 																				src="images/button_continue_shopping.gif">
 
-																		</s:a></td>
-																	<td align="right" class="main"><s:a
-																			action="step2_Information">
-																			<img border="0" title=" Checkout " alt="Checkout"
-																				src="images/button_checkout.gif">
 																		</s:a>
 																	</td>
+																	<s:url id="urlCheckout" action="step2_Information">
+																		<s:param name="maGioHangMini">
+																			<s:property value="%{top.maGianHang}" />
+																		</s:param>
+																	</s:url>
+																	<td align="right" class="main"><s:a
+																			href="%{urlCheckout}"  >
+																			<img border="0" title=" Checkout " alt="Checkout"
+																				src="images/button_checkout.gif">
+																		</s:a></td>
 																	<td width="10"></td>
 																</tr>
 															</tbody>
-														</table>
-													</td>
+														</table></td>
 												</tr>
 											</tbody>
-										</table>
-									</td>
+										</table></td>
 								</tr>
 							</tbody>
 						</table>

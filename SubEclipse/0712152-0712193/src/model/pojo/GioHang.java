@@ -69,27 +69,23 @@ public class GioHang {
 	public GioHang() {
 		super();
 		// Khoi tao du lieu gia de test
-		/*MiniCart cart1 = new MiniCart();
-		cart1.setMaGianHang(1);
-		MatHang mh1 = new MatHang();
-		SanPhamDAO spDao = new SanPhamDAO();
-		SanPham sp = spDao.lay(12);
-		mh1.setSanPham(sp);
-		mh1.setSoLuong(10);
-
-		cart1.themMatHang(mh1);
-
-		themMiniCart(cart1);
-
-		MiniCart cart2 = new MiniCart();
-		cart2.setMaGianHang(2);
-		cart2.themMatHang(mh1);
-
-		themMiniCart(cart2);
-		
-		Map<String, Object> session = ActionContext.getContext().getSession();
-		session.put("gh", this);
-*/	
+		/*
+		 * MiniCart cart1 = new MiniCart(); cart1.setMaGianHang(1); MatHang mh1
+		 * = new MatHang(); SanPhamDAO spDao = new SanPhamDAO(); SanPham sp =
+		 * spDao.lay(12); mh1.setSanPham(sp); mh1.setSoLuong(10);
+		 * 
+		 * cart1.themMatHang(mh1);
+		 * 
+		 * themMiniCart(cart1);
+		 * 
+		 * MiniCart cart2 = new MiniCart(); cart2.setMaGianHang(2);
+		 * cart2.themMatHang(mh1);
+		 * 
+		 * themMiniCart(cart2);
+		 * 
+		 * Map<String, Object> session =
+		 * ActionContext.getContext().getSession(); session.put("gh", this);
+		 */
 	}
 
 	public void themMiniCart(MiniCart cart) {
@@ -98,6 +94,16 @@ public class GioHang {
 		} else {
 			dsMiniCart.put(cart.getMaGianHang(), cart);
 		}
+	}
+
+	public MiniCart layMiniCart(int ma) {
+		try {
+			MiniCart mc = dsMiniCart.get(ma);
+			return mc;
+		} catch (Exception ex) {
+			System.out.println("Minicart không tồn tại!");
+		}
+		return null;
 	}
 
 	public void capNhatMiniCart(MiniCart cart) {
@@ -131,34 +137,34 @@ public class GioHang {
 				MatHang mh = dsMH.get(maSanPham);
 				mh.setSoLuong(soLuong);
 			}
-		} 
+		}
 	}
 
 	public void xoaMatHang(int maGianHang, MatHang matHang) {
 		if (dsMiniCart.containsKey(maGianHang)) {
 			MiniCart cart = dsMiniCart.get(maGianHang);
 			int key = matHang.getSanPham().getMaSanPham();
-			if (cart.getDsMatHang().containsKey(key)){
+			if (cart.getDsMatHang().containsKey(key)) {
 				cart.xoaMatHang(key);
-				if(cart.getDsMatHang().size()==0){
+				if (cart.getDsMatHang().size() == 0) {
 					dsMiniCart.remove(maGianHang);
 				}
 			}
-			
+
 		}
 	}
-	
-	public void xoaMatHang(int maGianHang, int maSanPham){
+
+	public void xoaMatHang(int maGianHang, int maSanPham) {
 		if (dsMiniCart.containsKey(maGianHang)) {
 			MiniCart cart = dsMiniCart.get(maGianHang);
-			if (cart.getDsMatHang().containsKey(maSanPham)){
+			if (cart.getDsMatHang().containsKey(maSanPham)) {
 				cart.xoaMatHang(maSanPham);
 			}
-			if(cart.getDsMatHang().size()==0){
+			if (cart.getDsMatHang().size() == 0) {
 				dsMiniCart.remove(maGianHang);
 			}
 		}
-		
+
 	}
 
 	public Enumeration<MiniCart> layMiniCartEnumeration() {

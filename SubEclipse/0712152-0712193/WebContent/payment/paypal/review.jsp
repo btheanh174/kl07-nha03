@@ -1,7 +1,7 @@
 <%@page import="model.pojo.GioHang"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 
 <%
@@ -20,12 +20,12 @@
 <%@include file="paypalfunctions.jsp"%>
 <%
 	/*
-			'------------------------------------
-			' Calls the GetExpressCheckoutDetails API call
-			'
-			' The GetShippingDetails function is defined in PayPalFunctions.jsp
-			' included at the top of this file.
-			'-------------------------------------------------
+																													'------------------------------------
+																													' Calls the GetExpressCheckoutDetails API call
+																													'
+																													' The GetShippingDetails function is defined in PayPalFunctions.jsp
+																													' included at the top of this file.
+																													'-------------------------------------------------
 		 */
 
 		HashMap nvp = GetShippingDetails(token, session);
@@ -81,12 +81,78 @@
 </head>
 <body>
 
-	<form action='confirm.jsp' METHOD='POST'>
-	Bạn có chắc thành toán mua các mặt hàng sau:
-	....
-	Tổng cộng: 100USD = 2.000.000 triệu VNĐ
-		<input type="button" name='Xác nhận'
-			
+
+	<h2>Nội dung hóa đơn</h2>
+	<fieldset>
+		<legend>Cửa hàng</legend>
+		<table width="300px">
+			<tr align="left" >
+				<td width="100px">Tên cửa hàng:</td>
+				<td><s:property value="gianHang.tenGianHang" /></td>
+			</tr>
+			<tr align="left">
+				<td>Địa chỉ:</td>
+				<td><s:property value="gianHang.diaChi" /></td>
+			</tr>
+			<tr align="left">
+				<td>Điện thoại:</td>
+				<td><s:property value="gianHang.dienThoai" /></td>
+			</tr>
+			<tr align="left">
+				<td>Fax:</td>
+				<td><s:property value="gianHang.fax" /></td>
+			</tr>
+			<tr align="left">
+				<td>Yahoo:</td>
+				<td><s:property value="gianHang.yahoo" /></td>
+			</tr>
+		</table>
+	</fieldset>
+	<fieldset>
+		<legend>Chi tiết hóa đơn</legend>
+		<table cellpadding="0" cellspacing="10px" width="600px">
+			<tr align="left">
+				<th>Sản phẩm</th>
+				<th>Số lượng</th>
+				<th>Thành tiền</th>
+			</tr>
+			<s:iterator value="miniCart.layDsMatHang()" status="stat">
+				<tr align="left">
+					<td><s:property value="%{sanPham.tenSanPham}" />
+					</td>
+					<td><s:property value="%{soLuong}" />
+					</td>
+					<td><s:property value="%{thanhTien}" />
+					</td>
+				</tr>
+			</s:iterator>
+		</table>
+	</fieldset>
+	<fieldset>
+		<legend>Thông tin người nhận hàng</legend>
+		<table cellpadding="0" cellspacing="10px" width="400px">
+			<tr align="left" >
+				<td width="100px">Tên người nhận:</td>
+				<td><s:property value="nguoiNhan.tenNguoiNhan" /></td>
+			</tr>
+			<tr align="left" >
+				<td >Địa chỉ:</td>
+				<td><s:property value="nguoiNhan.diaChi" /></td>
+			</tr>
+			<tr align="left" >
+				<td>Email:</td>
+				<td><s:property value="nguoiNhan.email" /></td>
+			</tr>
+			<tr align="left" >
+				<td>Ghi chú:</td>
+				<td><s:property value="nguoiNhan.ghiChu" /></td>
+			</tr>
+		</table>
+	</fieldset>
+	<br />
+	<form action='confirmPayment' METHOD='POST'>
+		<input type='image' name='submit'
+			src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'
 			border='0' align='top' alt='Check out with PayPal' />
 	</form>
 
