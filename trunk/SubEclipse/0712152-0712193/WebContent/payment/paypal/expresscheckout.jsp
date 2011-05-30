@@ -42,7 +42,7 @@
 	'------------------------------------
 	*/
 
-	String returnURL = "http://localhost:8282/0712152-0712193/payment/paypal/review.jsp";
+	String returnURL = "http://localhost:8282/0712152-0712193/reviewPayment.action";
 
 	/*
 	'------------------------------------

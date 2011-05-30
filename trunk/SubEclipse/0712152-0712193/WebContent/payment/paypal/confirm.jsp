@@ -126,7 +126,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Refresh" content="5;url=show_index.action">
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <!--[if IE 6]>
@@ -153,7 +153,7 @@
 						if (nvp.get("ACK").toString().equals("Success")) {
 					%>
 					Bạn đã mua hàng thành công, món hàng sẽ gửi đến trong thời gian sớm
-					nhất! Nhấn <a href="<s:url action="Index"/>">vào đây</a> để quay
+					nhất! Nhấn <a href="<s:url action="step4_SaveBill"/>">vào đây</a> để quay
 					lại trang chủ. Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong
 					vòng 5s.
 					<%

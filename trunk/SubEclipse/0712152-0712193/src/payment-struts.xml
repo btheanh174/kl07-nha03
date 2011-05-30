@@ -12,10 +12,11 @@
 		</global-results>
 		<!-- end global result -->
 
-		<action name="step2_Information" class="action.payment.HoaDonAction">
+		<action name="step2_Information" class="action.payment.HoaDonAction"
+			method="xuLyMiniCardDuocThanhToan">
 			<result name="success">content/payment/Step2_Information.jsp
 			</result>
-		
+
 		</action>
 
 		<action name="step3_PaymentMethod" class="action.payment.HoaDonAction"
@@ -23,7 +24,27 @@
 			<result name="success">
 				content/payment/Step3_PaymentMethod.jsp
 			</result>
-		
+
+		</action>
+
+		<action name="step4_SaveBill" class="action.payment.HoaDonAction"
+			method="xuLyLuuHoaDon">
+			<result name="success" type="redirect">Index.action</result>
+		</action>
+
+		<action name="reviewPayment" class="action.payment.HoaDonAction"
+			method="xulyThongTinHoaDon">
+			<result name="success" type="tiles">
+				ReviewPayment.tiles
+			</result>
+
+		</action>
+
+		<action name="confirmPayment">
+			<result name="success">
+				/payment/paypal/confirm.jsp
+			</result>
+
 		</action>
 
 	</package>

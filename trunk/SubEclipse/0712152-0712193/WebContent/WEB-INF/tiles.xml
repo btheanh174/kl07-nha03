@@ -131,6 +131,11 @@
 			value="/WEB-INF/tiles/content/payment/body_step3_paymentmethod.jsp" />
 	</definition>
 
+	<definition name="ReviewPayment.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Xác nhận thông tin" />
+		<put-attribute name="center"
+			value="/payment/paypal/review.jsp" />
+	</definition>
 
 	
 	<!-- end Payment Layout -->
