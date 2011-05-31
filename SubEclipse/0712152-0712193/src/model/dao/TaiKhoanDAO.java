@@ -17,20 +17,15 @@ public class TaiKhoanDAO extends AbstractDAO{
 		super();
 	}
 	
-	public TaiKhoan lay(int id) {
-		return (TaiKhoan)super.find(TaiKhoan.class, id);
-	}
-	
-	/*public TaiKhoan lay(int id){
+	public TaiKhoan lay(int id){
 		TaiKhoan tk = null;
 		try{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			tk = (TaiKhoan) session.createQuery("from TaiKhoan as tk where tk.maTaiKhoan =:id")
-			.setParameter("id", id)
-			.uniqueResult();
+			tk = (TaiKhoan)session.load(TaiKhoan.class, new Integer(id));
 			Hibernate.initialize(tk);
-			//Hibernate.initialize(tk.getGianHang());
+			Hibernate.initialize(tk.getThanhVien());
+			Hibernate.initialize(tk.getGianHang());
 			
 			tx.commit();
 		}catch(HibernateException e){
@@ -39,7 +34,7 @@ public class TaiKhoanDAO extends AbstractDAO{
 			HibernateUtil.shutdown();
 		}
 		return tk;
-	}*/
+	}
 	
 	public TaiKhoan lay(String userName){
 		TaiKhoan tk = null;

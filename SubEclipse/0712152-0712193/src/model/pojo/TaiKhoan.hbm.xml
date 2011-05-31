@@ -29,7 +29,7 @@
 
 
 		<one-to-one name="thanhVien" class="model.pojo.ThanhVien"
-			cascade="all">
+			cascade="save-update,delete">
 			<meta attribute="Quan hệ 1 - 1 với bảng thành viên"></meta>
 		</one-to-one>
 

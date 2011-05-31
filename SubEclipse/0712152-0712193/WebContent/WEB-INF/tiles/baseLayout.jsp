@@ -36,7 +36,7 @@
 --> 
 <script type="text/javascript" src="js/jcarousel/jquery.jcarousel.min.js"></script> 
 
-<sj:head />
+
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 
@@ -45,6 +45,9 @@
 		});
 	});
 </script>
+
+<sj:head/>
+
 </head>
 <body>
 <div id="main_container">
