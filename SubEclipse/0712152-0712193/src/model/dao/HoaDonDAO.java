@@ -27,10 +27,7 @@ public class HoaDonDAO extends AbstractDAO{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			
-			String hql = "from HoaDon as hd where hd.maHoaDon =:id";
-			Query query = session.createQuery(hql);
-			query.setParameter("id", id);
-			kq = (HoaDon) query.uniqueResult();
+			kq = (HoaDon)session.load(HoaDon.class, new Integer(id));
 			
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getDsChiTietHoaDon());

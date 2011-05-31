@@ -6,8 +6,8 @@
 <!-- Danh sách theo 3 loại: Nổi bật (body_top_products.jsp), Tất cả (body_all_products.jsp)
 	và Danh sách cửa hàng với danh mục đang đc chọn (body_cat_stores.jsp)
  -->
-
-<sj:tabbedpanel id="panelDanhSach">
+<sj:div>
+<sj:tabbedpanel id="panelDanhSach" animate="true" collapsible="true" selectedTab="0">
 	<sj:tab id="tabTop" label="Nổi bật nhất" target="top"></sj:tab>
 	<sj:tab id="tabAll" label="Toàn bộ" target="all"></sj:tab>
 	<sj:tab id="tabStores" label="Danh sách cửa hàng" target="stores"></sj:tab>
@@ -22,3 +22,4 @@
 		<s:include value="/WEB-INF/tiles/content/store/body_cat_stores.jsp"></s:include>
 	</div>
 </sj:tabbedpanel>
+</sj:div>

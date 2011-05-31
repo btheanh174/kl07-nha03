@@ -256,7 +256,7 @@ public class Testing {
 
 		/* Them hoa don */		
 		 
-		 GianHang gh = new GianHangDAO().lay(1);
+		 /*GianHang gh = new GianHangDAO().lay(1);
 		
 		ThanhVienDAO tvDao = new ThanhVienDAO();
 		ThanhVien tv = tvDao.lay(14);
@@ -283,11 +283,16 @@ public class Testing {
 		//tvDao.capNhat(tv);
 		
 		System.out.println("Xong");
-		System.out.println(tv.getDsHoaDon().size());
+		System.out.println(tv.getDsHoaDon().size());*/
 		/* Xoa hoa don */
 		/*HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon t = hdDao.lay(17);
 		hdDao.xoa(t);*/
+		HoaDonDAO hdDao = new HoaDonDAO();
+		HoaDon hd = hdDao.lay(20);
+		System.out.println(hd.getDsChiTietHoaDon().size());
+		System.out.println(hd.getThanhVien().getHoTen());
+		System.out.println(hd.getGianHang().getTenGianHang());
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
