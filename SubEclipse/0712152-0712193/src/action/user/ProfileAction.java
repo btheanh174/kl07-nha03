@@ -5,8 +5,10 @@ import java.util.Map;
 
 import model.dao.TaiKhoanDAO;
 import model.dao.ThanhVienDAO;
+import model.dao.TinhThanhPhoDAO;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
+import model.pojo.TinhThanhPho;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -14,10 +16,9 @@ import util.HashUtil;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
 
 public class ProfileAction extends ActionSupport implements SessionAware,
-		Preparable, ModelDriven<ThanhVien> {
+		ModelDriven<ThanhVien> {
 
 	/**
 	 * 
@@ -27,9 +28,12 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 
 	private int maTaiKhoan;
 	private TaiKhoan taiKhoan = new TaiKhoan();
+	
 	private ThanhVien thanhVien = new ThanhVien();
 	private TaiKhoanDAO tkDao = new TaiKhoanDAO();
 	private ThanhVienDAO tvDao = new ThanhVienDAO();
+	private int maTTP;
+	private TinhThanhPhoDAO ttpDao = new TinhThanhPhoDAO();
 
 	private String matKhauCu;
 	private String matKhauMoi;
@@ -102,15 +106,22 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 
 	public String capNhatThongTin() {
 		System.out.println("Cap nhat thong tin");
-		tkDao.capNhat(getTaiKhoan());
-		tvDao.capNhat(getThanhVien());
+		TinhThanhPho ttp = ttpDao.lay(getMaTTP());
+		getThanhVien().setTinhThanhPho(ttp);
+		taiKhoan = (TaiKhoan)sessionMap.get("tk");
+		taiKhoan.setThanhVien(getThanhVien());
+		getThanhVien().setTaiKhoan(taiKhoan);
+		tkDao.capNhat(taiKhoan);
+		
 		return SUCCESS;
 	}
 
 	public String hienThi() {
 		System.out.println("Hien thi");
-		taiKhoan = tkDao.lay(maTaiKhoan);
-		thanhVien = tvDao.lay(maTaiKhoan);
+		//taiKhoan = tkDao.lay(maTaiKhoan);
+	//	thanhVien = tvDao.lay(maTaiKhoan);
+		taiKhoan = (TaiKhoan)sessionMap.get("tk");
+		thanhVien = taiKhoan.getThanhVien();
 		return SUCCESS;
 	}
 
@@ -138,14 +149,6 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 		this.thanhVien = thanhVien;
 	}
 
-	@Override
-	public void prepare() throws Exception {
-
-		if (maTaiKhoan != 0) {
-			taiKhoan = tkDao.lay(maTaiKhoan);
-			thanhVien = taiKhoan.getThanhVien();
-		}
-	}
 
 	@Override
 	public ThanhVien getModel() {
@@ -191,4 +194,13 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public int getMaTTP() {
+		return maTTP;
+	}
+
+	public void setMaTTP(int maTTP) {
+		this.maTTP = maTTP;
+	}
+	
 }

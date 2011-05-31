@@ -288,18 +288,24 @@ public class Testing {
 		/*HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon t = hdDao.lay(17);
 		hdDao.xoa(t);*/
-		/*HoaDonDAO hdDao = new HoaDonDAO();
+		HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon hd = hdDao.lay(20);
 		System.out.println(hd.getDsChiTietHoaDon().size());
 		System.out.println(hd.getThanhVien().getHoTen());
-		System.out.println(hd.getGianHang().getTenGianHang());*/
+		System.out.println(hd.getGianHang().getTenGianHang());
 		
-		ThanhVienDAO tvDao = new ThanhVienDAO();
+		List<HoaDon> list = hdDao.layDanhSach();
+		System.out.println(list.size());
+		for (HoaDon hoaDon : list) {
+			System.out.println(hoaDon.getThanhVien().getHoTen());
+		}
+		
+		/*ThanhVienDAO tvDao = new ThanhVienDAO();
 		TaiKhoanDAO tkDao = new TaiKhoanDAO();
 		ThanhVien tv = tvDao.lay(16);
 		TaiKhoan tk = tkDao.lay(16);
 		System.out.println(tv.getMaTaiKhoan());
-		System.out.println(tk.getGianHang().getTenGianHang());
+		System.out.println(tk.getGianHang().getTenGianHang());*/
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());

@@ -23,7 +23,6 @@ public class TaiKhoanDAO extends AbstractDAO{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			tk = (TaiKhoan)session.load(TaiKhoan.class, new Integer(id));
-			Hibernate.initialize(tk);
 			Hibernate.initialize(tk.getThanhVien());
 			Hibernate.initialize(tk.getGianHang());
 			

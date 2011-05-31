@@ -2,14 +2,13 @@ package model.dao;
 
 import java.util.List;
 
+import model.pojo.GianHang;
+import model.pojo.HoaDon;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 
 import util.HibernateUtil;
-
-import model.pojo.HoaDon;
-import model.pojo.SanPham;
 
 public class HoaDonDAO extends AbstractDAO{
 
@@ -18,7 +17,57 @@ public class HoaDonDAO extends AbstractDAO{
 	}
 	
 	public List<HoaDon> layDanhSach(){
-		return super.findAll(HoaDon.class);
+		List<HoaDon> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			kq = session.createQuery("from HoaDon").list();
+			for (HoaDon hoaDon : kq) {
+				Hibernate.initialize(hoaDon);
+				Hibernate.initialize(hoaDon.getNguoiNhan());
+				Hibernate.initialize(hoaDon.getThanhVien());
+				Hibernate.initialize(hoaDon.getTinhTrang());
+				Hibernate.initialize(hoaDon.getHinhThuc());
+				Hibernate.initialize(hoaDon.getPhuongThuc());
+				Hibernate.initialize(hoaDon.getDsChiTietHoaDon());
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	public List<HoaDon> layDanhSach(GianHang gianHang){
+		List<HoaDon> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			kq = session.createQuery("from HoaDon as hd where hd.gianHang =:gh")
+			.setParameter("gh", gianHang)
+			.list();
+			for (HoaDon hoaDon : kq) {
+				Hibernate.initialize(hoaDon);
+				Hibernate.initialize(hoaDon.getNguoiNhan());
+				Hibernate.initialize(hoaDon.getThanhVien());
+				Hibernate.initialize(hoaDon.getTinhTrang());
+				Hibernate.initialize(hoaDon.getHinhThuc());
+				Hibernate.initialize(hoaDon.getPhuongThuc());
+				Hibernate.initialize(hoaDon.getDsChiTietHoaDon());
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 	
 	public HoaDon lay(int id){
