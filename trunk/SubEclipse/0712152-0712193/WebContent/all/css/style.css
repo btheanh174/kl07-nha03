@@ -22,7 +22,6 @@ color: #333333;
 a:hover {
 color: #CC0000;
 }
-.fr{ float: right }
 h1,h2,h3,h4,h5,h6 { font: 12px Arial,Helvetica,sans-serif; font-weight:normal; }
 h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset { padding:10px 0 5px 0; margin:0 }
 p { padding:0px 0 10px 0; margin:0;  margin:0;  }
@@ -524,7 +523,7 @@ img.danhsach{
 	border: medium;
 	width: 210px;
 	height:184px;
-
+}
 .product_detail .fr{
 	float: left;
 	width: 370px;

@@ -365,6 +365,7 @@ text-decoration:line-through;
 }
 span.price{
 color:#ea2222;
+font-weight: bold;
 }
 /*----------newsletter--------------*/
 input.newsletter_input{

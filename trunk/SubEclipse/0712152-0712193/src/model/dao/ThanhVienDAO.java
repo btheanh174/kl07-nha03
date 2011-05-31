@@ -22,12 +22,11 @@ public class ThanhVienDAO extends AbstractDAO{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			
-			String hql = "from ThanhVien as tv where tv.maTaiKhoan =:id";
-			Query query = session.createQuery(hql);
-			query.setParameter("id", id);
-			kq = (ThanhVien) query.uniqueResult();
+			
+			kq = (ThanhVien) session.load(ThanhVien.class, new Integer(id));
 			
 			Hibernate.initialize(kq);
+			Hibernate.initialize(kq.getTaiKhoan());
 			Hibernate.initialize(kq.getDsHoaDon());
 			Hibernate.initialize(kq.getDsNguoiNhan());
 			
