@@ -254,18 +254,19 @@ public class Testing {
 		
 		*/
 
-		GianHang gh = new GianHangDAO().lay(1);
-		
-		NguoiNhan nn = new NguoiNhan("LLH", "TN", "email", "12345678", "abcxyz", null);
+		/* Them hoa don */		
+		 
+		 GianHang gh = new GianHangDAO().lay(1);
 		
 		ThanhVienDAO tvDao = new ThanhVienDAO();
 		ThanhVien tv = tvDao.lay(14);
+		// Day la truong hop khi them hoa don se them nguoi nhan luon
+		//NguoiNhan nn = new NguoiNhan("LLH", "TN", "email", "12345678", "abcxyz", null);
+		//tv.getDsNguoiNhan().add(nn);
+		//nn.setThanhVien(tv);
 		
-		nn.setThanhVien(tv);
-		
-		
-		new NguoiNhanDAO().them(nn);
-		System.out.println(nn.getMaNguoiNhan());
+		// Truong hop ko them nguoi nhan
+		NguoiNhan nn = new NguoiNhanDAO().lay(49);
 		
 		SanPham sanPham  = new SanPhamDAO().lay(17);
 		ChiTietHoaDon ct = new ChiTietHoaDon(2, 100, sanPham);
@@ -276,13 +277,17 @@ public class Testing {
 		
 		HoaDon hd = new HoaDon(tv,null, null, nn, null, ds, gh);
 		
-		tv.getDsHoaDon().add(hd);
+		HoaDonDAO hdDao = new HoaDonDAO();
 		
-		tvDao.capNhat(tv);
-		
+		hdDao.them(hd);
+		//tvDao.capNhat(tv);
 		
 		System.out.println("Xong");
 		System.out.println(tv.getDsHoaDon().size());
+		/* Xoa hoa don */
+		/*HoaDonDAO hdDao = new HoaDonDAO();
+		HoaDon t = hdDao.lay(17);
+		hdDao.xoa(t);*/
 	}
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
