@@ -23,8 +23,8 @@ public abstract class AbstractDAO {
 		try{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			//obj = session.load(clazz, id);
-			obj = session.get(clazz, id);
+			obj = session.load(clazz, new Integer(id));
+			//obj = session.get(clazz, id);
 			tx.commit();
 		}catch(HibernateException e){
 			handleException(e);

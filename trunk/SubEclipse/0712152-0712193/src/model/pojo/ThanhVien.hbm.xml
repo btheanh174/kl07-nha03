@@ -48,7 +48,7 @@
             <one-to-many class="model.pojo.TinNhan"/>
         </list>
         
-        <bag name="dsNguoiNhan" inverse="true" table="nguoi_nhan">
+        <bag name="dsNguoiNhan" table="nguoi_nhan" cascade="save-update,delete">
         	<key column="THANH_VIEN"></key>
         	<one-to-many class="model.pojo.NguoiNhan"/>
         </bag>
@@ -59,10 +59,9 @@
         	<one-to-many class="model.pojo.TinRaoVat"/>
         </list>
         
-        <bag name="dsHoaDon" inverse="true" cascade="all">
+        <bag name="dsHoaDon" table="hoa_don" cascade="save-update,delete">
         	<key column="THANH_VIEN"></key>
         	<one-to-many class="model.pojo.HoaDon"/>
         </bag>
-        
     </class>
 </hibernate-mapping>

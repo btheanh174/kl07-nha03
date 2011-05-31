@@ -2,12 +2,13 @@ package model.dao;
 
 import java.util.List;
 
+import model.pojo.DanhMuc;
+
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
 import util.HibernateUtil;
-
-import model.pojo.DanhMuc;
 
 public class DanhMucDAO extends AbstractDAO {
 	public DanhMucDAO(){
@@ -25,6 +26,9 @@ public class DanhMucDAO extends AbstractDAO {
 			Query query = session.createQuery("from DanhMuc as dm where dm.danhMucCha =:dm")
 			.setParameter("dm", danhMucCha);
 			kq = query.list();
+			for (Object ob : kq) {
+				Hibernate.initialize(((DanhMuc)ob).getDsDanhMucCon());
+			}
 			tx.commit();
 		}catch(HibernateException e){
 			handleException(e);
@@ -35,7 +39,20 @@ public class DanhMucDAO extends AbstractDAO {
 	}
 	
 	public DanhMuc lay(int id){
-		return (DanhMuc)super.find(DanhMuc.class, id);
+		// return (DanhMuc)super.find(DanhMuc.class, id);
+		DanhMuc kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			kq = (DanhMuc) session.load(DanhMuc.class, new Integer(id));
+			Hibernate.initialize(kq.getDsDanhMucCon());
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 	
 	public void xoa(DanhMuc danhMuc){
