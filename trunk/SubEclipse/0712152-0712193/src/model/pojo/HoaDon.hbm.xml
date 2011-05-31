@@ -11,10 +11,10 @@
         <property name="ngayLap" type="java.util.Date">
             <column name="NGAY_LAP" />
         </property>
-        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" cascade="save-update">
+        <many-to-one name="thanhVien" class="model.pojo.ThanhVien" cascade="save-update" fetch="join">
             <column name="THANH_VIEN" />
         </many-to-one>
-        <many-to-one name="nguoiNhan" class="model.pojo.NguoiNhan" unique="false" cascade="save-update">
+        <many-to-one name="nguoiNhan" class="model.pojo.NguoiNhan" unique="false" cascade="save-update" fetch="join">
             <column name="NGUOI_NHAN" />
         </many-to-one>
         <many-to-one name="phuongThuc" class="model.pojo.PhuongThucThanhToan" fetch="join">

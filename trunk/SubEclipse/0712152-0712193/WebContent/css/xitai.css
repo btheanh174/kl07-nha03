@@ -30,7 +30,7 @@
     display: table;
     height: 140px;
     overflow: hidden;
-    padding-top: 5px;
+    padding: 1px 5px 1px 5px;
     width: 172px;
 }
 .product_image .product_image_holder {
@@ -42,8 +42,8 @@
 .product_image .product_image_holder img {
     margin-left: auto;
     margin-right: auto;
-    height: 135px;
-    width: 172px;
+    height: 130px;
+    width: 170px;
 }
 .product_box .product_price {
     color: #FF6600;
