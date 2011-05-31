@@ -20,6 +20,15 @@ public class HoaDon {
 	public HoaDon() {
 	}
 	
+	public HoaDon(ThanhVien thanhVien, NguoiNhan nguoiNhan,
+			TinhTrangHoaDon tinhTrang, GianHang gianHang) {
+		super();
+		this.thanhVien = thanhVien;
+		this.nguoiNhan = nguoiNhan;
+		this.tinhTrang = tinhTrang;
+		this.gianHang = gianHang;
+	}
+
 	public HoaDon(ThanhVien thanhVien, PhuongThucThanhToan phuongThuc,
 			HinhThucVanChuyen hinhThuc, NguoiNhan nguoiNhan,
 			TinhTrangHoaDon tinhTrang, List<ChiTietHoaDon> dsChiTietHoaDon,

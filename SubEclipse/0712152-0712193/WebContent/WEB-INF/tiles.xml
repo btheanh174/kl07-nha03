@@ -201,6 +201,12 @@
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/profile/body_profile.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="Profile_Bills.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile_bills.jsp"></put-attribute>
+	</definition>
 
 
 	<definition name="Account.tiles" extends="profileLayout">
@@ -300,4 +306,14 @@
 		<put-attribute name="middle"
 			value="/WEB-INF/tiles/all/admin/overall/middle_information.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="AdminStore_Bills.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/overall/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/overall/middle_bills.jsp"></put-attribute>
+	</definition>
+	
+	
 </tiles-definitions>

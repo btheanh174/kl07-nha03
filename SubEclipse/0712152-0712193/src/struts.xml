@@ -246,9 +246,15 @@
 			<result name="list">/all/products.jsp</result>
 		</action>
 
+		<action name="AdminStore_xemHoaDon" class="action.gianhang.admin.HoaDonAction"
+			method="layDanhSachHoaDon">
+			<result name="success" type="tiles">AdminStore_Bills.tiles</result>
+		</action>
+
+
 		<!-- end sub site -->
 
-	
+
 
 	</package>
 

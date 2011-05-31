@@ -153,7 +153,7 @@
 						if (nvp.get("ACK").toString().equals("Success")) {
 					%>
 					Bạn đã mua hàng thành công, món hàng sẽ gửi đến trong thời gian sớm
-					nhất! Nhấn <a href="<s:url action="step4_SaveBill"/>">vào đây</a> để quay
+					nhất! Nhấn <a href="<s:url action="step4_SaveBill"/>"><b>vào đây</b></a> để quay
 					lại trang chủ. Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong
 					vòng 5s.
 					<%

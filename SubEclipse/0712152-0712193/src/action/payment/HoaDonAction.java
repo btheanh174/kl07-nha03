@@ -15,10 +15,12 @@ import model.dao.TinhTrangHoaDonDAO;
 import model.pojo.ChiTietHoaDon;
 import model.pojo.GianHang;
 import model.pojo.GioHang;
+import model.pojo.HinhThucVanChuyen;
 import model.pojo.HoaDon;
 import model.pojo.MatHang;
 import model.pojo.MiniCart;
 import model.pojo.NguoiNhan;
+import model.pojo.PhuongThucThanhToan;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 import model.pojo.TinhTrangHoaDon;
@@ -60,6 +62,7 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		GianHangDAO ghDao = new GianHangDAO();
 		gianHang = ghDao.lay(miniCart.getMaGianHang());
 		nguoiNhan = (NguoiNhan) session.get("nguoiNhan");
+		session.put("gianHang", gianHang);
 		return SUCCESS;
 	}
 
@@ -75,18 +78,21 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
 		ThanhVien tv = tk.getThanhVien();
 		nguoiNhan = (NguoiNhan) session.get("nguoiNhan");
+		gianHang = (GianHang)session.get("gianHang");
+		
+		TinhTrangHoaDonDAO tthdDao = new TinhTrangHoaDonDAO();
+		TinhTrangHoaDon tthd = tthdDao.lay(4); // Khách hàng đã thanh toán
+		
 		NguoiNhanDAO nnDAO = new NguoiNhanDAO();
 		nnDAO.them(nguoiNhan);
+		HoaDon hoaDon = new HoaDon(tv, nguoiNhan, tthd, gianHang);
 		
-		
-		
-		
-		HoaDon hoaDon = new HoaDon(tv,nguoiNhan, null,new ArrayList<ChiTietHoaDon>());
+		 
 		Enumeration<MatHang> dsmh = miniCart.layDsMatHang();
 		while(dsmh.hasMoreElements()){
 			MatHang mh = (MatHang)dsmh.nextElement();
 			ChiTietHoaDon cthd = new ChiTietHoaDon(mh.getSoLuong(), mh.getSanPham().getGia(), 
-									mh.getSanPham(), null);
+									mh.getSanPham());
 			hoaDon.getDsChiTietHoaDon().add(cthd);					
 		}
 		

@@ -2,6 +2,7 @@ package model.dao;
 
 import java.util.List;
 
+import model.pojo.TinhThanhPho;
 import model.pojo.TinhTrangHoaDon;
 
 public class TinhTrangHoaDonDAO extends AbstractDAO {
@@ -12,5 +13,9 @@ public class TinhTrangHoaDonDAO extends AbstractDAO {
 	
 	public List layDanhSach(){
 		return super.findAll(TinhTrangHoaDon.class);
+	}
+	
+	public TinhTrangHoaDon lay(int id){
+		return (TinhTrangHoaDon)super.find(TinhTrangHoaDon.class, id);
 	}
 }
