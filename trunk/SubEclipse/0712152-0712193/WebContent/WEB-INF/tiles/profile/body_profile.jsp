@@ -33,7 +33,7 @@
 				<s:textfield label="Website" name="website"
 					value="%{#session['tk'].thanhVien.website}" />
 				<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
-				<sj:autocompleter label="Tỉnh/thành phố" name="tinhThanhPho"
+				<sj:autocompleter label="Tỉnh/thành phố" name="maTTP"
 					list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho"
 					listValue="tenTinhThanhPho"
 					value="%{#session['tk'].thanhVien.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
@@ -41,8 +41,8 @@
 				<sj:select name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"
 					autocomplete="true"></sj:select>
 
-				<jcaptcha:image height="50" width="300" label="Mã an toàn" />
-				<s:submit value="Cập nhật"></s:submit>
+				<!--<jcaptcha:image height="50" width="300" label="Mã an toàn" />
+				--><s:submit value="Cập nhật"></s:submit>
 
 			</s:form>
 		</div>
