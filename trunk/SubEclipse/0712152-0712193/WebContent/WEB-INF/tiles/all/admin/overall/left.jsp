@@ -12,7 +12,7 @@
 		<li><a href="<s:url action="show3_all_admin_categories" />">Danh
 				mục</a></li>
 
-		<li class="last"><a href="">Sản phẩm</a></li>
+		<li class="last"><a href="AdminStore_xemHoaDon">Hóa đơn</a></li>
 
 	</ul>
 
