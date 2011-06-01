@@ -315,5 +315,13 @@
 			value="/WEB-INF/tiles/all/admin/overall/middle_bills.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="AdminStore_DetailBill.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/overall/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/overall/middle_detailbill.jsp"></put-attribute>
+	</definition>
+	
 	
 </tiles-definitions>

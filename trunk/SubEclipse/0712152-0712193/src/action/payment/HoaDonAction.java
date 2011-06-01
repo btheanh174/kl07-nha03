@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import util.SendMail;
+
 import model.dao.GianHangDAO;
 import model.dao.HoaDonDAO;
 import model.dao.NguoiNhanDAO;
@@ -99,7 +101,17 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		HoaDonDAO hdDao = new HoaDonDAO();
 		hdDao.them(hoaDon);
 		
-		
+		//Gửi email cho người dùng:
+		try {	
+			String to = tv.getEmail();
+			String subject = "Estore - Hóa đơn mua hàng";
+			String body = "Chào " + tv.getHoTen() + "\n";
+			body += "Bạn đã thực hiện thành công giao dịch, chi tiết giao dịch...";
+			SendMail.sendMail(to, subject, body);
+			System.out.println("Finish!");
+		} catch (Exception ex) {
+			System.out.println("Usage: " + ex.getMessage());
+		}
 		return SUCCESS;
 	}
 

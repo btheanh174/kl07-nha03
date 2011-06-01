@@ -250,6 +250,12 @@
 			method="layDanhSachHoaDon">
 			<result name="success" type="tiles">AdminStore_Bills.tiles</result>
 		</action>
+		
+		<action name="AdminStore_chiTietHoaDon" class="action.gianhang.admin.HoaDonAction"
+			method="xemChiTietHoaDon">
+			<result name="success" type="tiles">AdminStore_DetailBill.tiles</result>
+		</action>
+		
 
 
 		<!-- end sub site -->
