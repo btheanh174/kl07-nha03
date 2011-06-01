@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<div class="block_title"><span>Danh sách cửa hàng</span></div>
+<div class="break_line"></div>
 <s:if test="dsGianHang.size() > 0">
 	<div>
 		<s:form>
@@ -17,6 +19,7 @@
 						<td class="col_4" align="center"><b>Liên hệ</b>
 						</td>
 					</tr>
+					
 					<s:iterator value="dsGianHang" status="status">
 						<tr class="<s:if test="(#status.count % 2) != 0">tr_odd</s:if> <s:else>tr</s:else>"  >
 							<s:url action="store" id="store">

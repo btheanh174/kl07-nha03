@@ -12,160 +12,97 @@
 	<s:a href="SanPham_timKiem.action?loaiSanPham=laptop">Tìm kiếm laptop
 	</s:a> --%>
 
-<div class="center_title_bar_full">Máy tính Laptop</div>
+<div class="block_title"><span>Sản phẩm mới nhất</span></div>
+<div class="break_line"></div>
+
+
 <s:iterator value="dsLaptop" status="stat1">
 
-		<s:url action="SanPham_chiTiet" var="productDetail">
-			<s:param name="maSanPham" value="maSanPham"></s:param>
-		</s:url>
+	<s:url action="SanPham_chiTiet" var="productDetail">
+		<s:param name="maSanPham" value="maSanPham"></s:param>
+	</s:url>
 
-		<div class="prod_box">
-			<div class="top_prod_box"></div>
-			<div class="center_prod_box">
-				<div class="product_title">
-					<a href="${productDetail}"><s:property value="tenSanPham" /> </a>
-				</div>
-
-
-				<!-- Noi dung se duoc hien thi trong tooltip -->
-<%-- 				<div id="mystickytooltip" class="stickytooltip">
-					<div id="${maSanPham }" style="width: 200px;">
-						<s:property value="toShortString()" />
-						<img alt="" src="${hinhAnh}" width="150" height="150">
-						<s:property value="toLongString()" />
-					</div>
-				</div>
- --%>				<!--  -->
-
-
-
-				<div class="product_img">
-					<a href="${productDetail}" data-tooltip=""> <img
-						src="${hinhAnh}" alt="" title="" border="0" width="120"
-						height="120" /> </a>
-				</div>
-
-
-				<div class="prod_price">
-					<span class="reduce"></span> <span class="price"><s:property
-							value="giaText" /> VNĐ</span>
-				</div>
-			</div>
-			<div class="bottom_prod_box"></div>
-			<div class="prod_details_tab">
-				<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
-					src="images/cart.gif" alt="" title="" border="0" class="left_bt" />
-				</a><a href="${productDetail}" class="prod_details">Chi tiết</a>
-			</div>
-		</div>
-	</s:iterator>
-
-
-	<div id="pagination">
-		<s:if test="tongSoTrang1 > 1">
-			<s:url id="prev" action="Index">
-				<s:param name="trang1" value="trang1 - 1"></s:param>
-			</s:url>
-			<s:if test="trang1 > 1">
-				<a href="${prev }" class="pn next">&lt;&lt;Trước</a>
-			</s:if>
-			<s:iterator value="soTrang1" status="stat">
-				<s:url id="danhSach" action="Index">
-					<s:param name="trang1" value="%{#stat.count}"></s:param>
-				</s:url>
-				<s:if test="trang1 == #stat.count">
-					<span><s:property /> </span>
-				</s:if>
-				<s:else>
-					<a href="${danhSach }"> <s:property /> </a>
-				</s:else>
-			</s:iterator>
-			<s:url id="next" action="Index">
-				<s:param name="trang1" value="trang1 + 1"></s:param>
-			</s:url>
-
-			<s:if test="trang1 < tongSoTrang1">
-				<a href="${next }" class="pn next">Sau »</a>
-			</s:if>
-		</s:if>
+	<div class="product_box jTip">
+	<div class="product_image">
+	<div class="product_image_holder"><a target="_blank" class="jTip"
+		rel="" href=""> <img id="block_tip_1"
+		alt="Điện thoại di động Apple iPhone 3GS" src="${hinhAnh }"> </a></div>
+	</div>
+	<div class="product_seller"><b>30</b> gian hàng bán</div>
+	<div class="product_seller"><!-- Lay gia thap nhat trong tat ca cac gian hang -->
+	Giá từ: <b>8.300.000 VNĐ</b></div>
+	<div class="product_name"><a target="_blank"
+		title='<s:property value="tenSanPham"/>' href=""> <s:property
+		value="tenSanPham" /> </a></div>
 	</div>
 
-<br>
+	<!--<div class="prod_box">
+	<div class="top_prod_box"></div>
+	<div class="center_prod_box">
+	<div class="product_title"><a href="${productDetail}"><s:property
+		value="tenSanPham" /> </a></div>
 
-<div class="center_title_bar_full">Điện thoại</div>
+	<div class="product_img"><a href="${productDetail}"
+		data-tooltip=""> <img src="${hinhAnh}" alt="" title="" border="0"
+		width="120" height="120" /> </a></div>
+
+
+	<div class="prod_price"><span class="reduce"></span> <span
+		class="price"><s:property value="giaText" /> VNĐ</span></div>
+	</div>
+	<div class="bottom_prod_box"></div>
+	<div class="prod_details_tab"><a href="#"
+		title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+		src="images/cart.gif" alt="" title="" border="0" class="left_bt" /> </a><a
+		href="${productDetail}" class="prod_details">Chi tiết</a></div>
+	</div>-->
+</s:iterator>
+
+
 <s:iterator value="dsDienThoai" status="stat1">
 
-		<s:url action="SanPham_chiTiet" var="productDetail">
-			<s:param name="maSanPham" value="maSanPham"></s:param>
-		</s:url>
-
-		<div class="prod_box">
-			<div class="top_prod_box"></div>
-			<div class="center_prod_box">
-				<div class="product_title">
-					<a href="${productDetail}"><s:property value="tenSanPham" /> </a>
-				</div>
-
-
-				<!-- Noi dung se duoc hien thi trong tooltip -->
-<%-- 				<div id="mystickytooltip" class="stickytooltip">
-					<div id="${maSanPham }" style="width: 200px;">
-						<s:property value="toShortString()" />
-						<img alt="" src="${hinhAnh}" width="150" height="150">
-						<s:property value="toLongString()" />
-					</div>
-				</div>
- --%>				<!--  -->
-
-
-
-				<div class="product_img">
-					<a href="${productDetail}" data-tooltip=""> <img
-						src="${hinhAnh}" alt="" title="" border="0" width="120"
-						height="120" /> </a>
-				</div>
-
-
-				<div class="prod_price">
-					<span class="reduce"></span> <span class="price"><s:property
-							value="giaText" /> VNĐ</span>
-				</div>
-			</div>
-			<div class="bottom_prod_box"></div>
-			<div class="prod_details_tab">
-				<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
-					src="images/cart.gif" alt="" title="" border="0" class="left_bt" />
-				</a><a href="${productDetail}" class="prod_details">Chi tiết</a>
-			</div>
-		</div>
-	</s:iterator>
-
-
-	<div id="pagination">
-		<s:if test="tongSoTrang2 > 1">
-			<s:url id="prev" action="Index">
-				<s:param name="trang2" value="trang2 - 1"></s:param>
-			</s:url>
-			<s:if test="trang2 > 1">
-				<a href="${prev }" class="pn next">&lt;&lt;Trước</a>
-			</s:if>
-			<s:iterator value="soTrang2" status="stat">
-				<s:url id="danhSach" action="Index">
-					<s:param name="trang2" value="%{#stat.count}"></s:param>
-				</s:url>
-				<s:if test="trang2 == #stat.count">
-					<span><s:property /> </span>
-				</s:if>
-				<s:else>
-					<a href="${danhSach }"> <s:property /> </a>
-				</s:else>
-			</s:iterator>
-			<s:url id="next" action="Index">
-				<s:param name="trang2" value="trang2 + 1"></s:param>
-			</s:url>
-
-			<s:if test="trang2 < tongSoTrang2">
-				<a href="${next }" class="pn next">Sau »</a>
-			</s:if>
-		</s:if>
+	<s:url action="SanPham_chiTiet" var="productDetail">
+		<s:param name="maSanPham" value="maSanPham"></s:param>
+	</s:url>
+	
+	<div class="product_box jTip">
+	<div class="product_image">
+	<div class="product_image_holder"><a target="_blank" class="jTip"
+		rel="" href=""> <img id="block_tip_1"
+		alt="Điện thoại di động Apple iPhone 3GS" src="${hinhAnh }"> </a></div>
 	</div>
+	<div class="product_seller"><b>30</b> gian hàng bán</div>
+	<div class="product_seller"><!-- Lay gia thap nhat trong tat ca cac gian hang -->
+	Giá từ: <b>8.300.000 VNĐ</b></div>
+	<div class="product_name"><a target="_blank"
+		title='<s:property value="tenSanPham"/>' href=""> <s:property
+		value="tenSanPham" /> </a></div>
+	</div>
+
+	<!--<div class="prod_box">
+	<div class="top_prod_box"></div>
+	<div class="center_prod_box">
+	<div class="product_title"><a href="${productDetail}"><s:property
+		value="tenSanPham" /> </a></div>
+
+	<div class="product_img"><a href="${productDetail}"
+		data-tooltip=""> <img src="${hinhAnh}" alt="" title="" border="0"
+		width="120" height="120" /> </a></div>
+
+
+	<div class="prod_price"><span class="reduce"></span> <span
+		class="price"><s:property value="giaText" /> VNĐ</span></div>
+	</div>
+	<div class="bottom_prod_box"></div>
+	<div class="prod_details_tab"><a href="#"
+		title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+		src="images/cart.gif" alt="" title="" border="0" class="left_bt" /> </a><a
+		href="${productDetail}" class="prod_details">Chi tiết</a></div>
+	</div>-->
+</s:iterator>
+
+
+<div class="spacer"></div>
+<div class="block_title"><span>Toàn bộ danh mục</span></div>
+<div class="break_line"></div>
+<div class="square_item_block"></div>

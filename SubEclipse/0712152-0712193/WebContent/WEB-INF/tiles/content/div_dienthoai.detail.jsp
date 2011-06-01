@@ -68,91 +68,98 @@
 					label="Gian hàng bán sản phẩm"></sj:tab>
 				<sj:tab id="tabHinhAnh" target="four" label="Hình ảnh"></sj:tab>
 				<div id="one">
-					<table width="500" border="1" align="center" cellpadding="5"
+					<table class="technical_table" cellpadding="0"
 						cellspacing="0">
-						<tr>
-							<td align="right">Hãng sản xuất:</td>
-							<td align="left"><s:property value="hangSanXuat" /></td>
+						<tr class="text_title">
+						<td colspan="2">Thông tin cơ bản</td>
 						</tr>
 						<tr>
-							<td align="right">Mạng:</td>
-							<td align="left"><s:property value="mang" /></td>
+							<td class="name">Hãng sản xuất:</td>
+							<td class="value"><s:property value="hangSanXuat" /></td>
 						</tr>
 						<tr>
-							<td align="right">Kiểu dáng:</td>
-							<td align="left"><s:property value="kieuDang" /></td>
+							<td class="name">Mạng:</td>
+							<td class="value"><s:property value="mang" /></td>
 						</tr>
 						<tr>
-							<td align="right">Màn hình:</td>
-							<td align="left"><s:property value="manHinh" /></td>
+							<td class="name">Kiểu dáng:</td>
+							<td class="value"><s:property value="kieuDang" /></td>
 						</tr>
 						<tr>
-							<td align="right">Độ phân giải:</td>
-							<td align="left"><s:property value="doPhanGiai" /></td>
+							<td class="name">Màn hình:</td>
+							<td class="value"><s:property value="manHinh" /></td>
 						</tr>
 						<tr>
-							<td align="right">Hệ điều hành:</td>
-							<td align="left"><s:property value="heDieuHanh" /></td>
+							<td class="name">Độ phân giải:</td>
+							<td class="value"><s:property value="doPhanGiai" /></td>
 						</tr>
 						<tr>
-							<td align="right">Bộ nhớ trong:</td>
-							<td align="left"><s:property value="boNhoTrong" /></td>
+							<td class="name">Hệ điều hành:</td>
+							<td class="value"><s:property value="heDieuHanh" /></td>
 						</tr>
 						<tr>
-							<td align="right">Ram:</td>
-							<td align="left"><s:property value="ram" /></td>
+							<td class="name">Bộ nhớ trong:</td>
+							<td class="value"><s:property value="boNhoTrong" /></td>
 						</tr>
 						<tr>
-							<td align="right">Tin nhắn:</td>
-							<td align="left"><s:property value="tinNhan" /></td>
+							<td class="name">Ram:</td>
+							<td class="value"><s:property value="ram" /></td>
 						</tr>
 						<tr>
-							<td align="right">Trọng lượng:</td>
-							<td align="left"><s:property value="trongLuong" /></td>
+							<td class="name">Tin nhắn:</td>
+							<td class="value"><s:property value="tinNhan" /></td>
 						</tr>
 						<tr>
-							<td align="right">Kích thước:</td>
-							<td align="left"><s:property value="kichThuoc" /></td>
+							<td class="name">Trọng lượng:</td>
+							<td class="value"><s:property value="trongLuong" /></td>
 						</tr>
 						<tr>
-							<td align="right">Kiểu chuông:</td>
-							<td align="left"><s:property value="kieuChuong" /></td>
+							<td class="name">Kích thước:</td>
+							<td class="value"><s:property value="kichThuoc" /></td>
 						</tr>
 						<tr>
-							<td align="right">Camera:</td>
-							<td align="left"><s:property value="camera" /></td>
+							<td class="name">Kiểu chuông:</td>
+							<td class="value"><s:property value="kieuChuong" /></td>
 						</tr>
 						<tr>
-							<td align="right">Màu sắc:</td>
-							<td align="left"><s:property value="mauSac" /></td>
+							<td class="name">Camera:</td>
+							<td class="value"><s:property value="camera" /></td>
 						</tr>
 						<tr>
-							<td align="right">Pin:</td>
-							<td align="left"><s:property value="pin" /></td>
+							<td class="name">Màu sắc:</td>
+							<td class="value"><s:property value="mauSac" /></td>
 						</tr>
 						<tr>
-							<td align="right">Thời gian đàm thoại:</td>
-							<td align="left"><s:property value="thoiGianDamThoai" /></td>
+							<td class="name">Pin:</td>
+							<td class="value"><s:property value="pin" /></td>
 						</tr>
 						<tr>
-							<td align="right">Thời gian chờ:</td>
-							<td align="left"><s:property value="thoiGianCho" /></td>
+							<td class="name">Thời gian đàm thoại:</td>
+							<td class="value"><s:property value="thoiGianDamThoai" /></td>
 						</tr>
 						<tr>
-							<td align="right">Số sim:</td>
-							<td align="left"><s:property value="sim" /></td>
+							<td class="name">Thời gian chờ:</td>
+							<td class="value"><s:property value="thoiGianCho" /></td>
 						</tr>
 						<tr>
-							<td align="right">Loại thẻ nhớ tích hợp:</td>
-							<td align="left"><s:property value="theNho" /></td>
+							<td class="name">Số sim:</td>
+							<td class="value"><s:property value="sim" /></td>
 						</tr>
 						<tr>
-							<td align="right">Tính năng:</td>
-							<td align="left"><s:property value="tinhNang" /></td>
+							<td class="name">Loại thẻ nhớ tích hợp:</td>
+							<td class="value"><s:property value="theNho" /></td>
+						</tr>
+						
+						<tr class="text_title">
+						<td colspan="2">Thông số khác</td>
 						</tr>
 						<tr>
-							<td align="right">Tính năng khác:</td>
-							<td align="left"><s:property value="tinhNangKhac" /></td>
+							<td class="name">Tính năng:</td>
+							<td class="value"><s:property value="tinhNang" /></td>
+						</tr>
+						<tr>
+							<td class="name">Tính năng khác:</td>
+							<td class="value"><s:property value="tinhNangKhac" /></td>
 						</tr>
 					</table>
 				</div>
