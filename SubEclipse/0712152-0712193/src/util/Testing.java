@@ -5,22 +5,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import model.dao.ChiTietHoaDonDAO;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
-import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
+import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
-import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.HoaDon;
+import model.pojo.GianHangSanPham;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
+import model.pojo.SanPhamGH;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
@@ -285,6 +284,7 @@ public class Testing {
 		/*HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon t = hdDao.lay(17);
 		hdDao.xoa(t);*/
+		/*
 		HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon hd = hdDao.lay(20);
 		
@@ -295,7 +295,7 @@ public class Testing {
 		System.out.println(hd.getDsChiTietHoaDon().size());
 		System.out.println(hd.getThanhVien().getHoTen());
 		System.out.println(hd.getGianHang().getTenGianHang());
-		
+*/		
 		/*List<HoaDon> list = hdDao.layDanhSach();
 		System.out.println(list.size());
 		for (HoaDon hoaDon : list) {
@@ -308,7 +308,28 @@ public class Testing {
 		TaiKhoan tk = tkDao.lay(16);
 		System.out.println(tv.getMaTaiKhoan());
 		System.out.println(tk.getGianHang().getTenGianHang());*/
+		SanPhamDAO spDao = new SanPhamDAO();
+		
+		List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
+		for (SanPhamGH g : ghsp) {
+			System.out.println(g.getGianHang().getTenGianHang());	
+		}
+		
 	}
+	
+	private static void testSanPhamGianHang(){
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gianHang = ghDao.lay(1);
+		
+		SanPhamDAO spDao = new SanPhamDAO();
+		SanPham sp = spDao.lay(17);
+		System.out.println("Những gian hàng bán sản phẩm này: ");
+		for (GianHangSanPham ghsp : sp.getDsGianHangSanPham()) {
+			System.out.println(ghsp.getGianHang().getTenGianHang());
+			
+		}
+	}
+	
 	private static void xuatSanPham(SanPham sp){
 		System.out.println(sp.getMaSanPham() + " - " + sp.getTenSanPham() + " - " + sp.getGia());
 	}
