@@ -5,10 +5,10 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjt" uri="/struts-jquery-tree-tags"%>
 
-<div id="center-column">
+<div id="center-column" style="font-family: tahoma, arial, sans-serif;">
 
 	<div class="top-bar">
-		<h1>Danh mục</h1>
+		<h1>Hóa đơn</h1>
 		<div class="breadcrumbs">
 			<a href="">Quản lý tổng thể</a> / <a href="">Hóa đơn</a>
 		</div>
@@ -31,71 +31,36 @@
 
 		<table class="listing" cellpadding="0" cellspacing="0">
 			<tr>
-
 				<th class="first" width="120">Ngày lập</th>
-
-				<th >Tên khách hàng</th>
-
+				<th>Tên khách hàng</th>
 				<th>Hình thức vận chuyển</th>
-
 				<th>Tình trạng</th>
-
 				<th class="last" width="80">Thông tin</th>
-
 			</tr>
 
 			<s:iterator value="dsHoaDon" status="stat">
-
 				<s:if test="#stat.odd == true">
 					<tr class="bg">
 				</s:if>
 				<s:else>
 					<tr>
 				</s:else>
+				<s:url action="AdminStore_chiTietHoaDon" var="billDetail">
+					<s:param name="maHoaDon" value="maHoaDon"></s:param>
+				</s:url>
 
-				<td><s:property value="formatter.format(ngayLap)" /></td>
-				<td><s:property value="thanhVien.hoTen" /></td>
+				<td><s:property value="formatter.format(ngayLap)" />
+				</td>
+				<td><s:property value="thanhVien.hoTen" />
+				</td>
 				<td>Chưa rõ</td>
-				<td><s:property value="tinhTrang.getTenTinhTrang()" /></td>
-				<td><a style="color: blue;" href="#">Chi tiết...</a></td>
+				<td><s:property value="tinhTrang.getTenTinhTrang()" />
+				</td>
+				<td><a style="color: blue;" href="${billDetail}">Chi tiết...</a>
+				</td>
 				</tr>
 
 			</s:iterator>
-
-			<tr>
-
-				<td class="first style1">- Lorem Ipsum</td>
-
-				<td><img src="all/images/admin/login-icon.gif" width="16"
-					height="16" alt="" />
-				</td>
-
-				<td><img src="all/images/admin/save-icon.gif" width="16"
-					height="16" alt="save" /></td>
-
-				<td><img src="all/images/admin/add-icon.gif" width="16"
-					height="16" alt="add" /></td>
-
-				<td class="last"><a hreft="#">Chi tiết...</a></td>
-
-			</tr>
-
-			<tr class="bg">
-
-				<td class="first style2">- Lorem Ipsum</td>
-
-				<td><img src="all/images/admin/login-icon.gif" width="16"
-					height="16" alt="login" /></td>
-
-				<td><img src="all/images/admin/save-icon.gif" width="16"
-					height="16" alt="save" /></td>
-
-				<td><img src="all/images/admin/add-icon.gif" width="16"
-					height="16" alt="add" /></td>
-
-				<td class="last"><a hreft="#">Chi tiết...</a></td>
-
-			</tr>
 		</table>
 
 		<div class="select">

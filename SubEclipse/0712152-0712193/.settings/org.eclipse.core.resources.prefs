@@ -1,4 +1,4 @@
-#Mon May 30 12:06:01 ICT 2011
+#Tue May 31 23:28:13 ICT 2011
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/all/header.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/all/menu.jsp=UTF-8
@@ -15,6 +15,7 @@ encoding//src/action/DanhMucAction.java=UTF-8
 encoding//src/action/DienThoaiTimKiemAction.java=UTF-8
 encoding//src/action/SanPhamAction.java=UTF-8
 encoding//src/action/XuLyTimKiemAction.java=UTF-8
+encoding//src/action/gianhang/admin/HoaDonAction.java=UTF-8
 encoding//src/action/payment/HoaDonAction.java=UTF-8
 encoding//src/action/user/LoginAction.properties=UTF-8
 encoding//src/action/user/ProfileAction.java=UTF-8
@@ -26,4 +27,5 @@ encoding//src/model/pojo/DienThoai.java=UTF-8
 encoding//src/model/pojo/GioHang.java=UTF-8
 encoding//src/model/pojo/Laptop.java=UTF-8
 encoding//src/model/pojo/SanPham.java=UTF-8
+encoding//src/util/SendMail.java=UTF-8
 encoding//src/util/Testing.java=UTF-8
