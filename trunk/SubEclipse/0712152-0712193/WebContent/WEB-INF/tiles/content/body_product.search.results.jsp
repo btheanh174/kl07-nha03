@@ -13,10 +13,8 @@
 	}
 %>
 
-<!-- <div class="center_title_bar">Kết quả tìm kiếm</div>
-<div class="prod_box_big_full">
-	<div class="top_prod_box_big_full"></div>
-	<div class="center_prod_box_big_full"> -->
+<div class="block_title"><span>Kết quả tìm kiếm</span></div>
+<div class="break_line"></div>
 <s:if test="dsSanPham.size() > 0">
 	<div><s:form>
 		<table class="view_list_table">
@@ -107,6 +105,4 @@
 <s:else>
 	<s:label>Không tìm thấy sản phẩm nào</s:label>
 </s:else>
-<!-- </div>
-	<div class="bottom_prod_box_big_full"></div>
-</div> -->
+

@@ -81,14 +81,19 @@
 					</div>
 					<br>
 					<div class="siteInfo">
-						<b>Chủ cửa hàng:</b>
-						<s:property value="taiKhoan.tenTruyCap" />
-						<br> <b>Vùng:</b>
-						<s:property value="tinhThanhPho.tenTinhThanhPho" />
-						<br> <b>Địa chỉ:</b>
-						<s:property value="diaChi" />
-						<br> <b>Điện thoại:</b>
-						<s:property value="dienThoai" />
+						<table>
+							<tbody>
+							<tr><td><b>Chủ cửa hàng:</b></td>
+							<td><s:property value="taiKhoan.tenTruyCap" /></td></tr>
+							<tr><td><b>Vùng:</b></td>
+							<td><s:property value="tinhThanhPho.tenTinhThanhPho" /></td></tr>
+							<!--<tr><td><b>Địa chỉ:</b></td>
+							<td><s:property value="diaChi" /></td></tr>
+							--><tr><td><b>Điện thoại:</b></td>
+							<td><s:property value="dienThoai" /></td></tr>
+							
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

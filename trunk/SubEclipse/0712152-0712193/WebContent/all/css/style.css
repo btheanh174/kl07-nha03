@@ -488,7 +488,13 @@ img.logo{
 	float: left;
 	padding: 10px 0px 10px 0px;
 	width: 250px;
-	display: block;
+	display: table-cell;
+}
+.siteInfo table{
+	width: 250px;
+}
+.siteInfor table tr{
+	width: 250px;
 }
 
 /* Hien thi chi tiet san pham*/
@@ -498,6 +504,7 @@ img.logo{
 }
 .product_detail .fl{
 	float: left;
+	text-align: center;
 	width: 310px;
 }
 
@@ -540,4 +547,108 @@ img.danhsach{
 }
 .button_xemchitiet{
 	
-}	
+}
+
+
+.technical_table {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #E2E2E2;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: collapse;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #E2E2E2;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #E2E2E2;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #E2E2E2;
+    border-top-style: solid;
+    border-top-width: 1px;
+    line-height: 18px;
+    width: 100%;
+}
+
+.technical_table .text_title {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("../images/bg_technical_table_title.gif");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.technical_table td.name {
+    font-weight: bold;
+    text-align: right;
+    width: 40%;
+}
+.technical_table td.value {
+    text-align: left;
+    width: 60%;
+}
+.technical_table td {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #E2E2E2;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #E2E2E2;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #E2E2E2;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #E2E2E2;
+    border-top-style: solid;
+    border-top-width: 1px;
+    
+    border-left-color: #E2E2E2;
+    border-left-style: solid;
+    border-left-width: 1px;
+    
+    border-right-color: #E2E2E2;
+    border-right-style: solid;
+    border-right-width: 1px;
+    
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
