@@ -1,13 +1,16 @@
 package model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.pojo.DanhMuc;
 import model.pojo.DienThoaiTieuChi;
 import model.pojo.DuLieuTrang;
-import model.pojo.HinhAnh;
+import model.pojo.GianHang;
+import model.pojo.GianHangSanPham;
 import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
+import model.pojo.SanPhamGH;
 import model.pojo.SanPhamTieuChi;
 
 import org.hibernate.Hibernate;
@@ -474,6 +477,75 @@ public class SanPhamDAO extends AbstractDAO {
 			HibernateUtil.shutdown();
 		}
 		return kq;
+	}
+	
+	/*
+	 * Lay danh sách gian hàng bán sản phẩm này và được sắp xếp
+	 */
+	public List<GianHangSanPham> layDanhSachGianHangSapXep(int id, String order){
+		List<GianHangSanPham> kq = null;
+		
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "from SanPham as sp join sp.dsGianHangSanPham "
+				+"where sp.maSanPham =:id and order by ghsp.giaRieng :order";
+			Query query = session.createQuery(hql);
+			query.setParameter("id", id);
+			query.setParameter("order", order);
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		
+		return kq;
+	}
+	
+	public List<SanPhamGH> layDsSanPhamGH(int id){
+		List<SanPhamGH> kq = new ArrayList<SanPhamGH>();
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "" +
+					"from SanPham as sp where sp.maSanPham =:id";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("id", id);
+			
+			 SanPham sp = (SanPham) query.uniqueResult();
+			 List<GianHangSanPham> list = sp.getDsGianHangSanPham();
+			 SanPhamGH temp = null;
+			for (GianHangSanPham ghsp : list) {
+				Integer gia  = (ghsp.getGiaRieng() != null)? ghsp.getGiaRieng(): 0;
+				GianHang gh = ghsp.getGianHang();
+				
+				temp = new SanPhamGH(gh, gia, ghsp.getBaoHanh(), ghsp.getSoLuong());
+				kq.add(temp);
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+	
+	public String layGiaThapNhatTrongCacGianHang(int id){
+		String str = null;
+		SanPham sp = this.lay(id);
+		for (GianHangSanPham ghsp : sp.getDsGianHangSanPham()) {
+			
+		}
+		
+		return str;
 	}
 
 }

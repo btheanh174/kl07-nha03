@@ -50,4 +50,10 @@ public class NumberUtil {
 		}
 		return kq;
 	}
+	
+	public static float getMin(List<Float> list){
+		float kq = 0.0f;
+		
+		return kq;
+	}
 }
