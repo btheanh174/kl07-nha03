@@ -5,23 +5,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import model.dao.ChiTietHoaDonDAO;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
-import model.dao.NguoiNhanDAO;
 import model.dao.NhomNguoiDungDAO;
-import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
-import model.dao.ThanhVienDAO;
 import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.HoaDon;
 import model.pojo.Laptop;
-import model.pojo.NguoiNhan;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
@@ -290,15 +287,20 @@ public class Testing {
 		hdDao.xoa(t);*/
 		HoaDonDAO hdDao = new HoaDonDAO();
 		HoaDon hd = hdDao.lay(20);
+		
+		//List<ChiTietHoaDon> list = new ChiTietHoaDonDAO().layDanhSach(hd);
+		for (ChiTietHoaDon ct : hd.getDsChiTietHoaDon()) {
+			System.out.println(ct.getSanPham().getTenSanPham());
+		}
 		System.out.println(hd.getDsChiTietHoaDon().size());
 		System.out.println(hd.getThanhVien().getHoTen());
 		System.out.println(hd.getGianHang().getTenGianHang());
 		
-		List<HoaDon> list = hdDao.layDanhSach();
+		/*List<HoaDon> list = hdDao.layDanhSach();
 		System.out.println(list.size());
 		for (HoaDon hoaDon : list) {
 			System.out.println(hoaDon.getThanhVien().getHoTen());
-		}
+		}*/
 		
 		/*ThanhVienDAO tvDao = new ThanhVienDAO();
 		TaiKhoanDAO tkDao = new TaiKhoanDAO();

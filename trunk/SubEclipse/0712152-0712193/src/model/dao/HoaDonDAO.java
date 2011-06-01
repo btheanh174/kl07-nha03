@@ -2,6 +2,7 @@ package model.dao;
 
 import java.util.List;
 
+import model.pojo.ChiTietHoaDon;
 import model.pojo.GianHang;
 import model.pojo.HoaDon;
 
@@ -76,10 +77,14 @@ public class HoaDonDAO extends AbstractDAO{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			
-			kq = (HoaDon)session.load(HoaDon.class, new Integer(id));
+			//kq = (HoaDon)session.load(HoaDon.class, new Integer(id));
+			kq = (HoaDon)session.get(HoaDon.class, id);
 			
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getDsChiTietHoaDon());
+			for (ChiTietHoaDon ct : kq.getDsChiTietHoaDon()) {
+				Hibernate.initialize(ct.getSanPham());
+			}
 			
 			tx.commit();
 		}catch(HibernateException e){
