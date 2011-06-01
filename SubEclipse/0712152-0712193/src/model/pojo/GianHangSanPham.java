@@ -1,5 +1,7 @@
 package model.pojo;
 
+import java.util.Date;
+
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
 import javax.persistence.Column;
@@ -21,7 +23,8 @@ public class GianHangSanPham {
 	private Integer giaRieng;
 	private Integer baoHanh; // don vi tinh theo thang
 	private Integer soLuong; // so luong san pham ma cua hang co
-
+	private Date capNhat;
+	
 	public GianHangSanPham() {
 	}
 
@@ -73,6 +76,15 @@ public class GianHangSanPham {
 	@Column(name="SO_LUONG", length=10)
 	public Integer getSoLuong() {
 		return soLuong;
+	}
+	
+	@Column(name="CAP_NHAT")
+	public Date getCapNhat() {
+		return capNhat;
+	}
+
+	public void setCapNhat(Date capNhat) {
+		this.capNhat = capNhat;
 	}
 
 	public void setSoLuong(Integer soLuong) {

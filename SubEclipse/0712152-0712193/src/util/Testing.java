@@ -312,7 +312,7 @@ public class Testing {
 		
 		List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
 		for (SanPhamGH g : ghsp) {
-			System.out.println(g.getGianHang().getTenGianHang());	
+			System.out.println(g.getGianHang().getTenGianHang() + " - " + g.getGia() + " - " + g.getCapNhat().toString());	
 		}
 		
 	}

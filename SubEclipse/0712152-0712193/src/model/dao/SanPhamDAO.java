@@ -525,7 +525,7 @@ public class SanPhamDAO extends AbstractDAO {
 				Integer gia  = (ghsp.getGiaRieng() != null)? ghsp.getGiaRieng(): 0;
 				GianHang gh = ghsp.getGianHang();
 				
-				temp = new SanPhamGH(gh, gia, ghsp.getBaoHanh(), ghsp.getSoLuong());
+				temp = new SanPhamGH(gh, gia, ghsp.getBaoHanh(), ghsp.getSoLuong(), ghsp.getCapNhat());
 				kq.add(temp);
 			}
 			
