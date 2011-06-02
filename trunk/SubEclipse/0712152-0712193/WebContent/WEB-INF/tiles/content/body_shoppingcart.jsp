@@ -25,6 +25,12 @@
 	</div>
 </s:if>
 <s:else>
+
+	<s:url var="clear" action="GioHang_xoaTatCa"></s:url>
+	<s:a href="%{clear}">XÓA TOÀN BỘ GIỎ HÀNG</s:a>
+	<div class="break_module"></div>
+	<div class="break_line"></div>
+
 	<s:iterator value="#session['gh'].layMiniCartEnumeration()"
 		status="stat0">
 
@@ -55,7 +61,7 @@
 
 						<s:iterator value="layDsMatHang()" status="stat">
 							<tr>
-								<td><s:property value="#stat.count" /></td>
+								<td align="center"><s:property value="#stat.count" /></td>
 								<td align="center" valign="top"><input type="checkbox"
 									name="dsDuocChon" value="${sanPham.maSanPham }"></td>
 
@@ -79,67 +85,49 @@
 						<tr align="right">
 								
 								<td colspan="5">
-								<table>
-								<tr>
-									<td><span><b>Tổng tiền - </b> </span></td>
-									<td><b>VNĐ : </b><span class="price"><s:property
-										value="layChuoiTongTienVND()" /></span></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>(<b>USD : </b><span class="price"><s:property
-										value="layChuoiTongTienUSD()" /></span>)
-									</td>
-								</tr>
-								</table>
+								<span><b>Tổng tiền:  </b> </span>
+								
+								<span class="price"><s:property
+										value="layChuoiTongTienVND()" /></span> <b>VNĐ</b>
+										(<span class="price"><s:property
+										value="layChuoiTongTienUSD()" /></span> <b>$</b>)
 								</td>
 						</tr>
+						
 						<tr>
-							<td>&nbsp;</td>
-						</tr>
-						<tr>
-							<td>
-							<table cellspacing="1" cellpadding="2" border="0" width="100%"
-								class="infoBlankBox">
-								<tbody>
-									<tr class="infoBoxContents">
-										<td>
-										<table cellspacing="0" cellpadding="2" border="0" width="100%">
-											<tbody>
-												<tr>
-													<td width="10"></td>
-													<td class="main"><input type="image"
-														src="images/button_update_cart.gif"></td>
+								
 
-													<td><s:url var="clear" action="GioHang_xoaTatCa"></s:url>
-													<s:a href="%{clear}">Xóa tất cả</s:a></td>
+								<!--<td></td>
 
-													<td class="main"><s:url var="continue"
-														action="show_index"></s:url> <s:a href="%{continue}">
-														<img border="0" title=" Continue Shopping "
-															alt="Continue Shopping"
-															src="images/button_continue_shopping.gif">
+								-->
+								
+								<s:url var="continue"
+									action="Index">
+								</s:url> 
+								<s:url id="urlCheckout" action="step2_Information">
+									<s:param name="maGioHangMini">
+										<s:property value="%{top.maGianHang}" />
+									</s:param>
+								</s:url>
+								
+								<td colspan="3" align="center">
+								
+								<input type="image"
+									src="images/button_update_cart.gif">
+								<s:a href="%{continue}">
+									<img border="0" title=" Continue Shopping "
+										alt="Continue Shopping"
+										src="images/button_continue_shopping.gif">
 
-													</s:a></td>
-													<s:url id="urlCheckout" action="step2_Information">
-														<s:param name="maGioHangMini">
-															<s:property value="%{top.maGianHang}" />
-														</s:param>
-													</s:url>
-													<td align="right" class="main"><s:a
-														href="%{urlCheckout}">
-														<img border="0" title=" Checkout " alt="Checkout"
-															src="images/button_checkout.gif">
-													</s:a></td>
-													<td width="10"></td>
-												</tr>
-											</tbody>
-										</table>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							</td>
+								</s:a>	
+								<s:a
+									href="%{urlCheckout}">
+									<img border="0" title=" Checkout " alt="Checkout"
+										src="images/button_checkout.gif">
+								</s:a>
+								
+								</td>
+								<td colspan="2" width="10"></td>
 						</tr>
 					</tbody>
 				</table>

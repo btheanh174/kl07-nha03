@@ -129,6 +129,7 @@
 						<tr class="tr">
 							<s:url action="store" id="store">
 								<s:param name="maGianHang" value="getGianHang().maGianHang"></s:param>
+								<s:param name="maSanPham" value="getSanPham().maSanPham"></s:param>
 							</s:url>
 							<td class="col_1">
 							<div class="No"><s:property value="#status.count" /></div>
