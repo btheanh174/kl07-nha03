@@ -42,8 +42,8 @@
     padding-top: 10px;
 }
 .picture_fullsize img{
-	height: 400px;
-	width: 300px;
+	height: 300px;
+	width: 250px;
 }
 .picture_thumbnail{
 }
@@ -696,3 +696,17 @@
   	div.photo a img           {border:1px solid; padding:1px;}
 
   	div#text a                {font-weight:bold;}
+
+  	
+ #content .module_larger {
+    border-top-style: none;
+    border-top-width: medium;
+    height: 100%;
+    margin-bottom: 8px;
+}
+
+#related .related_products{
+	width: 100%;
+	height: auto;
+	float: left;
+}

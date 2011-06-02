@@ -40,21 +40,30 @@
 			<td class="item_info">Mã sản phẩm</td>
 			<td>: <b> <s:property value="maSanPham" /> </b></td>
 		</tr>
+		
+		<tr>
+			<td class="item_info">Giá bán</td>
+			<td>: <span class="price">14.700.000 Đ </span></td>
+		</tr>
 		<tr>
 			<td class="item_info">Bảo hành</td>
 			<td>:</td>
 		</tr>
 		<tr>
-			<td class="item_info">Giá bán</td>
-			<td>: <span class="price">14.700.000 Đ </span></td>
+			<td class="item_info">Tình trạng</td>
+			<td>:</td>
+		</tr>
+		<tr>
+			<td class="item_info">Xuất xứ</td>
+			<td>:</td>
 		</tr>
 		<tr>
 			<td class="item_info">Số lượng</td>
 			<td>:</td>
 		</tr>
 		<tr>
-			<td class="item_info">Được cập nhật lúc</td>
-			<td>:</td>
+			<td class="item_info">Được cập nhật lúc: </td>
+			<td> <s:property value=""/> </td>
 		</tr>
 	</tbody>
 </table>

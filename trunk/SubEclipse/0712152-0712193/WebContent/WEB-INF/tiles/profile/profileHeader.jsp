@@ -35,7 +35,10 @@
 
 		<s:if test="#session['nhomNguoiDung'] == 2">
 			<li class="right_divider"></li>
-			<li><a href="<s:url action=""/>" class="right_nav2">Cửa hàng</a>
+			<s:url id="store" action="store">
+				<s:param name="maGianHang" value="#session['tk'].gianHang.maGianHang"></s:param>
+			</s:url>
+			<li><a target="_blank" href="${store }" class="right_nav2">Cửa hàng</a>
 			</li>
 		</s:if>
 		<li class="right_divider"></li>
