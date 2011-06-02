@@ -10,7 +10,7 @@
 		<s:form>
 			<table class="shop_table" cellpadding="0" cellspacing="0">
 				<tbody>
-					<tr class="tr text_title">
+					<tr class="text_title">
 						<td class="col_1" align="center"><b></b>
 						</td>
 						<td class="col_2" align="center"><b>Logo</b>
@@ -22,7 +22,8 @@
 					</tr>
 					
 					<s:iterator value="dsGianHang" status="status">
-						<tr class="<s:if test="(#status.count % 2) != 0">tr_odd</s:if> <s:else>tr</s:else>"  >
+					<!--class="<s:if test="(#status.count % 2) != 0">tr_odd</s:if> <s:else>tr</s:else>"-->
+						<tr>
 							<s:url action="store" id="store">
 								<s:param name="maGianHang" value="maGianHang"></s:param>
 							</s:url>

@@ -14,8 +14,12 @@
 			<li><a href="">Sản phẩm</a>
 				<ul>
 				<s:iterator value="dsDanhMuc">
+				<s:url id="danhsach" action="store">
+						<s:param name="maGianHang" value="maGianHang"></s:param>
+						<s:param name="maDanhMuc" value="maDanhMuc"></s:param>
+				</s:url>
 				<li>
-				<a href="#"><s:property value="tenDanhMuc"/></a>
+				<a href="${danhsach }"><s:property value="tenDanhMuc"/></a>
 				</li>
 				</s:iterator>
 				</ul>

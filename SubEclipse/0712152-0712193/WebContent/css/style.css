@@ -731,14 +731,15 @@ padding:10px 0 0 0;
 	float: left;
 	width: 784px;
 }
-#content .inner_copy {border:0;color:#f00;float:left;width:50%!important;margin:-202px 0 0 0;overflow:hidden;line-height:0;padding:0;font-size:12px}
+
+/*#content .inner_copy {border:0;color:#f00;float:left;width:50%!important;margin:-202px 0 0 0;overflow:hidden;line-height:0;padding:0;font-size:12px}
 
 
-/*CSS d? phân trang*/
-/*Credits: Dynamic Drive CSS Library */
-/*URL: http://www.dynamicdrive.com/style/ */
+CSS d? phân trang
+Credits: Dynamic Drive CSS Library 
+URL: http://www.dynamicdrive.com/style/ 
 
-.pagination{
+*/.pagination{
 padding: 2px;
 }
 
@@ -883,6 +884,16 @@ a {
     width: 100%;
 }
 .shop_table .text_title {
+   
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("../images/bg_technical_table_title.gif");
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    font-size: 13px;
     font-weight: bold;
     text-align: center;
 }
@@ -890,13 +901,13 @@ a {
     vertical-align: middle;
 }
 .shop_table .tr {
-    background: url("line_h.gif") repeat-x scroll center bottom transparent;
+    background: url("../images/line_h.gif") repeat-x scroll center bottom transparent;
 }
 .shop_table .tr_odd
 {
-	background: url("line_h.gif") repeat-x scroll center bottom #EEE6E6;
+	background: url("../images/line_h.gif") repeat-x scroll center bottom #EEE6E6;
 }
-.shop_table .col_1, .shop_table .col_2, .shop_table .col_3, .shop_table .col_4 {
+.shop_table .col_1, .shop_table .col_2, .shop_table .col_3, .shop_table .col_4, .shop_table .col_5, .shop_table .col_6, .shop_table .col_7 {
     padding: 10px 10px 11px;
 }
 .shop_table .col_1 {
@@ -904,15 +915,29 @@ a {
 }
 .shop_table .col_2 {
     text-align: center;
-    width: 1%;
+    width: 9%;
 }
 .shop_table .col_3 {
     vertical-align: top;
-    width: 70%;
+    width: 8%;
 }
 .shop_table .col_4 {
     text-align: center;
+    width: 5%;
 }
+.shop_table .col_5 {
+    text-align: center;
+    width: 10%;
+}
+.shop_table .col_6 {
+    text-align: center;
+    width: 50%;
+}
+.shop_table .col_7 {
+    text-align: center;
+    width: 17%;
+}
+
 .shop_table .verified, .shop_table .professional {
     float: right;
     height: 60px;
@@ -932,6 +957,15 @@ a {
 }
 .shop_table .address, .shop_table .count_product {
     line-height: 18px;
+}
+.shop_table .detail{
+	
+}
+.shop_table .detail a{
+	color: #006600;
+}
+.shop_table .detail a:HOVER{
+	color: #E97D13;
 }
 .shop_table .count_product {
     color: #999999;

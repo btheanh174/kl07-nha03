@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="css/stickytooltip.css" />
 <link rel="stylesheet" type="text/css" href="css/xitai.css" />
 
-
+<link rel="stylesheet" type="text/css" href="css/simpletab.css" />
 
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="iecss.css" />
@@ -30,7 +30,7 @@
 <script type="text/javascript" src="js/scriptaculous.js"></script>
 <script type="text/javascript" src="js/fancyzoom.js"></script>
 <!-- -->
-
+<script type="text/javascript" src="js/simpletab.js"></script>
 <sj:head />
 
 </head>

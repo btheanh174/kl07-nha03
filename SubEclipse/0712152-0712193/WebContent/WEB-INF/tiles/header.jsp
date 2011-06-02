@@ -10,7 +10,7 @@
 		<s:hidden name="tieuChi.giaTren" value=""></s:hidden>
 		<div class="top_search">
 		<div class="search_text">
-			<input>
+			
 			<%-- <s:a action="show3_admin_product_advancedsearch">Tìm kiếm nâng cao</s:a> --%>
 		</div>
 			<input type="text" value="<s:property value="tieuChi.tenSanPham"/>" class="search_input" name="tieuChi.tenSanPham" /> 

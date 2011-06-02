@@ -95,12 +95,6 @@
 						</tr>
 						
 						<tr>
-								
-
-								<!--<td></td>
-
-								-->
-								
 								<s:url var="continue"
 									action="Index">
 								</s:url> 
@@ -142,3 +136,5 @@
 	</s:iterator>
 </s:else>
 </div>
+<br>
+<div class="break_module"></div>
