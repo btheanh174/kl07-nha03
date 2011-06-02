@@ -197,11 +197,11 @@ $(function xemthongso(){
 					</div>
 				</div>
 				<div class="product_seller">
-					<b>30</b> gian hàng bán
+					<b><s:property value="dsGianHangSanPham.size()"/></b> gian hàng bán
 				</div>
 				<div class="product_seller">
-					 Lay gia thap nhat trong tat ca cac gian hang 
-					Giá từ: <b>8.300.000 VNĐ</b>
+					 <!-- Lay gia thap nhat trong tat ca cac gian hang --> 
+					Giá: <b><s:property value="giaText"/> VNĐ</b>
 				</div>
 				<div class="product_name">
 					<a title='<s:property value="tenSanPham"/>' href="${productDetail }">
