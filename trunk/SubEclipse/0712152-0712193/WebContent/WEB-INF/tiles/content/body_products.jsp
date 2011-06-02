@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<div id="content">
 
 <div id="category_path">
 	Bạn đang xem: <a href="<s:url action="Index"/>">Trang chủ</a>
@@ -181,3 +182,4 @@
 	Không có sản phẩm nào!
 </s:else>
 
+</div>

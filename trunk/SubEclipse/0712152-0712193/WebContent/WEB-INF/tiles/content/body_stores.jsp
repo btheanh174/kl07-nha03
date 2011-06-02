@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<div id="content">
 <div class="block_title"><span>Danh sách cửa hàng</span></div>
 <div class="break_line"></div>
 <s:if test="dsGianHang.size() > 0">
@@ -114,3 +115,4 @@
 <s:else>
 	<s:label>Không có cửa hàng nào!</s:label>
 </s:else>
+</div>

@@ -1,3 +1,153 @@
+/* Layout lai phan than */
+#content
+{
+	float: left;
+	width: 784;
+}
+.clear{
+	clear: both;
+    display: block;
+    height: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    visibility: hidden;
+    width: 0;
+}
+.clearfix{
+	display:block;
+}
+#content .product_info{
+	clear: both;
+}
+.product_detail{
+	width: 784px;
+}
+.product_detail .fl{
+	float: left;
+	text-align: center;
+	width: 310px;
+}
+.product_detail .fr{
+	float: left;
+	width: 474px;
+}
+.break_module{
+	height: 5px;
+}
+
+.picture_fullsize{
+	padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+.picture_fullsize img{
+	height: 400px;
+	width: 300px;
+}
+.picture_thumbnail{
+}
+.picture_thumbnail img{
+	height: 40px;
+	width: 40px;
+}
+.picture_thumbnail td {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #CCCCCC;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #CCCCCC;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #CCCCCC;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #CCCCCC;
+    border-top-style: solid;
+    border-top-width: 1px;
+    
+    border-left-color: #CCCCCC;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #CCCCCC;
+    border-right-style: solid;
+    border-right-width: 1px;
+    
+    height: 40px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: center;
+}
+.picture_thumbnail td.current {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #E97D13;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: #E97D13;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: #E97D13;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: #E97D13;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+.picture_thumbnail td a {
+    display: block;
+    width: 40px;
+}
+
+.fr .information{
+	float: left;
+	width: 434px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 0;
+    margin-top: 20px;
+    padding: 10px;
+}
+.information .price{
+	font-weight: bold;
+	font-size: 16px;
+	color: #960000;
+}
+/*
+*/
 #pro_list_custom {
 	border: 1px solid #CCCCCC;
 }
@@ -525,3 +675,14 @@
     padding-right: 5px;
     padding-top: 5px;
 }
+
+/* css for fancyzoom */
+	a:link {color: #060;text-decoration: none;}
+	a:visited {color: #060;text-decoration: none;}
+	a:hover {color: #000066; text-decoration: underline;}
+
+	div#photos                {overflow:auto;}
+  	div.photo                 {display:inline; margin:0 20px 0 0;}
+  	div.photo a img           {border:1px solid; padding:1px;}
+
+  	div#text a                {font-weight:bold;}

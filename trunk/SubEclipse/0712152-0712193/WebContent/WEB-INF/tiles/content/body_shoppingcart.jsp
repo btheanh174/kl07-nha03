@@ -11,7 +11,7 @@
 		session.setAttribute("gh", gh);
 	}
 %>
-
+<div id="content">
 <div class="block_title"><span>QUẢN LÝ GIỎ HÀNG</span></div>
 <div class="break_line"></div>
 
@@ -153,4 +153,4 @@
 		</s:if>
 	</s:iterator>
 </s:else>
-
+</div>
