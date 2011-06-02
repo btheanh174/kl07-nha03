@@ -28,9 +28,9 @@
 		rel="" href="${productDetail }"> <img id="block_tip_1"
 		alt="Điện thoại di động Apple iPhone 3GS" src="${hinhAnh }"> </a></div>
 	</div>
-	<div class="product_seller"><b>30</b> gian hàng bán</div>
+	<div class="product_seller"><b> <s:property value="dsGianHangSanPham.size()"/></b> gian hàng bán</div>
 	<div class="product_seller"><!-- Lay gia thap nhat trong tat ca cac gian hang -->
-	Giá từ: <b>8.300.000 VNĐ</b></div>
+	Giá: <b> <s:property value="giaText"/> VNĐ</b></div>
 	<div class="product_name"><a 
 		title='<s:property value="tenSanPham"/>' href="${productDetail }"> <s:property
 		value="tenSanPham" /> </a></div>
