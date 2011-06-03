@@ -8,14 +8,18 @@ import java.util.List;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
+import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
+import model.dao.ThanhVienDAO;
+import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
+import model.pojo.HoaDon;
 import model.pojo.Laptop;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
@@ -315,6 +319,17 @@ public class Testing {
 			System.out.println(g.getGianHang().getTenGianHang() + " - " + g.getGia() + " - " + g.getCapNhat().toString());	
 		}
 		
+		HoaDonDAO hdDao = new HoaDonDAO();
+		ThanhVienDAO tvDao = new ThanhVienDAO();
+		ThanhVien thanhVien  = tvDao.lay(14);
+		List<HoaDon> list = hdDao.layDanhSach(thanhVien);
+		for (HoaDon hoaDon : list) {
+			System.out.println(hoaDon.getNguoiNhan().getTenNguoiNhan());
+			for (ChiTietHoaDon ct : hoaDon.getDsChiTietHoaDon()) {
+				System.out.println("    " + ct.getSanPham().getTenSanPham());
+			}
+		}
+		System.out.println(list.size());
 	}
 	
 	private static void testSanPhamGianHang(){
