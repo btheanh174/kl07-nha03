@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import model.dao.DanhMucDAO;
 import model.dao.GianHangDAO;
 import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
 import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 
 import org.apache.struts2.ServletActionContext;
@@ -29,7 +32,14 @@ import com.opensymphony.xwork2.Preparable;
 
 public class GianHangAction extends ActionSupport implements
 		ModelDriven<GianHang>, Preparable, SessionAware, ServletRequestAware {
-	
+	// Tim nhanh
+	private static final String TIM_NHANH = "search";
+	private String loai;
+	private String ten;
+	private String min;
+	private String max;
+	private ThamSoDAO tsDao = new ThamSoDAO();
+	//
 	private String module;
 	
 	private int maGianHang;
@@ -111,6 +121,15 @@ public class GianHangAction extends ActionSupport implements
 			return "error";
 		}
 		if (module != null) {
+			if(TIM_NHANH.equalsIgnoreCase(module)){
+				System.out.println("Tim kiem san pham don gian");
+				SanPhamTieuChi tieuChi = new SanPhamTieuChi(getTen(), getMax(), getMin(), getLoai());
+				int soSanPhamTrenTrang = tsDao.layGiaTri(1);
+				DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang, soSanPhamTrenTrang);
+				tongSoTrang = duLieuTrang.getTongSoTrang();
+				dsSanPham = duLieuTrang.getDsDuLieu();
+				System.out.println(dsSanPham.size());
+			}
 			return module;
 		}
 		else if(maSanPham > 0){
@@ -266,5 +285,37 @@ public class GianHangAction extends ActionSupport implements
 
 	public void setDsSanPhamCungLoai(List<SanPham> dsSanPhamCungLoai) {
 		this.dsSanPhamCungLoai = dsSanPhamCungLoai;
+	}
+
+	public String getLoai() {
+		return loai;
+	}
+
+	public void setLoai(String loai) {
+		this.loai = loai;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public String getMin() {
+		return min;
+	}
+
+	public void setMin(String min) {
+		this.min = min;
+	}
+
+	public String getMax() {
+		return max;
+	}
+
+	public void setMax(String max) {
+		this.max = max;
 	}
 }

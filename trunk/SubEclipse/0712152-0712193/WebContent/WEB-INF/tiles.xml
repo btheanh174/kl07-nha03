@@ -270,12 +270,6 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_intro.jsp"></put-attribute>
 	</definition>
 
-	<definition name="siteShoppingCart.tiles" extends="siteLayout">
-		<put-attribute name="title" value="Giỏ hàng"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/tiles/all/body_shoppingcart.jsp"></put-attribute>
-	</definition>
-
 	<definition name="sitePolicy.tiles" extends="siteLayout">
 		<put-attribute name="title" value="Chính sách"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_policy.jsp"></put-attribute>
@@ -285,6 +279,12 @@
 		<put-attribute name="title" value="Chi tiết sản phẩm"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_detail.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="siteSearchResults.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Chi tiết sản phẩm"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_searchresults.jsp"></put-attribute>
+	</definition>
+	
 	<!-- Admin Store -->
 
 	<definition name="AdminStore.tiles" extends="adminStoreLayout">
