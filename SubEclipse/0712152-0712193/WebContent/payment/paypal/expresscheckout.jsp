@@ -20,9 +20,12 @@
 	' by the shopping cart page
 	'-------------------------------------------
 	*/
-	session.setAttribute("Payment_Amount","100");
+	
+	String soTienThanhToan = (String)session.getAttribute("soTienThanhToan");
+	System.out.println("soTienThanhToan = " + soTienThanhToan);
+	session.setAttribute("Payment_Amount",soTienThanhToan);
 	String paymentAmount = (String) session.getAttribute("Payment_Amount");
-
+	System.out.println("paymentAmount = " +paymentAmount);
 	/*
 	'------------------------------------
 	' The currencyCodeType and paymentType 

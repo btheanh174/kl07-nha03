@@ -61,48 +61,52 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 
 	public String xulyThongTinHoaDon() {
 		khoiTaoMiniCart();
+		String soTienThanhToan = miniCart.layChuoiTongTienUSD();
 		GianHangDAO ghDao = new GianHangDAO();
 		gianHang = ghDao.lay(miniCart.getMaGianHang());
 		nguoiNhan = (NguoiNhan) session.get("nguoiNhan");
 		session.put("gianHang", gianHang);
+		String test = (String) session.get("soTienThanhToan");
+		System.out.println("test soTienThanhToan = " + test);
 		return SUCCESS;
 	}
 
 	public String xuLyMiniCardDuocThanhToan() {
 		session.put("maGioHangMini", maGioHangMini);
+		khoiTaoMiniCart();
+		String soTienThanhToan = miniCart.layChuoiTongTienUSD();
+		session.put("soTienThanhToan", soTienThanhToan);
 		return SUCCESS;
 	}
 
-	public String xuLyLuuHoaDon()
-	{
+	public String xuLyLuuHoaDon() {
 		khoiTaoMiniCart();
 		session = ActionContext.getContext().getSession();
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
 		ThanhVien tv = tk.getThanhVien();
 		nguoiNhan = (NguoiNhan) session.get("nguoiNhan");
-		gianHang = (GianHang)session.get("gianHang");
-		
+		gianHang = (GianHang) session.get("gianHang");
+
 		TinhTrangHoaDonDAO tthdDao = new TinhTrangHoaDonDAO();
 		TinhTrangHoaDon tthd = tthdDao.lay(4); // Khách hàng đã thanh toán
-		
+
 		NguoiNhanDAO nnDAO = new NguoiNhanDAO();
 		nnDAO.them(nguoiNhan);
 		HoaDon hoaDon = new HoaDon(tv, nguoiNhan, tthd, gianHang);
-		
-		 
+
 		Enumeration<MatHang> dsmh = miniCart.layDsMatHang();
-		while(dsmh.hasMoreElements()){
-			MatHang mh = (MatHang)dsmh.nextElement();
-			ChiTietHoaDon cthd = new ChiTietHoaDon(mh.getSoLuong(), mh.getSanPham().getGia(), 
-									mh.getSanPham());
-			hoaDon.getDsChiTietHoaDon().add(cthd);					
+		while (dsmh.hasMoreElements()) {
+			MatHang mh = (MatHang) dsmh.nextElement();
+			ChiTietHoaDon cthd = new ChiTietHoaDon(mh.getSoLuong(), mh
+					.getSanPham().getGia(), mh.getSanPham());
+			hoaDon.getDsChiTietHoaDon().add(cthd);
 		}
-		
+
 		HoaDonDAO hdDao = new HoaDonDAO();
 		hdDao.them(hoaDon);
-		
-		//Gửi email cho người dùng:
-		try {	
+
+		// Gửi email cho người dùng:
+		try {
 			String to = tv.getEmail();
 			String subject = "Estore - Hóa đơn mua hàng";
 			String body = "Chào " + tv.getHoTen() + "\n";

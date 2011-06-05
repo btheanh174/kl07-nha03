@@ -48,11 +48,11 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
 		if (tk == null) {
-			// return ERROR;
+			 return ERROR;
 		}
-		// GianHang gianHang = tk.getGianHang();
+		GianHang gianHang = tk.getGianHang();
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
-		dsHoaDon = hdDao.layDanhSach();
+		dsHoaDon = hdDao.layDanhSach(gianHang);
 		return SUCCESS;
 	}
 
