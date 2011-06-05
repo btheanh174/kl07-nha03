@@ -32,6 +32,7 @@
 		<h2>Danh mục</h2>
 		<div class="widget-content">
 			<ul>
+				<li><a href="#">Tất cả</a>
 				<s:iterator id="root" value="dsDanhMuc">
 					<s:url id="danhsach" action="store">
 						<s:param name="maGianHang" value="maGianHang"></s:param>
