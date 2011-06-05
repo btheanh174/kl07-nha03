@@ -4,45 +4,53 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
+<
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		$("a.switch_thumb").toggle(function() {
+			$(this).addClass("swap");
+			$("ul.display").fadeOut("fast", function() {
+				$(this).fadeIn("fast").addClass("thumb_view");
+			});
+		}, function() {
+			$(this).removeClass("swap");
+			$("ul.display").fadeOut("fast", function() {
+				$(this).fadeIn("fast").removeClass("thumb_view");
+			});
+		});
+	});
+//-->
+</script>
 
 <div id="main" class="main section">
 	<div class="widget">
 		<h1 class="head">Sản phẩm mới nhất</h1>
 		<div class="breadcrumb clearfix"></div>
+		<a href="#" class="switch_thumb">Switch view</a>
+		<div class="breadcrumb"></div>
 		<!-- Hien thi danh sach san pham -->
-		<ul class="display thumb_view clearfix">
+		<ul class="display">
 
 			<s:iterator value="dsSanPham">
-				<li>
-				<s:url id="chitiet" action="store">
-					<s:param name="maGianHang" value="maGianHang"></s:param>
-					<s:param name="maSanPham" value="maSanPham"></s:param>
-				</s:url>
-					<div style="display: block;" id="maSanPham">
-						<a href="${chitiet }" class="product_thumb product_thumb_"> <img
-							class="danhsach" src="${hinhAnh }"> </a>
-						<div class="content">
-							
-							<h3>
-								<a href="${chitiet }"><s:property value="tenSanPham" /> </a>
-							</h3>
-							
-							
-							<p class="sale_price">
-								<strong><span class="price"><b><s:property
-												value="giaText" /> </b> </span> VNĐ</strong>
-							</p>
-							<%-- <p class="contentp">
-								Thông tin sản phẩm:
-								<s:property value="toShortString()" />
-								...
-							</p> --%>
-							<%-- <div class="b_viewdetails">
-								<a href="${chitiet }">Xem chi tiết »</a>
-							</div> --%>
-						</div>
-					</div>
-				</li>
+				<li><s:url id="chitiet" action="store">
+						<s:param name="maGianHang" value="maGianHang"></s:param>
+						<s:param name="maSanPham" value="maSanPham"></s:param>
+					</s:url> <!-- <div style="display: block;" id="maSanPham"> --> <a
+					href="${chitiet }" class="product_thumb"> <img
+						src="${hinhAnh }"> </a>
+					<div class="content">
+						<h3>
+							<a href="${chitiet }"><s:property value="tenSanPham" /> </a>
+						</h3>
+						<p class="contentp">
+							<s:property value="toShortString()"/>
+						</p>
+						<p class="sale_price">
+							<strong><span class="price"><b><s:property
+											value="giaText" /> </b> </span> VNĐ</strong>
+						</p>
+					</div> <!-- </div> --></li>
 			</s:iterator>
 
 		</ul>
