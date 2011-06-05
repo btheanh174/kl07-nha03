@@ -37,7 +37,6 @@
 			<result name="success" type="tiles">
 				ReviewPayment.tiles
 			</result>
-
 		</action>
 
 		<action name="confirmPayment">

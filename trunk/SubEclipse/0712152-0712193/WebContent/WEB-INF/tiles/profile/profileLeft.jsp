@@ -10,7 +10,7 @@
 			cá nhân</a></li>
 	<li class="even"><a href="">Nạp tiền vào tài khoản</a></li>
 	<li class="even"><a href="<s:url action="show_myprofile_message"/>">Tin nhắn</a></li>
-	<li class="even"><a href="<s:url action="show_myprofile_bills"/>">Hóa đơn giao dịch</a></li>
+	<li class="even"><a href="<s:url action="Profile_xemHoaDon"/>">Hóa đơn giao dịch</a></li>
 </ul>
 
 <s:if test="#session['nhomNguoiDung'] == 2">

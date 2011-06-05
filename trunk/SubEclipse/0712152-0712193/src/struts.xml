@@ -97,6 +97,12 @@
 			</result>
 		</action>
 
+		<action name="Profile_xemHoaDon" class="action.user.HoaDonAction"
+			method="layDanhSachHoaDon">
+			<result name="success" type="tiles">Profile_Bills.tiles</result>
+		</action>
+		
+		
 		<action name="Profile_test" class="action.user.ProfileAction"
 			method="test">
 
