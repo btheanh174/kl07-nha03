@@ -12,6 +12,7 @@
 <title><tiles:getAsString name="title" /></title>
 
 <link href="all/css/style.css" rel="stylesheet" type="text/css" />
+
 <sj:head/>
 
 </head>
