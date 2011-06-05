@@ -3,9 +3,17 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <script type="text/javascript">
-$(function xemthongso(){
-	$('#detailtabs').tabs('select',1);
-});
+$(document).ready(function(){
+	
+	var tabs = $("#detailtabs").tabs();
+	$('.anchorclass').click(function(){
+		$tabs.tabs('select',2);
+		return false;
+	}
+	);
+	
+}
+);
 </script>
 <sj:head />
 
@@ -76,8 +84,8 @@ $(function xemthongso(){
 			<li>Trọng lượng: <b> <s:property value="trongLuong"/> </b></li>
 			</ul>
 		</s:else>
-		<div style="text-align: right"> <a href="#" 
-		onclick="$('#detailtabs').tabs('select',1);">Xem chi tiết</a> </div>
+		<div style="text-align: right"> <a href="#" class="anchorclass" 
+		>Xem chi tiết</a> </div>
 		<div class="break_module"></div>
 		<div class="break_line"></div>
 		</div>

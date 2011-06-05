@@ -313,8 +313,16 @@ public class Testing {
 		System.out.println(tv.getMaTaiKhoan());
 		System.out.println(tk.getGianHang().getTenGianHang());*/
 		SanPhamDAO spDao = new SanPhamDAO();
+		DanhMuc danhMuc = new DanhMucDAO().lay(3);
 		
-		List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
+		List<SanPham> list  = spDao.layTatCa(danhMuc);
+		System.out.println(list.size());
+		
+		for (SanPham sanPham : list) {
+			System.out.println(sanPham.getTenSanPham());
+		}
+		
+		/*List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
 		for (SanPhamGH g : ghsp) {
 			System.out.println(g.getGianHang().getTenGianHang() + " - " + g.getGia() + " - " + g.getCapNhat().toString());	
 		}
@@ -329,7 +337,7 @@ public class Testing {
 				System.out.println("    " + ct.getSanPham().getTenSanPham());
 			}
 		}
-		System.out.println(list.size());
+		System.out.println(list.size());*/
 	}
 	
 	private static void testSanPhamGianHang(){
