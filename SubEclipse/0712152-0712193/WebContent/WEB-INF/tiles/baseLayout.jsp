@@ -19,6 +19,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/simpletab.css" />
 
+
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="iecss.css" />
 <![endif]-->
@@ -31,6 +32,28 @@
 <script type="text/javascript" src="js/fancyzoom.js"></script>
 <!-- -->
 <script type="text/javascript" src="js/simpletab.js"></script>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$("a.switch_thumb").toggle(function() {
+		$(this).addClass("swap");
+		$("ul.display").fadeOut("fast", function() {
+			$(this).fadeIn("fast").addClass("thumb_view");
+			$(this).removeClass("display");
+		});
+	}, function() {
+		$(this).removeClass("swap");
+		$("ul.thumb_view").fadeOut("fast", function() {
+			$(this).fadeIn("fast").addClass("display");
+			$(this).removeClass("thumb_view");
+		});
+	});
+});
+
+//-->
+</script>
+
 <sj:head />
 
 </head>
