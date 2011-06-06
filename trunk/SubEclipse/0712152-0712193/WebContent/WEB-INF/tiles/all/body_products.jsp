@@ -4,7 +4,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
-<
+
 <script type="text/javascript">
 <!--
 	$(document).ready(function() {
@@ -25,10 +25,10 @@
 
 <div id="main" class="main section">
 	<div class="widget">
-		<h1 class="head">Sản phẩm mới nhất</h1>
-		<div class="breadcrumb clearfix"></div>
-		<a href="#" class="switch_thumb">Switch view</a>
+		<div class="title_left"><h1 class="head">Sản phẩm mới nhất</h1></div>
+		<div class="title_right"><a href="#" class="switch_thumb">Cách hiển thị</a></div>
 		<div class="breadcrumb"></div>
+		
 		<!-- Hien thi danh sach san pham -->
 		<ul class="display">
 

@@ -171,6 +171,14 @@ h1.head {
 	text-align: left;
 }
 /* content ---------------------------- */
+.title_left{
+	float: left;
+	width: 530px;
+}
+.title_right{
+	float: right;
+}
+
 p {
 	padding: 0px 0 10px 0;
 	line-height: 18px;
@@ -384,42 +392,6 @@ product listing view
 	line-height: normal;
 }
 
-#content .thumb_view li {
-	float: left;
-	padding: 0;
-	margin: 0 15px 0px 0;
-	_margin: 0 20px 0 0;
-}
-
-#content .thumb_view li {
-	float: left;
-	height: 300px;
-	text-align: center;
-	width: 210px;
-}
-
-#content .thumb_view li h3 {
-	display: inline;
-	text-align: center;
-	font: 12px Arial, Helvetica, sans-serif;
-	font-weight: bold;
-}
-
-#content .thumb_view li .content {
-	width: auto;
-	float: none;
-}
-
-#content .thumb_view li .content p.contentp {
-	display: none;
-}
-
-#content .thumb_view li a.product_thumb {
-	height: 180px;
-	margin-bottom: 5px;
-	overflow: hidden;
-	display: block;
-}
 
 a.product_thumb img {
 	width: 200px;
@@ -458,9 +430,47 @@ margin-bottom
 	position: relative;
 }
 
-/* #content .thumb_view li .content div.b_viewdetails { 
-	
-} */
+/*
+Thumbnail view
+*/
+
+#content .thumb_view li {
+	float: left;
+	padding: 0;
+	margin: 0 15px 0px 0;
+	_margin: 0 20px 0 0;
+}
+
+#content .thumb_view li {
+	float: left;
+	height: 300px;
+	text-align: center;
+	width: 210px;
+}
+
+#content .thumb_view li h3 {
+	display: inline;
+	text-align: center;
+	font: 12px Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#content .thumb_view li .content {
+	width: auto;
+	float: none;
+}
+
+#content .thumb_view li .content p.contentp {
+	display: none;
+}
+
+#content .thumb_view li a.product_thumb {
+	height: 180px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	display: block;
+}
+
 #content .thumb_view li div.b_viewdetails {
 	width: auto;
 	float: none;
@@ -486,6 +496,7 @@ margin-bottom
 	font-weight: bold;
 }
 
+
 a.switch_thumb {
 	width: 122px;
 	height: 26px;
@@ -502,17 +513,6 @@ a.switch_thumb {
 	overflow: hidden;
 }
 
-#content .display li .b_viewdetails a {
-	display: block;
-	float: left;
-	padding: 4px 8px 0px 8px;
-	overflow: hidden;
-	line-height: 20px;
-}
-
-#content .display li .b_viewdetails a {
-	padding-top: 3px;
-}
 /* product details --------------------- */
 .price {
 	font-size: 15px;
