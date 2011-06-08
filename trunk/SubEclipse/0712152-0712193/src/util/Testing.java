@@ -119,16 +119,17 @@ public class Testing {
 		
 		*/
 		
-		/*TaiKhoanDAO tkDao = new TaiKhoanDAO();
-		TaiKhoan tk = new TaiKhoan();
+		TaiKhoanDAO tkDao = new TaiKhoanDAO();
+		TaiKhoan tk = tkDao.lay(14);
+		/*
 		tk.setTenTruyCap("llh");
 		tk.setSalt("llh");
 		tk.setMatKhau("123456");
 		tk.setNgayKichHoat(new Date());
 		NhomNguoiDung nnd = new NhomNguoiDungDAO().lay(1);
-		tk.setNhomNguoiDung(nnd);
+		tk.setNhomNguoiDung(nnd);*/
 		
-		ThanhVien tv = new ThanhVien();
+		ThanhVien tv = tk.getThanhVien();
 		tv.setHoTen("Le Long Ho");
 		tv.setDiaChi("TN");
 		tv.setDienThoai("123456789");
@@ -137,8 +138,8 @@ public class Testing {
 		tk.setThanhVien(tv);
 		tv.setTaiKhoan(tk);
 		
-		tkDao.them(tk);
-	*/
+		tkDao.capNhat(tk);
+		System.out.println("Cap nhat xong");
 		
 /*		String hashed = HashUtil.generateHash("123457");
 		System.out.println(hashed);
@@ -313,14 +314,6 @@ public class Testing {
 		System.out.println(tv.getMaTaiKhoan());
 		System.out.println(tk.getGianHang().getTenGianHang());*/
 		SanPhamDAO spDao = new SanPhamDAO();
-		DanhMuc danhMuc = new DanhMucDAO().lay(3);
-		
-		List<SanPham> list  = spDao.layTatCa(danhMuc);
-		System.out.println(list.size());
-		
-		for (SanPham sanPham : list) {
-			System.out.println(sanPham.getTenSanPham());
-		}
 		
 		/*List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
 		for (SanPhamGH g : ghsp) {

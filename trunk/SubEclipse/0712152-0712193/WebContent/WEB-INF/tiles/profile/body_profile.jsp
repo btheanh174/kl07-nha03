@@ -22,8 +22,9 @@
 					value="%{#session['tk'].thanhVien.hoTen}" />
 				<s:textfield label="Email" name="email"
 					value="%{#session['tk'].thanhVien.email}" />
-				<sj:datepicker showAnim="slideDown" displayFormat="dd/mm/yy"
-					label="Ngày sinh" value="%{#session['tk'].ngaySinh}"></sj:datepicker>
+				<sj:datepicker name="ns" showAnim="slideDown" displayFormat="dd/mm/yy"
+					label="Ngày sinh" value="%{#session['tk'].thanhVien.ngaySinh}"></sj:datepicker>
+				
 				<s:textfield label="Địa chỉ" name="diaChi"
 					value="%{#session['tk'].thanhVien.diaChi}" />
 
@@ -38,11 +39,11 @@
 					listValue="tenTinhThanhPho"
 					value="%{#session['tk'].thanhVien.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
 
-				<sj:select name="gioiTinh" list="{'Nam', 'Nữ'}" label="Giới tính"
-					autocomplete="true"></sj:select>
+				<s:select list="{'Nam', 'Nữ'}" label="Giới tính" name="gioiTinh"></s:select>
 
 				<!--<jcaptcha:image height="50" width="300" label="Mã an toàn" />
-				--><s:submit value="Cập nhật"></s:submit>
+				-->
+				<s:submit value="Cập nhật"></s:submit>
 
 			</s:form>
 		</div>

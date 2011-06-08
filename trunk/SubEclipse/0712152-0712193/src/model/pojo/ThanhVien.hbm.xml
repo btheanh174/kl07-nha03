@@ -29,7 +29,9 @@
         <property name="ngaySinh" type="java.util.Date">
             <column name="NGAY_SINH" />
         </property>
-        
+        <property name="gioiTinh" type="java.lang.String">
+            <column name="GIOI_TINH" />
+        </property>
         <property name="hinh" type="java.lang.String">
         	<column name="HINH"></column>
         </property>

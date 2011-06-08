@@ -1,6 +1,7 @@
 package action.user;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.Map;
 
 import model.dao.TaiKhoanDAO;
@@ -33,6 +34,7 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	private TaiKhoanDAO tkDao = new TaiKhoanDAO();
 	private ThanhVienDAO tvDao = new ThanhVienDAO();
 	private int maTTP;
+	private String ns;
 	private TinhThanhPhoDAO ttpDao = new TinhThanhPhoDAO();
 
 	private String matKhauCu;
@@ -107,10 +109,25 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	public String capNhatThongTin() {
 		System.out.println("Cap nhat thong tin");
 		TinhThanhPho ttp = ttpDao.lay(getMaTTP());
-		getThanhVien().setTinhThanhPho(ttp);
+		Date birthday = new Date(getNs());
+		System.out.println(birthday);
 		taiKhoan = (TaiKhoan)sessionMap.get("tk");
-		taiKhoan.setThanhVien(getThanhVien());
-		getThanhVien().setTaiKhoan(taiKhoan);
+		
+		ThanhVien tv = taiKhoan.getThanhVien();
+		
+		tv.setHoTen(thanhVien.getHoTen());
+		tv.setDiaChi(thanhVien.getDiaChi());
+		tv.setDienThoai(thanhVien.getDienThoai());
+		tv.setEmail(thanhVien.getEmail());
+		tv.setHinh(thanhVien.getHinh());
+		tv.setNgaySinh(birthday);
+		tv.setTinhThanhPho(ttp);
+		tv.setWebsite(thanhVien.getWebsite());
+		tv.setGioiTinh(thanhVien.getGioiTinh());
+		
+		taiKhoan.setThanhVien(tv);
+		tv.setTaiKhoan(taiKhoan);
+		
 		tkDao.capNhat(taiKhoan);
 		
 		return SUCCESS;
@@ -202,5 +219,12 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	public void setMaTTP(int maTTP) {
 		this.maTTP = maTTP;
 	}
-	
+
+	public String getNs() {
+		return ns;
+	}
+
+	public void setNs(String ns) {
+		this.ns = ns;
+	}
 }

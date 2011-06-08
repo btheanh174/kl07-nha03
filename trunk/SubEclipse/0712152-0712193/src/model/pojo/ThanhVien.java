@@ -11,6 +11,7 @@ public class ThanhVien {
 	private String website;
 	private String email;
 	private Date ngaySinh;
+	private String gioiTinh;
 	private String hinh;
 	private TaiKhoan taiKhoan;
 	private TinhThanhPho tinhThanhPho;
@@ -24,7 +25,7 @@ public class ThanhVien {
 	}
 
 	public ThanhVien(String hoTen, String dienThoai, String diaChi,
-			String email, String website ,Date ngaySinh, TaiKhoan taiKhoan,
+			String email, String website ,Date ngaySinh, String gioiTinh, TaiKhoan taiKhoan,
 			TinhThanhPho tinhThanhPho, List<TinNhan> dsTinNhan,
 			List<NguoiNhan> dsNguoiNhan, List<TinRaoVat> dsTinRaoVat,
 			List<HoaDon> dsHoaDon) {
@@ -35,6 +36,7 @@ public class ThanhVien {
 		this.website = website;
 		this.email = email;
 		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
 		this.taiKhoan = taiKhoan;
 		this.tinhThanhPho = tinhThanhPho;
 		this.dsTinNhan = dsTinNhan;
@@ -44,6 +46,7 @@ public class ThanhVien {
 	}
 
 	public ThanhVien(ThanhVien thanhVien) {
+		this.maTaiKhoan = thanhVien.maTaiKhoan;
 		this.taiKhoan = thanhVien.taiKhoan;
 		this.hoTen = thanhVien.hoTen;
 		this.dienThoai = thanhVien.dienThoai;
@@ -56,6 +59,7 @@ public class ThanhVien {
 		this.dsNguoiNhan = thanhVien.dsNguoiNhan;
 		this.dsTinRaoVat = thanhVien.dsTinRaoVat;
 		this.dsHoaDon = thanhVien.dsHoaDon;
+		this.gioiTinh = thanhVien.gioiTinh;
 	}
 
 	public int getMaTaiKhoan() {
@@ -168,5 +172,13 @@ public class ThanhVien {
 
 	public void setHinh(String hinh) {
 		this.hinh = hinh;
+	}
+
+	public String getGioiTinh() {
+		return gioiTinh;
+	}
+
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 }
