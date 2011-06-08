@@ -63,7 +63,7 @@
 		</tr>
 		<tr>
 			<td class="item_info">Được cập nhật lúc: </td>
-			<td> <s:property value=""/> </td>
+			<td> <s:property value="capNhat"/> </td>
 		</tr>
 	</tbody>
 </table>

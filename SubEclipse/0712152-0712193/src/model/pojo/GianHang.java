@@ -13,6 +13,8 @@ public class GianHang {
 	private String fax;
 	private String yahoo;
 	private String thongTin;
+	private String chinhSach;
+	private String gioiThieu;
 	private String banner;
 	private String logo;
 	private TaiKhoan taiKhoan;
@@ -28,7 +30,7 @@ public class GianHang {
 	}
 
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
-			String fax, String thongTin, String banner, String logo,
+			String fax, String thongTin, String chinhSach, String gioiThieu, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
 			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon) {
 		super();
@@ -37,6 +39,8 @@ public class GianHang {
 		this.dienThoai = dienThoai;
 		this.fax = fax;
 		this.thongTin = thongTin;
+		this.chinhSach = chinhSach;
+		this.gioiThieu = gioiThieu;
 		this.banner = banner;
 		this.logo = logo;
 		this.taiKhoan = taiKhoan;
@@ -157,5 +161,20 @@ public class GianHang {
 	public void setDsHoaDon(List<HoaDon> dsHoaDon) {
 		this.dsHoaDon = dsHoaDon;
 	}
-	
+
+	public String getChinhSach() {
+		return chinhSach;
+	}
+
+	public void setChinhSach(String chinhSach) {
+		this.chinhSach = chinhSach;
+	}
+
+	public String getGioiThieu() {
+		return gioiThieu;
+	}
+
+	public void setGioiThieu(String gioiThieu) {
+		this.gioiThieu = gioiThieu;
+	}
 }

@@ -30,10 +30,19 @@
 		<property name="thongTin" type="java.lang.String">
 			<column name="THONG_TIN"></column>
 		</property>
+		
+		<property name="chinhSach" type="java.lang.String">
+			<column name="CHINH_SACH"></column>
+		</property>
+		
+		<property name="gioiThieu" type="java.lang.String">
+			<column name="GIOI_THIEU"></column>
+		</property>
 
 		<property name="banner" type="java.lang.String">
 			<column name="BANNER"></column>
 		</property>
+		
 		<property name="logo" type="java.lang.String">
 			<column name="LOGO"></column>
 		</property>
