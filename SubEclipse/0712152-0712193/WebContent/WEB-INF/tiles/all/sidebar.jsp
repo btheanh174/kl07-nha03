@@ -85,7 +85,14 @@
 								<td><b>Điện thoại:</b></td>
 								<td><s:property value="dienThoai" /></td>
 							</tr>
-
+							<tr>
+								<td><b>Lượt truy cập:</b></td>
+								<td><s:property value="" /></td>
+							</tr>
+							<tr>
+								<td><b>Tham gia:</b></td>
+								<td><s:property value="ngayThamGia" /></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

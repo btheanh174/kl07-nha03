@@ -46,6 +46,11 @@
 		<property name="logo" type="java.lang.String">
 			<column name="LOGO"></column>
 		</property>
+		
+		<property name="ngayThamGia" type="java.util.Date">
+			<column name="NGAY_THAM_GIA" />
+		</property>
+		
 		<!-- Quan hệ 0..1 -> 1 với bảng tài khoản -->
 		<many-to-one name="taiKhoan" class="model.pojo.TaiKhoan"
 			fetch="join" unique="true" cascade="all" not-null="
