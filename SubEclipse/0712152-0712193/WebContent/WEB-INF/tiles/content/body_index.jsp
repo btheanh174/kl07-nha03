@@ -3,27 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <link rel="stylesheet" type="text/css" href="css/switchdisplay.css" />
 
-<script type="text/javascript">
-<!--
-$(document).ready(function() {
-	$("a.switch_thumb").toggle(function() {
-		$(this).addClass("swap");
-		$("ul.display").fadeOut("fast", function() {
-			$(this).fadeIn("fast").addClass("thumb_view");
-			$(this).removeClass("display");
-		});
-	}, function() {
-		$(this).removeClass("swap");
-		$("ul.thumb_view").fadeOut("fast", function() {
-			$(this).fadeIn("fast").addClass("display");
-			$(this).removeClass("thumb_view");
-		});
-	});
-});
-
-//-->
-</script>
-
 <%-- 
 	<s:a action="show3_admin_product_search">Tìm nhanh</s:a><br>
 	
@@ -34,6 +13,7 @@ $(document).ready(function() {
 	<s:a href="SanPham_timKiem.action?loaiSanPham=laptop">Tìm kiếm laptop
 	</s:a> --%>
 
+<div id="content">
 <div class="block_title">
 	<span>Sản phẩm mới nhất</span>
 	<div style="float: right;">
@@ -42,12 +22,13 @@ $(document).ready(function() {
 </div>
 <div class="break_line"></div>
 
-<ul class="thumb_view">
-	<s:iterator value="dsLaptop" status="stat1">
+<ul class="display">
+	<s:iterator value="dsLaptop" status="statusSanPham">
 
 		<s:url action="SanPham_chiTiet" var="productDetail">
 			<s:param name="maSanPham" value="maSanPham"></s:param>
 		</s:url>
+
 
 		<!-- Hien thi -->
 		<div class="product_box">
@@ -82,9 +63,9 @@ $(document).ready(function() {
 	</s:iterator>
 </ul>
 
-<ul class="thumb_view">
-<s:iterator value="dsDienThoai" status="stat1">
-	
+<ul class="display">
+	<s:iterator value="dsDienThoai" status="stat1">
+
 		<s:url action="SanPham_chiTiet" var="productDetail">
 			<s:param name="maSanPham" value="maSanPham"></s:param>
 		</s:url>
@@ -118,7 +99,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
-</s:iterator>
+	</s:iterator>
 </ul>
 
 <div class="spacer"></div>
@@ -127,3 +108,5 @@ $(document).ready(function() {
 </div>
 <div class="break_line"></div>
 <div class="square_item_block"></div> --%>
+
+</div>

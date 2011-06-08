@@ -324,4 +324,35 @@
 	</definition>
 	
 	
+	
+	<!-- Help -->
+	<definition name="helpFAQ.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Các câu hỏi thường gặp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_faq.jsp" />
+	</definition>
+	<definition name="helpOrder.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn đặt hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_order.jsp" />
+	</definition>
+	
+	<definition name="helpPayment.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn thanh toán" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_payment.jsp" />
+	</definition>
+	
+	<definition name="helpRegister.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn đăng ký" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_register.jsp" />
+	</definition>
+	
+	<definition name="helpCustomer.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Các quy định đối với người mua" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_customer.jsp" />
+	</definition>
+	<!--  -->
 </tiles-definitions>
