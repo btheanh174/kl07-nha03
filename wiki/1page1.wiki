@@ -1,0 +1,32 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Các chức năng cần làm tiếp theo
+
+
+= Details =
+
+- Nạp tiền vào tài khoản
+- Cần làm rõ: sản phẩm của gian hàng và danh mục gian hàng. Đối với admin của gian hàng(tức là người chủ gian hàng)
+có 2 chức năng: quản lý nhóm danh mục và quản lý danh mục sản phẩm.
+
+*Đối với gian hàng: 
+=(các thứ mới làm đc)
+	- Mở gian hàng
+	- Quản trị nội dung gian hàng: 
+		+ Tạo/ thay đổi logo
+		+ Tạo/ thay đổi bannner quảng cáo
+		+ Tạo/ thay đổi tiêu đề cho gian hàng
+	- Xem thông tin đơn đặt hàng
+= (Các chức năng sẽ làm tiếp theo:)
+	- Nạp tiền vào tài khoản
+	- Giới thiệu trang chủ
+	- Cập nhật giá sản phẩm và sản phẩm quá hạn
+	- Thống kê danh sách sản phẩm
+	- Thống kê số lượt truy cập và doanh thu bán hàng.
+	- Cài đặt cách thể hiện sản phẩm trên trang chủ gian hàng
+	- Tạo sửa danh mục tin tức cho doanh nghiệp.
+	- Tạo sửa chính sách bán hàng của gian hàng.
+	- Tạo sửa bản đồ cho gian hàng.
+	- Gửi nhận tin nhắn
