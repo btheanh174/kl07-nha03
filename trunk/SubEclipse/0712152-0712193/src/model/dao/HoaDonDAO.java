@@ -84,6 +84,7 @@ public class HoaDonDAO extends AbstractDAO{
 			.list();
 			for (HoaDon hoaDon : kq) {
 				Hibernate.initialize(hoaDon);
+				Hibernate.initialize(hoaDon.getGianHang());
 				Hibernate.initialize(hoaDon.getNguoiNhan());
 				Hibernate.initialize(hoaDon.getThanhVien());
 				Hibernate.initialize(hoaDon.getTinhTrang());
