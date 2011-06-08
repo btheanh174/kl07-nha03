@@ -3,5 +3,7 @@
 	
 	<%@ taglib prefix="s" uri="/struts-tags" %>
 <div id="main" class="main section">
-	Chính sách của công ty.
+	<s:if test="chinhSach != null">
+		<s:include value="policy_01.html"></s:include>
+	</s:if>
 </div>

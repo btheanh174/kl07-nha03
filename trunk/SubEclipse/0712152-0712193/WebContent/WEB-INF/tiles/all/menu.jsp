@@ -44,12 +44,12 @@
 			
 		</ul>
 		<div class="searchform">
-			<form method="get" id="searchform" action="/search">
+			<!-- <form method="get" id="searchform" action="/search">
 				<input type="text" value="Nhập chuỗi tìm kiếm ở đây" name="q" id="s"
 					class="s"> <input type="image"
 					src="all/images/b_search.png" class="search_btn"
 					alt="Submit button">
-			</form>
+			</form> -->
 		</div>
 	</div>
 </div>
