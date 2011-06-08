@@ -1,8 +1,8 @@
 package model.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 public class GianHang {
 	
@@ -25,6 +25,8 @@ public class GianHang {
 	
 	private List<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
 	
+	private Date ngayThamGia;
+	
 	public GianHang() {
 	
 	}
@@ -32,7 +34,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String chinhSach, String gioiThieu, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon) {
+			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon, Date ngayThamGia) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -48,6 +50,7 @@ public class GianHang {
 		this.dsDanhMuc = dsDanhMuc;
 		this.dsGianHangSanPham = dsGianHangSanPham;
 		this.dsHoaDon = dsHoaDon;
+		this.ngayThamGia = ngayThamGia;
 	}
 
 	public int getMaGianHang() {
@@ -176,5 +179,13 @@ public class GianHang {
 
 	public void setGioiThieu(String gioiThieu) {
 		this.gioiThieu = gioiThieu;
+	}
+
+	public Date getNgayThamGia() {
+		return ngayThamGia;
+	}
+
+	public void setNgayThamGia(Date ngayThamGia) {
+		this.ngayThamGia = ngayThamGia;
 	}
 }

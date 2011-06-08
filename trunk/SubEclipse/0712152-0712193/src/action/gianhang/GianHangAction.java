@@ -71,6 +71,7 @@ public class GianHangAction extends ActionSupport implements
 		tk = (TaiKhoan) session.get("tk");
 		if (tk != null) {
 			gianHang = tk.getGianHang();
+			System.out.println("Ngay tham gia: " + gianHang.getNgayThamGia());
 		}
 		return SUCCESS;
 	}
