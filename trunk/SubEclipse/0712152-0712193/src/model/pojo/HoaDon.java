@@ -3,7 +3,7 @@ package model.pojo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import util.CurrencyConverter;
 public class HoaDon {
 
 	private int maHoaDon;
@@ -14,12 +14,12 @@ public class HoaDon {
 	private NguoiNhan nguoiNhan;
 	private TinhTrangHoaDon tinhTrang;
 	private List<ChiTietHoaDon> dsChiTietHoaDon = new ArrayList<ChiTietHoaDon>();
-	
+
 	private GianHang gianHang;
-	
+
 	public HoaDon() {
 	}
-	
+
 	public HoaDon(ThanhVien thanhVien, NguoiNhan nguoiNhan,
 			TinhTrangHoaDon tinhTrang, GianHang gianHang) {
 		super();
@@ -41,6 +41,19 @@ public class HoaDon {
 		this.tinhTrang = tinhTrang;
 		this.dsChiTietHoaDon = dsChiTietHoaDon;
 		this.gianHang = gianHang;
+	}
+
+	public float tongTienVND() {
+		float tong = 0;
+		for (int i = 0; i < dsChiTietHoaDon.size(); i++) {
+			tong += dsChiTietHoaDon.get(i).getDonGia()
+					* dsChiTietHoaDon.get(i).getSoLuong();
+		}
+		return tong;
+	}
+
+	public float tongTienUSD() {
+		return CurrencyConverter.convertVNDtoUSD(tongTienVND());
 	}
 
 	public int getMaHoaDon() {
@@ -74,7 +87,6 @@ public class HoaDon {
 	public void setNguoiNhan(NguoiNhan nguoiNhan) {
 		this.nguoiNhan = nguoiNhan;
 	}
-
 
 	public TinhTrangHoaDon getTinhTrang() {
 		return tinhTrang;

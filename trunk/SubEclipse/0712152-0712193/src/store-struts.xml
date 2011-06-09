@@ -5,12 +5,50 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="store"
-		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default" namespace="/store">
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default"
+		>
 		<!-- global result -->
 		<global-results>
 			<result name="error">/global/error.jsp</result>
 		</global-results>
 		<!-- end global result -->
+
 		
+
+
+		<action name="AdminStore_xemHoaDon" class="action.gianhang.admin.HoaDonAction"
+			method="layDanhSachHoaDon">
+			<result name="success" type="tiles">AdminStore_Bills.tiles</result>
+		</action>
+
+		<action name="AdminStore_chiTietHoaDon" class="action.gianhang.admin.HoaDonAction"
+			method="xemChiTietHoaDon">
+			<result name="success" type="tiles">AdminStore_DetailBill.tiles
+			</result>
+		</action>
+
+		<action name="AdminStore_batDauGiaoHang" class="action.gianhang.admin.HoaDonAction"
+			method="xacNhanBatDauGiaoHang">
+			<result name="success" type="redirect">AdminStore_xemHoaDon</result>
+		</action>
+
+		<action name="AdminStore_xemDsSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="layDanhSachSanPhamTheoGianHang">
+			<result name="success" type="tiles">AdminStore_ViewProducts.tiles</result>
+		</action>
+		
+		<action name="AdminStore_themSanPham">
+			<result name="success" type="tiles">AdminStore_AddProduct.tiles</result>
+		</action>
+		
+		<action name="echo"  class="action.gianhang.admin.SanPhamAction"
+			method="layDanhSachSanPhamTheoDanhMuc" >
+			<result name="success">/WEB-INF/tiles/all/admin/product/sub_listProducts.jsp</result>
+		</action>
+
+		<!-- end sub site -->
+
+
+
 	</package>
 </struts>
