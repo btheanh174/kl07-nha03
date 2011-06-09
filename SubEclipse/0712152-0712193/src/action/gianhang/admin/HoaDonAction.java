@@ -40,7 +40,7 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 
 	public String xemChiTietHoaDon() {
 		hoaDon = hdDao.lay(maHoaDon);
-
+		session.put("hoaDon", hoaDon);
 		// Test send email
 		return SUCCESS;
 		
@@ -50,7 +50,7 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 	{
 		hoaDon = (HoaDon)session.get("hoaDon");
 		TinhTrangHoaDonDAO tthdDao = new TinhTrangHoaDonDAO();
-		TinhTrangHoaDon tthd = tthdDao.lay(5);
+		TinhTrangHoaDon tthd = tthdDao.lay(5); 
 		hoaDon.setTinhTrang(tthd);
 		hdDao.capNhat(hoaDon);
 		return SUCCESS;

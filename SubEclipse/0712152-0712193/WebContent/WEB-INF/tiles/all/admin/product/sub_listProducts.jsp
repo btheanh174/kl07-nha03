@@ -17,5 +17,4 @@ emptyOption="true" size="20"
 allowSelectAll="false"
 allowMoveDown="false"
 allowMoveUp="false"
-tooltip ="true" 
-onchange="chonSanPham()"/>
+tooltip ="true" />

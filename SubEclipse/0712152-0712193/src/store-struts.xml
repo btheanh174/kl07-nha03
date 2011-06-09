@@ -5,15 +5,14 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="store"
-		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default"
-		>
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
 		<!-- global result -->
 		<global-results>
 			<result name="error">/global/error.jsp</result>
 		</global-results>
 		<!-- end global result -->
 
-		
+
 
 
 		<action name="AdminStore_xemHoaDon" class="action.gianhang.admin.HoaDonAction"
@@ -34,16 +33,32 @@
 
 		<action name="AdminStore_xemDsSanPham" class="action.gianhang.admin.SanPhamAction"
 			method="layDanhSachSanPhamTheoGianHang">
-			<result name="success" type="tiles">AdminStore_ViewProducts.tiles</result>
+			<result name="success" type="tiles">AdminStore_ViewProducts.tiles
+			</result>
+		</action>
+
+		<action name="AdminStore_Step1_themSanPham">
+			<result name="success" type="tiles">AdminStore_Add_ChoiceProduct.tiles
+			</result>
+		</action>
+
+		<action name="AdminStore_Step2_themSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="themChiTietSanPhamDuocChon">
+			<result name="success" type="tiles">AdminStore_Add_ProductInformation.tiles
+			</result>
 		</action>
 		
-		<action name="AdminStore_themSanPham">
-			<result name="success" type="tiles">AdminStore_AddProduct.tiles</result>
+
+		<action name="AdminStore_Step3_themSanPham.action" class="action.gianhang.admin.SanPhamAction"
+			method="themSanPhamVaoGianHang_Step3">
+			<result name="success" type="tiles">AdminStore_Add_ProductInformation_Laptop.tiles
+			</result>
 		</action>
 		
-		<action name="echo"  class="action.gianhang.admin.SanPhamAction"
-			method="layDanhSachSanPhamTheoDanhMuc" >
-			<result name="success">/WEB-INF/tiles/all/admin/product/sub_listProducts.jsp</result>
+		<action name="echo" class="action.gianhang.admin.SanPhamAction"
+			method="layDanhSachSanPhamTheoDanhMuc">
+			<result name="success">/WEB-INF/tiles/all/admin/product/sub_listProducts.jsp
+			</result>
 		</action>
 
 		<!-- end sub site -->

@@ -24,7 +24,7 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private List<HoaDon> dsHoaDon;
 	private int maHoaDon;
-	private HoaDon HoaDon;
+	private HoaDon hoaDon;
 	private DateFormat formatter;
 
 	Map<String, Object> session;
@@ -41,9 +41,25 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		// lay dsHWoaDon theo tai khoan | thanh vien
 		dsHoaDon = hdDao.layDanhSach(tk.getThanhVien());
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println(dsHoaDon.get(0).getGianHang().getTenGianHang());
+		//System.out.println(dsHoaDon.get(0).getGianHang().getTenGianHang());
+		session.put("dsHoaDon", dsHoaDon);
 		return SUCCESS;
 
+	}
+	
+	public String layChiTietHoaDon()
+	{
+		dsHoaDon = (List<HoaDon>)session.get("dsHoaDon");
+		for (int i = 0; i < dsHoaDon.size(); i++)
+		{
+			if (dsHoaDon.get(i).getMaHoaDon() == maHoaDon)
+			{
+				hoaDon = dsHoaDon.get(i);
+				return SUCCESS;
+			}
+				
+		}
+		return SUCCESS;
 	}
 
 	public List<HoaDon> getDsHoaDon() {
@@ -62,13 +78,6 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		this.maHoaDon = maHoaDon;
 	}
 
-	public HoaDon getHoaDon() {
-		return HoaDon;
-	}
-
-	public void setHoaDon(HoaDon hoaDon) {
-		HoaDon = hoaDon;
-	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -83,6 +92,14 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 
 	public DateFormat getFormatter() {
 		return formatter;
+	}
+
+	public void setHoaDon(HoaDon hoaDon) {
+		this.hoaDon = hoaDon;
+	}
+
+	public HoaDon getHoaDon() {
+		return hoaDon;
 	}
 
 }

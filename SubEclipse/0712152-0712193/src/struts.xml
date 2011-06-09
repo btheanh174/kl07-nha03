@@ -102,6 +102,11 @@
 			<result name="success" type="tiles">Profile_Bills.tiles</result>
 		</action>
 		
+		<action name="Profile_xemChiTietHoaDon" class="action.user.HoaDonAction"
+			method="layChiTietHoaDon">
+			<result name="success" type="tiles">Profile_DetailBill.tiles</result>
+		</action>
+		
 		
 		<action name="Profile_test" class="action.user.ProfileAction"
 			method="test">

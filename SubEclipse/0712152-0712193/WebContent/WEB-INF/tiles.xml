@@ -203,11 +203,17 @@
 	</definition>
 	
 	<definition name="Profile_Bills.tiles" extends="profileLayout">
-		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
+		<put-attribute name="pageTitle" value="Danh sách hóa đơn giao dịch"></put-attribute>
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/profile/body_profile_bills.jsp"></put-attribute>
 	</definition>
+	
 
+	<definition name="Profile_DetailBill.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Chi tiết hóa đơn giao dịch"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile_detailBill.jsp"></put-attribute>
+	</definition>
 
 	<definition name="Account.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Tài khoản"></put-attribute>
@@ -331,13 +337,22 @@
 			value="/WEB-INF/tiles/all/admin/product/middle_viewProducts.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="AdminStore_AddProduct.tiles" extends="adminStoreLayout">
-		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
+	<definition name="AdminStore_Add_ChoiceProduct.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
 		<put-attribute name="left"
 			value="/WEB-INF/tiles/all/admin/product/left.jsp"></put-attribute>
 		<put-attribute name="middle"
-			value="/WEB-INF/tiles/all/admin/product/middle_addProduct.jsp"></put-attribute>
+			value="/WEB-INF/tiles/all/admin/product/middle_addProduct_Step1.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="AdminStore_Add_ProductInformation.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/product/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/product/middle_addProduct_Step2.jsp"></put-attribute>
+	</definition>
+	
 	
 	
 	
