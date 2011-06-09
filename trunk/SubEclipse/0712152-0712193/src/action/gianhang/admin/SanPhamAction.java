@@ -23,7 +23,10 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 	 */
 	private List<SanPhamGH> dsSanPhamGH;
 	private List<SanPham> dsSanPham;
+	private int favSanPham;
 	private int echo;
+	private SanPham sanPham;
+	private SanPhamGH sanPhamGH;
 	
 	private SanPhamDAO spDao = new SanPhamDAO();
 	
@@ -61,6 +64,18 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		System.out.println("Echo =  "+ echo);
 		return SUCCESS;
 	}
+	
+	public String themChiTietSanPhamDuocChon()
+	{
+		sanPham = spDao.lay(favSanPham);
+		return SUCCESS;
+		
+	}
+	
+	public String themSanPhamVaoGianHang_Step3()
+	{
+		return SUCCESS;
+	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -90,5 +105,29 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 
 	public List<SanPham> getDsSanPham() {
 		return dsSanPham;
+	}
+
+	public void setFavSanPham(int favSanPham) {
+		this.favSanPham = favSanPham;
+	}
+
+	public int getFavSanPham() {
+		return favSanPham;
+	}
+
+	public void setSanPham(SanPham sanPham) {
+		this.sanPham = sanPham;
+	}
+
+	public SanPham getSanPham() {
+		return sanPham;
+	}
+
+	public void setSanPhamGH(SanPhamGH sanPhamGH) {
+		this.sanPhamGH = sanPhamGH;
+	}
+
+	public SanPhamGH getSanPhamGH() {
+		return sanPhamGH;
 	}
 }

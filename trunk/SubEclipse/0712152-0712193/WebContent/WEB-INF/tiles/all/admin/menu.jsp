@@ -17,7 +17,7 @@
 		</li>
 
 		<li><span><span><a
-					href="<s:url action="AdminStore_themSanPham"/>">Sản phẩm</a> </span> </span>
+					href="<s:url action="AdminStore_Step1_themSanPham"/>">Sản phẩm</a> </span> </span>
 		</li>
 
 
