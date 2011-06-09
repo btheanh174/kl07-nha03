@@ -10,7 +10,7 @@
 		class="left" /> <img src="all/images/admin/bg-th-right.gif" width="7"
 		height="7" alt="" class="right" />
 
-	<table cellpadding="0" cellspacing="0">
+	<table align="left" cellpadding="0" cellspacing="0">
 		<tr>
 			<th width="120">Ngày lập</th>
 			<th width="220">Tên khách hàng</th>
@@ -19,13 +19,8 @@
 			<th width="80">Thông tin</th>
 		</tr>
 
-		<%-- <s:iterator value="dsHoaDon" status="stat">
-			<s:if test="#stat.odd == true">
-				<tr class="bg">
-			</s:if>
-			<s:else>
-				<tr>
-			</s:else> --%>
+		<s:iterator value="dsHoaDon" status="stat">
+			
 			<tr>
 			<s:url action="AdminStore_chiTietHoaDon" var="billDetail">
 				<s:param name="maHoaDon" value="maHoaDon"></s:param>
@@ -39,6 +34,6 @@
 			</td>
 			</tr>
 
-		<%-- </s:iterator> --%>
+		</s:iterator>
 	</table>
 </div>

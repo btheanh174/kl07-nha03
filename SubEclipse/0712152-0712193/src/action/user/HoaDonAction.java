@@ -26,27 +26,25 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 	private int maHoaDon;
 	private HoaDon HoaDon;
 	private DateFormat formatter;
-	
-	
+
 	Map<String, Object> session;
 	private HoaDonDAO hdDao = new HoaDonDAO();
+
 	public String execute() {
 
 		return SUCCESS;
 	}
 
 	public String layDanhSachHoaDon() {
-		
-		TaiKhoan tk = (TaiKhoan)session.get("tk");
-		//lay dsHoaDon theo tai khoan | thanh vien
+
+		TaiKhoan tk = (TaiKhoan) session.get("tk");
+		// lay dsHWoaDon theo tai khoan | thanh vien
 		dsHoaDon = hdDao.layDanhSach(tk.getThanhVien());
-		// Test send email
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println(dsHoaDon.get(0).getGianHang().getTenGianHang());
 		return SUCCESS;
 
 	}
-	
-	
 
 	public List<HoaDon> getDsHoaDon() {
 		return dsHoaDon;

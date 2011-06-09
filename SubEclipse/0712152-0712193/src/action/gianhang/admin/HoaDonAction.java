@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 import model.dao.HoaDonDAO;
+import model.dao.TinhTrangHoaDonDAO;
 import model.pojo.GianHang;
 import model.pojo.TaiKhoan;
 import model.pojo.HoaDon;
+import model.pojo.TinhTrangHoaDon;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -42,6 +44,16 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		// Test send email
 		return SUCCESS;
 		
+	}
+	
+	public String xacNhanBatDauGiaoHang()
+	{
+		hoaDon = (HoaDon)session.get("hoaDon");
+		TinhTrangHoaDonDAO tthdDao = new TinhTrangHoaDonDAO();
+		TinhTrangHoaDon tthd = tthdDao.lay(5);
+		hoaDon.setTinhTrang(tthd);
+		hdDao.capNhat(hoaDon);
+		return SUCCESS;
 	}
 
 	public String layDanhSachHoaDon() {
