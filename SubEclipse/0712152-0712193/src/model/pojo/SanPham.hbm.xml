@@ -40,7 +40,6 @@
         <bag name="dsGianHangSanPham" table="gian_hang_san_pham" cascade="all" lazy="true">
         	<meta attribute="quan he nhieu nhieu voi gian hang"></meta>
         	<key column="MA_SAN_PHAM"></key>
-        	<!-- <many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many> -->
         	<one-to-many class="model.pojo.GianHangSanPham"/>
         </bag>
         

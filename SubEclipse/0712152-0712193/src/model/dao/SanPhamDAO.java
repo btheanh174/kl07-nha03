@@ -36,10 +36,11 @@ public class SanPhamDAO extends AbstractDAO {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 
-			String hql = "from SanPham as sp where sp.maSanPham =:id";
+			/*String hql = "from SanPham as sp where sp.maSanPham =:id";
 			Query query = session.createQuery(hql);
 			query.setParameter("id", id);
-			kq = (SanPham) query.uniqueResult();
+			kq = (SanPham) query.uniqueResult();*/
+			kq = (SanPham)session.load(SanPham.class, new Integer(id));
 			/*
 			 * Su dung khi lazy cua association voi HinhAnh la true
 			 * Hibernate.initialize(kq);

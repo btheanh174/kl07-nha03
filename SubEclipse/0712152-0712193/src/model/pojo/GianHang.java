@@ -22,8 +22,8 @@ public class GianHang {
 	
 	private List<DanhMuc> dsDanhMuc  = new ArrayList<DanhMuc>();
 	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
-	
 	private List<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
+	private List<NhomDanhMuc> dsNhomDanhMuc = new ArrayList<NhomDanhMuc>();
 	
 	private Date ngayThamGia;
 	
@@ -34,7 +34,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String chinhSach, String gioiThieu, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon, Date ngayThamGia) {
+			List<DanhMuc> dsDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon, List<NhomDanhMuc> dsNhomDanhMuc, Date ngayThamGia) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -50,6 +50,7 @@ public class GianHang {
 		this.dsDanhMuc = dsDanhMuc;
 		this.dsGianHangSanPham = dsGianHangSanPham;
 		this.dsHoaDon = dsHoaDon;
+		this.dsNhomDanhMuc = dsNhomDanhMuc;
 		this.ngayThamGia = ngayThamGia;
 	}
 
@@ -187,5 +188,13 @@ public class GianHang {
 
 	public void setNgayThamGia(Date ngayThamGia) {
 		this.ngayThamGia = ngayThamGia;
+	}
+
+	public List<NhomDanhMuc> getDsNhomDanhMuc() {
+		return dsNhomDanhMuc;
+	}
+
+	public void setDsNhomDanhMuc(List<NhomDanhMuc> dsNhomDanhMuc) {
+		this.dsNhomDanhMuc = dsNhomDanhMuc;
 	}
 }

@@ -29,7 +29,7 @@
   <mapping resource="model/pojo/PhuongThucThanhToan.hbm.xml"/>
   <mapping resource="model/pojo/HoaDon.hbm.xml"/>
   <mapping resource="model/pojo/TinNhan.hbm.xml"/>
-  <mapping class="model.pojo.GianHangSanPhamPK"/>
-  <mapping class="model.pojo.GianHangSanPham"/>
+  <mapping resource="model/pojo/NhomDanhMuc.hbm.xml"/>
+  <mapping resource="model/pojo/GianHangSanPham.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

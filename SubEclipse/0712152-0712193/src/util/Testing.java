@@ -21,6 +21,7 @@ import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
 import model.pojo.HoaDon;
 import model.pojo.Laptop;
+import model.pojo.NhomDanhMuc;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
 import model.pojo.SanPhamGH;
@@ -129,7 +130,7 @@ public class Testing {
 		NhomNguoiDung nnd = new NhomNguoiDungDAO().lay(1);
 		tk.setNhomNguoiDung(nnd);*/
 		
-		ThanhVien tv = tk.getThanhVien();
+		/*ThanhVien tv = tk.getThanhVien();
 		tv.setHoTen("Le Long Ho");
 		tv.setDiaChi("TN");
 		tv.setDienThoai("123456789");
@@ -139,7 +140,7 @@ public class Testing {
 		tv.setTaiKhoan(tk);
 		
 		tkDao.capNhat(tk);
-		System.out.println("Cap nhat xong");
+		System.out.println("Cap nhat xong");*/
 		
 /*		String hashed = HashUtil.generateHash("123457");
 		System.out.println(hashed);
@@ -313,9 +314,9 @@ public class Testing {
 		TaiKhoan tk = tkDao.lay(16);
 		System.out.println(tv.getMaTaiKhoan());
 		System.out.println(tk.getGianHang().getTenGianHang());*/
-		SanPhamDAO spDao = new SanPhamDAO();
+		/*SanPhamDAO spDao = new SanPhamDAO();
 		
-		/*List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
+		List<SanPhamGH> ghsp = spDao.layDsSanPhamGH(17);
 		for (SanPhamGH g : ghsp) {
 			System.out.println(g.getGianHang().getTenGianHang() + " - " + g.getGia() + " - " + g.getCapNhat().toString());	
 		}
@@ -331,19 +332,66 @@ public class Testing {
 			}
 		}
 		System.out.println(list.size());*/
+		
+		// Test gian hang danh muc
+	/*	System.out.println("test gian hang danh muc");
+		testGianHangDanhMuc();
+		System.out.println("Xong");*/
+		
+		//
+		System.out.println("test san pham gian hang");
+		testSanPhamGianHang();
+		System.out.println("Xong");
 	}
+	
+
+	private static void testGianHangDanhMuc(){
+		
+		DanhMucDAO dmDao = new DanhMucDAO();
+		GianHangDAO ghDao = new GianHangDAO();
+		
+		
+		DanhMuc dm1 = dmDao.lay(8);
+		DanhMuc dm2 = dmDao.lay(9);
+		
+		
+		List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
+		dsDanhMuc.add(dm1);
+		dsDanhMuc.add(dm2);
+		
+		
+		GianHang gh1 = ghDao.lay(1);
+		
+		gh1.setDsDanhMuc(dsDanhMuc);
+		
+		NhomDanhMuc ndm1 = new NhomDanhMuc("Vi tinh, link kien", 1, gh1);
+		NhomDanhMuc ndm2 = new NhomDanhMuc("Mobile, dien thoai", 2, gh1);
+		
+		gh1.getDsNhomDanhMuc().add(ndm1);
+		gh1.getDsNhomDanhMuc().add(ndm2);
+		
+		
+		ghDao.capNhat(gh1);
+	}
+	
 	
 	private static void testSanPhamGianHang(){
 		GianHangDAO ghDao = new GianHangDAO();
-		GianHang gianHang = ghDao.lay(1);
+		GianHang gianHang = ghDao.lay(2);
 		
 		SanPhamDAO spDao = new SanPhamDAO();
-		SanPham sp = spDao.lay(17);
-		System.out.println("Những gian hàng bán sản phẩm này: ");
-		for (GianHangSanPham ghsp : sp.getDsGianHangSanPham()) {
-			System.out.println(ghsp.getGianHang().getTenGianHang());
-			
-		}
+		SanPham sp1 = spDao.lay(22);
+		SanPham sp2 = spDao.lay(21);
+		
+		GianHangSanPham ghsp1 = new GianHangSanPham(gianHang, sp1, 14500000, 12, 10, new Date());
+		GianHangSanPham ghsp2 = new GianHangSanPham(gianHang, sp2, 19000000, 24, 5, new Date());
+		
+		gianHang.getDsGianHangSanPham().add(ghsp1);
+		gianHang.getDsGianHangSanPham().add(ghsp2);
+		
+		ghDao.capNhat(gianHang);
+		
+		
 	}
 	
 	private static void xuatSanPham(SanPham sp){
@@ -411,49 +459,4 @@ public class Testing {
 		tkDao.them(tk);
 	}
 	
-	private static void testGianHangDanhMuc(){
-		TaiKhoan tk = new TaiKhoanDAO().lay(1);
-		System.out.println(tk.getTenTruyCap());
-		
-		List<GianHang> dsGianHang = new ArrayList<GianHang>();
-		
-		GianHang gh1 = new GianHang();
-		gh1.setTenGianHang("LLH");
-		gh1.setDiaChi("Tay Ninh");
-		gh1.setDienThoai("01674560436");
-		gh1.setTaiKhoan(tk);
-		
-		GianHang gh2 = new GianHang();
-		gh2.setTenGianHang("MTH");
-		gh2.setDiaChi("Vung Tau");
-		gh2.setDienThoai("0902615194");
-		gh2.setTaiKhoan(tk);
-		
-		dsGianHang.add(gh1);
-		dsGianHang.add(gh2);
-		
-		
-		DanhMuc dm1 = new DanhMucDAO().lay(8);
-		DanhMuc dm2 = new DanhMucDAO().lay(9);
-		
-		dm1.setDsGianHang(dsGianHang);
-		dm2.setDsGianHang(dsGianHang);
-		
-		
-		List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
-		dsDanhMuc.add(dm1);
-		dsDanhMuc.add(dm2);
-		
-		gh1.setDsDanhMuc(dsDanhMuc);
-		gh2.setDsDanhMuc(dsDanhMuc);
-		
-		GianHangDAO ghDao = new GianHangDAO();
-		DanhMucDAO dmDao = new DanhMucDAO();
-		
-		dmDao.them(dm1);
-		dmDao.them(dm2);
-		
-		ghDao.them(gh1);
-		ghDao.them(gh2);
-	}
 }
