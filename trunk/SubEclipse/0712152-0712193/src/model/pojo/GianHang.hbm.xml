@@ -22,7 +22,7 @@
 		<property name="fax" type="java.lang.String">
 			<column name="FAX"></column>
 		</property>
-		
+
 		<property name="yahoo" type="java.lang.String">
 			<column name="YAHOO"></column>
 		</property>
@@ -30,11 +30,11 @@
 		<property name="thongTin" type="java.lang.String">
 			<column name="THONG_TIN"></column>
 		</property>
-		
+
 		<property name="chinhSach" type="java.lang.String">
 			<column name="CHINH_SACH"></column>
 		</property>
-		
+
 		<property name="gioiThieu" type="java.lang.String">
 			<column name="GIOI_THIEU"></column>
 		</property>
@@ -42,15 +42,15 @@
 		<property name="banner" type="java.lang.String">
 			<column name="BANNER"></column>
 		</property>
-		
+
 		<property name="logo" type="java.lang.String">
 			<column name="LOGO"></column>
 		</property>
-		
+
 		<property name="ngayThamGia" type="java.util.Date">
 			<column name="NGAY_THAM_GIA" />
 		</property>
-		
+
 		<!-- Quan hệ 0..1 -> 1 với bảng tài khoản -->
 		<many-to-one name="taiKhoan" class="model.pojo.TaiKhoan"
 			fetch="join" unique="true" cascade="all" not-null="
@@ -63,23 +63,32 @@
 			<column name="TINH_THANH_PHO" />
 		</many-to-one>
 
-		<bag name="dsDanhMuc" table="gian_hang_danh_muc" cascade="all"
-			inverse="true" lazy="true">
+		<bag name="dsDanhMuc" table="gian_hang_danh_muc" lazy="true" cascade="all">
 			<key column="MA_GIAN_HANG" />
-			<many-to-many class="model.pojo.DanhMuc" column="MA_DANH_MUC" />
+			
+			<composite-element class="model.pojo.GianHangDanhMuc">
+				<parent name="gianHang" />
+				<many-to-one name="danhMuc" class="model.pojo.DanhMuc"
+					column="MA_DANH_MUC" not-null="true"></many-to-one>
+				<many-to-one name="nhomDanhMuc" class="model.pojo.NhomDanhMuc"
+					column="MA_NHOM_DANH_MUC" not-null="true"></many-to-one>
+			</composite-element>
 		</bag>
 
 		<bag name="dsGianHangSanPham" table="gian_hang_san_pham" cascade="all"
 			inverse="true" lazy="true">
 			<key column="MA_GIAN_HANG" />
-			<!-- <many-to-many class="model.pojo.SanPham" column="MA_SAN_PHAM" /> -->
-			<one-to-many class="model.pojo.GianHangSanPham"/>
-		</bag>
-		
-		<bag name="dsHoaDon" table="hoa_don" inverse="true" cascade="all">
-			<key column="GIAN_HANG"></key>
-			<one-to-many class="model.pojo.HoaDon"/>
+			<one-to-many class="model.pojo.GianHangSanPham" />
 		</bag>
 
+		<bag name="dsHoaDon" table="hoa_don" inverse="true" cascade="all">
+			<key column="GIAN_HANG"></key>
+			<one-to-many class="model.pojo.HoaDon" />
+		</bag>
+		
+		<bag name="dsNhomDanhMuc" table="nhom_danh_muc" lazy="true" cascade="all">
+			<key column="GIAN_HANG"></key>
+			<one-to-many class="model.pojo.NhomDanhMuc"/>
+		</bag>
 	</class>
 </hibernate-mapping>

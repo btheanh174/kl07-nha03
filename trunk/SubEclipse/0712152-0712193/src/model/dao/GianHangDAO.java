@@ -80,14 +80,16 @@ public class GianHangDAO extends AbstractDAO {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 
-			kq = (GianHang) session
+	/*		kq = (GianHang) session
 					.createQuery("from GianHang as gh where gh.maGianHang =:id")
 					.setParameter("id", id).uniqueResult();
-
+*/
+			kq = (GianHang) session.get(GianHang.class, new Integer(id));
 			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsDanhMuc());
+			//Hibernate.initialize(kq.getDsDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
 			Hibernate.initialize(kq.getDsHoaDon());
+			Hibernate.initialize(kq.getDsNhomDanhMuc());
 
 			tx.commit();
 		} catch (HibernateException e) {

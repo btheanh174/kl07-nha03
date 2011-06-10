@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2011 8:18:32 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="model.pojo.GianHangSanPham" table="gian_hang_san_pham" mutable="false">
+		<composite-id name="ma" class="model.pojo.GianHangSanPham$Id">
+			<key-property name="maGianHang" access="field" column="MA_GIAN_HANG"></key-property>
+			<key-property name="maSanPham" access="field" column="MA_SAN_PHAM"></key-property>
+		</composite-id>
+
+		<property name="giaRieng" type="java.lang.Integer">
+			<column name="GIA_RIENG"></column>
+		</property>
+
+		<property name="baoHanh" type="java.lang.Integer">
+			<column name="BAO_HANH" />
+		</property>
+		
+		<property name="soLuong" type="java.lang.Integer">
+			<column name="SO_LUONG" />
+		</property>
+		
+		<property name="capNhat" type="timestamp">
+			<column name="CAP_NHAT" />
+		</property>
+
+		<many-to-one name="gianHang" column="MA_GIAN_HANG"
+			not-null="true" insert="false" update="false"></many-to-one>
+		<many-to-one name="sanPham" column="MA_SAN_PHAM" not-null="true"
+			insert="false" update="false"></many-to-one>
+			
+	</class>
+</hibernate-mapping>

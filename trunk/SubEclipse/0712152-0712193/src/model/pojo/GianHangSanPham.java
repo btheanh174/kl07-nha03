@@ -1,5 +1,6 @@
 package model.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.AssociationOverride;
@@ -11,15 +12,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
-@Table(name = "gian_hang_san_pham")
-@AssociationOverrides({
-		@AssociationOverride(name = "pk.sanPham", joinColumns = @JoinColumn(name = "MA_SAN_PHAM")),
-		@AssociationOverride(name = "pk.gianHang", joinColumns = @JoinColumn(name = "MA_GIAN_HANG")) })
 public class GianHangSanPham {
 
-	private GianHangSanPhamPK pk = new GianHangSanPhamPK();
-
+	public static class Id implements Serializable{
+		private Integer maGianHang;
+		private Integer maSanPham;
+		
+		public Id(){}
+		public Id(Integer maGianHang, Integer maSanPham){
+			this.maGianHang = maGianHang;
+			this.maSanPham = maSanPham;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if(obj != null && obj instanceof Id){
+				Id that = (Id)obj;
+				return this.maGianHang.equals(that.maGianHang) && this.maSanPham.equals(that.maSanPham);
+			}else{
+				return false;
+			}
+		}
+		@Override
+		public int hashCode() {
+			return maGianHang.hashCode() + maSanPham.hashCode();
+		}
+		
+		
+	}
+	
+	private Id ma = new Id();
+	private GianHang gianHang;
+	private SanPham sanPham;
+	
 	private Integer giaRieng;
 	private Integer baoHanh; // don vi tinh theo thang
 	private Integer soLuong; // so luong san pham ma cua hang co
@@ -27,35 +51,51 @@ public class GianHangSanPham {
 	
 	public GianHangSanPham() {
 	}
+	
+	public GianHangSanPham(GianHang gianHang, SanPham sanPham,
+			Integer giaRieng, Integer baoHanh, Integer soLuong, Date capNhat) {
+		super();
+		this.gianHang = gianHang;
+		this.sanPham = sanPham;
+		this.giaRieng = giaRieng;
+		this.baoHanh = baoHanh;
+		this.soLuong = soLuong;
+		this.capNhat = capNhat;
+		// set id values
+		this.ma.maGianHang = gianHang.getMaGianHang();
+		this.ma.maSanPham = sanPham.getMaSanPham();
+		//
+		gianHang.getDsGianHangSanPham().add(this);
+		sanPham.getDsGianHangSanPham().add(this);
+	}
+	
+	
 
-	@EmbeddedId
-	public GianHangSanPhamPK getPk() {
-		return pk;
+	public Id getMa() {
+		return ma;
 	}
 
-	public void setPk(GianHangSanPhamPK pk) {
-		this.pk = pk;
+	public void setMa(Id ma) {
+		this.ma = ma;
 	}
 
-	@Transient
-	public SanPham getSanPham() {
-		return getPk().getSanPham();
-	}
-
-	public void setSanPham(SanPham sanPham) {
-		getPk().setSanPham(sanPham);
-	}
-
-	@Transient
 	public GianHang getGianHang() {
-		return getPk().getGianHang();
+		return gianHang;
 	}
 
 	public void setGianHang(GianHang gianHang) {
-		getPk().setGianHang(gianHang);
+		this.gianHang = gianHang;
 	}
 
-	@Column(name="GIA_RIENG")
+	public SanPham getSanPham() {
+		return sanPham;
+	}
+
+	public void setSanPham(SanPham sanPham) {
+		this.sanPham = sanPham;
+	}
+	
+	//@Column(name="GIA_RIENG")
 	public Integer getGiaRieng() {
 		return giaRieng;
 	}
@@ -64,7 +104,7 @@ public class GianHangSanPham {
 		this.giaRieng = giaRieng;
 	}
 
-	@Column(name="BAO_HANH", length=10)
+	//@Column(name="BAO_HANH", length=10)
 	public Integer getBaoHanh() {
 		return baoHanh;
 	}
@@ -73,12 +113,12 @@ public class GianHangSanPham {
 		this.baoHanh = baoHanh;
 	}
 
-	@Column(name="SO_LUONG", length=10)
+	//@Column(name="SO_LUONG", length=10)
 	public Integer getSoLuong() {
 		return soLuong;
 	}
 	
-	@Column(name="CAP_NHAT")
+	//@Column(name="CAP_NHAT")
 	public Date getCapNhat() {
 		return capNhat;
 	}
@@ -91,15 +131,20 @@ public class GianHangSanPham {
 		this.soLuong = soLuong;
 	}
 
+	
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);	
+		if(obj != null && obj instanceof GianHangSanPham){
+			GianHangSanPham that = (GianHangSanPham)obj;
+			return this.getMa().equals(that.getMa());
+		}else{
+			return false;
+		}
 	}
 
 	@Override
-	public int hashCode() {
-		return ((getPk() != null) ? getPk().hashCode() : 0);
+	public int hashCode(){
+		return ma.hashCode();
 	}
 
 }
