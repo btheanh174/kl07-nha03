@@ -47,7 +47,7 @@ public class GianHangSanPham {
 	private Integer giaRieng;
 	private Integer baoHanh; // don vi tinh theo thang
 	private Integer soLuong; // so luong san pham ma cua hang co
-	private Date capNhat;
+	private Date capNhat = new Date();
 	
 	public GianHangSanPham() {
 	}

@@ -48,7 +48,7 @@ public class GianHangDAO extends AbstractDAO {
 			List list = query.list();
 			for (Object gianHang : list) {
 				Hibernate.initialize((GianHang)gianHang);
-				Hibernate.initialize(((GianHang)gianHang).getDsDanhMuc());
+				Hibernate.initialize(((GianHang)gianHang).getDsGianHangDanhMuc());
 				Hibernate.initialize(((GianHang)gianHang).getDsGianHangSanPham());
 			}
 			
@@ -86,7 +86,7 @@ public class GianHangDAO extends AbstractDAO {
 */
 			kq = (GianHang) session.get(GianHang.class, new Integer(id));
 			Hibernate.initialize(kq);
-			//Hibernate.initialize(kq.getDsDanhMuc());
+			Hibernate.initialize(kq.getDsGianHangDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
 			Hibernate.initialize(kq.getDsHoaDon());
 			Hibernate.initialize(kq.getDsNhomDanhMuc());
@@ -111,7 +111,7 @@ public class GianHangDAO extends AbstractDAO {
 					.setParameter("tk", tk).uniqueResult();
 
 			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsDanhMuc());
+			Hibernate.initialize(kq.getDsGianHangDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
 			Hibernate.initialize(kq.getDsHoaDon());
 
