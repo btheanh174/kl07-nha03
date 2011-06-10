@@ -63,16 +63,9 @@
 			<column name="TINH_THANH_PHO" />
 		</many-to-one>
 
-		<bag name="dsDanhMuc" table="gian_hang_danh_muc" lazy="true" cascade="all">
+		<bag name="dsGianHangDanhMuc" table="gian_hang_danh_muc" lazy="true" cascade="all">
 			<key column="MA_GIAN_HANG" />
-			
-			<composite-element class="model.pojo.GianHangDanhMuc">
-				<parent name="gianHang" />
-				<many-to-one name="danhMuc" class="model.pojo.DanhMuc"
-					column="MA_DANH_MUC" not-null="true"></many-to-one>
-				<many-to-one name="nhomDanhMuc" class="model.pojo.NhomDanhMuc"
-					column="MA_NHOM_DANH_MUC" not-null="true"></many-to-one>
-			</composite-element>
+			<one-to-many class="model.pojo.GianHangDanhMuc"/>			
 		</bag>
 
 		<bag name="dsGianHangSanPham" table="gian_hang_san_pham" cascade="all"

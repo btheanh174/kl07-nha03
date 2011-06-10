@@ -13,7 +13,7 @@ public class DanhMuc {
 	private List<DanhMuc> dsDanhMucCon;
 	
 	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
-	/*private List<GianHang> dsGianHang = new ArrayList<GianHang>();*/
+	private List<GianHangDanhMuc> dsGianHangDanhMuc = new ArrayList<GianHangDanhMuc>();
 
 	public DanhMuc() {
 
@@ -41,16 +41,17 @@ public class DanhMuc {
 		this.danhMucCha = danhMucCha;
 	}
 
-
-
+	
 	public DanhMuc(String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha,
-		List<DanhMuc> dsDanhMucCon, List<SanPham> dsSanPham) {
+		List<DanhMuc> dsDanhMucCon, List<SanPham> dsSanPham,
+		List<GianHangDanhMuc> dsGianHangDanhMuc) {
 	super();
 	this.tenDanhMuc = tenDanhMuc;
 	this.capDanhMuc = capDanhMuc;
 	this.danhMucCha = danhMucCha;
 	this.dsDanhMucCon = dsDanhMucCon;
 	this.dsSanPham = dsSanPham;
+	this.dsGianHangDanhMuc = dsGianHangDanhMuc;
 }
 
 	public DanhMuc(DanhMuc danhMuc) {
@@ -60,7 +61,7 @@ public class DanhMuc {
 		this.danhMucCha = danhMuc.danhMucCha;
 		this.dsDanhMucCon = danhMuc.dsDanhMucCon;
 		this.dsSanPham = danhMuc.dsSanPham;
-		//this.dsGianHang = danhMuc.dsGianHang;
+		this.dsGianHangDanhMuc = danhMuc.dsGianHangDanhMuc;
 	}
 
 	public int getCapDanhMuc() {
@@ -111,6 +112,14 @@ public class DanhMuc {
 		this.dsSanPham = dsSanPham;
 	}
 
+	public List<GianHangDanhMuc> getDsGianHangDanhMuc() {
+		return dsGianHangDanhMuc;
+	}
+
+	public void setDsGianHangDanhMuc(List<GianHangDanhMuc> dsGianHangDanhMuc) {
+		this.dsGianHangDanhMuc = dsGianHangDanhMuc;
+	}
+	
 /*	
  * Chỉ map 1 chiều trong quan hệ nhiều nhiều giữa gian hàng và danh mục
  * Do đó bên danh mục ko thể truy xuất đc dsGianHang

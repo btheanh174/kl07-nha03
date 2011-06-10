@@ -32,10 +32,10 @@
 			<one-to-many class="model.pojo.SanPham" />
 		</bag>
 
-		<!-- <bag name="dsGianHang" table="gian_hang_danh_muc" cascade="all"
+		<bag name="dsGianHangDanhMuc" table="gian_hang_danh_muc" cascade="all"
 			lazy="true">
 			<key column="MA_DANH_MUC"></key>
-			<many-to-many column="MA_GIAN_HANG" class="model.pojo.GianHang"></many-to-many>
-		</bag> -->
+			<one-to-many class="model.pojo.GianHangDanhMuc"/>
+		</bag>
 	</class>
 </hibernate-mapping>

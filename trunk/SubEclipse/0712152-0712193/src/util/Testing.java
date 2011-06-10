@@ -18,6 +18,7 @@ import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
+import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
 import model.pojo.HoaDon;
 import model.pojo.Laptop;
@@ -334,14 +335,14 @@ public class Testing {
 		System.out.println(list.size());*/
 		
 		// Test gian hang danh muc
-	/*	System.out.println("test gian hang danh muc");
+		System.out.println("test gian hang danh muc");
 		testGianHangDanhMuc();
-		System.out.println("Xong");*/
+		System.out.println("Xong");
 		
 		//
-		System.out.println("test san pham gian hang");
+		/*System.out.println("test san pham gian hang");
 		testSanPhamGianHang();
-		System.out.println("Xong");
+		System.out.println("Xong");*/
 	}
 	
 
@@ -354,21 +355,19 @@ public class Testing {
 		DanhMuc dm1 = dmDao.lay(8);
 		DanhMuc dm2 = dmDao.lay(9);
 		
-		
-		List<DanhMuc> dsDanhMuc = new ArrayList<DanhMuc>();
-		dsDanhMuc.add(dm1);
-		dsDanhMuc.add(dm2);
-		
-		
 		GianHang gh1 = ghDao.lay(1);
 		
-		gh1.setDsDanhMuc(dsDanhMuc);
-		
-		NhomDanhMuc ndm1 = new NhomDanhMuc("Vi tinh, link kien", 1, gh1);
-		NhomDanhMuc ndm2 = new NhomDanhMuc("Mobile, dien thoai", 2, gh1);
+		NhomDanhMuc ndm1 = new NhomDanhMuc("Vi tinh, link kien", 1, null);
 		
 		gh1.getDsNhomDanhMuc().add(ndm1);
-		gh1.getDsNhomDanhMuc().add(ndm2);
+		ndm1.setGianHang(gh1);
+		
+		
+		GianHangDanhMuc ghdm1 = new GianHangDanhMuc(gh1, dm1, ndm1);
+		GianHangDanhMuc ghdm2 = new GianHangDanhMuc(gh1, dm2, ndm1);
+		
+		gh1.getDsGianHangDanhMuc().add(ghdm1);
+		gh1.getDsGianHangDanhMuc().add(ghdm2);
 		
 		
 		ghDao.capNhat(gh1);

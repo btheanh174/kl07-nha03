@@ -50,7 +50,16 @@ public class GianHangDanhMuc {
 		this.ma.maGianHang = gianHang.getMaGianHang();
 		this.ma.maDanhMuc = danhMuc.getMaDanhMuc();
 		//
-		
+		gianHang.getDsGianHangDanhMuc().add(this);
+		//danhMuc.getDsGianHangDanhMuc().add(this);
+	}
+
+	public Id getMa() {
+		return ma;
+	}
+
+	public void setMa(Id ma) {
+		this.ma = ma;
 	}
 
 	public GianHang getGianHang() {
@@ -76,4 +85,31 @@ public class GianHangDanhMuc {
 	public void setNhomDanhMuc(NhomDanhMuc nhomDanhMuc) {
 		this.nhomDanhMuc = nhomDanhMuc;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ma == null) ? 0 : ma.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GianHangDanhMuc other = (GianHangDanhMuc) obj;
+		if (ma == null) {
+			if (other.ma != null)
+				return false;
+		} else if (!ma.equals(other.ma))
+			return false;
+		return true;
+	}
+	
+	
 }
