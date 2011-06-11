@@ -23,21 +23,23 @@
 
 
 				<div id="one">
+
+
 					<table border="1px">
 						<tr>
 							<td colspan="2">Thông tin riêng</td>
 						</tr>
 						<tr>
 							<td>Giá bán:</td>
-							<td><s:textfield name="sanPhamGH.gia" /></td>
+							<td><s:textfield name="ghSanPham.giaRieng" /></td>
 						</tr>
 						<tr>
 							<td>Bảo hành:</td>
-							<td><s:textfield name="sanPhamGH.baoHanh" /></td>
+							<td><s:textfield name="ghSanPham.baoHanh" /></td>
 						</tr>
 						<tr>
 							<td>Số lượng hiện có:</td>
-							<td><s:textfield name="sanPhamGH.baoHanh" /></td>
+							<td><s:textfield name="ghSanPham.soLuong" /></td>
 						</tr>
 					</table>
 				</div>
@@ -64,9 +66,11 @@
 		</sj:div>
 		<br />
 		<br />
+		<br />
+		
 		<div align="center">
 			<s:submit value="Đồng ý"></s:submit>
 		</div>
 	</s:form>
-	<br /> <br /> <br /> <br /> <br /> <br />
+	<br /> <br /> <br /> <br /><br />
 </div>
