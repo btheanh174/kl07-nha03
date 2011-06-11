@@ -10,7 +10,6 @@ import model.dao.GianHangDAO;
 import model.dao.SanPhamDAO;
 import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
-import model.pojo.GianHangSanPhamPK;
 import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
 
@@ -19,7 +18,9 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SanPhamAction extends ActionSupport implements SessionAware {
-
+	
+	
+	public static final String DUPLICATE = "duplicate";
 	/**
 	 * 
 	 */
@@ -28,9 +29,11 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 	private List<SanPham> dsSanPham;
 	private int favSanPham;
 	private int echo;
+	private String thongBao;
 	private SanPham sanPham;
 	private SanPhamDAO spDao = new SanPhamDAO();
-
+	private GianHangDAO ghDao = new GianHangDAO();
+	
 	private int tongSoTrang;
 	private int soLuongSP1Trang;
 	private int trangHienTai;
@@ -50,7 +53,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}
 
-		GianHangDAO ghDao = new GianHangDAO();
+
 		GianHang gianHang = ghDao.lay(tk);
 		dsGHSanPham = gianHang.getDsGianHangSanPham();
 
@@ -117,7 +120,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 	}
 
 	public String xoaGianHangSanPham() {
-		GianHangDAO ghDao = new GianHangDAO();
+
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
 		if (tk == null) {
 			return ERROR;
@@ -125,7 +128,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		GianHang gianHang = ghDao.lay(tk);
 		dsGHSanPham = gianHang.getDsGianHangSanPham();
 		for (int i = 0; i < dsGHSanPham.size(); i++) {
-			if (dsGHSanPham.get(i).getPk().getSanPham().getMaSanPham() == echo) {
+			if (dsGHSanPham.get(i).getSanPham().getMaSanPham() == echo) {
 				System.out.println("Before: " + dsGHSanPham.size());
 				dsGHSanPham.remove(i);
 				System.out.println("After: " + dsGHSanPham.size());
@@ -138,7 +141,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 	}
 
 	public String capNhatThongTinGianHangSanPham() {
-		GianHangDAO ghDao = new GianHangDAO();
+		
 		TaiKhoan tk = (TaiKhoan) session.get("tk");
 		if (tk == null) {
 			return ERROR;
@@ -146,7 +149,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		GianHang gianHang = ghDao.lay(tk);
 		dsGHSanPham = gianHang.getDsGianHangSanPham();
 		for (int i = 0; i < dsGHSanPham.size(); i++) {
-			if (dsGHSanPham.get(i).getPk().getSanPham().getMaSanPham() == echo) {
+			if (dsGHSanPham.get(i).getSanPham().getMaSanPham() == echo) {
 				dsGHSanPham.get(i).setGiaRieng(ghSanPham.getGiaRieng());
 				dsGHSanPham.get(i).setBaoHanh(ghSanPham.getBaoHanh());
 				dsGHSanPham.get(i).setSoLuong(ghSanPham.getSoLuong());
@@ -169,6 +172,21 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 	}
 
 	public String themChiTietSanPhamDuocChon() {
+		
+		TaiKhoan tk = (TaiKhoan) session.get("tk");
+		if (tk == null) {
+			return ERROR;
+		}
+		GianHang gianHang = ghDao.lay(tk);
+		dsGHSanPham = gianHang.getDsGianHangSanPham();
+		for (int i = 0; i < dsGHSanPham.size(); i++)
+		{
+			if (dsGHSanPham.get(i).getSanPham().getMaSanPham() ==  favSanPham)
+			{
+				thongBao = "Sản phẩm đã có trong cửa hàng của bạn";
+				return DUPLICATE;
+			}
+		}
 		sanPham = spDao.lay(favSanPham);
 		session.put("sanPham", sanPham);
 		return SUCCESS;
@@ -184,11 +202,11 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		try {
 			sanPham = (SanPham) session.get("sanPham");
 			if (ghSanPham != null) {
-				GianHangDAO ghDao = new GianHangDAO();
+
 				GianHang gianHang = ghDao.lay(tk);
 
-				ghSanPham.getPk().setGianHang(gianHang);
-				ghSanPham.getPk().setSanPham(sanPham);
+				// ghSanPham.getPk().setGianHang(gianHang);
+				// ghSanPham.getPk().setSanPham(sanPham);
 				ghSanPham.setCapNhat(new Date());
 				gianHang.getDsGianHangSanPham().add(ghSanPham);
 				sanPham.getDsGianHangSanPham().add(ghSanPham);
@@ -288,4 +306,13 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		return dsGHSanPhamShow;
 	}
 
+	public String getThongBao() {
+		return thongBao;
+	}
+
+	public void setThongBao(String thongBao) {
+		this.thongBao = thongBao;
+	}
+
+	
 }

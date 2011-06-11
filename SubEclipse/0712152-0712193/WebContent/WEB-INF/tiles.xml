@@ -296,6 +296,12 @@
 	<definition name="AdminStore.tiles" extends="adminStoreLayout">
 		<put-attribute name="pageTitle" value="Quản lý trang web" />
 	</definition>
+	
+	<definition name="AdminStore_Error.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Báo lỗi" />
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/error.jsp"></put-attribute>
+	</definition>
 
 	<definition name="AdminStore_Categories.tiles" extends="adminStoreLayout">
 		<put-attribute name="pageTitle" value="Quản lý tổng thể" />

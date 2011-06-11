@@ -87,6 +87,7 @@
 			method="themChiTietSanPhamDuocChon">
 			<result name="success" type="tiles">AdminStore_Add_ProductInformation.tiles
 			</result>
+			<result name="duplicate" type="tiles">AdminStore_Error.tiles</result>
 		</action>
 
 
