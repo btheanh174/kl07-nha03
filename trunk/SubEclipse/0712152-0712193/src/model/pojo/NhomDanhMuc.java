@@ -1,6 +1,8 @@
 package model.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NhomDanhMuc  implements Serializable{
 	private int maNhom;
