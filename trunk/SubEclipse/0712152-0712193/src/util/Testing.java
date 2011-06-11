@@ -1,31 +1,26 @@
  package util;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
-import model.dao.HoaDonDAO;
 import model.dao.LaptopDAO;
+import model.dao.NhomDanhMucDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
-import model.dao.ThanhVienDAO;
-import model.pojo.ChiTietHoaDon;
 import model.pojo.DanhMuc;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
-import model.pojo.HoaDon;
 import model.pojo.Laptop;
 import model.pojo.NhomDanhMuc;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
-import model.pojo.SanPhamGH;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
 
@@ -357,18 +352,19 @@ public class Testing {
 		
 		GianHang gh1 = ghDao.lay(1);
 		
-		NhomDanhMuc ndm1 = new NhomDanhMuc("Vi tinh, link kien", 1, null);
+		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+		NhomDanhMuc ndm1 = ndmDao.lay(1);
 		
-		gh1.getDsNhomDanhMuc().add(ndm1);
-		ndm1.setGianHang(gh1);
 		
 		
 		GianHangDanhMuc ghdm1 = new GianHangDanhMuc(gh1, dm1, ndm1);
 		GianHangDanhMuc ghdm2 = new GianHangDanhMuc(gh1, dm2, ndm1);
 		
+		
+		
 		gh1.getDsGianHangDanhMuc().add(ghdm1);
 		gh1.getDsGianHangDanhMuc().add(ghdm2);
-		
+		gh1.getDsNhomDanhMuc().add(ndm1);
 		
 		ghDao.capNhat(gh1);
 	}
