@@ -17,5 +17,6 @@
         <many-to-one name="gianHang" class="model.pojo.GianHang" fetch="join">
             <column name="GIAN_HANG" />
         </many-to-one>
+        
     </class>
 </hibernate-mapping>

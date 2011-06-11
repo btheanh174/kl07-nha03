@@ -20,8 +20,7 @@
 			<column name="MA_DANH_MUC" />
 		</many-to-one>
 
-		<many-to-one name="nhomDanhMuc" class="model.pojo.NhomDanhMuc"
-			insert="false" update="false" not-null="true">
+		<many-to-one name="nhomDanhMuc" class="model.pojo.NhomDanhMuc" not-null="true">
 			<column name="MA_NHOM_DANH_MUC" />
 		</many-to-one>
 	</class>

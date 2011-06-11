@@ -346,22 +346,23 @@ public class Testing {
 		DanhMucDAO dmDao = new DanhMucDAO();
 		GianHangDAO ghDao = new GianHangDAO();
 		
-		
+		// Lay 2 danh muc
 		DanhMuc dm1 = dmDao.lay(8);
 		DanhMuc dm2 = dmDao.lay(9);
 		
+		// Lay gian hang
 		GianHang gh1 = ghDao.lay(1);
 		
+		// Them nhóm danh mục trước
 		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
 		NhomDanhMuc ndm1 = ndmDao.lay(1);
 		
 		
-		
+		// Tao đối tượng GianHangDanhMuc
 		GianHangDanhMuc ghdm1 = new GianHangDanhMuc(gh1, dm1, ndm1);
 		GianHangDanhMuc ghdm2 = new GianHangDanhMuc(gh1, dm2, ndm1);
 		
-		
-		
+		// Cap nhat gian hàng
 		gh1.getDsGianHangDanhMuc().add(ghdm1);
 		gh1.getDsGianHangDanhMuc().add(ghdm2);
 		gh1.getDsNhomDanhMuc().add(ndm1);
