@@ -42,6 +42,18 @@ public class SanPham {
 		this.danhMuc = danhMuc;
 		this.dsGianHangSanPham = dsGianHangSanPham;
 	}
+	
+	// Nhung ham bo sung
+	public void themHinhAnh(HinhAnh hinhAnh){
+		hinhAnh.setSanPham(this);
+		this.dsHinhAnh.add(hinhAnh);
+	}
+	public void themGianHangSanPham(GianHangSanPham ghsp){
+		ghsp.setSanPham(this);
+		this.dsGianHangSanPham.add(ghsp);
+	}
+	
+	//
 
 	public String toShortString() {
 		return "";
