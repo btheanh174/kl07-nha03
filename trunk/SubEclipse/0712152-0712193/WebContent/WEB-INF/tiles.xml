@@ -303,13 +303,15 @@
 			value="/WEB-INF/tiles/all/admin/error.jsp"></put-attribute>
 	</definition>
 
-	<definition name="AdminStore_Categories.tiles" extends="adminStoreLayout">
+	<definition name="AdminStore_GroupCategories.tiles" extends="adminStoreLayout">
 		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
 		<put-attribute name="left"
-			value="/WEB-INF/tiles/all/admin/overall/left.jsp"></put-attribute>
+			value="/WEB-INF/tiles/all/admin/category/left.jsp"></put-attribute>
 		<put-attribute name="middle"
-			value="/WEB-INF/tiles/all/admin/overall/middle_categories.jsp"></put-attribute>
+			value="/WEB-INF/tiles/all/admin/category/middle_groupCategories.jsp"></put-attribute>
 	</definition>
+	
+	
 
 	<definition name="AdminStore_Information.tiles" extends="adminStoreLayout">
 		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
@@ -361,6 +363,13 @@
 			value="/WEB-INF/tiles/all/admin/product/middle_addProduct_Step2.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="AdminStore_ChooseTemplate.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý giao diện" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/display/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/display/middle_chooseTemplates.jsp"></put-attribute>
+	</definition>
 	
 	
 	

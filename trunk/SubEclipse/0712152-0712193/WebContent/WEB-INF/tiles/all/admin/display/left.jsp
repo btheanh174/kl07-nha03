@@ -3,13 +3,15 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div id="left-column">
 
-	<h3>Quản lý</h3>
+	<h3>Quản lý sản phẩm</h3>
 
-	<ul class="nav">aa
+	<ul class="nav">
 
-		<li><a href="<s:url action="show3_all_admin_categories" />">Tạo nhóm danh mục</a></li>
-
-		<li class="last"><a href="AdminStore_xemHoaDon">Hóa đơn</a></li>
+		<li><a href="<s:url action="AdminStore_chooseTemplates"/>">Chọn giao diện mẫu</a>
+		</li>
+		<li><a href="<s:url action="AdminStore_xemDsSanPham" />">Danh
+				sách sản phẩm</a>
+		</li>
 
 	</ul>
 

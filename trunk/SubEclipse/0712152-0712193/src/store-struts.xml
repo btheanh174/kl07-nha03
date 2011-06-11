@@ -62,21 +62,21 @@
 			<result name="success" type="redirect">AdminStore_xemDsSanPham.action
 			</result>
 		</action>
-		
+
 
 		<action name="xacNhanXoaGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
 			method="xacNhanXoaGianHangSanPham">
 			<result name="success">/WEB-INF/tiles/all/admin/product/dialog_deleteProduct.jsp
 			</result>
 		</action>
-		
-		
+
+
 		<action name="xoaGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
 			method="xoaGianHangSanPham">
 			<result name="success" type="redirect">AdminStore_xemDsSanPham.action
 			</result>
 		</action>
-		
+
 
 		<action name="AdminStore_Step1_themSanPham">
 			<result name="success" type="tiles">AdminStore_Add_ChoiceProduct.tiles
@@ -100,6 +100,34 @@
 		<action name="echo" class="action.gianhang.admin.SanPhamAction"
 			method="layDanhSachSanPhamTheoDanhMuc">
 			<result name="success">/WEB-INF/tiles/all/admin/product/sub_listProducts.jsp
+			</result>
+		</action>
+
+
+
+		<action name="AdminStore_groupCategories" class="action.gianhang.admin.DanhMucAction"
+			method="layDanhSachNhomDanhMuc">
+			<result name="success" type="tiles">AdminStore_GroupCategories.tiles
+			</result>
+		</action>
+
+		<action name="AdminStore_giaoDienThemNhomDanhMuc">
+			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_addGroupCategory.jsp
+			</result>
+		</action>
+
+		<action name="AdminStore_themNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="themNhomDanhMuc">
+			<result name="success" type="tiles">AdminStore_GroupCategories.tiles
+			</result>
+		</action>
+
+
+
+
+		<action name="AdminStore_chooseTemplates" class="action.gianhang.admin.TemplateAction"
+			method="layDanhSachTemplate">
+			<result name="success" type="tiles">AdminStore_ChooseTemplate.tiles
 			</result>
 		</action>
 

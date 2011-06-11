@@ -56,7 +56,8 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 
 		GianHang gianHang = ghDao.lay(tk);
 		dsGHSanPham = gianHang.getDsGianHangSanPham();
-
+		//System.out.println("URL = " + dsGHSanPham.get(0).getSanPham().getHinhAnh());
+		//System.out.println("DSURL = " + dsGHSanPham.get(0).getSanPham().getDsHinhAnh().get(0));	
 		soLuongSP1Trang = 7;
 		trangHienTai = 1;
 		tongSoTrang = dsGHSanPham.size() / soLuongSP1Trang;
@@ -130,7 +131,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		for (int i = 0; i < dsGHSanPham.size(); i++) {
 			if (dsGHSanPham.get(i).getSanPham().getMaSanPham() == echo) {
 				System.out.println("Before: " + dsGHSanPham.size());
-				dsGHSanPham.remove(i);
+				dsGHSanPham.remove(dsGHSanPham.get(i));
 				System.out.println("After: " + dsGHSanPham.size());
 				ghDao.capNhat(gianHang);
 				return SUCCESS;
@@ -150,6 +151,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		dsGHSanPham = gianHang.getDsGianHangSanPham();
 		for (int i = 0; i < dsGHSanPham.size(); i++) {
 			if (dsGHSanPham.get(i).getSanPham().getMaSanPham() == echo) {
+				GianHangSanPham ghsp = dsGHSanPham.get(i);
 				dsGHSanPham.get(i).setGiaRieng(ghSanPham.getGiaRieng());
 				dsGHSanPham.get(i).setBaoHanh(ghSanPham.getBaoHanh());
 				dsGHSanPham.get(i).setSoLuong(ghSanPham.getSoLuong());
@@ -189,6 +191,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		}
 		sanPham = spDao.lay(favSanPham);
 		session.put("sanPham", sanPham);
+		//session.put("favSanPham",favSanPham);
 		return SUCCESS;
 
 	}
@@ -202,11 +205,9 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 		try {
 			sanPham = (SanPham) session.get("sanPham");
 			if (ghSanPham != null) {
-
 				GianHang gianHang = ghDao.lay(tk);
-
-				// ghSanPham.getPk().setGianHang(gianHang);
-				// ghSanPham.getPk().setSanPham(sanPham);
+				ghSanPham.setGianHang(gianHang);
+				ghSanPham.setSanPham(sanPham);
 				ghSanPham.setCapNhat(new Date());
 				gianHang.getDsGianHangSanPham().add(ghSanPham);
 				sanPham.getDsGianHangSanPham().add(ghSanPham);
@@ -216,6 +217,7 @@ public class SanPhamAction extends ActionSupport implements SessionAware {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Error: " +  e.toString());
 		}
 		return ERROR;
 	}
