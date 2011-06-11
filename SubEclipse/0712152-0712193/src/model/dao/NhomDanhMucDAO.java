@@ -33,7 +33,7 @@ public class NhomDanhMucDAO extends AbstractDAO{
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			
-			String hql = "from NhomDanhMuc as ndm where ndm.gianHang =:nhom";
+			String hql = "from NhomDanhMuc as ndm where ndm.gianHang =:nhom order by ndm.thuTu asc";
 			Query query = session.createQuery(hql);
 			query.setParameter("nhom", gianHang);
 	

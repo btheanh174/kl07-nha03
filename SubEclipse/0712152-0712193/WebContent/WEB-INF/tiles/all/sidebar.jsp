@@ -4,6 +4,20 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 
+<%
+
+int soLuotTruyCap = 1;
+
+String globalcounter = "TongSoLuotTruyCap_" + request.getAttribute("maGianHang");
+
+if(application.getAttribute(globalcounter) != null){
+	soLuotTruyCap = (Integer)application.getAttribute(globalcounter);
+	soLuotTruyCap++;
+}
+	application.setAttribute(globalcounter, soLuotTruyCap);
+
+%>
+
 <!-- danh muc -->
 <div id="sidebar" class="widget1 section">
 	<div id="Search" class="widget">
@@ -87,7 +101,7 @@
 							</tr>
 							<tr>
 								<td><b>Lượt truy cập:</b></td>
-								<td><s:property value="" /></td>
+								<td> <%=soLuotTruyCap%> </td>
 							</tr>
 							<tr>
 								<td><b>Tham gia:</b></td>
