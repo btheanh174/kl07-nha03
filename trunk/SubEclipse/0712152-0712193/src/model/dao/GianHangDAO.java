@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.GianHangSanPham;
 import model.pojo.TaiKhoan;
 
 import org.hibernate.Hibernate;
@@ -113,6 +114,10 @@ public class GianHangDAO extends AbstractDAO {
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getDsGianHangDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
+			for (GianHangSanPham ghsp : kq.getDsGianHangSanPham()) {
+				Hibernate.initialize(ghsp);
+				Hibernate.initialize(ghsp.getSanPham());
+			}
 			Hibernate.initialize(kq.getDsHoaDon());
 
 			tx.commit();

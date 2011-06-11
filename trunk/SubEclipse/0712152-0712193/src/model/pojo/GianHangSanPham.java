@@ -79,6 +79,7 @@ public class GianHangSanPham {
 		this.ma = ma;
 	}
 
+	@Transient
 	public GianHang getGianHang() {
 		return gianHang;
 	}
@@ -87,6 +88,7 @@ public class GianHangSanPham {
 		this.gianHang = gianHang;
 	}
 
+	@Transient
 	public SanPham getSanPham() {
 		return sanPham;
 	}

@@ -3,6 +3,8 @@ package model.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Transient;
+
 public class GianHangDanhMuc {
 
 	public static class Id implements Serializable{
@@ -62,6 +64,7 @@ public class GianHangDanhMuc {
 		this.ma = ma;
 	}
 
+	@Transient
 	public GianHang getGianHang() {
 		return gianHang;
 	}
@@ -69,7 +72,7 @@ public class GianHangDanhMuc {
 	public void setGianHang(GianHang gianHang) {
 		this.gianHang = gianHang;
 	}
-
+	@Transient
 	public DanhMuc getDanhMuc() {
 		return danhMuc;
 	}
