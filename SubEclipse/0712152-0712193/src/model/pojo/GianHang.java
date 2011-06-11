@@ -53,7 +53,27 @@ public class GianHang {
 		this.dsNhomDanhMuc = dsNhomDanhMuc;
 		this.ngayThamGia = ngayThamGia;
 	}
-
+	// Nhung ham bo sung
+	public void themNhomDanhMuc(NhomDanhMuc nhom){
+		nhom.setGianHang(this);
+		this.dsNhomDanhMuc.add(nhom);
+	}
+	
+	public void themHoaDon(HoaDon hoaDon){
+		hoaDon.setGianHang(this);
+		this.dsHoaDon.add(hoaDon);
+	}
+	
+	public void themGianHangSanPham(GianHangSanPham ghsp){
+		ghsp.setGianHang(this);
+		this.dsGianHangSanPham.add(ghsp);
+	}
+	
+	public void themGianHangDanhMuc(GianHangDanhMuc ghdm){
+		ghdm.setGianHang(this);
+		this.dsGianHangDanhMuc.add(ghdm);
+	}
+	//
 	public int getMaGianHang() {
 		return maGianHang;
 	}

@@ -42,6 +42,12 @@ public class HoaDon {
 		this.dsChiTietHoaDon = dsChiTietHoaDon;
 		this.gianHang = gianHang;
 	}
+	
+	// Them ham de thao tac nhan hon
+	public void themChiTietHoaDon(ChiTietHoaDon chiTiet){
+		this.dsChiTietHoaDon.add(chiTiet);
+	}
+	//
 
 	public float tongTienVND() {
 		float tong = 0;

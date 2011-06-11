@@ -63,6 +63,23 @@ public class DanhMuc {
 		this.dsSanPham = danhMuc.dsSanPham;
 		this.dsGianHangDanhMuc = danhMuc.dsGianHangDanhMuc;
 	}
+	
+	// Nhung ham bo sung de thao tac nhanh hon
+	public void themSanPham(SanPham sanPham){
+		sanPham.setDanhMuc(this);
+		this.dsSanPham.add(sanPham);
+	}
+	
+	public void themDanhMuc(DanhMuc danhMucCon){
+		danhMucCon.setDanhMucCha(this);
+		this.dsDanhMucCon.add(danhMucCon);
+	}
+	
+	public void themGianHangDanhMuc(GianHangDanhMuc ghdm){
+		ghdm.setDanhMuc(this);
+		this.dsGianHangDanhMuc.add(ghdm);
+	}
+	//
 
 	public int getCapDanhMuc() {
 		return capDanhMuc;

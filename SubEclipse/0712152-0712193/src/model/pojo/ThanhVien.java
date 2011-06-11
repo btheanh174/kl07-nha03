@@ -61,6 +61,23 @@ public class ThanhVien {
 		this.dsHoaDon = thanhVien.dsHoaDon;
 		this.gioiTinh = thanhVien.gioiTinh;
 	}
+	
+	//
+	public void themNguoiNhan(NguoiNhan nguoiNhan){
+		nguoiNhan.setThanhVien(this);
+		this.dsNguoiNhan.add(nguoiNhan);
+	}
+	
+	public void themTinNhan(TinNhan tinNhan){
+		tinNhan.setThanhVien(this);
+		this.dsTinNhan.add(tinNhan);
+	}
+	
+	public void themTinRaoVat(TinRaoVat tin){
+		tin.setThanhVien(this);
+		this.dsTinRaoVat.add(tin);
+	}
+	//
 
 	public int getMaTaiKhoan() {
 		return maTaiKhoan;
