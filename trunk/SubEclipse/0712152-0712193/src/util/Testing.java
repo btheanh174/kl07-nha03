@@ -341,13 +341,16 @@ public class Testing {
 		System.out.println("Xong");*/
 		
 		
-		tk = tkDao.lay(16);
-		GianHangDAO ghDao = new GianHangDAO();
-		GianHang gh = ghDao.lay(tk);
-		List<GianHangSanPham> ds = gh.getDsGianHangSanPham();
+		//testSanPhamGianHang();
 		
-		for (HinhAnh ha : ds.get(0).getSanPham().getDsHinhAnh()) {
-			System.out.println(ha.getUrlHinhAnh());
+		// Lay nhom danh muc theo thu tu
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gianHang = ghDao.lay(1);
+		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+		List<NhomDanhMuc> list = ndmDao.layDanhSach(gianHang);
+		
+		for (NhomDanhMuc nhomDanhMuc : list) {
+			System.out.println(nhomDanhMuc.getMaNhom());
 		}
 	}
 	
@@ -387,8 +390,8 @@ public class Testing {
 		GianHang gianHang = ghDao.lay(2);
 		
 		SanPhamDAO spDao = new SanPhamDAO();
-		SanPham sp1 = spDao.lay(22);
-		SanPham sp2 = spDao.lay(21);
+		SanPham sp1 = spDao.lay(19);
+		SanPham sp2 = spDao.lay(20);
 		
 		GianHangSanPham ghsp1 = new GianHangSanPham(gianHang, sp1, 14500000, 12, 10, new Date());
 		GianHangSanPham ghsp2 = new GianHangSanPham(gianHang, sp2, 19000000, 24, 5, new Date());
