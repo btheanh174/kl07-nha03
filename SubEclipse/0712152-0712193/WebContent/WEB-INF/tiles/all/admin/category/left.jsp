@@ -5,11 +5,11 @@
 
 	<h3>Quản lý</h3>
 
-	<ul class="nav">aa
+	<ul class="nav">
 
-		<li><a href="<s:url action="show3_all_admin_categories" />">Tạo nhóm danh mục</a></li>
+		<li><a href="<s:url action="AdminStore_groupCategories" />">Nhóm danh mục</a></li>
 
-		<li class="last"><a href="AdminStore_xemHoaDon">Hóa đơn</a></li>
+		<li class="last"><a href="AdminStore_xemHoaDon">Danh mục</a></li>
 
 	</ul>
 

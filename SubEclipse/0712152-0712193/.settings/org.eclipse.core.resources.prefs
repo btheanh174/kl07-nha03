@@ -1,4 +1,4 @@
-#Sat Jun 11 12:08:32 ICT 2011
+#Sat Jun 11 17:48:21 ICT 2011
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/all/admin/product/middle_addProduct_Step2.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/all/header.jsp=UTF-8
@@ -16,6 +16,7 @@ encoding//src/action/DanhMucAction.java=UTF-8
 encoding//src/action/DienThoaiTimKiemAction.java=UTF-8
 encoding//src/action/SanPhamAction.java=UTF-8
 encoding//src/action/XuLyTimKiemAction.java=UTF-8
+encoding//src/action/gianhang/admin/DanhMucAction.java=UTF-8
 encoding//src/action/gianhang/admin/HoaDonAction.java=UTF-8
 encoding//src/action/gianhang/admin/SanPhamAction.java=UTF-8
 encoding//src/action/payment/HoaDonAction.java=UTF-8

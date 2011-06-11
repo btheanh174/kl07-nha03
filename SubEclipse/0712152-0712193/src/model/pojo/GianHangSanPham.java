@@ -85,6 +85,7 @@ public class GianHangSanPham {
 	}
 
 	public void setGianHang(GianHang gianHang) {
+		this.ma.maGianHang = gianHang.getMaGianHang();
 		this.gianHang = gianHang;
 	}
 
@@ -94,6 +95,7 @@ public class GianHangSanPham {
 	}
 
 	public void setSanPham(SanPham sanPham) {
+		this.ma.maSanPham = sanPham.getMaSanPham();
 		this.sanPham = sanPham;
 	}
 	

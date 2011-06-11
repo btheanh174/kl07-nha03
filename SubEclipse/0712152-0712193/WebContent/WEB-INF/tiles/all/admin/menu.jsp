@@ -19,9 +19,13 @@
 		<li><span><span><a
 					href="<s:url action="AdminStore_Step1_themSanPham"/>">Sản phẩm</a> </span> </span>
 		</li>
+		
+		<li><span><span><a
+					href="<s:url action="AdminStore_groupCategories"/>">Danh mục</a> </span> </span>
+		</li>
 
 
-		<li><span><span><a href="">Giao diện</a> </span> </span>
+		<li><span><span><a href="<s:url action="AdminStore_chooseTemplates"/>">Giao diện</a> </span> </span>
 		</li>
 
 
