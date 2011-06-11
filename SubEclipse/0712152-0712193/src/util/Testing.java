@@ -17,6 +17,7 @@ import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
+import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.NhomDanhMuc;
 import model.pojo.NhomNguoiDung;
@@ -330,14 +331,24 @@ public class Testing {
 		System.out.println(list.size());*/
 		
 		// Test gian hang danh muc
-		System.out.println("test gian hang danh muc");
+		/*System.out.println("test gian hang danh muc");
 		testGianHangDanhMuc();
-		System.out.println("Xong");
+		System.out.println("Xong");*/
 		
 		//
 		/*System.out.println("test san pham gian hang");
 		testSanPhamGianHang();
 		System.out.println("Xong");*/
+		
+		
+		tk = tkDao.lay(16);
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gh = ghDao.lay(tk);
+		List<GianHangSanPham> ds = gh.getDsGianHangSanPham();
+		
+		for (HinhAnh ha : ds.get(0).getSanPham().getDsHinhAnh()) {
+			System.out.println(ha.getUrlHinhAnh());
+		}
 	}
 	
 
