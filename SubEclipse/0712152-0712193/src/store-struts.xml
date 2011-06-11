@@ -37,6 +37,47 @@
 			</result>
 		</action>
 
+		<action name="xemDanhSachSanPhamGianHang" class="action.gianhang.admin.SanPhamAction"
+			method="layDanhSachSanPhamTheoGianHangTheoTrang">
+			<result name="success" type="tiles">AdminStore_ViewProducts.tiles
+			</result>
+		</action>
+
+		<action name="xemChiTietSanPhamGianHang" class="action.gianhang.admin.SanPhamAction"
+			method="layChiTietSanPhamGianHang">
+			<result name="success">/WEB-INF/tiles/all/admin/product/popup_detail.jsp
+			</result>
+		</action>
+
+
+
+		<action name="xemThongSoGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="xemThongSoGianHangSanPham">
+			<result name="success">/WEB-INF/tiles/all/admin/product/dialog_editProduct.jsp
+			</result>
+		</action>
+
+		<action name="capNhatThongTinGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="capNhatThongTinGianHangSanPham">
+			<result name="success" type="redirect">AdminStore_xemDsSanPham.action
+			</result>
+		</action>
+		
+
+		<action name="xacNhanXoaGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="xacNhanXoaGianHangSanPham">
+			<result name="success">/WEB-INF/tiles/all/admin/product/dialog_deleteProduct.jsp
+			</result>
+		</action>
+		
+		
+		<action name="xoaGianHangSanPham" class="action.gianhang.admin.SanPhamAction"
+			method="xoaGianHangSanPham">
+			<result name="success" type="redirect">AdminStore_xemDsSanPham.action
+			</result>
+		</action>
+		
+
 		<action name="AdminStore_Step1_themSanPham">
 			<result name="success" type="tiles">AdminStore_Add_ChoiceProduct.tiles
 			</result>
@@ -47,14 +88,14 @@
 			<result name="success" type="tiles">AdminStore_Add_ProductInformation.tiles
 			</result>
 		</action>
-		
 
-		<action name="AdminStore_Step3_themSanPham.action" class="action.gianhang.admin.SanPhamAction"
+
+		<action name="AdminStore_Step3_themSanPham" class="action.gianhang.admin.SanPhamAction"
 			method="themSanPhamVaoGianHang_Step3">
-			<result name="success" type="tiles">AdminStore_Add_ProductInformation_Laptop.tiles
+			<result name="success" type="tiles">AdminStore.tiles
 			</result>
 		</action>
-		
+
 		<action name="echo" class="action.gianhang.admin.SanPhamAction"
 			method="layDanhSachSanPhamTheoDanhMuc">
 			<result name="success">/WEB-INF/tiles/all/admin/product/sub_listProducts.jsp

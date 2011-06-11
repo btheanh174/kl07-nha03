@@ -7,10 +7,10 @@
 
 	<ul class="nav">
 
-		<li><a href="<s:url action="show3_all_admin_information"/>">Đăng
+		<li><a href="<s:url action="AdminStore_Step1_themSanPham"/>">Đăng
 				sản phẩm</a>
 		</li>
-		<li><a href="<s:url action="show3_all_admin_categories" />">Danh
+		<li><a href="<s:url action="AdminStore_xemDsSanPham" />">Danh
 				sách sản phẩm</a>
 		</li>
 

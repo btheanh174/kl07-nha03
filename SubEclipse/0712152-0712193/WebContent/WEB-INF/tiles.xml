@@ -333,6 +333,8 @@
 		<put-attribute name="pageTitle" value="Quản lý tổng thể" />
 		<put-attribute name="left"
 			value="/WEB-INF/tiles/all/admin/product/left.jsp"></put-attribute>
+			<put-attribute name="right"
+			value="/WEB-INF/tiles/all/admin/product/right.jsp"></put-attribute>
 		<put-attribute name="middle"
 			value="/WEB-INF/tiles/all/admin/product/middle_viewProducts.jsp"></put-attribute>
 	</definition>
