@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
 import model.pojo.TaiKhoan;
 
@@ -143,5 +144,37 @@ public class GianHangDAO extends AbstractDAO {
 
 	public void capNhat(GianHang gianHang) {
 		super.saveOrUpdate(gianHang);
+	}
+	
+	public void xoaGianHangSanPham(GianHang gianHang, GianHangSanPham ghsp){
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			gianHang.getDsGianHangSanPham().remove(ghsp);
+			session.delete(ghsp);
+			
+			tx.commit();
+		}catch (HibernateException e) {
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+	}
+	
+	public void xoaGianHangDanhMuc(GianHang gianHang, GianHangDanhMuc ghdm){
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			gianHang.getDsGianHangSanPham().remove(ghdm);
+			session.delete(ghdm);
+			
+			tx.commit();
+		}catch (HibernateException e) {
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
 	}
 }
