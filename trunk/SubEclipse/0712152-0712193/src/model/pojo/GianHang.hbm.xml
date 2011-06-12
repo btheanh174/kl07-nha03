@@ -79,7 +79,7 @@
 			<one-to-many class="model.pojo.HoaDon" />
 		</bag>
 		
-		<bag name="dsNhomDanhMuc" table="nhom_danh_muc" lazy="true" cascade="all">
+		<bag name="dsNhomDanhMuc" table="nhom_danh_muc" lazy="true" cascade="all" order-by="THU_TU asc">
 			<key column="GIAN_HANG"></key>
 			<one-to-many class="model.pojo.NhomDanhMuc"/>
 		</bag>

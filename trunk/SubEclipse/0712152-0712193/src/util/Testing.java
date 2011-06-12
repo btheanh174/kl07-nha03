@@ -7,6 +7,7 @@ import java.util.List;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
+import model.dao.GianHangSanPhamDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomDanhMucDAO;
 import model.dao.NhomNguoiDungDAO;
@@ -17,7 +18,6 @@ import model.pojo.DienThoai;
 import model.pojo.GianHang;
 import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
-import model.pojo.HinhAnh;
 import model.pojo.Laptop;
 import model.pojo.NhomDanhMuc;
 import model.pojo.NhomNguoiDung;
@@ -352,6 +352,11 @@ public class Testing {
 		for (NhomDanhMuc nhomDanhMuc : list) {
 			System.out.println(nhomDanhMuc.getMaNhom());
 		}
+		
+		// 
+		List<GianHangSanPham> ls = gianHang.getDsGianHangSanPham();
+		
+		ghDao.xoaGianHangSanPham(gianHang, ls.get(0));
 	}
 	
 
