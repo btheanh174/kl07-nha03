@@ -353,10 +353,16 @@ public class Testing {
 			System.out.println(nhomDanhMuc.getMaNhom());
 		}
 		
-		// 
+		// Thay đổi thông tin gian hàng sản phẩm
 		List<GianHangSanPham> ls = gianHang.getDsGianHangSanPham();
 		
-		ghDao.xoaGianHangSanPham(gianHang, ls.get(0));
+		for (GianHangSanPham gianHangSanPham : ls) {
+			gianHangSanPham.setCapNhat(new Date());
+		}
+		
+		// cập nhật thông tin gian hàng sản phẩm
+		ghDao.capNhat(gianHang);
+		System.out.println("Xong");
 	}
 	
 

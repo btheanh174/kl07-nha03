@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 10, 2011 8:18:32 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-	<class name="model.pojo.GianHangSanPham" table="gian_hang_san_pham" mutable="false">
+	<class name="model.pojo.GianHangSanPham" table="gian_hang_san_pham" mutable="true">
 		<composite-id name="ma" class="model.pojo.GianHangSanPham$Id">
 			<key-property name="maGianHang" access="field" column="MA_GIAN_HANG"></key-property>
 			<key-property name="maSanPham" access="field" column="MA_SAN_PHAM"></key-property>
