@@ -344,7 +344,7 @@ public class Testing {
 		//testSanPhamGianHang();
 		
 		// Lay nhom danh muc theo thu tu
-		GianHangDAO ghDao = new GianHangDAO();
+		/*GianHangDAO ghDao = new GianHangDAO();
 		GianHang gianHang = ghDao.lay(1);
 		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
 		List<NhomDanhMuc> list = ndmDao.layDanhSach(gianHang);
@@ -362,7 +362,23 @@ public class Testing {
 		
 		// cập nhật thông tin gian hàng sản phẩm
 		ghDao.capNhat(gianHang);
-		System.out.println("Xong");
+		System.out.println("Xong");*/
+		
+		// Test ve nhom danh muc
+		GianHang gianHang = new GianHangDAO().lay(1);
+		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+		
+		List<NhomDanhMuc> ds = gianHang.getDsNhomDanhMuc();
+		for(int i = 0; i < ds.size(); i++){
+			if(ds.get(i) != null)
+			ds.get(i).setThuTu(i+1);
+		}
+		
+		new GianHangDAO().capNhat(gianHang);
+		
+		for (int i = 0; i < gianHang.getDsNhomDanhMuc().size(); i++) {
+			System.out.println(gianHang.getDsNhomDanhMuc().get(i).getThuTu());
+		}
 	}
 	
 
