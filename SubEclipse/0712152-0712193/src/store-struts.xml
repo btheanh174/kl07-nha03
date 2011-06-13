@@ -13,6 +13,9 @@
 		<!-- end global result -->
 
 
+		<!-- <action name=AdminStore_lienHeTrucTuyen"> <result name="success" type="tiles">AdminStore_Bills.tiles</result> 
+			</action> -->
+
 
 
 		<action name="AdminStore_xemHoaDon" class="action.gianhang.admin.HoaDonAction"
@@ -104,10 +107,16 @@
 		</action>
 
 
-
+		<!-- Start quản lý nhóm danh mục gian hàng -->
 		<action name="AdminStore_groupCategories" class="action.gianhang.admin.DanhMucAction"
 			method="layDanhSachNhomDanhMuc">
 			<result name="success" type="tiles">AdminStore_GroupCategories.tiles
+			</result>
+		</action>
+
+		<action name="AdminStore_themNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="themNhomDanhMuc">
+			<result name="success" type="redirect">AdminStore_groupCategories.action
 			</result>
 		</action>
 
@@ -116,13 +125,69 @@
 			</result>
 		</action>
 
-		<action name="AdminStore_themNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
-			method="themNhomDanhMuc">
-			<result name="success" type="tiles">AdminStore_GroupCategories.tiles
+		<action name="AdminStore_giaoDienCapNhatNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="layThongTinNhomDanhMuc">
+			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_editGroupCategory.jsp
+			</result>
+		</action>
+
+		<action name="AdminStore_giaoDienXoaNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="layThongTinNhomDanhMuc">
+			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_deleteGroupCategory.jsp
+			</result>
+		</action>
+		
+		<action name="AdminStore_capNhatNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="capNhatNhomDanhMuc">
+			<result name="success" type="redirect">AdminStore_groupCategories.action
+			</result>
+		</action>
+		
+		<action name="AdminStore_xoaNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="xoaNhomDanhMuc">
+			<result name="success" type="redirect">AdminStore_groupCategories.action
+			</result>
+		</action>
+		
+
+		<!-- End quản lý danh mục gian hàng -->
+
+		<!-- Start quản lý danh mục gian hàng -->
+
+		<action name="AdminStore_categories" class="action.gianhang.admin.DanhMucAction"
+			method="layDanhSachGianHangDanhMuc">
+			<result name="success" type="tiles">AdminStore_Categories.tiles
 			</result>
 		</action>
 
 
+		<action name="AdminStore_giaoDienThemDanhMucGianHang" class="action.gianhang.admin.DanhMucAction"
+			method="layDanhSachNhomDanhMuc">
+			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_addCategory.jsp
+			</result>
+		</action>
+
+
+		<action name="AdminStore_themDanhMucGianHang" class="action.gianhang.admin.DanhMucAction"
+			method="themDanhMucGianHang">
+			<result name="success" type="redirect">AdminStore_categories.action
+			</result>
+		</action>
+
+		<action name="xacNhanXoaGianHangDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="xacNhanXoaGianHangSanPham">
+			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_deleteCategory.jsp
+			</result>
+		</action>
+
+		<action name="xoaGianHangDanhMuc" class="action.gianhang.admin.DanhMucAction"
+			method="xoaGianHangDanhMuc">
+			<result name="success" type="redirect">AdminStore_categories.action
+			</result>
+		</action>
+
+
+		<!-- End quản lý danh mục gian hàng -->
 
 
 		<action name="AdminStore_chooseTemplates" class="action.gianhang.admin.TemplateAction"

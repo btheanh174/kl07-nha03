@@ -9,7 +9,7 @@
 
 		<li><a href="<s:url action="AdminStore_groupCategories" />">Nhóm danh mục</a></li>
 
-		<li class="last"><a href="AdminStore_xemHoaDon">Danh mục</a></li>
+		<li class="last"><a href="AdminStore_categories">Danh mục</a></li>
 
 	</ul>
 

@@ -110,16 +110,20 @@
 						src="<s:property value= "getSanPham().getDsHinhAnh().get(0).getUrlHinhAnh()"/> ">
 					</td>
 
-					<td><s:property value="getSanPham().tenSanPham" /></td>
+					<td><s:property value="getSanPham().tenSanPham" />
+					</td>
 
-					<td><s:property value="giaRieng" /></td>
+					<td><s:property value="giaRieng" />
+					</td>
 
 					<td><s:property value="soLuong" />
-					<td><s:property value="baoHanh" /></td>
+					<td><s:property value="baoHanh" />
+					</td>
 
 					<td><a style="color: blue;" href=""
 						onclick="xemChitiet(<s:property value="getSanPham().maSanPham" />)">Chi
-							tiết...</a></td>
+							tiết...</a>
+					</td>
 
 					<td>Danh mục</td>
 
@@ -130,7 +134,8 @@
 								<s:property value="getSanPham().maSanPham" />
 							</s:param>
 						</s:url> <sj:submit openDialog="dialogEdit" type="image" href="%{editURL}"
-							src="all/images/admin/edit-icon.gif" /></td>
+							src="all/images/admin/edit-icon.gif" />
+					</td>
 
 
 					<td class="last"><s:url id="deleteURL"
@@ -139,8 +144,9 @@
 								<s:property value="getSanPham().maSanPham" />
 							</s:param>
 						</s:url> <sj:submit openDialog="dialogDelete" href="%{deleteURL}"
-						onclick="clickXoa(%{getSanPham().maSanPham})"
-							type="image" src="all/images/admin/hr.gif" /></td>
+							onclick="clickXoa(%{getSanPham().maSanPham})" type="image"
+							src="all/images/admin/hr.gif" />
+					</td>
 
 				</tr>
 			</s:iterator>
@@ -150,9 +156,16 @@
 			<strong>Other Pages: </strong> <select id="idPage"
 				onchange="changePage()">
 				<s:iterator status="stat" value="tongSoTrang.{ #this }">
-					<option>
-						<s:property value="#stat.count" />
+					<s:if test="#stat.count == trangHienTai">
+						<option selected>
+					</s:if>
+					<s:else>
+						<option>
+					</s:else>
+
+					<s:property value="#stat.count" />
 					</option>
+				
 
 				</s:iterator>
 			</select>

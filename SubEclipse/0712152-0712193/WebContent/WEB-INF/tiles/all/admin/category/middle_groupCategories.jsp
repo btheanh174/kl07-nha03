@@ -3,7 +3,25 @@
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%@ taglib prefix="sjt" uri="/struts-jquery-tree-tags"%>
+
+
+<script>
+	var myEcho = 0;
+	
+	function clickXoa(echo)
+	{
+		myEcho = echo;
+	}
+
+	 function okButton(){
+	       location = "AdminStore_xoaNhomDanhMuc.action" + "?echo=" + myEcho;
+	 };
+	 
+	function cancelButton(){
+	 $('#dialogDelete').dialog('close');
+	};
+
+</script>
 
 <div id="center-column">
 
@@ -27,6 +45,20 @@
 	<s:url id="addNhomDM" value="AdminStore_giaoDienThemNhomDanhMuc" />
 	<sj:dialog id="dialogAdd" autoOpen="false" modal="true"
 		showEffect="slide" title="Thêm nhóm danh mục mới" href="%{addNhomDM}">
+	</sj:dialog>
+	
+	<sj:dialog id="dialogDelete" showEffect="slide"
+		buttons="{ 
+    		'OK':function() { okButton(); },
+    		'Cancel':function() { cancelButton(); } 
+    		}"
+		autoOpen="false" modal="true" title="Xóa nhóm danh mục">
+
+	</sj:dialog>
+
+
+	<sj:dialog id="dialogEdit" autoOpen="false" modal="true"
+		showEffect="slide" title="Cập nhật nhóm danh mục" href="%{ajax}">Chưa rõ ý đồ
 	</sj:dialog>
 
 	<div class="table"
@@ -67,21 +99,21 @@
 					<td>5</td>
 
 					<td><s:url id="editURL"
-							value="xemThongSoGianHangSanPham.action">
+							value="AdminStore_giaoDienCapNhatNhomDanhMuc.action">
 							<s:param name="echo">
-								<s:property value="getSanPham().maSanPham" />
+								<s:property value="maNhom" />
 							</s:param>
 						</s:url> <sj:submit openDialog="dialogEdit" type="image" href="%{editURL}"
 							src="all/images/admin/spanner_48.png" cssStyle="width:35px" /></td>
 
 
 					<td class="last"><s:url id="deleteURL"
-							value="xacNhanXoaGianHangSanPham.action">
+							value="AdminStore_giaoDienXoaNhomDanhMuc.action">
 							<s:param name="echo">
-								<s:property value="getSanPham().maSanPham" />
+								<s:property value="maNhom" />
 							</s:param>
 						</s:url> <sj:submit openDialog="dialogDelete" href="%{deleteURL}"
-							onclick="clickXoa(%{getSanPham().maSanPham})" type="image"
+							onclick="clickXoa(%{maNhom})" type="image"
 							src="all/images/admin/cancel_48.png" cssStyle="width:35px" /></td>
 
 				</tr>
