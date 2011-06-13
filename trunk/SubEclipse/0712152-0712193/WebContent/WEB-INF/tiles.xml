@@ -311,7 +311,15 @@
 			value="/WEB-INF/tiles/all/admin/category/middle_groupCategories.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="AdminStore_Categories.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Quản lý danh mục" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/category/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/category/middle_categories.jsp"></put-attribute>
+	</definition>
 	
+		
 
 	<definition name="AdminStore_Information.tiles" extends="adminStoreLayout">
 		<put-attribute name="pageTitle" value="Quản lý tổng thể" />

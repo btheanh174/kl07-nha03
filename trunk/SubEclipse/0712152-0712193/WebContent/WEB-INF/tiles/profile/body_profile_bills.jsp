@@ -3,14 +3,15 @@
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-
+<link href="css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="js/tablecloth.js"></script>
 
 <div class="table">
 	<img src="all/images/admin/bg-th-left.gif" width="8" height="7" alt=""
 		class="left" /> <img src="all/images/admin/bg-th-right.gif" width="7"
 		height="7" alt="" class="right" />
 
-	<table border="1px" align="left" cellpadding="0" cellspacing="0">
+	<table class="tablecloth" border="1px" align="left" cellpadding="0" cellspacing="0">
 		<tr>
 			<th width="120">Ngày lập</th>
 			<th width="220">Tên cửa hàng</th>
