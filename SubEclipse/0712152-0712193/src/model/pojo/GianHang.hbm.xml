@@ -63,11 +63,6 @@
 			<column name="TINH_THANH_PHO" />
 		</many-to-one>
 
-		<bag name="dsGianHangDanhMuc" table="gian_hang_danh_muc" lazy="true" cascade="all">
-			<key column="MA_GIAN_HANG" />
-			<one-to-many class="model.pojo.GianHangDanhMuc"/>			
-		</bag>
-
 		<bag name="dsGianHangSanPham" table="gian_hang_san_pham" cascade="all"
 			inverse="true" lazy="true">
 			<key column="MA_GIAN_HANG" />

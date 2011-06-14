@@ -10,6 +10,8 @@ public class NhomDanhMuc  implements Serializable{
 	private int thuTu;
 	private GianHang gianHang;
 	
+	private List<DanhMucGianHang> dsDanhMucGianHang = new ArrayList<DanhMucGianHang>();
+	
 	public NhomDanhMuc() {
 	
 	}
@@ -20,6 +22,22 @@ public class NhomDanhMuc  implements Serializable{
 		this.thuTu = thuTu;
 		this.gianHang = gianHang;
 	}
+	
+	public NhomDanhMuc(String tenNhom, int thuTu, GianHang gianHang,
+			List<DanhMucGianHang> dsDanhMucGianHang) {
+		super();
+		this.tenNhom = tenNhom;
+		this.thuTu = thuTu;
+		this.gianHang = gianHang;
+		this.dsDanhMucGianHang = dsDanhMucGianHang;
+	}
+
+	//
+	public void themDanhMucGianHang(DanhMucGianHang dmgh){
+		dmgh.setNhomDanhMuc(this);
+		this.dsDanhMucGianHang.add(dmgh);
+	}
+	//
 
 	public int getMaNhom() {
 		return maNhom;
@@ -52,4 +70,13 @@ public class NhomDanhMuc  implements Serializable{
 	public void setGianHang(GianHang gianHang) {
 		this.gianHang = gianHang;
 	}
+
+	public List<DanhMucGianHang> getDsDanhMucGianHang() {
+		return dsDanhMucGianHang;
+	}
+
+	public void setDsDanhMucGianHang(List<DanhMucGianHang> dsDanhMucGianHang) {
+		this.dsDanhMucGianHang = dsDanhMucGianHang;
+	}
+	
 }

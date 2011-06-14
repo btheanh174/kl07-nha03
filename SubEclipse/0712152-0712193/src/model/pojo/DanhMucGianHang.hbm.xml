@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2011 3:05:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.DanhMucGianHang" table="danh_muc_gian_hang" mutable="true">
+        <composite-id name="ma" class="model.pojo.DanhMucGianHang$Id">
+            <key-property name="maDanhMuc" column="MA_DANH_MUC" access="field"></key-property>
+            <key-property name="maNhomDanhMuc" column="MA_NHOM_DANH_MUC" access="field"></key-property>
+        </composite-id>
+        <many-to-one name="danhMuc" class="model.pojo.DanhMuc" insert="false" update="false" not-null="true">
+            <column name="MA_DANH_MUC" />
+        </many-to-one>
+        <many-to-one name="nhomDanhMuc" class="model.pojo.NhomDanhMuc" insert="false" update="false" not-null="true">
+            <column name="MA_NHOM_DANH_MUC" />
+        </many-to-one>
+        <property name="soSanPham" type="java.lang.Integer">
+            <column name="SO_SAN_PHAM" />
+        </property>
+    </class>
+</hibernate-mapping>
