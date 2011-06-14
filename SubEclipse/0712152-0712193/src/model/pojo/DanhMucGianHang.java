@@ -9,6 +9,7 @@ public class DanhMucGianHang {
 		private Integer maDanhMuc;
 		private Integer maNhomDanhMuc;
 		
+		public Id(){}
 		public Id(Integer maDanhMuc, Integer maNhomDanhMuc){
 			this.maDanhMuc = maDanhMuc;
 			this.maNhomDanhMuc = maNhomDanhMuc;
@@ -38,7 +39,7 @@ public class DanhMucGianHang {
 	}
 	//
 	
-	private Id ma;
+	private Id ma = new Id();
 	private DanhMuc danhMuc;
 	private NhomDanhMuc nhomDanhMuc;
 	
@@ -55,7 +56,7 @@ public class DanhMucGianHang {
 		ma.maDanhMuc = danhMuc.getMaDanhMuc();
 		ma.maNhomDanhMuc = nhomDanhMuc.getMaNhom();
 		//
-		danhMuc.getDsDanhMucGianHang().add(this);
+		//danhMuc.getDsDanhMucGianHang().add(this);
 		nhomDanhMuc.getDsDanhMucGianHang().add(this);
 	}
 

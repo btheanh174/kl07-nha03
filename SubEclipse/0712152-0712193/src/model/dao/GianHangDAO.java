@@ -4,7 +4,6 @@ import java.util.List;
 
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
-import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
 import model.pojo.TaiKhoan;
 
@@ -43,21 +42,20 @@ public class GianHangDAO extends AbstractDAO {
 			int batdau = (trang - 1) * soGianHangTrenTrang;
 			query.setFirstResult(batdau);
 			query.setMaxResults(soGianHangTrenTrang);
-			
+
 			kq.setBatdau(batdau);
-			
 
 			List list = query.list();
 			for (Object gianHang : list) {
-				Hibernate.initialize((GianHang)gianHang);
-				Hibernate.initialize(((GianHang)gianHang).getDsGianHangDanhMuc());
-				Hibernate.initialize(((GianHang)gianHang).getDsGianHangSanPham());
+				Hibernate.initialize((GianHang) gianHang);
+				Hibernate.initialize(((GianHang) gianHang)
+						.getDsGianHangSanPham());
 			}
-			
+
 			kq.setDsDuLieu(list);
 			kq.setLaTrangCuoi(false);
-			
-			if(trang * soGianHangTrenTrang >= soGianHang){
+
+			if (trang * soGianHangTrenTrang >= soGianHang) {
 				kq.setLaTrangCuoi(true);
 			}
 
@@ -82,13 +80,13 @@ public class GianHangDAO extends AbstractDAO {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 
-	/*		kq = (GianHang) session
-					.createQuery("from GianHang as gh where gh.maGianHang =:id")
-					.setParameter("id", id).uniqueResult();
-*/
+			/*
+			 * kq = (GianHang) session
+			 * .createQuery("from GianHang as gh where gh.maGianHang =:id")
+			 * .setParameter("id", id).uniqueResult();
+			 */
 			kq = (GianHang) session.get(GianHang.class, new Integer(id));
 			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsGianHangDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
 			for (GianHangSanPham ghsp : kq.getDsGianHangSanPham()) {
 				Hibernate.initialize(ghsp);
@@ -117,7 +115,6 @@ public class GianHangDAO extends AbstractDAO {
 					.setParameter("tk", tk).uniqueResult();
 
 			Hibernate.initialize(kq);
-			Hibernate.initialize(kq.getDsGianHangDanhMuc());
 			Hibernate.initialize(kq.getDsGianHangSanPham());
 			for (GianHangSanPham ghsp : kq.getDsGianHangSanPham()) {
 				Hibernate.initialize(ghsp);
@@ -145,36 +142,21 @@ public class GianHangDAO extends AbstractDAO {
 	public void capNhat(GianHang gianHang) {
 		super.saveOrUpdate(gianHang);
 	}
-	
-	public void xoaGianHangSanPham(GianHang gianHang, GianHangSanPham ghsp){
-		try{
+
+	public void xoaGianHangSanPham(GianHang gianHang, GianHangSanPham ghsp) {
+		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			
+
 			gianHang.getDsGianHangSanPham().remove(ghsp);
 			session.delete(ghsp);
-			
+
 			tx.commit();
-		}catch (HibernateException e) {
+		} catch (HibernateException e) {
 			handleException(e);
-		}finally{
+		} finally {
 			HibernateUtil.shutdown();
 		}
 	}
-	
-	public void xoaGianHangDanhMuc(GianHang gianHang, GianHangDanhMuc ghdm){
-		try{
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
-			tx = session.beginTransaction();
-			
-			gianHang.getDsGianHangSanPham().remove(ghdm);
-			session.delete(ghdm);
-			
-			tx.commit();
-		}catch (HibernateException e) {
-			handleException(e);
-		}finally{
-			HibernateUtil.shutdown();
-		}
-	}
+
 }

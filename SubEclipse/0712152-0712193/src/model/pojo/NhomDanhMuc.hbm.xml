@@ -22,7 +22,7 @@
 		<bag name="dsDanhMucGianHang" table="danh_muc_gian_hang" inverse="true"
 			cascade="all" lazy="true">
 			<key column="MA_NHOM_DANH_MUC"></key>
-			<one-to-many class="DanhMucGianHang" />
+			<one-to-many class="model.pojo.DanhMucGianHang" />
 		</bag>
 
 	</class>
