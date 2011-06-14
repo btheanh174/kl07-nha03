@@ -379,6 +379,7 @@ public class Testing {
 			System.out.println(gianHang.getDsNhomDanhMuc().get(i).getThuTu());
 		}*/
 		
+		/*// Cap nhat DanhMucGianHang dua vao NhomDanhMuc
 		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
 		NhomDanhMuc ndm = ndmDao.lay(1);
 		System.out.println(ndm.getDsDanhMucGianHang().size());
@@ -394,7 +395,17 @@ public class Testing {
 		ndm.themDanhMucGianHang(dmgh);
 		
 		ndmDao.capNhat(ndm);
-		System.out.println("Cap nhat xong");
+		System.out.println("Cap nhat xong");*/
+		
+		// Lay danh sach danh muc cua gian hang co ma = 1
+		DanhMucDAO dmDao = new DanhMucDAO();
+		NhomDanhMuc ndm = new NhomDanhMucDAO().lay(1);
+		List<DanhMuc> kq = dmDao.layDanhSach(ndm);
+		
+		System.out.println(kq.size());
+		for (DanhMuc danhMuc : kq) {
+			System.out.println(danhMuc.getTenDanhMuc());
+		}
 	}
 	
 
