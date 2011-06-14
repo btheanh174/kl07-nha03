@@ -7,16 +7,15 @@ import java.util.List;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
-import model.dao.GianHangSanPhamDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomDanhMucDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.SanPhamDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
 import model.pojo.DienThoai;
 import model.pojo.GianHang;
-import model.pojo.GianHangDanhMuc;
 import model.pojo.GianHangSanPham;
 import model.pojo.Laptop;
 import model.pojo.NhomDanhMuc;
@@ -365,7 +364,7 @@ public class Testing {
 		System.out.println("Xong");*/
 		
 		// Test ve nhom danh muc
-		GianHang gianHang = new GianHangDAO().lay(1);
+		/*GianHang gianHang = new GianHangDAO().lay(1);
 		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
 		
 		List<NhomDanhMuc> ds = gianHang.getDsNhomDanhMuc();
@@ -378,7 +377,24 @@ public class Testing {
 		
 		for (int i = 0; i < gianHang.getDsNhomDanhMuc().size(); i++) {
 			System.out.println(gianHang.getDsNhomDanhMuc().get(i).getThuTu());
+		}*/
+		
+		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+		NhomDanhMuc ndm = ndmDao.lay(1);
+		System.out.println(ndm.getDsDanhMucGianHang().size());
+		for (DanhMucGianHang dmgh : ndm.getDsDanhMucGianHang()) {
+			System.out.println(dmgh.getNhomDanhMuc().getMaNhom() + " - " + dmgh.getDanhMuc().getMaDanhMuc());
 		}
+		
+		
+		DanhMuc dm1 = new DanhMucDAO().lay(9);
+		
+		DanhMucGianHang dmgh = new DanhMucGianHang(dm1, ndm, 100);
+		
+		ndm.themDanhMucGianHang(dmgh);
+		
+		ndmDao.capNhat(ndm);
+		System.out.println("Cap nhat xong");
 	}
 	
 
@@ -399,13 +415,10 @@ public class Testing {
 		NhomDanhMuc ndm1 = ndmDao.lay(1);
 		
 		
-		// Tao đối tượng GianHangDanhMuc
-		GianHangDanhMuc ghdm1 = new GianHangDanhMuc(gh1, dm1, ndm1);
-		GianHangDanhMuc ghdm2 = new GianHangDanhMuc(gh1, dm2, ndm1);
+		// Tao đối tượng DanhMucGianHang
+		DanhMucGianHang dmgh = new DanhMucGianHang(dm1, ndm1, 10);
 		
-		// Cap nhat gian hàng
-		gh1.getDsGianHangDanhMuc().add(ghdm1);
-		gh1.getDsGianHangDanhMuc().add(ghdm2);
+		
 		gh1.getDsNhomDanhMuc().add(ndm1);
 		
 		ghDao.capNhat(gh1);
