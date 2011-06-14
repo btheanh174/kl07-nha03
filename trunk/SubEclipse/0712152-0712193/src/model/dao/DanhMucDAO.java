@@ -1,8 +1,10 @@
 package model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.pojo.DanhMuc;
+import model.pojo.NhomDanhMuc;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -35,6 +37,33 @@ public class DanhMucDAO extends AbstractDAO {
 		}finally{
 			HibernateUtil.shutdown();
 		}
+		return kq;
+	}
+	/*
+	 * Lay danh sach danh muc cua gian hang
+	 */
+	public List<DanhMuc> layDanhSach(NhomDanhMuc nhom){
+		List<DanhMuc> kq = new ArrayList<DanhMuc>();
+		
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "select distinct dm from DanhMuc dm join dm.dsDanhMucGianHang dmgh" +
+					" where dmgh.nhomDanhMuc =:nhom";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("nhom", nhom);
+			
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		
 		return kq;
 	}
 	
