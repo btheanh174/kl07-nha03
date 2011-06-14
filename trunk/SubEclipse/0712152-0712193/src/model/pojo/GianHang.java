@@ -20,7 +20,7 @@ public class GianHang {
 	private TaiKhoan taiKhoan;
 	private TinhThanhPho tinhThanhPho;
 	
-	private List<GianHangDanhMuc> dsGianHangDanhMuc  = new ArrayList<GianHangDanhMuc>();
+	
 	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
 	private List<HoaDon> dsHoaDon = new ArrayList<HoaDon>();
 	private List<NhomDanhMuc> dsNhomDanhMuc = new ArrayList<NhomDanhMuc>();
@@ -34,7 +34,7 @@ public class GianHang {
 	public GianHang(String tenGianHang, String diaChi, String dienThoai,
 			String fax, String thongTin, String chinhSach, String gioiThieu, String banner, String logo,
 			TaiKhoan taiKhoan, TinhThanhPho tinhThanhPho,
-			List<GianHangDanhMuc> dsGianHangDanhMuc, List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon, List<NhomDanhMuc> dsNhomDanhMuc, Date ngayThamGia) {
+			List<GianHangSanPham> dsGianHangSanPham, List<HoaDon> dsHoaDon, List<NhomDanhMuc> dsNhomDanhMuc, Date ngayThamGia) {
 		super();
 		this.tenGianHang = tenGianHang;
 		this.diaChi = diaChi;
@@ -47,7 +47,6 @@ public class GianHang {
 		this.logo = logo;
 		this.taiKhoan = taiKhoan;
 		this.tinhThanhPho = tinhThanhPho;
-		this.dsGianHangDanhMuc = dsGianHangDanhMuc;
 		this.dsGianHangSanPham = dsGianHangSanPham;
 		this.dsHoaDon = dsHoaDon;
 		this.dsNhomDanhMuc = dsNhomDanhMuc;
@@ -69,10 +68,6 @@ public class GianHang {
 		this.dsGianHangSanPham.add(ghsp);
 	}
 	
-	public void themGianHangDanhMuc(GianHangDanhMuc ghdm){
-		ghdm.setGianHang(this);
-		this.dsGianHangDanhMuc.add(ghdm);
-	}
 	//
 	public int getMaGianHang() {
 		return maGianHang;
@@ -106,13 +101,6 @@ public class GianHang {
 		this.tinhThanhPho = tinhThanhPho;
 	}
 
-	public List<GianHangDanhMuc> getDsGianHangDanhMuc() {
-		return dsGianHangDanhMuc;
-	}
-
-	public void setDsGianHangDanhMuc(List<GianHangDanhMuc> dsGianHangDanhMuc) {
-		this.dsGianHangDanhMuc = dsGianHangDanhMuc;
-	}
 
 	public List<GianHangSanPham> getDsGianHangSanPham() {
 		return dsGianHangSanPham;

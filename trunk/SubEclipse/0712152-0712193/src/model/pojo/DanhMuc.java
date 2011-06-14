@@ -1,9 +1,7 @@
 package model.pojo;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class DanhMuc {
 	private int maDanhMuc;
@@ -11,27 +9,12 @@ public class DanhMuc {
 	private int capDanhMuc;
 	private DanhMuc danhMucCha;
 	private List<DanhMuc> dsDanhMucCon;
-	
 	private List<SanPham> dsSanPham = new ArrayList<SanPham>();
-	private List<GianHangDanhMuc> dsGianHangDanhMuc = new ArrayList<GianHangDanhMuc>();
+	private List<DanhMucGianHang> dsDanhMucGianHang = new ArrayList<DanhMucGianHang>();
 
 	public DanhMuc() {
 
 	}
-
-/*	public DanhMuc(String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha,
-			List<DanhMuc> dsDanhMucCon, List<SanPham> dsSanPham,
-			List<GianHang> dsGianHang) {
-		super();
-		this.tenDanhMuc = tenDanhMuc;
-		this.capDanhMuc = capDanhMuc;
-		this.danhMucCha = danhMucCha;
-		this.dsDanhMucCon = dsDanhMucCon;
-		this.dsSanPham = dsSanPham;
-		this.dsGianHang = dsGianHang;
-	}*/
-	
-	
 	
 	public DanhMuc(int maDanhMuc, String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha) {
 		super();
@@ -44,14 +27,14 @@ public class DanhMuc {
 	
 	public DanhMuc(String tenDanhMuc, int capDanhMuc, DanhMuc danhMucCha,
 		List<DanhMuc> dsDanhMucCon, List<SanPham> dsSanPham,
-		List<GianHangDanhMuc> dsGianHangDanhMuc) {
+		List<DanhMucGianHang> dsDanhMucGianHang) {
 	super();
 	this.tenDanhMuc = tenDanhMuc;
 	this.capDanhMuc = capDanhMuc;
 	this.danhMucCha = danhMucCha;
 	this.dsDanhMucCon = dsDanhMucCon;
 	this.dsSanPham = dsSanPham;
-	this.dsGianHangDanhMuc = dsGianHangDanhMuc;
+	this.dsDanhMucGianHang = dsDanhMucGianHang;
 }
 
 	public DanhMuc(DanhMuc danhMuc) {
@@ -61,7 +44,7 @@ public class DanhMuc {
 		this.danhMucCha = danhMuc.danhMucCha;
 		this.dsDanhMucCon = danhMuc.dsDanhMucCon;
 		this.dsSanPham = danhMuc.dsSanPham;
-		this.dsGianHangDanhMuc = danhMuc.dsGianHangDanhMuc;
+		this.dsDanhMucGianHang = danhMuc.dsDanhMucGianHang;
 	}
 	
 	// Nhung ham bo sung de thao tac nhanh hon
@@ -75,9 +58,9 @@ public class DanhMuc {
 		this.dsDanhMucCon.add(danhMucCon);
 	}
 	
-	public void themGianHangDanhMuc(GianHangDanhMuc ghdm){
-		ghdm.setDanhMuc(this);
-		this.dsGianHangDanhMuc.add(ghdm);
+	public void themDanhMucGianHang(DanhMucGianHang dmgh){
+		dmgh.setDanhMuc(this);
+		this.dsDanhMucGianHang.add(dmgh);
 	}
 	//
 
@@ -129,22 +112,11 @@ public class DanhMuc {
 		this.dsSanPham = dsSanPham;
 	}
 
-	public List<GianHangDanhMuc> getDsGianHangDanhMuc() {
-		return dsGianHangDanhMuc;
+	public List<DanhMucGianHang> getDsDanhMucGianHang() {
+		return dsDanhMucGianHang;
 	}
 
-	public void setDsGianHangDanhMuc(List<GianHangDanhMuc> dsGianHangDanhMuc) {
-		this.dsGianHangDanhMuc = dsGianHangDanhMuc;
+	public void setDsDanhMucGianHang(List<DanhMucGianHang> dsDanhMucGianHang) {
+		this.dsDanhMucGianHang = dsDanhMucGianHang;
 	}
-	
-/*	
- * Chỉ map 1 chiều trong quan hệ nhiều nhiều giữa gian hàng và danh mục
- * Do đó bên danh mục ko thể truy xuất đc dsGianHang
- * public List<GianHang> getDsGianHang() {
-		return dsGianHang;
-	}
-
-	public void setDsGianHang(List<GianHang> dsGianHang) {
-		this.dsGianHang = dsGianHang;
-	}*/
 }
