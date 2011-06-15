@@ -98,8 +98,10 @@ public class SanPhamDAO extends AbstractDAO {
 		return kq;
 	}
 
-	// Lay san pham theo danh muc co phan trang
-	// Voi tham so dau vao la: trang, danhMuc
+	/*
+	 * Lay san pham theo danh muc co phan trang
+	 * Voi tham so dau vao la: trang, danhMuc
+	 */
 	public List<SanPham> layDanhSach(DanhMuc danhMuc, int trang,
 			int soSanPhamTrenTrang) {
 		List<SanPham> kq = new ArrayList<SanPham>();
@@ -563,15 +565,27 @@ public class SanPhamDAO extends AbstractDAO {
 		}
 		return kq;
 	}
-
-	public String layGiaThapNhatTrongCacGianHang(int id) {
-		String str = null;
-		SanPham sp = this.lay(id);
-		for (GianHangSanPham ghsp : sp.getDsGianHangSanPham()) {
-
+	
+	public List<SanPham> layDanhSach(GianHang gianHang){
+		List<SanPham> kq  = new ArrayList<SanPham>();
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "select sp from SanPham sp join sp.dsGianHangSanPham ghsp " +
+					"where ghsp.gianHang =:gh";
+			Query query = session.createQuery(hql);
+			query.setParameter("gh", gianHang);
+			
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
 		}
-
-		return str;
+		return kq;
 	}
 
 }
