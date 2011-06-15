@@ -1,10 +1,12 @@
 package model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
+import model.pojo.SanPham;
 import model.pojo.TaiKhoan;
 
 import org.hibernate.Hibernate;
@@ -158,5 +160,4 @@ public class GianHangDAO extends AbstractDAO {
 			HibernateUtil.shutdown();
 		}
 	}
-
 }

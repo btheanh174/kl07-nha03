@@ -1,10 +1,14 @@
 package model.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
 import model.pojo.SanPham;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -41,4 +45,28 @@ public class GianHangSanPhamDAO{
 		}
 	}
 
+	public List<GianHangSanPham> layDanhSach(GianHang gianHang){
+		List<GianHangSanPham> kq  = new ArrayList<GianHangSanPham>();
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "select ghsp from GianHang gh inner join gh.dsGianHangSanPham ghsp " +
+					"where ghsp.gianHang =:gh";
+			Query query = session.createQuery(hql);
+			query.setParameter("gh", gianHang);
+			
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			if(tx != null){
+				tx.rollback();
+				throw e;
+			}
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
 }
