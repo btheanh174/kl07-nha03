@@ -32,5 +32,6 @@
   <mapping resource="model/pojo/NhomDanhMuc.hbm.xml"/>
   <mapping resource="model/pojo/GianHangSanPham.hbm.xml"/>
   <mapping resource="model/pojo/DanhMucGianHang.hbm.xml"/>
+  <mapping resource="model/pojo/SanPhamDeNghi.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
