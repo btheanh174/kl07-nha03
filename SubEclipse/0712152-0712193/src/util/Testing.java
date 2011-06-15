@@ -399,8 +399,8 @@ public class Testing {
 		
 		// Lay danh sach danh muc cua gian hang co ma = 1
 		DanhMucDAO dmDao = new DanhMucDAO();
-		NhomDanhMuc ndm = new NhomDanhMucDAO().lay(1);
-		List<DanhMuc> kq = dmDao.layDanhSach(ndm);
+		GianHang gh = new GianHangDAO().lay(1);
+		List<DanhMuc> kq = dmDao.layDanhSach(gh);
 		
 		System.out.println(kq.size());
 		for (DanhMuc danhMuc : kq) {
