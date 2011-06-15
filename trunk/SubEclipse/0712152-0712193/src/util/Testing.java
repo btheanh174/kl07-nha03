@@ -419,7 +419,7 @@ public class Testing {
 		List<GianHangSanPham> ds = ghDao.layDanhSach(gh);
 		System.out.println("So sp cua gian hang = " + ds.size());
 		for (GianHangSanPham ghsp : ds) {
-			System.out.println(ghsp.getSanPham().getMaSanPham() + " - " + ghsp.getGiaRieng());
+			System.out.println(ghsp.getSanPham().getMaSanPham() + " - " + ghsp.getGiaRieng() + " - " + ghsp.getCapNhat());
 		}
 	}
 	
