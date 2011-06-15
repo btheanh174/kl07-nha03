@@ -406,6 +406,13 @@ public class Testing {
 		for (DanhMuc danhMuc : kq) {
 			System.out.println(danhMuc.getTenDanhMuc());
 		}
+		
+		SanPhamDAO spDao = new SanPhamDAO();
+		List<SanPham> ls = spDao.layDanhSach(gh);
+		System.out.println("So san pham = " + ls.size());
+		for (SanPham sanPham : ls) {
+			System.out.println(sanPham.getMaSanPham());
+		}
 	}
 	
 
