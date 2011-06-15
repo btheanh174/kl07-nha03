@@ -3,6 +3,7 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.pojo.DanhMuc;
 import model.pojo.GianHang;
 import model.pojo.NhomDanhMuc;
 
@@ -73,6 +74,29 @@ public class NhomDanhMucDAO extends AbstractDAO {
 			HibernateUtil.shutdown();
 		}
 
+		return kq;
+	}
+	
+	
+	public List<NhomDanhMuc> layDanhSach(DanhMuc danhMuc){
+		List<NhomDanhMuc> kq = new ArrayList<NhomDanhMuc>();
+		
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			String hql = "select ndm from NhomDanhMuc ndm join ndm.dsDanhMucGianHang dmgh " +
+					"dmgh.danhMuc =:dm";
+			Query query = session.createQuery(hql);
+			kq = query.list();
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		
 		return kq;
 	}
 
