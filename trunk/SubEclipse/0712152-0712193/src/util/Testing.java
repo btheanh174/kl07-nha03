@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import model.dao.DanhMucDAO;
+import model.dao.DanhMucGianHangDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
 import model.dao.GianHangSanPhamDAO;
@@ -12,6 +13,7 @@ import model.dao.LaptopDAO;
 import model.dao.NhomDanhMucDAO;
 import model.dao.NhomNguoiDungDAO;
 import model.dao.SanPhamDAO;
+import model.dao.SanPhamDeNghiDAO;
 import model.dao.TaiKhoanDAO;
 import model.pojo.DanhMuc;
 import model.pojo.DanhMucGianHang;
@@ -22,8 +24,10 @@ import model.pojo.Laptop;
 import model.pojo.NhomDanhMuc;
 import model.pojo.NhomNguoiDung;
 import model.pojo.SanPham;
+import model.pojo.SanPhamDeNghi;
 import model.pojo.TaiKhoan;
 import model.pojo.ThanhVien;
+import model.pojo.TinhTrangEnum;
 
 
 public class Testing {
@@ -421,8 +425,41 @@ public class Testing {
 		for (GianHangSanPham ghsp : ds) {
 			System.out.println(ghsp.getSanPham().getMaSanPham() + " - " + ghsp.getGiaRieng() + " - " + ghsp.getCapNhat());
 		}
+		
+		DanhMucGianHangDAO dmghDao = new DanhMucGianHangDAO();
+		List<DanhMucGianHang> list = dmghDao.layDanhSach(gh);
+		System.out.println("số danh mục gian hàng = " + list.size());
+		for (DanhMucGianHang danhMucGianHang : list) {
+			System.out.println(danhMucGianHang.getDanhMuc().getMaDanhMuc());
+		}
+		
+		testSanPhamDeNghi();
+		
 	}
 	
+	private static void testSanPhamDeNghi(){
+		System.out.println("SanPhamDeNghi: adding...");
+		SanPhamDeNghiDAO spdnDao = new SanPhamDeNghiDAO();
+		SanPhamDeNghi spdn = new SanPhamDeNghi();
+		spdn.setTenSanPham("Nokia N81 De nghi");
+		spdn.setBaoHanh(24);
+		spdn.setGia(6900000L);
+		spdn.setTinhTrang(TinhTrangEnum.ChuaDuyet);
+		
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gh = ghDao.lay(1);
+		
+		spdn.setGianHang(gh);
+		
+		//spdnDao.them(spdn);
+		//System.out.println("added!");
+		
+		List<SanPhamDeNghi> ds = spdnDao.layDanhSach();
+		System.out.println(ds.size());
+		for (SanPhamDeNghi sp : ds) {
+			System.out.println(sp.getGianHang().getMaGianHang());
+		}
+	}
 
 	private static void testGianHangDanhMuc(){
 		
