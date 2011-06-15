@@ -587,5 +587,4 @@ public class SanPhamDAO extends AbstractDAO {
 		}
 		return kq;
 	}
-
 }

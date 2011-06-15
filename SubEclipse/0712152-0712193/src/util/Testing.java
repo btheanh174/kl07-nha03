@@ -7,6 +7,7 @@ import java.util.List;
 import model.dao.DanhMucDAO;
 import model.dao.DienThoaiDAO;
 import model.dao.GianHangDAO;
+import model.dao.GianHangSanPhamDAO;
 import model.dao.LaptopDAO;
 import model.dao.NhomDanhMucDAO;
 import model.dao.NhomNguoiDungDAO;
@@ -412,6 +413,13 @@ public class Testing {
 		System.out.println("So san pham = " + ls.size());
 		for (SanPham sanPham : ls) {
 			System.out.println(sanPham.getMaSanPham());
+		}
+		
+		GianHangSanPhamDAO ghDao = new GianHangSanPhamDAO();
+		List<GianHangSanPham> ds = ghDao.layDanhSach(gh);
+		System.out.println("So sp cua gian hang = " + ds.size());
+		for (GianHangSanPham ghsp : ds) {
+			System.out.println(ghsp.getSanPham().getMaSanPham() + " - " + ghsp.getGiaRieng());
 		}
 	}
 	
