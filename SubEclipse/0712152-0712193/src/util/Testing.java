@@ -449,9 +449,9 @@ public class Testing {
 		// Lay danh sach san pham theo danh muc gian hang
 		GianHangSanPhamDAO ghspDao = new GianHangSanPhamDAO();
 		DanhMuc dm = dmDao.lay(4);
-		DanhMucGianHang dmgh = new DanhMucGianHangDAO().layDanhSach(gh).get(2);
-		//List<GianHangSanPham> lsghsp = ghspDao.layDanhSach(gh, dm);
-		List<GianHangSanPham> lsghsp = ghspDao.layDanhSach(dmgh);
+		//DanhMucGianHang dmgh = new DanhMucGianHangDAO().layDanhSach(gh).get(2);
+		List<GianHangSanPham> lsghsp = ghspDao.layDanhSach(gh, dm);
+		//List<GianHangSanPham> lsghsp = ghspDao.layDanhSach(dmgh);
 		System.out.println(lsghsp.size());
 		for (GianHangSanPham ghsp : lsghsp) {
 			System.out.println(ghsp.getSanPham().getTenSanPham());
