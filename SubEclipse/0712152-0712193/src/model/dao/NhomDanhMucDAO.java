@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
 import model.pojo.GianHang;
 import model.pojo.NhomDanhMuc;
 
@@ -31,6 +32,11 @@ public class NhomDanhMucDAO extends AbstractDAO {
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getGianHang());
 			Hibernate.initialize(kq.getDsDanhMucGianHang());
+			for (DanhMucGianHang dmgh : kq.getDsDanhMucGianHang()) {
+				Hibernate.initialize(dmgh);
+				Hibernate.initialize(dmgh.getDanhMuc());
+				Hibernate.initialize(dmgh.getNhomDanhMuc());
+			}
 
 			tx.commit();
 
@@ -54,7 +60,7 @@ public class NhomDanhMucDAO extends AbstractDAO {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 
-			String hql = "from NhomDanhMuc as ndm where ndm.gianHang =:nhom order by ndm.thuTu asc";
+			String hql = "select ndm from NhomDanhMuc ndm where ndm.gianHang =:nhom order by ndm.thuTu asc";
 			Query query = session.createQuery(hql);
 			query.setParameter("nhom", gianHang);
 
@@ -64,6 +70,11 @@ public class NhomDanhMucDAO extends AbstractDAO {
 				Hibernate.initialize(nhomDanhMuc);
 				Hibernate.initialize(nhomDanhMuc.getGianHang());
 				Hibernate.initialize(nhomDanhMuc.getDsDanhMucGianHang());
+				for (DanhMucGianHang dmgh : nhomDanhMuc.getDsDanhMucGianHang()) {
+					Hibernate.initialize(dmgh);
+					Hibernate.initialize(dmgh.getDanhMuc());
+					//Hibernate.initialize(dmgh.getNhomDanhMuc());
+				}
 			}
 
 			tx.commit();
@@ -76,27 +87,26 @@ public class NhomDanhMucDAO extends AbstractDAO {
 
 		return kq;
 	}
-	
-	
-	public List<NhomDanhMuc> layDanhSach(DanhMuc danhMuc){
+
+	public List<NhomDanhMuc> layDanhSach(DanhMuc danhMuc) {
 		List<NhomDanhMuc> kq = new ArrayList<NhomDanhMuc>();
-		
-		try{
+
+		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 
-			String hql = "select ndm from NhomDanhMuc ndm join ndm.dsDanhMucGianHang dmgh " +
-					"dmgh.danhMuc =:dm";
+			String hql = "select ndm from NhomDanhMuc ndm join ndm.dsDanhMucGianHang dmgh "
+					+ "where dmgh.danhMuc =:dm";
 			Query query = session.createQuery(hql);
 			kq = query.list();
-			
+
 			tx.commit();
-		}catch(HibernateException e){
+		} catch (HibernateException e) {
 			handleException(e);
-		}finally{
+		} finally {
 			HibernateUtil.shutdown();
 		}
-		
+
 		return kq;
 	}
 

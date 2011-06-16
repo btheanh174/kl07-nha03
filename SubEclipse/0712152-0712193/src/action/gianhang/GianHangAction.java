@@ -2,6 +2,7 @@ package action.gianhang;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,12 +10,16 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import model.dao.DanhMucDAO;
+import model.dao.DanhMucGianHangDAO;
 import model.dao.GianHangDAO;
+import model.dao.NhomDanhMucDAO;
 import model.dao.SanPhamDAO;
 import model.dao.ThamSoDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.NhomDanhMuc;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
@@ -66,6 +71,12 @@ public class GianHangAction extends ActionSupport implements
 	private List<String> imagesFileName = new ArrayList<String>(2);
 	private List<String> imagesContentType = new ArrayList<String>(2);
 
+	// Hien thi danh muc gian hang
+	private List<NhomDanhMuc> dsNhomDanhMuc = new ArrayList<NhomDanhMuc>();
+	private List<DanhMucGianHang> dsDanhMucGianHang = new ArrayList<DanhMucGianHang>();
+	private NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+	private DanhMucGianHangDAO dmghDao = new DanhMucGianHangDAO();
+	//
 	public String hienThi() {
 		System.out.println("Hien thi store");
 		tk = (TaiKhoan) session.get("tk");
@@ -118,6 +129,12 @@ public class GianHangAction extends ActionSupport implements
 		System.out.println(module);
 		try {
 			gianHang = ghDao.lay(maGianHang);
+			dsNhomDanhMuc = ndmDao.layDanhSach(gianHang);
+			dsDanhMucGianHang = dmghDao.layDanhSach(gianHang);
+			System.out.println("So danh muc cua gian hang " + maGianHang + " = " + dsDanhMucGianHang.size());
+			for(int i = 0; i < dsDanhMucGianHang.size(); i++){
+				System.out.println(dsDanhMucGianHang.get(i).getDanhMuc().getTenDanhMuc());
+			}
 		} catch (NullPointerException e) {
 			return "error";
 		}
@@ -318,5 +335,21 @@ public class GianHangAction extends ActionSupport implements
 
 	public void setMax(String max) {
 		this.max = max;
+	}
+
+	public List<NhomDanhMuc> getDsNhomDanhMuc() {
+		return dsNhomDanhMuc;
+	}
+
+	public void setDsNhomDanhMuc(List<NhomDanhMuc> dsNhomDanhMuc) {
+		this.dsNhomDanhMuc = dsNhomDanhMuc;
+	}
+
+	public List<DanhMucGianHang> getDsDanhMucGianHang() {
+		return dsDanhMucGianHang;
+	}
+
+	public void setDsDanhMucGianHang(List<DanhMucGianHang> dsDanhMucGianHang) {
+		this.dsDanhMucGianHang = dsDanhMucGianHang;
 	}
 }

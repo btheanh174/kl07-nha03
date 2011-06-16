@@ -433,7 +433,18 @@ public class Testing {
 			System.out.println(danhMucGianHang.getDanhMuc().getMaDanhMuc());
 		}
 		
-		testSanPhamDeNghi();
+		//testSanPhamDeNghi();
+		
+		NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
+		List<NhomDanhMuc> dsNhom = ndmDao.layDanhSach(gh);
+		System.out.println("So nhom danh muc cua gian hang = " + dsNhom.size());
+		for (int i = 0; i < dsNhom.size(); i++){
+			System.out.print(dsNhom.get(i).getTenNhom() + " - ");
+			System.out.println(dsNhom.get(i).getDsDanhMucGianHang().size());
+			for (DanhMucGianHang dmgh : dsNhom.get(i).getDsDanhMucGianHang()) {
+				System.out.println(" -- " + dmgh.getDanhMuc().getTenDanhMuc());
+			}
+		}
 		
 	}
 	
