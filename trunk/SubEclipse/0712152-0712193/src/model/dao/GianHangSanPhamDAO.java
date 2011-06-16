@@ -3,10 +3,13 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
 import model.pojo.GianHang;
 import model.pojo.GianHangSanPham;
 import model.pojo.SanPham;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,57 +17,123 @@ import org.hibernate.Transaction;
 
 import util.HibernateUtil;
 
-import com.sun.net.ssl.internal.www.protocol.https.Handler;
-
-public class GianHangSanPhamDAO{
+public class GianHangSanPhamDAO {
 
 	Session session = null;
 	Transaction tx = null;
-	
-	public GianHangSanPhamDAO(){
+
+	public GianHangSanPhamDAO() {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
 	}
-	public void xoa(GianHang gianHang, SanPham sanPham, GianHangSanPham ghsp){
-		try{
+
+	public void xoa(GianHang gianHang, SanPham sanPham, GianHangSanPham ghsp) {
+		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			
+
 			gianHang.getDsGianHangSanPham().remove(ghsp);
 			sanPham.getDsGianHangSanPham().remove(ghsp);
-			
+
 			session.delete(ghsp);
-			
+
 			tx.commit();
-		}catch(HibernateException e){
-			if(tx != null){
+		} catch (HibernateException e) {
+			if (tx != null) {
 				tx.rollback();
 				throw e;
 			}
-		}finally{
+		} finally {
 			HibernateUtil.shutdown();
 		}
 	}
 
-	public List<GianHangSanPham> layDanhSach(GianHang gianHang){
-		List<GianHangSanPham> kq  = new ArrayList<GianHangSanPham>();
-		try{
+	public List<GianHangSanPham> layDanhSach(GianHang gianHang) {
+		List<GianHangSanPham> kq = new ArrayList<GianHangSanPham>();
+		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
-			
-			String hql = "select ghsp from GianHang gh inner join gh.dsGianHangSanPham ghsp " +
-					"where ghsp.gianHang =:gh";
+
+			String hql = "select ghsp from GianHang gh inner join gh.dsGianHangSanPham ghsp "
+					+ "where ghsp.gianHang =:gh";
 			Query query = session.createQuery(hql);
 			query.setParameter("gh", gianHang);
-			
+
 			kq = query.list();
-			
+
 			tx.commit();
-		}catch(HibernateException e){
-			if(tx != null){
+		} catch (HibernateException e) {
+			if (tx != null) {
 				tx.rollback();
 				throw e;
 			}
-		}finally{
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+
+	public List<GianHangSanPham> layDanhSach(GianHang gianHang, DanhMuc danhMuc) {
+		List<GianHangSanPham> kq = new ArrayList<GianHangSanPham>();
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			String hql = "select ghsp from SanPham sp "
+					+ "inner join sp.dsGianHangSanPham ghsp "
+					+ "where ghsp.gianHang =:gh " + "and sp.danhMuc =:dm";
+
+			Query query = session.createQuery(hql);
+			query.setParameter("gh", gianHang);
+			query.setParameter("dm", danhMuc);
+
+			kq = query.list();
+			for (GianHangSanPham ghsp : kq) {
+				Hibernate.initialize(ghsp);
+				Hibernate.initialize(ghsp.getSanPham());
+			}
+
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				throw e;
+			}
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
+
+	public List<GianHangSanPham> layDanhSach(DanhMucGianHang dmgh) {
+		List<GianHangSanPham> kq = new ArrayList<GianHangSanPham>();
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+
+			String hql = "select ghsp from GianHang gh " +
+					"inner join gh.dsGianHangSanPham ghsp " +
+					"inner join ghsp.sanPham sp " +
+					"inner join gh.dsNhomDanhMuc ndm " +
+					"inner join ndm.dsDanhMucGianHang dmgh " +
+					"where (sp.danhMuc = dmgh.danhMuc) and (dmgh.nhomDanhMuc =:value1 and dmgh.danhMuc =:value2)";
+
+			Query query = session.createQuery(hql);
+			query.setParameter("value1", dmgh.getNhomDanhMuc());
+			query.setParameter("value2", dmgh.getDanhMuc());
+
+			kq = query.list();
+			for (GianHangSanPham ghsp : kq) {
+				Hibernate.initialize(ghsp);
+				Hibernate.initialize(ghsp.getSanPham());
+			}
+
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				throw e;
+			}
+		} finally {
 			HibernateUtil.shutdown();
 		}
 		return kq;
