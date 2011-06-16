@@ -46,7 +46,7 @@ if(application.getAttribute(globalcounter) != null){
 		<h2>Danh mục</h2>
 		<div class="widget-content">
 			<ul>
-				<li><a href="#">Tất cả</a>
+				<%-- <li><a href="#">Tất cả</a>
 				<s:iterator id="root" value="dsDanhMuc">
 					<s:url id="danhsach" action="store">
 						<s:param name="maGianHang" value="maGianHang"></s:param>
@@ -54,7 +54,12 @@ if(application.getAttribute(globalcounter) != null){
 					</s:url>
 					<li><a href="${danhsach }"><s:property value="tenDanhMuc" />
 					</a></li>
-				</s:iterator>
+				</s:iterator> --%>
+					
+					<s:iterator value="dsDanhMucGianHang">
+						<li><a href="#"> <s:property value="danhMuc.tenDanhMuc"/> </a></li>
+					</s:iterator>
+				
 			</ul>
 			<div class="clear"></div>
 		</div>
