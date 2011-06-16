@@ -155,7 +155,7 @@
 		<!-- Start quản lý danh mục gian hàng -->
 
 		<action name="AdminStore_categories" class="action.gianhang.admin.DanhMucAction"
-			method="layDanhSachGianHangDanhMuc">
+			method="layDanhSachDanhMucGianHang">
 			<result name="success" type="tiles">AdminStore_Categories.tiles
 			</result>
 		</action>
