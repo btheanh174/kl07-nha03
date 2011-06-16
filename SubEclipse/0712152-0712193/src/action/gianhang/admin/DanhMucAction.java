@@ -1,16 +1,17 @@
 package action.gianhang.admin;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 import model.dao.DanhMucDAO;
+import model.dao.DanhMucGianHangDAO;
 import model.dao.GianHangDAO;
 import model.dao.NhomDanhMucDAO;
 import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
 import model.pojo.GianHang;
-import model.pojo.GianHangDanhMuc;
-import model.pojo.TaiKhoan;
 import model.pojo.NhomDanhMuc;
+import model.pojo.TaiKhoan;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -24,8 +25,10 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 
 	private List<NhomDanhMuc> dsNhomDanhMuc;
-	private List<GianHangDanhMuc> dsGHDanhMuc;
-	private GianHangDanhMuc ghDanhMuc;
+	//private List<GianHangDanhMuc> dsGHDanhMuc;
+	//private GianHangDanhMuc ghDanhMuc;
+	private List<DanhMucGianHang> dsDanhMucGianHang;
+	private DanhMucGianHang danhMucGianHang;
 	private GianHang gianHang;
 	private NhomDanhMuc nhomDanhMuc;
 	private int echo;
@@ -133,13 +136,17 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 		DanhMucDAO dmDao = new DanhMucDAO();
 		DanhMuc danhMuc = dmDao.lay(maDanhMuc);
 		nhomDanhMuc = ndmDao.lay(echo);
-		ghDanhMuc = new GianHangDanhMuc(gianHang, danhMuc, nhomDanhMuc);
-		ghDao.capNhat(gianHang);
+		//ghDanhMuc = new GianHangDanhMuc(gianHang, danhMuc, nhomDanhMuc);
+		//ghDao.capNhat(gianHang);
+		danhMucGianHang = new DanhMucGianHang(danhMuc, nhomDanhMuc, null);
+		
+		ndmDao.capNhat(nhomDanhMuc);
+		
 		return SUCCESS;
 	}
 
 	
-	public String layDanhSachGianHangDanhMuc() {
+	/*public String layDanhSachGianHangDanhMuc() {
 
 		try {
 			TaiKhoan tk = (TaiKhoan) session.get("tk");
@@ -156,14 +163,40 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 			System.out.println("Error: " + e.toString());
 		}
 		return ERROR;
+	}*/
+	public String layDanhSachDanhMucGianHang() {
+
+		try {
+			TaiKhoan tk = (TaiKhoan) session.get("tk");
+			if (tk == null) {
+				return ERROR;
+			}
+			DanhMucGianHangDAO dmghDao = new DanhMucGianHangDAO();
+			GianHang gianHang = ghDao.lay(tk);
+			dsDanhMucGianHang = dmghDao.layDanhSach(gianHang);
+			session.put("dsDanhMucGianHang",dsDanhMucGianHang);
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error: " + e.toString());
+		}
+		return ERROR;
 	}
+	
 	
 	public String xacNhanXoaGianHangSanPham()
 	{
-		dsGHDanhMuc = (List<GianHangDanhMuc>) session.get("dsGHDanhMuc");
+		/*dsGHDanhMuc = (List<GianHangDanhMuc>) session.get("dsGHDanhMuc");
 		for (int i = 0; i < dsGHDanhMuc.size(); i++) {
 			if (dsGHDanhMuc.get(i).getDanhMuc().getMaDanhMuc() == echo) {
 				ghDanhMuc = dsGHDanhMuc.get(i);
+				return SUCCESS;
+			}
+		}*/
+		dsDanhMucGianHang = (List<DanhMucGianHang>) session.get("dsDanhMucGianHang");
+		for (DanhMucGianHang dmgh : dsDanhMucGianHang) {
+			if(dmgh.getDanhMuc().getMaDanhMuc() == echo){
+				danhMucGianHang = dmgh;
 				return SUCCESS;
 			}
 		}
@@ -179,7 +212,6 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;
-
 	}
 
 	public List<NhomDanhMuc> getDsNhomDanhMuc() {
@@ -214,7 +246,7 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 		return nhomDanhMuc;
 	}
 
-	public void setDsGHDanhMuc(List<GianHangDanhMuc> dsGHDanhMuc) {
+	/*public void setDsGHDanhMuc(List<GianHangDanhMuc> dsGHDanhMuc) {
 		this.dsGHDanhMuc = dsGHDanhMuc;
 	}
 
@@ -229,9 +261,27 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 	public void setGhDanhMuc(GianHangDanhMuc ghDanhMuc) {
 		this.ghDanhMuc = ghDanhMuc;
 	}
-
+*/
+	
+	
 	public int getMaDanhMuc() {
 		return maDanhMuc;
+	}
+
+	public List<DanhMucGianHang> getDsDanhMucGianHang() {
+		return dsDanhMucGianHang;
+	}
+
+	public void setDsDanhMucGianHang(List<DanhMucGianHang> dsDanhMucGianHang) {
+		this.dsDanhMucGianHang = dsDanhMucGianHang;
+	}
+
+	public DanhMucGianHang getDanhMucGianHang() {
+		return danhMucGianHang;
+	}
+
+	public void setDanhMucGianHang(DanhMucGianHang danhMucGianHang) {
+		this.danhMucGianHang = danhMucGianHang;
 	}
 
 	public void setMaDanhMuc(int maDanhMuc) {
