@@ -1,6 +1,10 @@
 package action.gianhang.admin;
 
+
+import java.util.ArrayList;
+
 import java.util.List;
+
 import java.util.Map;
 
 import model.dao.DanhMucDAO;
@@ -25,8 +29,7 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 
 	private List<NhomDanhMuc> dsNhomDanhMuc;
-	//private List<GianHangDanhMuc> dsGHDanhMuc;
-	//private GianHangDanhMuc ghDanhMuc;
+
 	private List<DanhMucGianHang> dsDanhMucGianHang;
 	private DanhMucGianHang danhMucGianHang;
 	private GianHang gianHang;
@@ -138,32 +141,32 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 		nhomDanhMuc = ndmDao.lay(echo);
 		//ghDanhMuc = new GianHangDanhMuc(gianHang, danhMuc, nhomDanhMuc);
 		//ghDao.capNhat(gianHang);
-		danhMucGianHang = new DanhMucGianHang(danhMuc, nhomDanhMuc, null);
-		
+		danhMucGianHang = new DanhMucGianHang(danhMuc, nhomDanhMuc, null);	
 		ndmDao.capNhat(nhomDanhMuc);
-		
 		return SUCCESS;
 	}
 
 	
-	/*public String layDanhSachGianHangDanhMuc() {
+	public String layDanhSachGianHangDanhMuc() {
 
 		try {
 			TaiKhoan tk = (TaiKhoan) session.get("tk");
 			if (tk == null) {
 				return ERROR;
 			}
-
+			
+			DanhMucGianHangDAO dmghDao = new DanhMucGianHangDAO();
 			GianHang gianHang = ghDao.lay(tk);
-			dsGHDanhMuc = gianHang.getDsGianHangDanhMuc();
-			session.put("dsGHDanhMuc",dsGHDanhMuc);
+			dsDanhMucGianHang = dmghDao.layDanhSach(gianHang);
+			session.put("dsDanhMucGianHang",dsDanhMucGianHang);
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error: " + e.toString());
 		}
 		return ERROR;
-	}*/
+	}
+	
 	public String layDanhSachDanhMucGianHang() {
 
 		try {
@@ -186,13 +189,6 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 	
 	public String xacNhanXoaGianHangSanPham()
 	{
-		/*dsGHDanhMuc = (List<GianHangDanhMuc>) session.get("dsGHDanhMuc");
-		for (int i = 0; i < dsGHDanhMuc.size(); i++) {
-			if (dsGHDanhMuc.get(i).getDanhMuc().getMaDanhMuc() == echo) {
-				ghDanhMuc = dsGHDanhMuc.get(i);
-				return SUCCESS;
-			}
-		}*/
 		dsDanhMucGianHang = (List<DanhMucGianHang>) session.get("dsDanhMucGianHang");
 		for (DanhMucGianHang dmgh : dsDanhMucGianHang) {
 			if(dmgh.getDanhMuc().getMaDanhMuc() == echo){
@@ -246,28 +242,14 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 		return nhomDanhMuc;
 	}
 
-	/*public void setDsGHDanhMuc(List<GianHangDanhMuc> dsGHDanhMuc) {
-		this.dsGHDanhMuc = dsGHDanhMuc;
-	}
-
-	public List<GianHangDanhMuc> getDsGHDanhMuc() {
-		return dsGHDanhMuc;
-	}
-
-	public GianHangDanhMuc getGhDanhMuc() {
-		return ghDanhMuc;
-	}
-
-	public void setGhDanhMuc(GianHangDanhMuc ghDanhMuc) {
-		this.ghDanhMuc = ghDanhMuc;
-	}
-*/
-	
-	
 	public int getMaDanhMuc() {
 		return maDanhMuc;
 	}
 
+	public void setMaDanhMuc(int maDanhMuc) {
+		this.maDanhMuc = maDanhMuc;
+	}
+	
 	public List<DanhMucGianHang> getDsDanhMucGianHang() {
 		return dsDanhMucGianHang;
 	}
@@ -282,10 +264,6 @@ public class DanhMucAction extends ActionSupport implements SessionAware {
 
 	public void setDanhMucGianHang(DanhMucGianHang danhMucGianHang) {
 		this.danhMucGianHang = danhMucGianHang;
-	}
-
-	public void setMaDanhMuc(int maDanhMuc) {
-		this.maDanhMuc = maDanhMuc;
 	}
 
 }

@@ -87,7 +87,7 @@
 				<th class="last">Xóa</th>
 
 			</tr>
-			<s:iterator value="dsGHDanhMuc">
+			<s:iterator value="dsDanhMucGianHang">
 				<tr>
 
 					<td class="first style1"><s:property
@@ -97,7 +97,7 @@
 					<td><s:property value="nhomDanhMuc.tenNhom" />
 					</td>
 
-					<td>5</td>
+					<td><s:property value="soSanPham" /></td>
 
 					<td><s:url id="editURL"
 							value="xemThongSoGianHangDanhMuc.action">
