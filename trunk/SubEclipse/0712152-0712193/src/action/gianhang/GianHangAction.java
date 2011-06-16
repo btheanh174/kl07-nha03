@@ -2,7 +2,6 @@ package action.gianhang;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.dao.DanhMucDAO;
 import model.dao.DanhMucGianHangDAO;
 import model.dao.GianHangDAO;
+import model.dao.GianHangSanPhamDAO;
 import model.dao.NhomDanhMucDAO;
 import model.dao.SanPhamDAO;
 import model.dao.ThamSoDAO;
@@ -19,6 +19,7 @@ import model.pojo.DanhMuc;
 import model.pojo.DanhMucGianHang;
 import model.pojo.DuLieuTrang;
 import model.pojo.GianHang;
+import model.pojo.GianHangSanPham;
 import model.pojo.NhomDanhMuc;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
@@ -77,6 +78,10 @@ public class GianHangAction extends ActionSupport implements
 	private NhomDanhMucDAO ndmDao = new NhomDanhMucDAO();
 	private DanhMucGianHangDAO dmghDao = new DanhMucGianHangDAO();
 	//
+	private GianHangSanPham gianHangSanPham = new GianHangSanPham();
+	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
+	private GianHangSanPhamDAO ghspDao = new GianHangSanPhamDAO();
+	
 	public String hienThi() {
 		System.out.println("Hien thi store");
 		tk = (TaiKhoan) session.get("tk");
@@ -163,8 +168,9 @@ public class GianHangAction extends ActionSupport implements
 		}else if(maDanhMuc > 0){
 			System.out.println("Lay danh sach san pham cua danh muc: " + maDanhMuc);
 			DanhMuc danhMuc = dmDao.lay(maDanhMuc);
-			dsSanPham = spDao.layDanhSach(danhMuc);
-			System.out.println(dsSanPham.size());
+			dsGianHangSanPham = ghspDao.layDanhSach(gianHang, danhMuc);
+			System.out.println("so san pham cua gian hang theo danh muc " + maDanhMuc +" = " + dsGianHangSanPham.size());
+			
 			return "list";
 		}
 		return "index";
@@ -352,4 +358,21 @@ public class GianHangAction extends ActionSupport implements
 	public void setDsDanhMucGianHang(List<DanhMucGianHang> dsDanhMucGianHang) {
 		this.dsDanhMucGianHang = dsDanhMucGianHang;
 	}
+
+	public List<GianHangSanPham> getDsGianHangSanPham() {
+		return dsGianHangSanPham;
+	}
+
+	public void setDsGianHangSanPham(List<GianHangSanPham> dsGianHangSanPham) {
+		this.dsGianHangSanPham = dsGianHangSanPham;
+	}
+
+	public GianHangSanPham getGianHangSanPham() {
+		return gianHangSanPham;
+	}
+
+	public void setGianHangSanPham(GianHangSanPham gianHangSanPham) {
+		this.gianHangSanPham = gianHangSanPham;
+	}
+	
 }

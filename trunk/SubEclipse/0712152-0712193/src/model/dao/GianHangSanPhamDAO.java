@@ -73,7 +73,7 @@ public class GianHangSanPhamDAO {
 	}
 
 	public List<GianHangSanPham> layDanhSach(GianHang gianHang, DanhMuc danhMuc) {
-		List<GianHangSanPham> kq = new ArrayList<GianHangSanPham>();
+		List<GianHangSanPham> kq = null;
 		try {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
