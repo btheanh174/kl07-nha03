@@ -11,7 +11,8 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import javax.mail.internet.*;
+
 
 public class SendMail {
 
@@ -43,9 +44,34 @@ public class SendMail {
 			msg.setFrom(new InternetAddress(to));
 			msg.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(to, false));
-			msg.setSubject(title);
-			msg.setText(content);
+			try
+			{
+				msg.setSubject(MimeUtility.encodeText(title, "UTF-8", null));
+			}
+			catch (Exception ex)
+			{
+				msg.setSubject(title);
+			}
+			msg.setHeader("Content-Type","text/plain; charset=\"utf-8\"");
+			
+			//////
+
+		 
+			MimeBodyPart msgPart = new MimeBodyPart();
+			 
+
+			MimeMultipart multipart = new MimeMultipart();
+			multipart.addBodyPart(msgPart);  // adding message part
+			 
+			//Setting the Email Encoding	
+			msgPart.setText(content,"utf-8");
+			msgPart.setHeader("Content-Type","text/html; charset=\"utf-8\"");
+			//msgPart.setHeader("Content-Transfer-Encoding", "quoted-printable");
+			 
+			msg.setContent(multipart);
 			msg.setSentDate(new Date());
+			
+			//////
 			Transport.send(msg);
 
 		} catch (MessagingException e) {
