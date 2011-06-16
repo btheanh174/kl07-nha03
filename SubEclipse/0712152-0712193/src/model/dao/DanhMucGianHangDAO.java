@@ -35,6 +35,7 @@ public class DanhMucGianHangDAO extends AbstractDAO {
 			for (DanhMucGianHang dmgh : kq) {
 				Hibernate.initialize(dmgh);
 				Hibernate.initialize(dmgh.getDanhMuc());
+				Hibernate.initialize(dmgh.getNhomDanhMuc());
 			}
 			
 			tx.commit();
