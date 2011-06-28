@@ -85,12 +85,12 @@
 				sortable="false" search="false" />
 			<sjg:gridColumn name="tenDanhMuc" index="tenDanhMuc" title="Danh mục"
 				editable="true" edittype="select" sortable="false" search="false" />
-			<sjg:gridColumn name="urlHinh1" index="urlHinhAnh1" title="Hình 1"
-				editable="true" edittype="select" sortable="false" search="false" />
-			<sjg:gridColumn name="urlHinh2" index="urlHinh2" title="Hình 2"
-				editable="true" edittype="select" sortable="false" search="false" />
+			<sjg:gridColumn name="urlHinh1" index="urlHinh1" title="Hình 3" 
+				editable="true" edittype="text" sortable="false" search="false" width="400" />
+			<%-- 	<sjg:gridColumn name="urlHinh2" index="urlHinh2" title="Hình 2"
+				editable="true" edittype="text" sortable="false" search="false" />
 			<sjg:gridColumn name="urlHinh3" index="urlHinh3" title="Hình 3"
-				editable="true" edittype="select" sortable="false" search="false" />
+				editable="true" edittype="text" sortable="false" search="false" /> --%>
 		</sjg:grid>
 		<br />
 		<sj:submit id="grid_edit_addbutton" value="Add Row"

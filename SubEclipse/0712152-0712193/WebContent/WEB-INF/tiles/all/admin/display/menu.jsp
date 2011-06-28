@@ -8,7 +8,8 @@
 	<s:url id="information" value="show3_all_admin_information.action" />
 	<ul id="top-navigation">
 
-		<li class="active"><span><span>Thống kê</span> </span>
+		<li><span><span><a
+					href="#">Thống kê</a></span> </span>
 		</li>
 
 		<li><span><span><a
@@ -25,7 +26,7 @@
 		</li>
 
 
-		<li><span><span><a href="<s:url action="AdminStore_chooseTemplates"/>">Giao diện</a> </span> </span>
+		<li class="active"><span><span><a href="<s:url action="AdminStore_chooseTemplates"/>">Giao diện</a> </span> </span>
 		</li>
 
 

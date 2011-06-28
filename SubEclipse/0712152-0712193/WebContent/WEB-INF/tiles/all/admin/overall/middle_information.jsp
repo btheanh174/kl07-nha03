@@ -31,18 +31,23 @@
 					<td><img width="120" height="120"
 						src="<s:property value="%{#session['tk'].gianHang.logo}"/>">
 					</td>
+				</tr>
+				<tr>
+					<td></td>
 					<td><s:file name="images" label="Logo"></s:file>
-						<div class="txt">Sửa logo</div>
+						<div class="txt">Sửa logo</div></td>
+				</tr>
+				<tr>
+					<th width="500">Hình banner:</th>
+					<td><img width="500" height="100"
+						src="<s:property value="%{#session['tk'].gianHang.banner}"/>">
 					</td>
 				</tr>
 				<tr>
-					<th>Hình banner:</th>
-					<td><img width="607" height="120"
-						src="<s:property value="%{#session['tk'].gianHang.banner}"/>">
-					</td>
-					<td><s:file name="images" label="Banner"></s:file>
-					</td>
+					<td></td>
+					<td><s:file name="images" label="Banner"></s:file></td>
 				</tr>
+
 				<tr>
 					<th>Xác nhận mật khẩu (*):</th>
 					<td><s:password name="xacNhanMatKhau" value="123456"></s:password>
@@ -50,7 +55,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<th>Tên gian hàng:</th>
+					<th style="width: 10px;">Tên gian hàng:</th>
 					<td><s:textfield name="tenGianHang"
 							value="%{#session['tk'].gianHang.tenGianHang}"></s:textfield>
 					</td>
@@ -75,7 +80,8 @@
 				<tr>
 					<th>Fax:</th>
 					<td><s:textfield name="gianHang.fax"
-							value="%{#session['tk'].gianHang.fax}"></s:textfield></td>
+							value="%{#session['tk'].gianHang.fax}"></s:textfield>
+					</td>
 					</td>
 					<td></td>
 				</tr>
@@ -83,30 +89,29 @@
 				<tr>
 					<th>Điện thoại:</th>
 					<td><s:textfield name="gianHang.dienThoai"
-							value="%{#session['tk'].gianHang.dienThoai}"></s:textfield></td>
+							value="%{#session['tk'].gianHang.dienThoai}"></s:textfield>
+					</td>
 					<td></td>
 				</tr>
 				<tr>
 					<th>Yahoo:</th>
 					<td><s:textfield name="gianHang.yahoo"
-							value="%{#session['tk'].gianHang.yahoo}"></s:textfield></td>
+							value="%{#session['tk'].gianHang.yahoo}"></s:textfield>
+					</td>
 					<td></td>
 				</tr>
 				<tr>
 					<th>Giới thiệu cửa hàng:</th>
 					<td><sjr:ckeditor id="richtextEditor" width="500"
 							value="%{#session['tk'].gianHang.thongTin}"
-							name="gianHang.thongTin" rows="10"
-							cols="80">
-						</sjr:ckeditor></td>
+							name="gianHang.thongTin" rows="10" cols="80">
+						</sjr:ckeditor>
+					</td>
 					<td></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td>
-
-							<s:submit value="Lưu"></s:submit>
-
+					<td><s:submit value="Lưu"></s:submit>
 					</td>
 					<td></td>
 				</tr>
