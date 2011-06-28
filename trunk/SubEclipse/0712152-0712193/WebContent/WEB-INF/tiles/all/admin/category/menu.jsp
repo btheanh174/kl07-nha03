@@ -8,7 +8,8 @@
 	<s:url id="information" value="show3_all_admin_information.action" />
 	<ul id="top-navigation">
 
-		<li class="active"><span><span>Thống kê</span> </span>
+		<li><span><span><a
+					href="#">Thống kê</a></span> </span>
 		</li>
 
 		<li><span><span><a
@@ -20,7 +21,7 @@
 					href="<s:url action="AdminStore_Step1_themSanPham"/>">Sản phẩm</a> </span> </span>
 		</li>
 		
-		<li><span><span><a
+		<li class="active"><span><span><a
 					href="<s:url action="AdminStore_groupCategories"/>">Danh mục</a> </span> </span>
 		</li>
 

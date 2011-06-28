@@ -48,15 +48,14 @@
 		<div class="nav">
 			<div class="table">
 
-				<ul class="current">
+				<ul class="select">
 					<li><a href="#nogo"><b>Thống kê</b> <!--[if IE 7]><!--> </a>
-						
 					</li>
 				</ul>
 
 				<div class="nav-divider">&nbsp;</div>
 
-				<ul class="select">
+				<ul class="current">
 					<li><a href="#nogo">
 					<b>Sản phẩm</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
 						<!--[if lte IE 6]><table><tr><td><![endif]-->
@@ -95,6 +94,7 @@
 				</ul>
 
 				<div class="nav-divider">&nbsp;</div>
+
 				<div class="clear"></div>
 			</div>
 			<div class="clear"></div>

@@ -50,7 +50,7 @@ public class JsonTable extends ActionSupport implements SessionAware {
 
 				myProducts.get(i).setTenDanhMuc(
 						myProducts.get(i).getDanhMuc().getTenDanhMuc());
-				for (int j = 0; i < myProducts.get(i).getDsHinhAnh().size(); j++) {
+				/*for (int j = 0; i < myProducts.get(i).getDsHinhAnh().size(); j++) {
 					if (j == 0)
 						myProducts.get(i).setUrlHinh1(
 								myProducts.get(i).getDsHinhAnh().get(0)
@@ -63,8 +63,11 @@ public class JsonTable extends ActionSupport implements SessionAware {
 						myProducts.get(i).setUrlHinh3(
 								myProducts.get(i).getDsHinhAnh().get(2)
 										.getUrlHinhAnh());
-				}
+				}*/
 				
+				/*myProducts.get(i).setUrlHinh1(myProducts.get(i).getDsHinhAnh().get(0)
+										.getUrlHinhAnh());*/
+				myProducts.get(i).setUrlHinh1("<img src=\"http://vnexpress.net/Files/Subject/3b/a2/b9/08/ronnie.jpg\" alt=\"\" />");
 				myProducts.get(i).setDanhMuc(null);
 				myProducts.get(i).setDsGianHangSanPham(null);
 				myProducts.get(i).setDsHinhAnh(null);
