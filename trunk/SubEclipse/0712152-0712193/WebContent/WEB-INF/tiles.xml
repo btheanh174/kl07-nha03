@@ -192,7 +192,15 @@
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_viewProducts.jsp" />
 	</definition>
+	
 
+	<definition name="AdminViewProductsProposal.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
+		<put-attribute name="menu"
+			value="/WEB-INF/tiles/admin/product/menu.jsp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/product/body_viewProductsProposal.jsp" />
+	</definition>
 
 	<!-- Profile layout -->
 	<definition name="profileLayout" template="/WEB-INF/tiles/profile/profileLayout.jsp">
@@ -375,6 +383,19 @@
 		<put-attribute name="middle"
 			value="/WEB-INF/tiles/all/admin/product/middle_viewProducts.jsp"></put-attribute>
 	</definition>
+
+
+
+	<definition name="AdminStore_SanPhamDeNghi.tiles" extends="adminStoreLayout">
+		<put-attribute name="pageTitle" value="Đề nghị sản phẩm" />
+		<put-attribute name="menu"
+			value="/WEB-INF/tiles/all/admin/product/menu.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/all/admin/product/left.jsp"></put-attribute>
+		<put-attribute name="middle"
+			value="/WEB-INF/tiles/all/admin/product/middle_add_sanPhamDeNghi.jsp"></put-attribute>
+	</definition>
+
 
 	<definition name="AdminStore_Add_ChoiceProduct.tiles"
 		extends="adminStoreLayout">

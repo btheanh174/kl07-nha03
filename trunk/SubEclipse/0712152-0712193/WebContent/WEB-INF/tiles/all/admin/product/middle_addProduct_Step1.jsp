@@ -19,7 +19,7 @@
 
 	<br /> <br /> <br /> <br /> <br />
 	<h2>Tìm kiếm sản phẩm từ hệ thống</h2>
-	<a href="#">(Nếu không có sản phẩm cần tim, click tại đây)</a> <br />
+	<a href="<s:url action="show3_all_admin_spdn"/>">(Nếu không có sản phẩm cần tim, click tại đây)</a> <br />
 	<br />
 	<s:form action="AdminStore_Step2_themSanPham.action" method="post">
 		<s:bean name="action.DanhMucAction" var="danhMucAction"></s:bean>

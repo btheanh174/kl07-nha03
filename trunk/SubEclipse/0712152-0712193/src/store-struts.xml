@@ -79,7 +79,13 @@
 			<result name="success" type="redirect">AdminStore_xemDsSanPham.action
 			</result>
 		</action>
+		
 
+		<action name="AdminStore_themSanPhamDeNghi" class="action.gianhang.admin.SanPhamDeNghiAction"
+		 method="themSanPhamDeNghi">
+			<result name="success" type="tiles">AdminStore_Add_ChoiceProduct.tiles
+			</result>
+		</action>
 
 		<action name="AdminStore_Step1_themSanPham">
 			<result name="success" type="tiles">AdminStore_Add_ChoiceProduct.tiles
@@ -136,19 +142,19 @@
 			<result name="success">/WEB-INF/tiles/all/admin/category/dialog_deleteGroupCategory.jsp
 			</result>
 		</action>
-		
+
 		<action name="AdminStore_capNhatNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
 			method="capNhatNhomDanhMuc">
 			<result name="success" type="redirect">AdminStore_groupCategories.action
 			</result>
 		</action>
-		
+
 		<action name="AdminStore_xoaNhomDanhMuc" class="action.gianhang.admin.DanhMucAction"
 			method="xoaNhomDanhMuc">
 			<result name="success" type="redirect">AdminStore_groupCategories.action
 			</result>
 		</action>
-		
+
 
 		<!-- End quản lý danh mục gian hàng -->
 
