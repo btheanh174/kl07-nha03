@@ -65,6 +65,7 @@
 								<li><a href="<s:url action="SanPham_xemDanhSachSanPham.action"/> ">Xem danh sách</a></li>
 								<li class="sub_show"><a href="<s:url action="QuanLyProducts.action"/> ">Thêm sản phẩm</a></li>
 								<li><a href="#nogo">Xóa sản phẩm</a></li>
+								<li><a href="<s:url action="SanPham_xemDanhSachSanPhamDeNghi.action"/> ">Sản phẩm đề nghị</a></li>
 							</ul>
 						</div> <!--[if lte IE 6]></td></tr></table></a><![endif]-->
 					</li>

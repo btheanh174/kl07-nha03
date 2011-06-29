@@ -101,13 +101,13 @@
 			method="layDanhSachHoaDon">
 			<result name="success" type="tiles">Profile_Bills.tiles</result>
 		</action>
-		
+
 		<action name="Profile_xemChiTietHoaDon" class="action.user.HoaDonAction"
 			method="layChiTietHoaDon">
 			<result name="success" type="tiles">Profile_DetailBill.tiles</result>
 		</action>
-		
-		
+
+
 		<action name="Profile_test" class="action.user.ProfileAction"
 			method="test">
 
@@ -228,10 +228,16 @@
 			<result name="success" type="tiles">AdminAddProducts3.tiles</result>
 			<result name="finish" type="redirect">show_admin_index.action</result>
 		</action>
-
+		
 
 		<action name="SanPham_xemDanhSachSanPham">
 			<result name="success" type="tiles">AdminViewProducts.tiles</result>
+			<result name="error" type="redirect">show_admin_index.action</result>
+		</action>
+
+		<action name="SanPham_xemDanhSachSanPhamDeNghi" class="action.gianhang.admin.SanPhamDeNghiAction"
+			method="layDanhSachSanPhamDeNghi">
+			<result name="success" type="tiles">AdminViewProductsProposal.tiles</result>
 			<result name="error" type="redirect">show_admin_index.action</result>
 		</action>
 
@@ -258,8 +264,8 @@
 			<result name="search">/all/searchresults.jsp</result>
 		</action>
 
-	
-		
+
+
 
 
 		<!-- end sub site -->

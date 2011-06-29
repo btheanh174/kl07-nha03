@@ -1,8 +1,11 @@
 package action;
 
 import java.io.File;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -44,7 +47,22 @@ public class FileUploadAction extends ActionSupport  {
 		return SUCCESS;
  
 	}
- 
+	
+	public String saveFile(String path)
+	{
+		ServletContext servletContext = ServletActionContext.getServletContext(); 
+		if (fileUpload != null) 
+		{ 
+			// fileUpload will be null if there's an error, 
+			// such as if the uploaded file is too large 
+			String dataDir = servletContext.getRealPath("/WEB-INF") +  path; 
+			File savedFile = new File(dataDir, fileUploadFileName); 
+			fileUpload.renameTo(savedFile); 
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+	
 	public String display() {
 		return NONE;
 	}

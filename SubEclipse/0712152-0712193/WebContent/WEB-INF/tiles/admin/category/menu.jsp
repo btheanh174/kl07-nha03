@@ -69,6 +69,7 @@
 										phẩm</a>
 								</li>
 								<li><a href="#nogo">Xóa sản phẩm</a>
+								<li><a href="<s:url action="SanPham_xemDanhSachSanPhamDeNghi.action"/> ">Sản phẩm đề nghị</a></li>
 								</li>
 							</ul>
 						</div> <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
