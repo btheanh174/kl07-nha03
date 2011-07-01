@@ -65,8 +65,10 @@ $(document).ready(function() {
 <div id="menu_tab"><tiles:insertAttribute name="menu"></tiles:insertAttribute>
 </div>
 
-<div class="crumb_navigation">Navigation: <span class="current"><a
-	href="<s:url action="show3_content_store_products"/>">List Test</a></span></div>
+<div class="crumb_navigation"><!--
+Navigation: <span class="current"><a
+	href="<s:url action="show3_content_store_products"/>">List Test</a></span>
+--></div>
 
 <div class="left_content"><tiles:insertAttribute name="left"></tiles:insertAttribute>
 </div>
