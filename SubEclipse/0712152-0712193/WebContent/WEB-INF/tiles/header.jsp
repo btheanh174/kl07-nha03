@@ -21,6 +21,6 @@
 
 <div id="header">
 
-<div id="logo"><a href="#"></a> Logo &#7903; &#273;&acirc;y</div>
+<div id="logo"><a href="#"></a></div>
 
 </div>
