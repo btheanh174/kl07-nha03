@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" id="Application_ID" version="6">
+  <display-name>estore-ear</display-name>
+  <module>
+    <ejb>estore-core.jar</ejb>
+  </module>
+  <module>
+    <java>estore-client.jar</java>
+  </module>
+  <module>
+    <web>
+      <web-uri>estore-shop.war</web-uri>
+      <context-root>estore-shop</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>estore-admin.war</web-uri>
+      <context-root>estore-admin</context-root>
+    </web>
+  </module>
+</application>
