@@ -1,22 +1,20 @@
-package action.gianhang.admin;
+package com.estore.shop.action.gianhang.admin;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
 
-import model.dao.GianHangDAO;
-import model.dao.SanPhamDeNghiDAO;
-import model.pojo.GianHang;
-import model.pojo.SanPhamDeNghi;
-import model.pojo.TaiKhoan;
-import model.pojo.TinhTrangEnum;
-
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
-import action.FileUploadAction;
-import java.io.File;
+import com.estore.core.model.dao.GianHangDAO;
+import com.estore.core.model.dao.SanPhamDeNghiDAO;
+import com.estore.core.model.pojo.GianHang;
+import com.estore.core.model.pojo.SanPhamDeNghi;
+import com.estore.core.model.pojo.TaiKhoan;
+import com.estore.core.model.pojo.TinhTrangEnum;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SanPhamDeNghiAction extends ActionSupport implements SessionAware {
@@ -89,7 +87,6 @@ public class SanPhamDeNghiAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;

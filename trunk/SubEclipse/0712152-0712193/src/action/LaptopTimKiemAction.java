@@ -1,4 +1,4 @@
-package action;
+package com.estore.shop.action;
 
 public class LaptopTimKiemAction {
 

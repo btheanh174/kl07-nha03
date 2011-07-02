@@ -1,20 +1,18 @@
-package action.user;
+package com.estore.shop.action.user;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Map;
 
-import model.dao.TaiKhoanDAO;
-import model.dao.ThanhVienDAO;
-import model.dao.TinhThanhPhoDAO;
-import model.pojo.TaiKhoan;
-import model.pojo.ThanhVien;
-import model.pojo.TinhThanhPho;
-
 import org.apache.struts2.interceptor.SessionAware;
 
-import util.HashUtil;
-
+import com.estore.core.model.dao.TaiKhoanDAO;
+import com.estore.core.model.dao.ThanhVienDAO;
+import com.estore.core.model.dao.TinhThanhPhoDAO;
+import com.estore.core.model.pojo.TaiKhoan;
+import com.estore.core.model.pojo.ThanhVien;
+import com.estore.core.model.pojo.TinhThanhPho;
+import com.estore.core.util.HashUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -167,7 +165,6 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	}
 
 
-	@Override
 	public ThanhVien getModel() {
 		return thanhVien;
 	}

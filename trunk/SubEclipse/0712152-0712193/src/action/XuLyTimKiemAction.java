@@ -1,4 +1,4 @@
-package action;
+package com.estore.shop.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +8,6 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
-import org.apache.commons.collections.map.HashedMap;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -73,7 +71,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	}
 	private void khoiTaoDsHangSanXuat(){
 		dsHangSanXuat = new ArrayList<String>();
-		dsHangSanXuat.add("--[Bạn hãy chọn]--");
+		dsHangSanXuat.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsHangSanXuat.add("Samsung");
 		dsHangSanXuat.add("Nokia");
 		dsHangSanXuat.add("LG");
@@ -91,7 +89,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	}
 	private void khoiTaoDsMang(){
 		dsMang = new ArrayList<String>();
-		dsMang.add("--[Bạn hãy chọn]--");
+		dsMang.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsMang.add("GSM900");
 		dsMang.add("GSM850");
 		dsMang.add("GSM1800");
@@ -108,28 +106,28 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsKieuDang(){
 		dsKieuDang = new ArrayList<String>();
-		dsKieuDang.add("--[Bạn hãy chọn]--");
+		dsKieuDang.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsKieuDang.add("Dual Slide");
-		dsKieuDang.add("Kiểu gập");
-		dsKieuDang.add("Kiểu thẳng");
-		dsKieuDang.add("Kiểu trượt");
-		dsKieuDang.add("Kiểu xoay");
-		dsKieuDang.add("Kiểu đeo tay");
+		dsKieuDang.add("Kiá»ƒu gáº­p");
+		dsKieuDang.add("Kiá»ƒu tháº³ng");
+		dsKieuDang.add("Kiá»ƒu trÆ°á»£t");
+		dsKieuDang.add("Kiá»ƒu xoay");
+		dsKieuDang.add("Kiá»ƒu Ä‘eo tay");
 	}
 	
 	private void khoiTaoDsLoaiManHinh(){
 		dsLoaiManHinh = new HashMap<String,String>();
-		dsLoaiManHinh.put("0", "--[Bạn hãy chọn]--");
-		dsLoaiManHinh.put("1", "Màn hình đơn sắc");
-		dsLoaiManHinh.put("65","65K màu");
-		dsLoaiManHinh.put("256", "256K màu");
-		dsLoaiManHinh.put("1600", "16M màu");
-		dsLoaiManHinh.put("1670", "16.7M màu TFT");
+		dsLoaiManHinh.put("0", "--[Báº¡n hÃ£y chá»�n]--");
+		dsLoaiManHinh.put("1", "MÃ n hÃ¬nh Ä‘Æ¡n sáº¯c");
+		dsLoaiManHinh.put("65","65K mÃ u");
+		dsLoaiManHinh.put("256", "256K mÃ u");
+		dsLoaiManHinh.put("1600", "16M mÃ u");
+		dsLoaiManHinh.put("1670", "16.7M mÃ u TFT");
 	}
 	
 	private void khoiTaoDsDoPhanGiai(){
 		dsDoPhanGiai = new HashMap<String, String>();
-		dsDoPhanGiai.put("0", "--[Bạn hãy chọn]--");
+		dsDoPhanGiai.put("0", "--[Báº¡n hÃ£y chá»�n]--");
 		dsDoPhanGiai.put("94", "94 x 64 pixels");
 		dsDoPhanGiai.put("128", "128 x 96 pixels");
 		dsDoPhanGiai.put("240", "240 x 320 pixels");
@@ -140,9 +138,9 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsKieuChuong(){
 		dsKieuChuong = new ArrayList<String>();
-		dsKieuChuong.add("--[Bạn hãy chọn]--");
-		dsKieuChuong.add("Nhạc chuông đơn âm sắc");
-		dsKieuChuong.add("Nhạc chuông đa âm sắc");
+		dsKieuChuong.add("--[Báº¡n hÃ£y chá»�n]--");
+		dsKieuChuong.add("Nháº¡c chuÃ´ng Ä‘Æ¡n Ã¢m sáº¯c");
+		dsKieuChuong.add("Nháº¡c chuÃ´ng Ä‘a Ã¢m sáº¯c");
 		dsKieuChuong.add("MP3");
 		dsKieuChuong.add("AMR");
 		dsKieuChuong.add("MIDI");
@@ -153,8 +151,8 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	}
 	private void khoiTaoDsLoaiTheNho(){
 		dsLoaiTheNho = new ArrayList<String>();
-		dsLoaiTheNho.add("--[Bạn hãy chọn]--");
-		dsLoaiTheNho.add("Không hổ trợ");
+		dsLoaiTheNho.add("--[Báº¡n hÃ£y chá»�n]--");
+		dsLoaiTheNho.add("KhÃ´ng há»• trá»£");
 		dsLoaiTheNho.add("SDI0");
 		dsLoaiTheNho.add("SD");
 		dsLoaiTheNho.add("MMC");
@@ -168,7 +166,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsBoNhoTrong(){
 		dsBoNhoTrong = new HashMap<Integer, String>();
-		dsBoNhoTrong.put(0, "--[Bạn hãy chọn]--");
+		dsBoNhoTrong.put(0, "--[Báº¡n hÃ£y chá»�n]--");
 		dsBoNhoTrong.put(10, "10Mb");
 		dsBoNhoTrong.put(50, "50Mb");
 		dsBoNhoTrong.put(100, "100Mb");
@@ -182,7 +180,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsHeDieuHanh(){
 		dsHeDieuHanh = new ArrayList<String>();
-		dsHeDieuHanh.add("--[Bạn hãy chọn]--");
+		dsHeDieuHanh.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsHeDieuHanh.add("Android OS");
 		dsHeDieuHanh.add("Bada OS");
 		dsHeDieuHanh.add("Blackberry OS");
@@ -193,7 +191,7 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsTinNhan(){
 		dsTinNhan = new ArrayList<String>();
-		dsTinNhan.add("--[Bạn hãy chọn]--");
+		dsTinNhan.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsTinNhan.add("Email");
 		dsTinNhan.add("EMS");
 		dsTinNhan.add("Instant Messaging");
@@ -202,12 +200,12 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 		dsTinNhan.add("SMS");
 		dsTinNhan.add("Fax");
 		dsTinNhan.add("Push E-Mail");
-		dsTinNhan.add("Không xác định");
+		dsTinNhan.add("KhÃ´ng xÃ¡c Ä‘á»‹nh");
 	}
 	
 	private void khoiTaoDsCamera(){
 		dsCamera = new HashMap<String, String>();
-		dsCamera.put("0", "--[Bạn hãy chọn]--");
+		dsCamera.put("0", "--[Báº¡n hÃ£y chá»�n]--");
 		dsCamera.put("1.3", "1.3 Megapixel");
 		dsCamera.put("2", "2 Megapixel");
 		dsCamera.put("3.2", "3.2 Megapixel");
@@ -218,59 +216,59 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 	
 	private void khoiTaoDsMauSac(){
 		dsMauSac = new ArrayList<String>();
-		dsMauSac.add("--[Bạn hãy chọn]--");
+		dsMauSac.add("--[Báº¡n hÃ£y chá»�n]--");
 		dsMauSac.add("-");
-		dsMauSac.add("Hồng");
-		dsMauSac.add("Than chì");
-		dsMauSac.add("Trắng");
-		dsMauSac.add("Xám bạc");
+		dsMauSac.add("Há»“ng");
+		dsMauSac.add("Than chÃ¬");
+		dsMauSac.add("Tráº¯ng");
+		dsMauSac.add("XÃ¡m báº¡c");
 		dsMauSac.add("Xanh");
-		dsMauSac.add("Đen");
-		dsMauSac.add("Đỏ");
-		dsMauSac.add("Nâu");
-		dsMauSac.add("Bạc");
+		dsMauSac.add("Ä�en");
+		dsMauSac.add("Ä�á»�");
+		dsMauSac.add("NÃ¢u");
+		dsMauSac.add("Báº¡c");
 		dsMauSac.add("Ghi");
-		dsMauSac.add("Xám tro");
+		dsMauSac.add("XÃ¡m tro");
 		dsMauSac.add("Gold");
 	}
 	
 	private void khoiTaoDsTinhNangCoBan(){
 		dsTinhNangCoBan = new ArrayList<String>();
-		dsTinhNangCoBan.add("--[Bạn hãy chọn]--");
-		dsTinhNangCoBan.add("Loa thoại rảnh tay tích hợp");
-		dsTinhNangCoBan.add("Nghe nhạc");
-		dsTinhNangCoBan.add("Cài đặt hình nền nhạc chuông");
-		dsTinhNangCoBan.add("Chỉnh sửa ảnh");
+		dsTinhNangCoBan.add("--[Báº¡n hÃ£y chá»�n]--");
+		dsTinhNangCoBan.add("Loa thoáº¡i ráº£nh tay tÃ­ch há»£p");
+		dsTinhNangCoBan.add("Nghe nháº¡c");
+		dsTinhNangCoBan.add("CÃ i Ä‘áº·t hÃ¬nh ná»�n nháº¡c chuÃ´ng");
+		dsTinhNangCoBan.add("Chá»‰nh sá»­a áº£nh");
 		dsTinhNangCoBan.add("Karaoke");
-		dsTinhNangCoBan.add("Kết nối GPS");
-		dsTinhNangCoBan.add("Ghi âm");
-		dsTinhNangCoBan.add("Hiển thị hình ảnh người gọi");
+		dsTinhNangCoBan.add("Káº¿t ná»‘i GPS");
+		dsTinhNangCoBan.add("Ghi Ã¢m");
+		dsTinhNangCoBan.add("Hiá»ƒn thá»‹ hÃ¬nh áº£nh ngÆ°á»�i gá»�i");
 		dsTinhNangCoBan.add("Xem tivi");
 		dsTinhNangCoBan.add("FM radio");
 		dsTinhNangCoBan.add("MP4");
 		dsTinhNangCoBan.add("Quay video");
-		dsTinhNangCoBan.add("Công nghệ 3G");
+		dsTinhNangCoBan.add("CÃ´ng nghá»‡ 3G");
 		dsTinhNangCoBan.add("Video call");
-		dsTinhNangCoBan.add("Loa ngoài");
+		dsTinhNangCoBan.add("Loa ngoÃ i");
 	}
 	private void khoiTaoDsThoiGianDamThoai() {
 		dsThoiGianDamThoai = new HashMap<String, String>();
-		dsThoiGianDamThoai.put("0", "--[Bạn hãy chọn]--");
+		dsThoiGianDamThoai.put("0", "--[Báº¡n hÃ£y chá»�n]--");
 	}
 
 	private void khoiTaoDsThoiGianCho() {
 		dsThoiGianCho = new HashMap<String, String>();
-		dsThoiGianCho.put("0", "--[Bạn hãy chọn]--");
+		dsThoiGianCho.put("0", "--[Báº¡n hÃ£y chá»�n]--");
 	}
 
 	private void khoiTaoDsPin() {
 		dsPin = new HashMap<String, String>();
-		dsPin.put("0", "--[Bạn hãy chọn]--");
+		dsPin.put("0", "--[Báº¡n hÃ£y chá»�n]--");
 	}
 
 	private void khoiTaoDsRam() {
 		dsRam = new ArrayList<String>();
-		dsRam.add("--[Bạn hãy chọn]--");
+		dsRam.add("--[Báº¡n hÃ£y chá»�n]--");
 	}
 
 	public void populate_laptop(){
@@ -431,13 +429,11 @@ public class XuLyTimKiemAction extends ActionSupport implements ServletContextLi
 		this.dsThoiGianDamThoai = dsThoiGianDamThoai;
 	}
 
-	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		
 		
 	}
 
-	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext servletContext = sce.getServletContext();
 		// Dat gia tri cac Map vao application

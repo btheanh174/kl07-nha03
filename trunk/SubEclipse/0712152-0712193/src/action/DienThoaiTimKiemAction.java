@@ -1,12 +1,11 @@
-package action;
+package com.estore.shop.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.dao.DienThoaiDAO;
-import model.pojo.DienThoai;
-import model.pojo.DienThoaiTieuChi;
-
+import com.estore.core.model.dao.DienThoaiDAO;
+import com.estore.core.model.pojo.DienThoai;
+import com.estore.core.model.pojo.DienThoaiTieuChi;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -29,11 +28,9 @@ public class DienThoaiTimKiemAction extends ActionSupport implements ModelDriven
 	}
 	
 		
-	@Override
 	public void prepare() throws Exception {
 		
 	}
-	@Override
 	public DienThoaiTieuChi getModel() {
 		return tieuChi;
 	}

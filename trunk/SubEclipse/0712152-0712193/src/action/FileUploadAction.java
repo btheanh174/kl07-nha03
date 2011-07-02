@@ -1,12 +1,11 @@
-package action;
+package com.estore.shop.action;
 
 import java.io.File;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.io.FileUtils;
+
 import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class FileUploadAction extends ActionSupport  {

@@ -1,18 +1,12 @@
-package action;
+package com.estore.shop.action;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-
-import model.dao.DanhMucDAO;
-import model.dao.SanPhamDAO;
-import model.pojo.DanhMuc;
-import model.pojo.SanPham;
-
+import com.estore.core.model.dao.DanhMucDAO;
+import com.estore.core.model.dao.SanPhamDAO;
+import com.estore.core.model.pojo.DanhMuc;
+import com.estore.core.model.pojo.SanPham;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -150,12 +144,10 @@ public class DanhMucAction extends ActionSupport implements
 		this.dsSanPham = dsSanPham;
 	}
 
-	@Override
 	public DanhMuc getModel() {
 		return danhMuc;
 	}
 
-	@Override
 	public void prepare() throws Exception {
 		if (maDanhMuc != 0) {
 			danhMuc = dmDao.lay(maDanhMuc);
