@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2011 6:04:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.estore.core.model.pojo.TaiKhoan" table="tai_khoan">
+		<id name="maTaiKhoan" type="int">
+			<column name="MA_TAI_KHOAN" />
+			<generator class="native" />
+		</id>
+		<property name="tenTruyCap" type="java.lang.String">
+			<column name="TEN_TRUY_CAP" />
+		</property>
+		<property name="salt" type="java.lang.String">
+			<column name="SALT" />
+		</property>
+		<property name="matKhau" type="java.lang.String">
+			<column name="MAT_KHAU" />
+		</property>
+		<property name="ngayKichHoat" type="java.util.Date">
+			<column name="NGAY_KICH_HOAT" />
+		</property>
+
+		<many-to-one name="nhomNguoiDung" class="com.estore.core.model.pojo.NhomNguoiDung"
+			fetch="join">
+			<meta attribute="Quan hệ với bảng nhóm người dùng n-1"></meta>
+			<column name="NHOM_NGUOI_DUNG" />
+		</many-to-one>
+
+
+		<one-to-one name="thanhVien" class="com.estore.core.model.pojo.ThanhVien"
+			cascade="save-update,delete">
+			<meta attribute="Quan hệ 1 - 1 với bảng thành viên"></meta>
+		</one-to-one>
+
+		<one-to-one name="gianHang" property-ref="taiKhoan" fetch="join">
+			<meta attribute="">Quan hệ với gian hàng: 1 tài khoản có thể có
+				hoặc ko có gian hàng</meta>
+		</one-to-one>
+
+	</class>
+</hibernate-mapping>

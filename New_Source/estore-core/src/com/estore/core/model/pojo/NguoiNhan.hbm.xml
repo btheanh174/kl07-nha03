@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2011 6:04:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.NguoiNhan" table="nguoi_nhan">
+  <id name="maNguoiNhan" type="int">
+   <column name="MA_NGUOI_NHAN"/>
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="tenNguoiNhan" type="java.lang.String">
+   <column name="TEN_NGUOI_NHAN"/>
+  </property>
+  <property generated="never" lazy="false" name="diaChi" type="java.lang.String">
+   <column name="DIA_CHI"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="java.lang.String">
+   <column name="EMAIL"/>
+  </property>
+  <property generated="never" lazy="false" name="dienThoai" type="java.lang.String">
+   <column name="DIEN_THOAI"/>
+  </property>
+  <property generated="never" lazy="false" name="ghiChu" type="java.lang.String">
+   <column name="GHI_CHU"/>
+  </property>
+  <many-to-one class="com.estore.core.model.pojo.ThanhVien" fetch="join" name="thanhVien">
+   <column name="THANH_VIEN"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

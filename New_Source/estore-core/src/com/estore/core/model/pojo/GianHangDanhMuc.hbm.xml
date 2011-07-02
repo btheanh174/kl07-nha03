@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 11, 2011 12:29:55 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class mutable="false"
+  name="com.estore.core.model.pojo.GianHangDanhMuc" table="gian_hang_danh_muc">
+  <composite-id class="com.estore.core.model.pojo.GianHangDanhMuc$Id"
+   mapped="false" name="ma" unsaved-value="undefined">
+   <key-property access="field" column="MA_GIAN_HANG" name="maGianHang"/>
+   <key-property access="field" column="MA_DANH_MUC" name="maDanhMuc"/>
+  </composite-id>
+  <many-to-one class="com.estore.core.model.pojo.GianHang" fetch="join"
+   insert="false" name="gianHang" not-null="true" update="false">
+   <column name="MA_GIAN_HANG"/>
+  </many-to-one>
+  <many-to-one class="com.estore.core.model.pojo.DanhMuc" insert="false"
+   name="danhMuc" not-null="true" update="false">
+   <column name="MA_DANH_MUC"/>
+  </many-to-one>
+  <many-to-one class="com.estore.core.model.pojo.NhomDanhMuc"
+   name="nhomDanhMuc" not-null="true">
+   <column name="MA_NHOM_DANH_MUC"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>
