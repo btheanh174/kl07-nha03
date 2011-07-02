@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2011 8:18:32 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.GianHangSanPham" table="gian_hang_san_pham">
+  <composite-id class="com.estore.core.model.pojo.GianHangSanPham$Id"
+   mapped="false" name="ma" unsaved-value="undefined">
+   <key-property access="field" column="MA_GIAN_HANG" name="maGianHang"/>
+   <key-property access="field" column="MA_SAN_PHAM" name="maSanPham"/>
+  </composite-id>
+  <property generated="never" lazy="false" name="giaRieng" type="java.lang.Integer">
+   <column name="GIA_RIENG"/>
+  </property>
+  <property generated="never" lazy="false" name="baoHanh" type="java.lang.Integer">
+   <column name="BAO_HANH"/>
+  </property>
+  <property generated="never" lazy="false" name="soLuong" type="java.lang.Integer">
+   <column name="SO_LUONG"/>
+  </property>
+  <property generated="never" lazy="false" name="capNhat" type="timestamp">
+   <column name="CAP_NHAT"/>
+  </property>
+  <many-to-one column="MA_GIAN_HANG" insert="false" name="gianHang"
+   not-null="true" update="false"/>
+  <many-to-one column="MA_SAN_PHAM" insert="false" name="sanPham"
+   not-null="true" update="false"/>
+ </class>
+</hibernate-mapping>

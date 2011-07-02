@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ESTORE</property>
+  <property name="hibernate.connection.password">root</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+  <property name="hibernate.connection.characterEncoding">UTF-8</property>
+  <mapping resource="com/estore/core/model/pojo/GianHang.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/DanhMuc.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/SanPham.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/DienThoai.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/Laptop.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/HinhAnh.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/NhomNguoiDung.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/TaiKhoan.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/ThanhVien.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/NguoiNhan.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/TinRaoVat.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/ThamSo.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/TinhThanhPho.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/TinhTrangHoaDon.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/HinhThucVanChuyen.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/PhuongThucThanhToan.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/HoaDon.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/TinNhan.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/NhomDanhMuc.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/GianHangSanPham.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/DanhMucGianHang.hbm.xml"/>
+  <mapping resource="com/estore/core/model/pojo/SanPhamDeNghi.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

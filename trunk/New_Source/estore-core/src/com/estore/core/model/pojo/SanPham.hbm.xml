@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 1:52:06 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.SanPham" table="san_pham">
+  <id name="maSanPham" type="int">
+   <column name="MA_SAN_PHAM"/>
+   <generator class="native"/>
+  </id>
+  <discriminator column="LOAI_SAN_PHAM" force="false" insert="true" not-null="true"/>
+  <property generated="never" lazy="false" name="tenSanPham" type="java.lang.String">
+   <column name="TEN_SAN_PHAM"/>
+  </property>
+  <property generated="never" lazy="false" name="gia" type="java.lang.Integer">
+   <column name="GIA"/>
+  </property>
+  <property generated="never" lazy="false" name="hangSanXuat" type="java.lang.String">
+   <column name="HANG_SAN_XUAT"/>
+  </property>
+  <property generated="never" insert="false" lazy="false"
+   name="loaiSanPham" type="java.lang.String" update="false">
+   <column name="LOAI_SAN_PHAM"/>
+  </property>
+  <many-to-one class="com.estore.core.model.pojo.DanhMuc"
+   column="DANH_MUC" lazy="false" name="danhMuc"/>
+  <bag cascade="all" fetch="join" inverse="true" lazy="false"
+   name="dsHinhAnh" table="hinh_anh">
+   <key column="SAN_PHAM"/>
+   <one-to-many class="com.estore.core.model.pojo.HinhAnh"/>
+  </bag>
+  <bag cascade="all" lazy="true" name="dsGianHangSanPham" table="gian_hang_san_pham">
+   <meta attribute="quan he nhieu nhieu voi gian hang"/>
+   <key column="MA_SAN_PHAM"/>
+   <one-to-many class="com.estore.core.model.pojo.GianHangSanPham"/>
+  </bag>
+ </class>
+</hibernate-mapping>
