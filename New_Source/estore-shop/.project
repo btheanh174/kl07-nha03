@@ -3,6 +3,7 @@
 	<name>estore-shop</name>
 	<comment></comment>
 	<projects>
+		<project>estore-core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
