@@ -1,21 +1,18 @@
-package action.gianhang.admin;
+package com.estore.shop.action.gianhang.admin;
 
-import util.SendMail;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
-
-import model.dao.HoaDonDAO;
-import model.dao.TinhTrangHoaDonDAO;
-import model.pojo.GianHang;
-import model.pojo.TaiKhoan;
-import model.pojo.HoaDon;
-import model.pojo.TinhTrangHoaDon;
+import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.estore.core.model.dao.HoaDonDAO;
+import com.estore.core.model.dao.TinhTrangHoaDonDAO;
+import com.estore.core.model.pojo.GianHang;
+import com.estore.core.model.pojo.HoaDon;
+import com.estore.core.model.pojo.TaiKhoan;
+import com.estore.core.model.pojo.TinhTrangHoaDon;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HoaDonAction extends ActionSupport implements SessionAware {
@@ -68,7 +65,6 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;

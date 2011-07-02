@@ -1,8 +1,7 @@
-package action.gianhang;
+package com.estore.shop.action.gianhang;
 
-import model.dao.GianHangDAO;
-import model.pojo.GianHang;
-
+import com.estore.core.model.dao.GianHangDAO;
+import com.estore.core.model.pojo.GianHang;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GianHangRedirect extends ActionSupport {

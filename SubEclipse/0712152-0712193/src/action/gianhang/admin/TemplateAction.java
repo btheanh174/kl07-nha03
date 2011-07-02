@@ -1,4 +1,4 @@
-package action.gianhang.admin;
+package com.estore.shop.action.gianhang.admin;
 
 import java.util.Map;
 
@@ -28,7 +28,6 @@ public class TemplateAction extends ActionSupport implements SessionAware {
 	}
 	
 	
-	@Override
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;

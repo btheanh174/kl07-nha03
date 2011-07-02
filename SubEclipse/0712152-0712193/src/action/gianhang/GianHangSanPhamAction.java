@@ -1,8 +1,7 @@
-package action.gianhang;
+package com.estore.shop.action.gianhang;
 
-import model.dao.GianHangDAO;
-import model.dao.SanPhamDAO;
-
+import com.estore.core.model.dao.GianHangDAO;
+import com.estore.core.model.dao.SanPhamDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GianHangSanPhamAction extends ActionSupport {

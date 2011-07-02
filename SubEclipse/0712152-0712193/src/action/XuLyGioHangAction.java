@@ -1,19 +1,18 @@
-package action;
+package com.estore.shop.action;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import model.dao.GianHangDAO;
-import model.dao.SanPhamDAO;
-import model.pojo.GioHang;
-import model.pojo.MatHang;
-import model.pojo.SanPham;
-
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.estore.core.model.dao.GianHangDAO;
+import com.estore.core.model.dao.SanPhamDAO;
+import com.estore.core.model.pojo.GioHang;
+import com.estore.core.model.pojo.MatHang;
+import com.estore.core.model.pojo.SanPham;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -167,20 +166,17 @@ public class XuLyGioHangAction extends ActionSupport implements
 		this.maGianHang = maGianHang;
 	}
 
-	@Override
 	public MatHang getModel() {
 		// TODO Auto-generated method stub
 		matHang = new MatHang();
 		return matHang;
 	}
 
-	@Override
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		// TODO Auto-generated method stub
 		this.servletRequest = servletRequest;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

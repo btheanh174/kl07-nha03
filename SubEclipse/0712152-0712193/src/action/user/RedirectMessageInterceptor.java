@@ -1,4 +1,4 @@
-package action.user;
+package com.estore.shop.action.user;
 
 import java.util.Collection;
 import java.util.List;

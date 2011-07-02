@@ -1,32 +1,25 @@
-package action.payment;
+package com.estore.shop.action.payment;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import util.SendMail;
-
-import model.dao.GianHangDAO;
-import model.dao.HoaDonDAO;
-import model.dao.NguoiNhanDAO;
-import model.dao.TinhThanhPhoDAO;
-import model.dao.TinhTrangHoaDonDAO;
-import model.pojo.ChiTietHoaDon;
-import model.pojo.GianHang;
-import model.pojo.GioHang;
-import model.pojo.HinhThucVanChuyen;
-import model.pojo.HoaDon;
-import model.pojo.MatHang;
-import model.pojo.MiniCart;
-import model.pojo.NguoiNhan;
-import model.pojo.PhuongThucThanhToan;
-import model.pojo.TaiKhoan;
-import model.pojo.ThanhVien;
-import model.pojo.TinhTrangHoaDon;
-
+import com.estore.core.model.dao.GianHangDAO;
+import com.estore.core.model.dao.HoaDonDAO;
+import com.estore.core.model.dao.NguoiNhanDAO;
+import com.estore.core.model.dao.TinhTrangHoaDonDAO;
+import com.estore.core.model.pojo.ChiTietHoaDon;
+import com.estore.core.model.pojo.GianHang;
+import com.estore.core.model.pojo.GioHang;
+import com.estore.core.model.pojo.HoaDon;
+import com.estore.core.model.pojo.MatHang;
+import com.estore.core.model.pojo.MiniCart;
+import com.estore.core.model.pojo.NguoiNhan;
+import com.estore.core.model.pojo.TaiKhoan;
+import com.estore.core.model.pojo.ThanhVien;
+import com.estore.core.model.pojo.TinhTrangHoaDon;
+import com.estore.core.util.SendMail;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -88,7 +81,7 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		gianHang = (GianHang) session.get("gianHang");
 
 		TinhTrangHoaDonDAO tthdDao = new TinhTrangHoaDonDAO();
-		TinhTrangHoaDon tthd = tthdDao.lay(4); // Khách hàng đã thanh toán
+		TinhTrangHoaDon tthd = tthdDao.lay(4); // KhÃ¡ch hÃ ng Ä‘Ã£ thanh toÃ¡n
 
 		NguoiNhanDAO nnDAO = new NguoiNhanDAO();
 		nnDAO.them(nguoiNhan);
@@ -105,12 +98,12 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		HoaDonDAO hdDao = new HoaDonDAO();
 		hdDao.them(hoaDon);
 
-		// Gửi email cho người dùng:
+		// Gá»­i email cho ngÆ°á»�i dÃ¹ng:
 		try {
 			String to = tv.getEmail();
-			String subject = "Estore - Hóa đơn mua hàng";
-			String body = "Chào " + tv.getHoTen() + "\n";
-			body += "Bạn đã thực hiện thành công giao dịch, chi tiết giao dịch...";
+			String subject = "Estore - HÃ³a Ä‘Æ¡n mua hÃ ng";
+			String body = "ChÃ o " + tv.getHoTen() + "\n";
+			body += "Báº¡n Ä‘Ã£ thá»±c hiá»‡n thÃ nh cÃ´ng giao dá»‹ch, chi tiáº¿t giao dá»‹ch...";
 			SendMail.sendMail(to, subject, body);
 			System.out.println("Finish!");
 		} catch (Exception ex) {
@@ -127,7 +120,6 @@ public class HoaDonAction extends ActionSupport implements SessionAware {
 		return nguoiNhan;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
 		this.session = session;
