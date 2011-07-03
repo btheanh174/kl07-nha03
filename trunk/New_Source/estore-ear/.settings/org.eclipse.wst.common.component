@@ -10,10 +10,6 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="estore-shop.war" deploy-path="/" handle="module:/resource/estore-shop/estore-shop">
-            <dependent-object/>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="estore-admin.war" deploy-path="/" handle="module:/resource/estore-admin/estore-admin">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
