@@ -9,12 +9,6 @@
   </module>
   <module>
     <web>
-      <web-uri>estore-shop.war</web-uri>
-      <context-root>estore-shop</context-root>
-    </web>
-  </module>
-  <module>
-    <web>
       <web-uri>estore-admin.war</web-uri>
       <context-root>estore-admin</context-root>
     </web>
