@@ -2,16 +2,15 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="estore-ear">
         <wb-resource deploy-path="/" source-path="/EarContent"/>
-        <dependent-module archiveName="estore-core.jar" deploy-path="/" handle="module:/resource/estore-core/estore-core">
-            <dependent-object/>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="estore-client.jar" deploy-path="/" handle="module:/resource/estore-client/estore-client">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="estore-admin.war" deploy-path="/" handle="module:/resource/estore-admin/estore-admin">
             <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="estore-core.jar" deploy-path="/lib" handle="module:/resource/estore-core/estore-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

@@ -3,9 +3,11 @@
 	<name>estore-ear</name>
 	<comment></comment>
 	<projects>
-		<project>estore-core</project>
-		<project>estore-client</project>
 		<project>estore-admin</project>
+		<project>estore-client</project>
+		<project>estore-front</project>
+		<project>estore-shop</project>
+		<project>estore-core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
