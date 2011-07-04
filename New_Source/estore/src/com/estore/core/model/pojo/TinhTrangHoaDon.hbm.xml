@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 10:45:07 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.TinhTrangHoaDon" table="tinh_trang_hoa_don">
+  <id name="maTinhTrang" type="int">
+   <column name="MA_TINH_TRANG"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="tenTinhTrang" type="java.lang.String">
+   <column name="TEN_TINH_TRANG"/>
+  </property>
+ </class>
+</hibernate-mapping>

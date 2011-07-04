@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+		<put-attribute name="pageTitle" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/tiles/left.jsp" />
+		<put-attribute name="right" value="/WEB-INF/tiles/right.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+		<put-attribute name="center" value="/WEB-INF/tiles/center.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="index.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Trang chủ" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_index.jsp" />
+	</definition>
+	
+	<definition name="contact.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Liên hệ" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/contact/body_contact.jsp" />
+	</definition>
+
+	<definition name="register.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Đăng ký" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/user/body_register.jsp" />
+	</definition>
+
+	<definition name="login.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Đăng nhập" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/user/body_login.jsp" />
+	</definition>
+	
+	<!-- Product Layout -->
+	<definition name="List.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Danh sách" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/store/body_list.jsp" />
+	</definition>
+
+	<definition name="Products.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Danh sách sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_products.jsp" />
+	</definition>
+
+	<definition name="Product.Detail.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Chi tiết sản phẩm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.detail.jsp" />
+	</definition>
+
+	<definition name="Product.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm nhanh" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.search.jsp" />
+	</definition>
+
+	<definition name="Product.Search.Results.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Kết quả tìm kiếm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.search.results.jsp" />
+	</definition>
+
+	<definition name="Product.AdvancedSearch.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm kiếm nâng cao" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.advancedsearch.jsp" />
+	</definition>
+
+	<definition name="Product.AdvancedSearch.Results.tiles"
+		extends="baseLayout">
+		<put-attribute name="pageTitle" value="Kết quả tìm kiếm" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_product.advancedsearch.results.jsp" />
+	</definition>
+
+	<definition name="Laptop.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm kiếm laptop" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_laptop.search.jsp" />
+	</definition>
+
+	<definition name="DienThoai.Search.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Tìm kiếm điện thoại" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_dienthoai.search.jsp" />
+	</definition>
+	<!-- End Product Layout -->
+	
+	<!-- Danh sách cửa hàng -->
+	<definition name="Stores.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Danh sách cửa hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_stores.jsp" />
+	</definition>
+	<!-- end Store Layout -->
+	
+	<!-- Payment layout -->
+	<definition name="Step2_Information.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Thông tin người nhận" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/payment/body_step2_information.jsp" />
+	</definition>
+
+	<definition name="Step3_PaymentMethod.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Phương thức thanh toán" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/payment/body_step3_paymentmethod.jsp" />
+	</definition>
+
+	<definition name="ReviewPayment.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Xác nhận thông tin" />
+		<put-attribute name="center" value="/payment/paypal/review.jsp" />
+	</definition>
+	<!-- end Payment Layout -->
+	
+	<!-- Profile layout -->
+	<definition name="profileLayout" template="/WEB-INF/tiles/profile/profileLayout.jsp">
+		<put-attribute name="pageTitle" value="Template" />
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/profile/profileHeader.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/tiles/profile/profileLeft.jsp" />
+		<put-attribute name="center" value="/WEB-INF/tiles/center.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="Profile.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Thông tin cá nhân"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile.jsp"></put-attribute>
+	</definition>
+
+	<definition name="Profile_Bills.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Danh sách hóa đơn giao dịch"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile_bills.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="Profile_DetailBill.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Chi tiết hóa đơn giao dịch"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_profile_detailBill.jsp"></put-attribute>
+	</definition>
+
+	<definition name="Account.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Tài khoản"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_account.jsp"></put-attribute>
+	</definition>
+
+	<definition name="Message.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Quản lý tin nhắn"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_message.jsp"></put-attribute>
+	</definition>
+
+	<definition name="Store.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Quản lý cửa hàng"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_store.jsp"></put-attribute>
+	</definition>
+	<!-- End Profile layout -->
+	
+	<!-- Shopping cart -->
+	<definition name="ShoppingCart.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Giỏ hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/body_shoppingcart.jsp" />
+	</definition>
+	<!-- -->
+	
+	<!-- Help -->
+	<definition name="helpFAQ.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Các câu hỏi thường gặp" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_faq.jsp" />
+	</definition>
+	<definition name="helpOrder.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn đặt hàng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_order.jsp" />
+	</definition>
+
+	<definition name="helpPayment.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn thanh toán" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_payment.jsp" />
+	</definition>
+
+	<definition name="helpRegister.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Hướng dẫn đăng ký" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_register.jsp" />
+	</definition>
+
+	<definition name="helpCustomer.tiles" extends="baseLayout">
+		<put-attribute name="pageTitle" value="Các quy định đối với người mua" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/content/help/body_customer.jsp" />
+	</definition>
+	<!-- -->
+	
+</tiles-definitions>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default"
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
+
+		<!-- interceptor -->
+		<interceptors>
+			<interceptor name="LastActionInterceptor" class="com.estore.shop.action.taikhoan.LastActionInterceptor"></interceptor>
+			<interceptor-stack name="MyLoginStack">
+				<interceptor-ref name="LastActionInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
+		<!-- end interceptor -->
+
+		<!-- global result -->
+		<global-results>
+			<result name="error">/global/error.jsp</result>
+		</global-results>
+		<!-- end global result -->
+
+		<action name="index" class="com.estore.shop.action.index.IndexAction" method="execute">
+			<interceptor-ref name="MyLoginStack"></interceptor-ref>
+			<result name="success" type="tiles">index.tiles</result>
+		</action>
+
+		<action name="show_*_*">
+			<interceptor-ref name="MyLoginStack"></interceptor-ref>
+			<result name="success">/{1}/{2}.jsp</result>
+		</action>
+
+		<action name="show3_*_*_*">
+			<interceptor-ref name="MyLoginStack"></interceptor-ref>
+			<result name="success">/{1}/{2}/{3}.jsp</result>
+		</action>
+
+		<!-- Dung cho register -->
+
+		<action name="User_register" class="com.estore.shop.action.taikhoan.RegisterAction"
+			method="register">
+			<result name="success" type="redirect">index.action</result>
+			<result name="input" type="redirect">show_user_register.action</result>
+		</action>
+
+		<!-- Dung cho login va lost password -->
+
+		<action name="User_login" class="com.estore.shop.action.taikhoan.LoginAction"
+			method="login">
+			<result name="success" type="redirectAction">
+				<param name="actionName">${#session['prevAction']}</param>
+			</result>
+			<result name="input" type="redirect">show_user_login.action</result>
+			<result name="error" type="redirect">show_user_register.action</result>
+		</action>
+
+		<action name="User_logout" class="com.estore.shop.action.taikhoan.LogoutAction">
+			<result name="success">/user/logout.jsp</result>
+			<result name="input" type="redirect">index.action</result>
+		</action>
+
+		<!-- User profile -->
+
+		<action name="Profile_hienThi" class="com.estore.shop.action.taikhoan.ProfileAction"
+			method="hienThi">
+			<result name="success" type="redirect">show_profile_profile.action
+			</result>
+		</action>
+
+		<action name="Profile_doiMatKhau" class="com.estore.shop.action.taikhoan.ProfileAction"
+			method="doiMatKhau">
+			<result name="success">/profile/profile.jsp</result>
+		</action>
+
+		<action name="Profile_doiEmail" class="com.estore.shop.action.taikhoan.ProfileAction"
+			method="doiEmail">
+			<result name="success" type="redirect">show_profile_profile.action
+			</result>
+		</action>
+
+		<action name="Profile_capNhatThongTin" class="com.estore.shop.action.taikhoan.ProfileAction"
+			method="capNhatThongTin">
+			<result name="success" type="redirect">show_profile_profile.action
+			</result>
+			<result name="input" type="redirect">show_profile_profile.action
+			</result>
+		</action>
+
+		<action name="Profile_xemHoaDon" class="com.estore.shop.action.taikhoan.HoaDonAction"
+			method="layDanhSachHoaDon">
+			<result name="success" type="tiles">Profile_Bills.tiles</result>
+		</action>
+
+		<action name="Profile_xemChiTietHoaDon" class="com.estore.shop.action.taikhoan.HoaDonAction"
+			method="layChiTietHoaDon">
+			<result name="success" type="tiles">Profile_DetailBill.tiles</result>
+		</action>
+
+
+		<action name="Profile_test" class="com.estore.shop.action.taikhoan.ProfileAction"
+			method="test">
+
+			<result name="success" type="redirect">index.action</result>
+			<result name="input" type="redirect">show_profile_profile.action
+			</result>
+		</action>
+		<!-- end Profile -->
+
+		<!-- Store -->
+		<action name="Store_hienThi" class="com.estore.shop.action.gianhang.GianHangAction"
+			method="hienThi">
+			<result name="success">/profile/store.jsp</result>
+		</action>
+		<action name="Store_capNhat" class="com.estore.shop.action.gianhang.GianHangAction"
+			method="capNhat">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/gif,image/jpeg,image/png
+				</param>
+			</interceptor-ref>
+			<result name="success">/profile/store.jsp</result>
+		</action>
+
+		<action name="GianHang_danhSach" class="com.estore.shop.action.gianhang.ListingGianHangAction">
+			<result name="list">/content/store/stores.jsp</result>
+		</action>
+
+		<!-- end Store -->
+
+		<!-- Danh muc -->
+
+		<action name="DanhMuc_themDanhMuc" class="com.estore.shop.action.danhmuc.DanhMucAction"
+			method="themDanhMuc">
+			<result name="success" type="redirect">QuanLyCategories.action</result>
+		</action>
+
+		<action name="DanhMuc_xoaDanhMuc" class="com.estore.shop.action.danhmuc.DanhMucAction"
+			method="xoaDanhMuc">
+			<result name="success" type="redirect">QuanLyCategories.action</result>
+			<result name="input" type="redirect">QuanLyCategories.action</result>
+		</action>
+
+		<action name="DanhMuc_capNhatDanhMuc" class="com.estore.shop.action.danhmuc.DanhMucAction"
+			method="capNhatDanhMuc">
+			<result name="success" type="redirect">QuanLyCategories.action</result>
+			<result name="input" type="redirect">QuanLyCategories.action</result>
+			<result name="error">/global/error.jsp</result>
+		</action>
+
+
+		<!-- San pham -->
+
+		<action name="SanPham_chiTiet" class="com.estore.shop.action.sanpham.SanPhamAction"
+			method="chiTiet">
+			<result name="success">/admin/product/detail.jsp</result>
+		</action>
+
+		<action name="SanPham_danhSach" class="com.estore.shop.action.sanpham.ListingSanPhamAction"
+			method="execute">
+			<result name="list">/content/product/products.jsp</result>
+		</action>
+
+		<action name="SanPham_timNhanh" class="com.estore.shop.action.sanpham.SanPhamAction"
+			method="timNhanh">
+			<result name="success">/admin/product/search_results.jsp</result>
+			<result name="input" type="redirect">show3_admin_product_search.action
+			</result>
+		</action>
+
+		<action name="SanPham_timKiem" class="com.estore.shop.action.timkiem.XuLyTimKiemAction">
+			<result name="dienthoai" type="tiles">DienThoai.Search.tiles</result>
+			<result name="laptop" type="tiles">Laptop.Search.tiles</result>
+			<result name="error">/global/error.jsp</result>
+		</action>
+
+		<action name="SanPham_timNangCao" class="com.estore.shop.action.sanpham.SanPhamAction"
+			method="timNangCao">
+			<result name="success">/admin/product/advancedsearch_results.jsp
+			</result>
+			<result name="error">/global/error.jsp</result>
+		</action>
+
+		<!-- End San pham -->
+
+		<!-- Gio hang -->
+		<action name="XemGioHang" class="com.estore.shop.action.giohang.XuLyGioHangAction">
+			<result name="success">/content/shoppingcart/shoppingcart.jsp</result>
+		</action>
+
+		<action name="GioHang_*" class="com.estore.shop.action.giohang.XuLyGioHangAction"
+			method="{1}">
+			<result name="success" type="redirect">XemGioHang.action</result>
+			<result name="input" type="redirect">index.action</result>
+		</action>
+
+		<!-- -->
+
+		<!-- sub site -->
+		<action name="store" class="com.estore.shop.action.gianhang.GianHangAction"
+			method="execute">
+			<result name="index">/all/index.jsp</result>
+			<result name="intro">/all/intro.jsp</result>
+			<result name="contact">/all/contact.jsp</result>
+			<result name="policy">/all/policy.jsp</result>
+			<result name="detail">/all/detail.jsp</result>
+			<result name="list">/all/products.jsp</result>
+			<result name="search">/all/searchresults.jsp</result>
+		</action>
+
+		<!-- end sub site -->
+	</package>
+	<!-- sub site -->
+
+	<include file="store-struts.xml"></include>
+	<include file="payment-struts.xml"></include>
+</struts>
