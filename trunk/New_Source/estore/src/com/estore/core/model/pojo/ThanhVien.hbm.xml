@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2011 6:04:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.ThanhVien" table="thanh_vien">
+  <id name="maTaiKhoan" type="int">
+   <column name="MA_TAI_KHOAN"/>
+   <generator class="foreign">
+    <param name="property">taiKhoan</param>
+   </generator>
+  </id>
+  <property generated="never" lazy="false" name="hoTen" type="java.lang.String">
+   <column name="HO_TEN"/>
+  </property>
+  <property generated="never" lazy="false" name="dienThoai" type="java.lang.String">
+   <column name="DIEN_THOAI"/>
+  </property>
+  <property generated="never" lazy="false" name="diaChi" type="java.lang.String">
+   <column name="DIA_CHI"/>
+  </property>
+  <property generated="never" lazy="false" name="website" type="java.lang.String">
+   <column name="WEBSITE"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="java.lang.String">
+   <column name="EMAIL"/>
+  </property>
+  <property generated="never" lazy="false" name="ngaySinh" type="java.util.Date">
+   <column name="NGAY_SINH"/>
+  </property>
+  <property generated="never" lazy="false" name="gioiTinh" type="java.lang.String">
+   <column name="GIOI_TINH"/>
+  </property>
+  <property generated="never" lazy="false" name="hinh" type="java.lang.String">
+   <column name="HINH"/>
+  </property>
+  <one-to-one class="com.estore.core.model.pojo.TaiKhoan"
+   constrained="true" name="taiKhoan">
+   <meta attribute="Quan hệ 1-1 primary key với bảng tài khoản, sử dụng khóa của bảng tài khoản"/>
+  </one-to-one>
+  <many-to-one class="com.estore.core.model.pojo.TinhThanhPho"
+   fetch="join" name="tinhThanhPho">
+   <column name="TINH_THANH_PHO"/>
+  </many-to-one>
+  <list inverse="true" lazy="true" name="dsTinNhan" table="tin_nhan">
+   <key column="THANH_VIEN"/>
+   <list-index base="0"/>
+   <one-to-many class="com.estore.core.model.pojo.TinNhan"/>
+  </list>
+  <bag cascade="save-update,delete" name="dsNguoiNhan" table="nguoi_nhan">
+   <key column="THANH_VIEN"/>
+   <one-to-many class="com.estore.core.model.pojo.NguoiNhan"/>
+  </bag>
+  <list inverse="true" lazy="true" name="dsTinRaoVat" table="tin_rao_vat">
+   <key column="THANH_VIEN"/>
+   <list-index base="0"/>
+   <one-to-many class="com.estore.core.model.pojo.TinRaoVat"/>
+  </list>
+  <bag cascade="save-update,delete" name="dsHoaDon" table="hoa_don">
+   <key column="THANH_VIEN"/>
+   <one-to-many class="com.estore.core.model.pojo.HoaDon"/>
+  </bag>
+ </class>
+</hibernate-mapping>

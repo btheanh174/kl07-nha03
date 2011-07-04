@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.ThamSo" table="tham_so">
+  <id column="MA_THAM_SO" name="maThamSo" type="integer">
+   <generator class="increment"/>
+  </id>
+  <property column="TEN_THAM_SO" generated="never" lazy="false"
+   name="tenThamSo" type="string"/>
+  <property column="KIEU" generated="never" lazy="false" name="kieu" type="string"/>
+  <property column="GIA_TRI" generated="never" lazy="false"
+   name="giaTri" type="string"/>
+  <property column="TINH_TRANG" generated="never" lazy="false"
+   name="tinhTrang" type="integer"/>
+ </class>
+</hibernate-mapping>

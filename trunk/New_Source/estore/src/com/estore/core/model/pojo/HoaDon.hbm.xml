@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2011 1:18:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class lazy="true" name="com.estore.core.model.pojo.HoaDon" table="hoa_don">
+  <id name="maHoaDon" type="int">
+   <column name="MA_HOA_DON"/>
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="ngayLap" type="java.util.Date">
+   <column name="NGAY_LAP"/>
+  </property>
+  <many-to-one cascade="save-update"
+   class="com.estore.core.model.pojo.ThanhVien" fetch="join" name="thanhVien">
+   <column name="THANH_VIEN"/>
+  </many-to-one>
+  <many-to-one cascade="save-update"
+   class="com.estore.core.model.pojo.NguoiNhan" fetch="join" name="nguoiNhan">
+   <column name="NGUOI_NHAN"/>
+  </many-to-one>
+  <many-to-one class="com.estore.core.model.pojo.PhuongThucThanhToan"
+   fetch="join" name="phuongThuc">
+   <column name="PHUONG_THUC_THANH_TOAN"/>
+  </many-to-one>
+  <many-to-one class="com.estore.core.model.pojo.HinhThucVanChuyen"
+   fetch="join" name="hinhThuc">
+   <column name="HINH_THUC_VAN_CHUYEN"/>
+  </many-to-one>
+  <many-to-one cascade="all"
+   class="com.estore.core.model.pojo.TinhTrangHoaDon" fetch="join" name="tinhTrang">
+   <column name="TINH_TRANG"/>
+  </many-to-one>
+  <list cascade="all" name="dsChiTietHoaDon" table="chi_tiet_hoa_don">
+   <key column="MA_HOA_DON"/>
+   <list-index base="0" column="SO_THU_TU"/>
+   <composite-element class="com.estore.core.model.pojo.ChiTietHoaDon">
+    <property column="SO_LUONG" generated="never" lazy="false"
+     name="soLuong" type="int"/>
+    <property column="DON_GIA" generated="never" lazy="false"
+     name="donGia" type="float"/>
+    <many-to-one column="SAN_PHAM" name="sanPham"/>
+   </composite-element>
+  </list>
+  <many-to-one class="com.estore.core.model.pojo.GianHang" fetch="join" name="gianHang">
+   <column name="GIAN_HANG"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

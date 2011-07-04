@@ -1,0 +1,138 @@
+/* sprite */
+a.switch_thumb {
+	width: 122px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 0;
+	display: block;
+	background: url(../images/switch.gif) no-repeat;
+	outline: none;
+	text-indent: -9999px;
+}
+
+
+a.swap {
+	background-position: left bottom;
+}
+
+a:hover.switch_thumb {
+	filter: alpha(opacity =   75);
+	opacity: .75;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+}
+/* Phan chung: su dung de layout image */
+
+
+.product_image .product_image_holder {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 172px;
+}
+
+.product_image .product_image_holder img {
+	margin-left: auto;
+	margin-right: auto;
+	height: 130px;
+	width: 170px;
+}
+
+.content_block .product_seller {
+	
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	margin: 5px 0 5px 10px;
+	float: left;
+	width: 100%;
+}
+
+.content_block .product_name {
+	float: left;
+	margin: 3px 0 5px 10px;
+	width: 100%;
+	font-size: 16px;
+    font-weight: bold;
+}
+
+.content_block .product_name a{
+	color: #014694;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.content_block .product_name a:HOVER{
+	color: #cc0000;
+	text-decoration: underline;
+}
+
+.content_block .product_price {
+	float: left;
+	color: #FF0000;
+	margin: 10px 0 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    width: auto;
+}
+
+
+.content_block .product_desc {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	float: left;
+	margin: 10px 0 5px 10px;
+	width: auto;
+}
+
+/**/
+
+#content .display .product_box {
+	float: left;
+	clear: both;
+	margin:10px 0 10px 0;
+	padding: 0 10px;
+	width: 742px;
+}
+
+#content .display .product_image {
+	border: 1px solid #CCCCCC;
+	overflow: hidden;
+	padding: 1px 5px 1px 5px;
+	width: 172px;
+	float: left;
+}
+
+#content .display .product_box .content_block{
+	padding: 0 10px;
+	float: left;
+	width: 530px;
+}
+
+
+/* Thumbnail view */
+
+#content .thumb_view .product_box {
+	float: left;
+	height: 250px;
+	margin-bottom: 30px;
+	padding-left: 13px;
+	width: 172px;
+}
+
+#content .thumb_view .product_image {
+	border: 1px solid #CCCCCC;
+	/* display: table;
+	height: 140px; */
+	overflow: hidden;
+	padding: 1px 5px;
+	width: 172px;
+}
+
+#content .thumb_view .product_box .content_block{
+	padding: 1px 5px;
+	float: left;
+	width: 172px;
+}
+#content .thumb_view .product_box .content_block .product_desc {
+	display: none;
+}

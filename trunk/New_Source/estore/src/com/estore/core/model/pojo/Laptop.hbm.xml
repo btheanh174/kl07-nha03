@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 25, 2011 12:49:03 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <subclass discriminator-value="LAPTOP"
+  extends="com.estore.core.model.pojo.SanPham" lazy="false"
+  name="com.estore.core.model.pojo.Laptop" select-before-update="false">
+  <join table="laptop">
+   <key column="MA_SAN_PHAM"/>
+   <property generated="never" lazy="false" name="mainboard" type="java.lang.String">
+    <column name="MAINBOARD"/>
+   </property>
+   <property generated="never" lazy="false" name="cpu" type="java.lang.String">
+    <column name="CPU"/>
+   </property>
+   <property generated="never" lazy="false" name="hdd" type="java.lang.String">
+    <column name="HDD"/>
+   </property>
+   <property generated="never" lazy="false" name="ram" type="java.lang.String">
+    <column name="RAM"/>
+   </property>
+   <property generated="never" lazy="false" name="vga" type="java.lang.String">
+    <column name="VGA"/>
+   </property>
+   <property generated="never" lazy="false" name="usb" type="java.lang.String">
+    <column name="USB"/>
+   </property>
+   <property generated="never" lazy="false" name="lan" type="java.lang.String">
+    <column name="LAN"/>
+   </property>
+   <property generated="never" lazy="false" name="wifi" type="java.lang.String">
+    <column name="WIFI"/>
+   </property>
+   <property generated="never" lazy="false" name="heDieuHanh" type="java.lang.String">
+    <column name="HE_DIEU_HANH"/>
+   </property>
+   <property generated="never" lazy="false" name="chuot" type="java.lang.String">
+    <column name="CHUOT"/>
+   </property>
+   <property generated="never" lazy="false" name="pin" type="java.lang.String">
+    <column name="PIN"/>
+   </property>
+   <property generated="never" lazy="false" name="trongLuong" type="java.lang.String">
+    <column name="TRONG_LUONG"/>
+   </property>
+   <property generated="never" lazy="false" name="kichThuocManHinh" type="java.lang.String">
+    <column name="KICH_THUOC_MAN_HINH"/>
+   </property>
+   <property generated="never" lazy="false" name="doPhanGiai" type="java.lang.String">
+    <column name="DO_PHAN_GIAI"/>
+   </property>
+   <property generated="never" lazy="false" name="tinhNangKhac" type="java.lang.String">
+    <column name="TINH_NANG_KHAC"/>
+   </property>
+  </join>
+ </subclass>
+</hibernate-mapping>

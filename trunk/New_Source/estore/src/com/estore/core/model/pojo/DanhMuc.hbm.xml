@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 15, 2011 12:29:32 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.DanhMuc" table="danh_muc">
+  <id name="maDanhMuc" type="int">
+   <column name="MA_DANH_MUC"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="tenDanhMuc" type="java.lang.String">
+   <column name="TEN_DANH_MUC"/>
+  </property>
+  <property generated="never" lazy="false" name="capDanhMuc" type="integer">
+   <column name="CAP_DANH_MUC"/>
+  </property>
+  <bag cascade="all-delete-orphan" inverse="true" lazy="false" name="dsDanhMucCon">
+   <key column="DANH_MUC_CHA"/>
+   <one-to-many class="com.estore.core.model.pojo.DanhMuc"/>
+  </bag>
+  <many-to-one class="com.estore.core.model.pojo.DanhMuc"
+   column="DANH_MUC_CHA" name="danhMucCha"/>
+  <bag cascade="all" inverse="true" lazy="true" name="dsSanPham" table="san_pham">
+   <key column="DANH_MUC"/>
+   <one-to-many class="com.estore.core.model.pojo.SanPham"/>
+  </bag>
+  <bag cascade="all" lazy="true" name="dsDanhMucGianHang" table="danh_muc_gian_hang">
+   <key column="MA_DANH_MUC"/>
+   <one-to-many class="com.estore.core.model.pojo.DanhMucGianHang"/>
+  </bag>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2011 9:34:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.estore.core.model.pojo.HinhAnh" table="hinh_anh">
+  <id name="maHinhAnh" type="int">
+   <column name="MA_HINH_ANH"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="tenHinhAnh" type="java.lang.String">
+   <column name="TEN_HINH_ANH"/>
+  </property>
+  <property generated="never" lazy="false" name="urlHinhAnh" type="java.lang.String">
+   <column name="URL_HINH_ANH"/>
+  </property>
+  <many-to-one class="com.estore.core.model.pojo.SanPham" fetch="join" name="sanPham">
+   <column name="SAN_PHAM"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>
