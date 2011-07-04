@@ -33,7 +33,7 @@
 
 				<s:textfield label="Website" name="website"
 					value="%{#session['tk'].thanhVien.website}" />
-				<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
+				<s:bean name="com.estore.shop.action.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 				<sj:autocompleter label="Tỉnh/thành phố" name="maTTP"
 					list="#ttpBean.dsTinhThanhPho" listKey="maTinhThanhPho"
 					listValue="tenTinhThanhPho"

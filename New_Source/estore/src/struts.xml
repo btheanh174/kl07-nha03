@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
 	<package name="default"
-		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default" namespace="/shop">
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
 
 		<!-- interceptor -->
 		<interceptors>
@@ -30,15 +30,16 @@
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
 			<result name="success" type="tiles">index.tiles</result>
 		</action>
+		
 
 		<action name="show_*_*">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
-			<result name="success">/shop/{1}/{2}.jsp</result>
+			<result name="success">/{1}/{2}.jsp</result>
 		</action>
 
 		<action name="show3_*_*_*">
 			<interceptor-ref name="MyLoginStack"></interceptor-ref>
-			<result name="success">/shop/{1}/{2}/{3}.jsp</result>
+			<result name="success">/{1}/{2}/{3}.jsp</result>
 		</action>
 
 		<!-- Dung cho register -->
