@@ -28,7 +28,7 @@
 		<s:form method="post" action="User_register" validate="true" enctype="multipart/form-data"
 			theme="simple">
 			<s:actionerror />
-			<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
+			<s:bean name="com.estore.shop.action.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 			<fieldset>
 				<legend align="left">Thông tin người dùng: </legend>
 				<table border="0" cellpadding="0" cellspacing="0" id="id-form">
