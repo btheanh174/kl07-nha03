@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="admin"
+		extends="struts-default,tiles-default,jcaptcha4struts2-default,json-default">
+
+		<!-- global result -->
+		<global-results>
+			<result name="error">/global/error.jsp</result>
+		</global-results>
+		<!-- end global result -->
+
+		<action name="admin" class="admin.action.taikhoan.AdminAction">
+			<result name="yes">/admin/index.jsp</result>
+			<result name="no">/admin/user/login.jsp</result>
+		</action>
+		
+		<!-- Login -->
+		<action name="login">
+			<result>/admin/user/login.jsp</result>
+		</action>
+		<action name="doLogin" class="admin.action.taikhoan.AdminLoginAction"
+			method="login">
+			<result name="success">/admin/index.jsp</result>
+			<result name="input">/admin/user/login.jsp</result>
+		</action>
+		<action name="doLogout" class="admin.action.taikhoan.AdminLoginAction"
+			method="logout">
+			<result name="loggedout">/admin/user/login.jsp</result>
+		</action>
+
+	</package>
+</struts>

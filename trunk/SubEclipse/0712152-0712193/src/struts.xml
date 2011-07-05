@@ -281,4 +281,5 @@
 
 	<include file="store-struts.xml"></include>
 	<include file="payment-struts.xml"></include>
+	<include file="admin-struts.xml"></include>
 </struts>

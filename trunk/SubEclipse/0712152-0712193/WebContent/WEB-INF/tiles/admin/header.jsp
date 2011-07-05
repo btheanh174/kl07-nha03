@@ -19,9 +19,9 @@
 		<div id="top-search">
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td><input type="text" value="Search"
-						onblur="if (this.value=='') { this.value='Search'; }"
-						onfocus="if (this.value=='Search') { this.value=''; }"
+					<td><input type="text" value="Tìm kiếm"
+						onblur="if (this.value=='') { this.value='Tìm kiếm'; }"
+						onfocus="if (this.value=='Tìm kiếm') { this.value=''; }"
 						class="top-search-inp" />
 					</td>
 					<td><select class="styledselect">

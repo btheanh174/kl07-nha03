@@ -5,9 +5,9 @@
 
 
 <%
-	if ((session.getAttribute("tk") == null)
-			&& ((Integer)session.getAttribute("nhomNguoiDung") != 4)) {
-		response.sendRedirect("User_login.action");
+	if ((session.getAttribute("admin") == null)
+			&& ((Integer)session.getAttribute("nhom") != 4)) {
+		response.sendRedirect("login");
 	}
 %>
 <tiles:insertDefinition name="Admin.tiles"></tiles:insertDefinition>
