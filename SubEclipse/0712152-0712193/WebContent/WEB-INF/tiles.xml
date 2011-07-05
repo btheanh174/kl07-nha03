@@ -15,7 +15,7 @@
 	</definition>
 
 
-	<definition name="adminLayout" template="/WEB-INF/tiles/adminLayout.jsp">
+	<definition name="adminLayout" template="/WEB-INF/tiles/admin/adminLayout.jsp">
 		<put-attribute name="pageTitle" value="Template" />
 		<put-attribute name="header" value="/WEB-INF/tiles/admin/header.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/tiles/admin/menu.jsp" />

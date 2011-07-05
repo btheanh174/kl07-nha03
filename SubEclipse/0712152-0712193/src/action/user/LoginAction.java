@@ -20,7 +20,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 	private HttpServletRequest servletRequest;
 	private Map session;
 	private TaiKhoanDAO tkDao = new TaiKhoanDAO();
-	
+	private boolean isOk = false;
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
@@ -31,13 +31,14 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 	
 	public String login() throws UnsupportedEncodingException{
 		TaiKhoan tk = tkDao.lay(getTenTruyCap().trim());
+		
 		if(tk != null){
 			String salt = tk.getSalt();
 			String saltedPassword = salt + getMatKhau();
 			String hashedPassword = HashUtil.generateHash(saltedPassword);
 			
 			String storedPassword = tk.getMatKhau();
-		
+			
 			if(hashedPassword.equals(storedPassword)){
 				
 				session.put("tk", tk);
@@ -51,6 +52,24 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 			return ERROR;
 		}
 		
+	}
+	
+	public boolean check(TaiKhoan tk) {
+		try {
+			if (tk != null) {
+				String salt = tk.getSalt();
+				String saltedPassword = salt + tk.getMatKhau();
+				String hashedPassword = HashUtil.generateHash(saltedPassword);
+				String storedPassword = tk.getMatKhau();
+
+				if (hashedPassword.equals(storedPassword)) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
 	}
 	
 	public String getTenTruyCap() {
