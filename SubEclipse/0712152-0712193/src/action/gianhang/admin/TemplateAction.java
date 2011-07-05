@@ -1,4 +1,4 @@
-package com.estore.shop.action.gianhang.admin;
+package action.gianhang.admin;
 
 import java.util.Map;
 

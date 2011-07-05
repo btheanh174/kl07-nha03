@@ -26,8 +26,9 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	private boolean isOk = false;
 
 	public String login() {
-		TaiKhoan tk = tkDao.lay(getTenTruyCap().trim());
-		isOk = check(tk);
+		
+		TaiKhoan tk = tkDao.lay(getTenTruyCap());
+		isOk = checkAdmin(tk, matKhau);
 
 		if (isOk) {
 			session.put(ADMIN, tk.getTenTruyCap());
@@ -38,17 +39,21 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		return INPUT;
 	}
 
-	public boolean check(TaiKhoan tk) {
+	public boolean checkAdmin(TaiKhoan tk, String matKhau) {
 		try {
 			if (tk != null) {
 				String salt = tk.getSalt();
-				String saltedPassword = salt + tk.getMatKhau();
+				String saltedPassword = salt + matKhau;
 				String hashedPassword = HashUtil.generateHash(saltedPassword);
 				String storedPassword = tk.getMatKhau();
-
-				if (hashedPassword.equals(storedPassword)) {
-					return true;
+				
+				if (!hashedPassword.equals(storedPassword)) {
+					return false;
 				}
+				if(tk.getNhomNguoiDung().getMaNhom() != 4){
+					return false;
+				}
+				return true;
 			}
 		} catch (Exception e) {
 			return false;

@@ -1,4 +1,4 @@
-package com.estore.shop.action;
+package action;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,24 +10,25 @@ import java.util.Set;
 
 import javax.servlet.ServletContext;
 
+import model.dao.DanhMucDAO;
+import model.dao.DienThoaiDAO;
+import model.dao.HinhAnhDAO;
+import model.dao.LaptopDAO;
+import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DanhMuc;
+import model.pojo.DienThoai;
+import model.pojo.DienThoaiTieuChi;
+import model.pojo.DuLieuTrang;
+import model.pojo.HinhAnh;
+import model.pojo.Laptop;
+import model.pojo.LaptopTieuChi;
+import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
+
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.DanhMucDAO;
-import com.estore.core.model.dao.DienThoaiDAO;
-import com.estore.core.model.dao.HinhAnhDAO;
-import com.estore.core.model.dao.LaptopDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.dao.ThamSoDAO;
-import com.estore.core.model.pojo.DanhMuc;
-import com.estore.core.model.pojo.DienThoai;
-import com.estore.core.model.pojo.DienThoaiTieuChi;
-import com.estore.core.model.pojo.DuLieuTrang;
-import com.estore.core.model.pojo.HinhAnh;
-import com.estore.core.model.pojo.Laptop;
-import com.estore.core.model.pojo.LaptopTieuChi;
-import com.estore.core.model.pojo.SanPham;
-import com.estore.core.model.pojo.SanPhamTieuChi;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;

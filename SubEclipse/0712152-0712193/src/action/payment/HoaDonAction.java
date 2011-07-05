@@ -1,25 +1,27 @@
-package com.estore.shop.action.payment;
+package action.payment;
 
 import java.util.Enumeration;
 import java.util.Map;
 
+import model.dao.GianHangDAO;
+import model.dao.HoaDonDAO;
+import model.dao.NguoiNhanDAO;
+import model.dao.TinhTrangHoaDonDAO;
+import model.pojo.ChiTietHoaDon;
+import model.pojo.GianHang;
+import model.pojo.GioHang;
+import model.pojo.HoaDon;
+import model.pojo.MatHang;
+import model.pojo.MiniCart;
+import model.pojo.NguoiNhan;
+import model.pojo.TaiKhoan;
+import model.pojo.ThanhVien;
+import model.pojo.TinhTrangHoaDon;
+
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.HoaDonDAO;
-import com.estore.core.model.dao.NguoiNhanDAO;
-import com.estore.core.model.dao.TinhTrangHoaDonDAO;
-import com.estore.core.model.pojo.ChiTietHoaDon;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.GioHang;
-import com.estore.core.model.pojo.HoaDon;
-import com.estore.core.model.pojo.MatHang;
-import com.estore.core.model.pojo.MiniCart;
-import com.estore.core.model.pojo.NguoiNhan;
-import com.estore.core.model.pojo.TaiKhoan;
-import com.estore.core.model.pojo.ThanhVien;
-import com.estore.core.model.pojo.TinhTrangHoaDon;
-import com.estore.core.util.SendMail;
+import util.SendMail;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 

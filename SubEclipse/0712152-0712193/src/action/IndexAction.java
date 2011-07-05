@@ -1,12 +1,13 @@
-package com.estore.shop.action;
+package action;
 
 import java.util.List;
 
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.dao.ThamSoDAO;
-import com.estore.core.model.pojo.DuLieuTrang;
-import com.estore.core.model.pojo.SanPham;
-import com.estore.core.util.NumberUtil;
+import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DuLieuTrang;
+import model.pojo.SanPham;
+import util.NumberUtil;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class IndexAction extends ActionSupport{

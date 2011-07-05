@@ -16,7 +16,7 @@
 
 		<action name="admin" class="admin.action.taikhoan.AdminAction">
 			<result name="yes">/admin/index.jsp</result>
-			<result name="no">/admin/user/login.jsp</result>
+			<result name="no" type="redirect">login.action</result>
 		</action>
 		
 		<!-- Login -->

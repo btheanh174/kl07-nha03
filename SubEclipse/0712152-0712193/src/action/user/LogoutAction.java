@@ -1,4 +1,4 @@
-package com.estore.shop.action.user;
+package action.user;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.estore.shop.action.user;
+package action.user;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -8,21 +8,23 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import model.dao.GianHangDAO;
+import model.dao.NhomNguoiDungDAO;
+import model.dao.TaiKhoanDAO;
+import model.dao.ThanhVienDAO;
+import model.dao.TinhThanhPhoDAO;
+import model.pojo.GianHang;
+import model.pojo.NhomNguoiDung;
+import model.pojo.TaiKhoan;
+import model.pojo.ThanhVien;
+import model.pojo.TinhThanhPho;
+
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.NhomNguoiDungDAO;
-import com.estore.core.model.dao.TaiKhoanDAO;
-import com.estore.core.model.dao.ThanhVienDAO;
-import com.estore.core.model.dao.TinhThanhPhoDAO;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.NhomNguoiDung;
-import com.estore.core.model.pojo.TaiKhoan;
-import com.estore.core.model.pojo.ThanhVien;
-import com.estore.core.model.pojo.TinhThanhPho;
-import com.estore.core.util.HashUtil;
+import util.HashUtil;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport implements

@@ -1,4 +1,4 @@
-package com.estore.shop.action.user;
+package action.user;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -6,12 +6,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import model.dao.TaiKhoanDAO;
+import model.pojo.TaiKhoan;
+
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.TaiKhoanDAO;
-import com.estore.core.model.pojo.TaiKhoan;
-import com.estore.core.util.HashUtil;
+import util.HashUtil;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements ServletRequestAware, SessionAware {
@@ -54,23 +56,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 		
 	}
 	
-	public boolean check(TaiKhoan tk) {
-		try {
-			if (tk != null) {
-				String salt = tk.getSalt();
-				String saltedPassword = salt + tk.getMatKhau();
-				String hashedPassword = HashUtil.generateHash(saltedPassword);
-				String storedPassword = tk.getMatKhau();
-
-				if (hashedPassword.equals(storedPassword)) {
-					return true;
-				}
-			}
-		} catch (Exception e) {
-			return false;
-		}
-		return false;
-	}
 	
 	public String getTenTruyCap() {
 		return tenTruyCap;

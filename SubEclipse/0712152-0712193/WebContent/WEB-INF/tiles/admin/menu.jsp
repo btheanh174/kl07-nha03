@@ -12,7 +12,7 @@
 			<div class="nav-divider">&nbsp;</div>
 			<div class="showhide-account">
 					<a style="color:white; float: left; font-size: 15px; font-weight: bold;"> <s:property
-						value="#session['tk'].tenTruyCap" /> </a>
+						value="#session['admin'].tenTruyCap" /> </a>
 			</div>
 			<div class="nav-divider">&nbsp;</div>
 			<a href="" id="logout"><img
@@ -84,14 +84,14 @@
 				<ul class="select">
 					<li><a href="#nogo"><b>Người dùng</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
 						<!--[if lte IE 6]><table><tr><td><![endif]-->
-						<div class="select_sub">
+						<!--<div class="select_sub">
 							<ul class="sub">
 								<li><a href="#nogo">Clients Details 1</a></li>
 								<li><a href="#nogo">Clients Details 2</a></li>
 								<li><a href="#nogo">Clients Details 3</a></li>
 
 							</ul>
-						</div> <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+						</div> --><!--[if lte IE 6]></td></tr></table></a><![endif]-->
 					</li>
 				</ul>
 

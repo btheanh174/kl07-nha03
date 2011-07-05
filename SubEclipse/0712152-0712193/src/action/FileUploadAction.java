@@ -1,4 +1,4 @@
-package com.estore.shop.action;
+package action;
 
 import java.io.File;
 

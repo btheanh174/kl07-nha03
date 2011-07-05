@@ -1,18 +1,19 @@
-package com.estore.shop.action.gianhang.admin;
+package action.gianhang.admin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import model.dao.HoaDonDAO;
+import model.dao.TinhTrangHoaDonDAO;
+import model.pojo.GianHang;
+import model.pojo.HoaDon;
+import model.pojo.TaiKhoan;
+import model.pojo.TinhTrangHoaDon;
+
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.HoaDonDAO;
-import com.estore.core.model.dao.TinhTrangHoaDonDAO;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.HoaDon;
-import com.estore.core.model.pojo.TaiKhoan;
-import com.estore.core.model.pojo.TinhTrangHoaDon;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HoaDonAction extends ActionSupport implements SessionAware {
