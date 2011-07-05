@@ -3,36 +3,51 @@
 	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>0712152-0712193</display-name>
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-
 	<context-param>
 		<param-name>tilesDefinitions</param-name>
 		<param-value>/WEB-INF/tiles.xml</param-value>
 	</context-param>
-
-	<listener>
-		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
-	</listener>
-
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
 	</filter>
-	<filter-mapping>
-		<filter-name>struts2</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
 	<filter>
 		<filter-name>UTF8Filter</filter-name>
 		<filter-class>util.UTF8Filter</filter-class>
 	</filter>
-
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<filter-mapping>
 		<filter-name>UTF8Filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+	<listener>
+		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>10</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Admin Session Filter -->
+	<!--<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>util.SessionFilter</filter-class>
+		<init-param>
+			<param-name>avoid-urls</param-name>
+			<param-value>Profile_hienThi.action
+			</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	--><!-- end Session Filter -->
+
 </web-app>

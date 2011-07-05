@@ -206,51 +206,7 @@
 
 		<!-- -->
 
-		<!-- Admin -->
-		<action name="Admin">
-			<interceptor-ref name="MyLoginStack"></interceptor-ref>
-			<result name="success">/admin/index.jsp</result>
-		</action>
-
-		<action name="QuanLyCategories" class="action.DanhMucAction">
-			<result name="success" type="tiles">AdminCategories.tiles</result>
-			<result name="input" type="tiles">AdminCategories.tiles</result>
-		</action>
-
-		<action name="QuanLyProducts" class="action.SanPhamAction">
-			<result name="success" type="tiles">AdminAddProducts1.tiles</result>
-			<result name="input" type="tiles">AdminAddProducts1.tiles</result>
-		</action>
-
-		<action name="SanPham_themSanPham_*" class="action.SanPhamAction"
-			method="themSanPham_step{1}">
-			<result name="step2" type="tiles">AdminAddProducts2.tiles</result>
-			<result name="success" type="tiles">AdminAddProducts3.tiles</result>
-			<result name="finish" type="redirect">show_admin_index.action</result>
-		</action>
 		
-
-		<action name="SanPham_xemDanhSachSanPham">
-			<result name="success" type="tiles">AdminViewProducts.tiles</result>
-			<result name="error" type="redirect">show_admin_index.action</result>
-		</action>
-
-		<action name="SanPham_xemDanhSachSanPhamDeNghi" class="action.gianhang.admin.SanPhamDeNghiAction"
-			method="layDanhSachSanPhamDeNghi">
-			<result name="success" type="tiles">AdminViewProductsProposal.tiles</result>
-			<result name="error" type="redirect">show_admin_index.action</result>
-		</action>
-
-		<action name="jsonBangSanPham" class="action.sanpham.JsonTable">
-			<result name="success" type="json"></result>
-			<result name="error" type="redirect">show_admin_index.action</result>
-		</action>
-
-		<action name="TestAction" class="action.DanhMucAction">
-			<result name="success">admin/test.jsp</result>
-			<result name="input">admin/test.jsp</result>
-		</action>
-		<!-- end Admin -->
 
 		<!-- sub site -->
 		<action name="store" class="action.gianhang.GianHangAction"

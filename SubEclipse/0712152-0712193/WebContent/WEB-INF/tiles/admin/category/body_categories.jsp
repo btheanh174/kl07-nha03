@@ -32,11 +32,8 @@
 	<div id="content">
 
 		<!--  start page-heading -->
-		<div id="page-heading">
-			<h1>Add product</h1>
-		</div>
 		<div class="claro"
-			style="clear: both; line-height: 25px; font-size: 15px; height: 500px; width: 1200px; padding: 15px 0 15px 25px; margin: 0 20px;">
+			style="clear: both; line-height: 25px; font-size: 15px; height: 500px; width: 1000px; padding: 15px 0 15px 25px; margin: 0 20px;">
 			<div id="appLayout" class="demoLayout"
 				style="height: 100%; clear: none;"
 				data-dojo-type="dijit.layout.BorderContainer"
