@@ -19,6 +19,10 @@
 			<result name="yes">/admin/index.jsp</result>
 			<result name="no" type="redirect">login</result>
 		</action>
+		<action name="Admin" class="admin.action.taikhoan.AdminAction">
+			<result name="yes">/admin/index.jsp</result>
+			<result name="no" type="redirect">login</result>
+		</action>
 
 		<!-- Login -->
 		<action name="login">
@@ -33,6 +37,50 @@
 			method="logout">
 			<result name="loggedout" type="redirect">login</result>
 		</action>
+		
+		<action name="QuanLyCategories" class="action.DanhMucAction">
+			<result name="success" type="tiles">AdminCategories.tiles</result>
+			<result name="input" type="tiles">AdminCategories.tiles</result>
+		</action>
+
+		<action name="QuanLyProducts" class="action.SanPhamAction">
+			<result name="success" type="tiles">AdminAddProducts1.tiles</result>
+			<result name="input" type="tiles">AdminAddProducts1.tiles</result>
+		</action>
+
+		<action name="SanPham_themSanPham_*" class="action.SanPhamAction"
+			method="themSanPham_step{1}">
+			<result name="step2" type="tiles">AdminAddProducts2.tiles</result>
+			<result name="success" type="tiles">AdminAddProducts3.tiles</result>
+			<result name="finish" type="redirect">admin</result>
+		</action>
+		
+
+		<action name="SanPham_xemDanhSachSanPham">
+			<result name="success" type="tiles">AdminViewProducts.tiles</result>
+			<result name="error" type="redirect">admin</result>
+		</action>
+
+		<action name="SanPham_xemDanhSachSanPhamDeNghi" class="action.gianhang.admin.SanPhamDeNghiAction"
+			method="layDanhSachSanPhamDeNghi">
+			<result name="success" type="tiles">AdminViewProductsProposal.tiles</result>
+			<result name="error" type="redirect">admin</result>
+		</action>
+
+		<action name="jsonBangSanPham" class="action.sanpham.JsonTable">
+			<result name="success" type="json"></result>
+			<result name="error" type="redirect">admin</result>
+		</action>
+
+		<action name="TestAction" class="action.DanhMucAction">
+			<result name="success">admin/test.jsp</result>
+			<result name="input">admin/test.jsp</result>
+		</action>
+		
+		<action name="ThanhVien_danhSach" class="admin.action.taikhoan.QuanLyNhomAction" method="execute">
+			<result name="success">/admin/user/list.jsp</result>
+		</action>
+		<!-- end Admin -->
 
 	</package>
 </struts>

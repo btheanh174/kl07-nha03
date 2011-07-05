@@ -12,13 +12,9 @@
 		
 		<s:if test="#session['admin'] != null">
 			<div class="nav-divider">&nbsp;</div>
-			<div class="showhide-account">
-					<a style="color:white; float: left; font-size: 15px; font-weight: bold;"> <s:property
-						value="#session['admin']" /> </a>
-			</div>
+			<s:property value="#session['admin]"/>
 			<div class="nav-divider">&nbsp;</div>
-			<a href="<s:url action="doLogout"/>" id="logout"><img
-				src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" />
+			<a href="<s:url action="doLogout"/>" id="logout"><font color="white">Đăng xuất</font>
 			</a>
 			<div class="clear">&nbsp;</div>
 		</s:if>
@@ -31,11 +27,6 @@
 		<!--  start nav -->
 		<div class="nav">
 			<div class="table">
-			<!--<ul class="current">
-					<li><a href="#nogo"><b>Thống kê</b> [if IE 7]>> </a>	
-					</li>
-				</ul>
-				<div class="nav-divider">&nbsp;</div>-->
 				<ul class="select">
 					<li><a href="<s:url action="SanPham_xemDanhSachSanPham.action"/> ">
 					<b>Sản phẩm</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
@@ -50,22 +41,21 @@
 						</div> <!--[if lte IE 6]></td></tr></table></a><![endif]-->
 					</li>
 				</ul>
-
 				<div class="nav-divider">&nbsp;</div>
-
 				<ul class="select">
 					<li><a href="<s:url action="QuanLyCategories"/>">
 							<b>Danh mục</b> <!--[if IE 7]><!--> </a> <!--<![endif]--> 
 					</li>
 				</ul>
-
 				<div class="nav-divider">&nbsp;</div>
-
 				<ul class="select">
-					<li><a href="#nogo"><b>Người dùng</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
+					<li><a href="<s:url action="ThanhVien_danhSach"/>"><b>Người dùng</b> <!--[if IE 7]><!--> </a> <!--<![endif]-->
 					</li>
 				</ul>
-
+				<div class="nav-divider">&nbsp;</div>
+				<ul class="select">
+					<li><a href="#"><b>Cấu hình</b></a></li>
+				</ul>
 				<div class="nav-divider">&nbsp;</div>
 				<div class="clear"></div>
 			</div>

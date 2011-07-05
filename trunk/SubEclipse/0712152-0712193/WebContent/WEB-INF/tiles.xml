@@ -154,52 +154,58 @@
 
 	<definition name="AdminCategories.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý danh mục" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/category/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/category/body_categories.jsp" />
 	</definition>
 
 	<definition name="AdminAddProducts1.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/product/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step1.jsp" />
 	</definition>
 
 	<definition name="AdminAddProducts2.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/product/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step2.jsp" />
 	</definition>
 
 	<definition name="AdminAddProducts3.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/product/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_addProducts_step3.jsp" />
 	</definition>
 
 
 	<definition name="AdminViewProducts.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/product/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_viewProducts.jsp" />
 	</definition>
 	
 
 	<definition name="AdminViewProductsProposal.tiles" extends="adminLayout">
 		<put-attribute name="pageTitle" value="Quản lý sản phẩm" />
-		<put-attribute name="menu"
+		<!--<put-attribute name="menu"
 			value="/WEB-INF/tiles/admin/product/menu.jsp" />
-		<put-attribute name="center"
+		--><put-attribute name="center"
 			value="/WEB-INF/tiles/admin/product/body_viewProductsProposal.jsp" />
+	</definition>
+	
+	<definition name="AdminUsers.tiles" extends="adminLayout">
+		<put-attribute name="pageTitle" value="Quản lý người dùng" />
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/admin/user/body_list.jsp" />
 	</definition>
 
 	<!-- Profile layout -->
