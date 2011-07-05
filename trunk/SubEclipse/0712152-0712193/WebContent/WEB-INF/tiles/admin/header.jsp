@@ -9,32 +9,18 @@
 
 		<!-- start logo -->
 		<div id="logo">
-			<a href=""><img src="images/shared/logo.png" width="156"
+			<!--<a href=""><img src="images/shared/logo.png" width="156"
 				height="40" alt="" />
 			</a>
+		-->
+		<h3><font color="white">eStore Administrator Panel</font></h3>
+		
 		</div>
 		<!-- end logo -->
 
 		<!--  start top-search -->
 		<div id="top-search">
-			<!--<table border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<td><input type="text" value="Tìm kiếm"
-						onblur="if (this.value=='') { this.value='Tìm kiếm'; }"
-						onfocus="if (this.value=='Tìm kiếm') { this.value=''; }"
-						class="top-search-inp" />
-					</td>
-					<td><select class="styledselect">
-							<option value="">All</option>
-							<option value="">Products</option>
-							<option value="">Categories</option>
-							<option value="">Clients</option>
-							<option value="">News</option>
-					</select></td>
-					<td><input type="image" src="images/shared/top_search_btn.gif" />
-					</td>
-				</tr>
-			</table>-->
+			
 		</div>
 		<!--  end top-search -->
 		<div class="clear"></div>
