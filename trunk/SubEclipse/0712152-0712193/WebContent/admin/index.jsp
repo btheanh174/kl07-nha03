@@ -5,8 +5,7 @@
 
 
 <%
-	if ((session.getAttribute("admin") == null)
-			&& ((Integer)session.getAttribute("nhom") != 4)) {
+	if ((session.getAttribute("admin") == null)) {
 		response.sendRedirect("login");
 	}
 %>

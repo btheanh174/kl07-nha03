@@ -1,12 +1,13 @@
-package com.estore.shop.action;
+package action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estore.core.model.dao.DanhMucDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.pojo.DanhMuc;
-import com.estore.core.model.pojo.SanPham;
+import model.dao.DanhMucDAO;
+import model.dao.SanPhamDAO;
+import model.pojo.DanhMuc;
+import model.pojo.SanPham;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;

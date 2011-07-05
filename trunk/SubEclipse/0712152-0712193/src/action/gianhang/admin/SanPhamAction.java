@@ -1,19 +1,20 @@
-package com.estore.shop.action.gianhang.admin;
+package action.gianhang.admin;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import model.dao.DanhMucDAO;
+import model.dao.GianHangDAO;
+import model.dao.SanPhamDAO;
+import model.pojo.GianHang;
+import model.pojo.GianHangSanPham;
+import model.pojo.SanPham;
+import model.pojo.TaiKhoan;
+
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.DanhMucDAO;
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.GianHangSanPham;
-import com.estore.core.model.pojo.SanPham;
-import com.estore.core.model.pojo.TaiKhoan;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SanPhamAction extends ActionSupport implements SessionAware {

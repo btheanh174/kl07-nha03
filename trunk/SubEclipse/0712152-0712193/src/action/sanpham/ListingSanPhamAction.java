@@ -1,13 +1,14 @@
-package com.estore.shop.action.sanpham;
+package action.sanpham;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estore.core.model.dao.DanhMucDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.dao.ThamSoDAO;
-import com.estore.core.model.pojo.DanhMuc;
-import com.estore.core.model.pojo.SanPham;
+import model.dao.DanhMucDAO;
+import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DanhMuc;
+import model.pojo.SanPham;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ListingSanPhamAction extends ActionSupport {

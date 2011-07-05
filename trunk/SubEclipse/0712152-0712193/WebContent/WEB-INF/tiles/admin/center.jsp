@@ -5,8 +5,6 @@
 <div id="content-outer">
 	<!-- start content -->
 	<div id="content">
-
-
 		<div id="page-heading">
 			<h1>Add product</h1>
 		</div>

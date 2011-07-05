@@ -1,4 +1,4 @@
-package com.estore.shop.action.gianhang;
+package action.gianhang;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,27 +8,29 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import model.dao.DanhMucDAO;
+import model.dao.DanhMucGianHangDAO;
+import model.dao.GianHangDAO;
+import model.dao.GianHangSanPhamDAO;
+import model.dao.NhomDanhMucDAO;
+import model.dao.SanPhamDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DanhMuc;
+import model.pojo.DanhMucGianHang;
+import model.pojo.DuLieuTrang;
+import model.pojo.GianHang;
+import model.pojo.GianHangSanPham;
+import model.pojo.NhomDanhMuc;
+import model.pojo.SanPham;
+import model.pojo.SanPhamTieuChi;
+import model.pojo.TaiKhoan;
+
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.DanhMucDAO;
-import com.estore.core.model.dao.DanhMucGianHangDAO;
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.GianHangSanPhamDAO;
-import com.estore.core.model.dao.NhomDanhMucDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.dao.ThamSoDAO;
-import com.estore.core.model.pojo.DanhMuc;
-import com.estore.core.model.pojo.DanhMucGianHang;
-import com.estore.core.model.pojo.DuLieuTrang;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.GianHangSanPham;
-import com.estore.core.model.pojo.NhomDanhMuc;
-import com.estore.core.model.pojo.SanPham;
-import com.estore.core.model.pojo.SanPhamTieuChi;
-import com.estore.core.model.pojo.TaiKhoan;
-import com.estore.core.util.NumberUtil;
+import util.NumberUtil;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;

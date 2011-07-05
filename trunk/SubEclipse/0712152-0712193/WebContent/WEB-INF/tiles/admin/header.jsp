@@ -17,7 +17,7 @@
 
 		<!--  start top-search -->
 		<div id="top-search">
-			<table border="0" cellpadding="0" cellspacing="0">
+			<!--<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
 					<td><input type="text" value="Tìm kiếm"
 						onblur="if (this.value=='') { this.value='Tìm kiếm'; }"
@@ -34,7 +34,7 @@
 					<td><input type="image" src="images/shared/top_search_btn.gif" />
 					</td>
 				</tr>
-			</table>
+			</table>-->
 		</div>
 		<!--  end top-search -->
 		<div class="clear"></div>

@@ -1,15 +1,16 @@
-package com.estore.shop.action.user;
+package action.user;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import model.dao.HoaDonDAO;
+import model.pojo.HoaDon;
+import model.pojo.TaiKhoan;
+
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.HoaDonDAO;
-import com.estore.core.model.pojo.HoaDon;
-import com.estore.core.model.pojo.TaiKhoan;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HoaDonAction extends ActionSupport implements SessionAware {

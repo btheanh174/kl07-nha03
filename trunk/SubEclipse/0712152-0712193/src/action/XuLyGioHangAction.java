@@ -1,18 +1,19 @@
-package com.estore.shop.action;
+package action;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import model.dao.GianHangDAO;
+import model.dao.SanPhamDAO;
+import model.pojo.GioHang;
+import model.pojo.MatHang;
+import model.pojo.SanPham;
+
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.pojo.GioHang;
-import com.estore.core.model.pojo.MatHang;
-import com.estore.core.model.pojo.SanPham;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 

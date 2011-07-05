@@ -1,14 +1,16 @@
-package com.estore.shop.action.sanpham;
+package action.sanpham;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import model.dao.SanPhamDAO;
+import model.pojo.SanPham;
+
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.estore.core.model.dao.SanPhamDAO;
-import com.estore.core.model.pojo.SanPham;
-import com.estore.core.util.SanPhamUtil;
+import util.SanPhamUtil;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class JsonTable extends ActionSupport implements SessionAware {

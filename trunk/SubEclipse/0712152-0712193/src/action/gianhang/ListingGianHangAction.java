@@ -1,13 +1,14 @@
-package com.estore.shop.action.gianhang;
+package action.gianhang;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estore.core.model.dao.GianHangDAO;
-import com.estore.core.model.dao.ThamSoDAO;
-import com.estore.core.model.pojo.DuLieuTrang;
-import com.estore.core.model.pojo.GianHang;
-import com.estore.core.model.pojo.SanPham;
+import model.dao.GianHangDAO;
+import model.dao.ThamSoDAO;
+import model.pojo.DuLieuTrang;
+import model.pojo.GianHang;
+import model.pojo.SanPham;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ListingGianHangAction extends ActionSupport {
