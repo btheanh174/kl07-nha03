@@ -18,7 +18,7 @@
 						<p>
 							<img width="120" height="120" src="<s:property value="%{#session['tk'].gianHang.logo}"/>">
 						</p>
-						<b><s:file name="images" label="Logo"></s:file>
+						<b><s:file name="logo" label="Logo"></s:file>
 							<div class="txt">Sửa logo</div> </b> <span class="explain">Kích
 							thước logo là 100*100</span>
 					</div>
@@ -28,7 +28,7 @@
 						</p>
 						<b>
 						 <span class="file1">
-						 <s:file name="images" label="Banner"></s:file>
+						 <s:file name="banner" label="Banner"></s:file>
 				     	</span>
 							<div class="txt">Sửa Banner</div> </b> <span class="explain">Kích
 							thước banner là 1000*120</span>
@@ -38,14 +38,14 @@
 
 				<div class="setup info shop">
 				
-				<s:hidden name="maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:hidden>
+				<s:hidden name="gianHang.maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:hidden>
 				
 					<table style="width: 100%">
 						<tr>
 							<th></th>
 							<td>
 								<p class="td_block">
-									<s:textfield name="tenGianHang" value="%{#session['tk'].gianHang.tenGianHang}" label="Tên cửa hàng (*)"></s:textfield>
+									<s:textfield name="gianHang.tenGianHang" value="%{#session['tk'].gianHang.tenGianHang}" label="Tên cửa hàng (*)"></s:textfield>
 								</p>
 								<s:url id="store" action="store" namespace="/store">
 									<s:param name="maGianHang" value="%{#session['tk'].gianHang.maGianHang}"></s:param>

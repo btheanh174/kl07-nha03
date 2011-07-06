@@ -124,11 +124,8 @@
 		</action>
 		<action name="Store_capNhat" class="action.gianhang.GianHangAction"
 			method="capNhat">
-			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">
-					image/gif,image/jpeg,image/png
-				</param>
-			</interceptor-ref>
+			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="basicStack" />
 			<result name="success">/myprofile/store.jsp</result>
 		</action>
 
@@ -206,7 +203,7 @@
 
 		<!-- -->
 
-		
+
 
 		<!-- sub site -->
 		<action name="store" class="action.gianhang.GianHangAction"

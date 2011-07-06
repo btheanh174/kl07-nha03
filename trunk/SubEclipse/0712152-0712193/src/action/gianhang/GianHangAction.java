@@ -1,7 +1,11 @@
 package action.gianhang;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +29,7 @@ import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 import model.pojo.TaiKhoan;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -37,7 +42,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
 public class GianHangAction extends ActionSupport implements
-		ModelDriven<GianHang>, Preparable, SessionAware, ServletRequestAware {
+		SessionAware, ServletRequestAware {
 	// Tim nhanh
 	private static final String TIM_NHANH = "search";
 	private String loai;
@@ -47,11 +52,11 @@ public class GianHangAction extends ActionSupport implements
 	private ThamSoDAO tsDao = new ThamSoDAO();
 	//
 	private String module;
-	
+
 	private int maGianHang;
 	private GianHang gianHang = new GianHang();
 	private GianHangDAO ghDao = new GianHangDAO();
-	
+
 	private int maSanPham;
 	private SanPham sanPham = new SanPham();
 	private List<SanPham> dsSanPhamCungLoai = new ArrayList<SanPham>();
@@ -68,10 +73,16 @@ public class GianHangAction extends ActionSupport implements
 
 	private TaiKhoan tk = new TaiKhoan();
 	// Danh cho upload
-	private List<File> images = new ArrayList<File>(2);
-	private List<String> imagesFileName = new ArrayList<String>(2);
-	private List<String> imagesContentType = new ArrayList<String>(2);
+	private File logo;
+	private String logoFileName;
+	private String logoContentType;
 
+	private File banner;
+	private String bannerFileName;
+	private String bannerContentType;
+
+	private static final String LOGO_UPLOAD = "/images/logo/";
+	private static final String BANNER_UPLOAD = "/images/banner/";
 	// Hien thi danh muc gian hang
 	private List<NhomDanhMuc> dsNhomDanhMuc = new ArrayList<NhomDanhMuc>();
 	private List<DanhMucGianHang> dsDanhMucGianHang = new ArrayList<DanhMucGianHang>();
@@ -81,7 +92,7 @@ public class GianHangAction extends ActionSupport implements
 	private GianHangSanPham gianHangSanPham = new GianHangSanPham();
 	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
 	private GianHangSanPhamDAO ghspDao = new GianHangSanPhamDAO();
-	
+
 	public String hienThi() {
 		System.out.println("Hien thi store");
 		tk = (TaiKhoan) session.get("tk");
@@ -92,7 +103,7 @@ public class GianHangAction extends ActionSupport implements
 		return SUCCESS;
 	}
 
-	public String capNhat() {
+	public String capNhat() throws IOException {
 		System.out.println("Cap nhat store");
 
 		this.session = ActionContext.getContext().getSession();
@@ -106,23 +117,77 @@ public class GianHangAction extends ActionSupport implements
 
 		ServletContext servletContext = ServletActionContext
 				.getServletContext();
-		String dataDir = servletContext.getRealPath("/WEB-INF");
+		// Khởi tạo đường dẫn để lưu logo và banner
+		String rootPath = servletContext.getRealPath("/WebContent");
+		System.out.println(rootPath);
+		// Tạo tên cho logo và banner dựa theo miliseconds để khỏi bị trùng
 
-		String logo = "logo_" + gh.getMaGianHang();
-		String banner = "banner_" + gh.getMaGianHang();
-
-		File logoFile = new File(dataDir, logo);
-		File bannerFile = new File(dataDir, banner);
-		if (images.get(0) != null) {
-			images.get(0).renameTo(logoFile);
-			gh.setLogo(logo);
+		String extension = "";
+		if (logoFileName != null && !logoFileName.equals("")) {
+			extension = logoFileName.substring(logoFileName.lastIndexOf("."),
+					logoFileName.length());
 		}
-		if (images.get(1) != null) {
-			images.get(1).renameTo(bannerFile);
-			gh.setBanner(banner);
+		long longName = Calendar.getInstance().getTimeInMillis();
+		String newLogoName = LOGO_UPLOAD + longName + extension;
+
+		extension = "";
+		if (bannerFileName != null && !bannerFileName.equals("")) {
+			extension = bannerFileName.substring(
+					bannerFileName.lastIndexOf("."), bannerFileName.length());
+		}
+		longName = Calendar.getInstance().getTimeInMillis();
+		String newBannerName = BANNER_UPLOAD + longName + extension;
+
+		// Lưu file lên server
+		if (logo != null) {
+			if (!logoFileName.equals("")) {
+				System.out.println("Lưu logo vào đường dẫn: " + newLogoName);
+
+				File fileToCreate = new File(rootPath, newLogoName);
+				FileUtils.copyFile(logo, fileToCreate);
+
+				if (!fileToCreate.exists()) {
+					FileOutputStream fos;
+					fos = new FileOutputStream(fileToCreate);
+					fos.write(FileUtils.readFileToByteArray(logo));
+					fos.flush();
+					fos.close();
+				}
+			}
+		}
+		if (banner != null) {
+			if (!bannerFileName.equals("")) {
+				System.out
+						.println("Lưu banner vào đường dẫn: " + newBannerName);
+				File fileToCreate = new File(rootPath, newBannerName);
+				if (!fileToCreate.exists()) {
+					FileOutputStream fos;
+					fos = new FileOutputStream(fileToCreate);
+					fos.write(FileUtils.readFileToByteArray(banner));
+					fos.flush();
+					fos.close();
+				}
+			}
 		}
 
-		ghDao.capNhat(gianHang);
+		// Gán giá trị vào csdl
+		gianHang.setLogo(newLogoName);
+		gianHang.setBanner(newBannerName);
+		
+		// Gán giá trị cho gh
+		gh.setTenGianHang(gianHang.getTenGianHang());
+		gh.setBanner(gianHang.getBanner());
+		gh.setLogo(gianHang.getLogo());
+		gh.setChinhSach(gianHang.getChinhSach());
+		gh.setDiaChi(gianHang.getDiaChi());
+		gh.setDienThoai(gianHang.getDienThoai());
+		gh.setFax(gianHang.getFax());
+		gh.setYahoo(gianHang.getYahoo());
+		gh.setGioiThieu(gianHang.getGioiThieu());
+		gh.setThongTin(gianHang.getThongTin());
+		
+
+		ghDao.capNhat(gh);
 		return SUCCESS;
 	}
 
@@ -136,55 +201,51 @@ public class GianHangAction extends ActionSupport implements
 			gianHang = ghDao.lay(maGianHang);
 			dsNhomDanhMuc = ndmDao.layDanhSach(gianHang);
 			dsDanhMucGianHang = dmghDao.layDanhSach(gianHang);
-			System.out.println("So danh muc cua gian hang " + maGianHang + " = " + dsDanhMucGianHang.size());
-			for(int i = 0; i < dsDanhMucGianHang.size(); i++){
-				System.out.println(dsDanhMucGianHang.get(i).getDanhMuc().getTenDanhMuc());
+			System.out.println("So danh muc cua gian hang " + maGianHang
+					+ " = " + dsDanhMucGianHang.size());
+			for (int i = 0; i < dsDanhMucGianHang.size(); i++) {
+				System.out.println(dsDanhMucGianHang.get(i).getDanhMuc()
+						.getTenDanhMuc());
 			}
 		} catch (NullPointerException e) {
 			return "error";
 		}
 		if (module != null) {
-			if(TIM_NHANH.equalsIgnoreCase(module)){
+			if (TIM_NHANH.equalsIgnoreCase(module)) {
 				System.out.println("Tim kiem san pham don gian");
-				SanPhamTieuChi tieuChi = new SanPhamTieuChi(getTen(), getMax(), getMin(), getLoai());
+				SanPhamTieuChi tieuChi = new SanPhamTieuChi(getTen(), getMax(),
+						getMin(), getLoai());
 				int soSanPhamTrenTrang = tsDao.layGiaTri(1);
-				DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang, soSanPhamTrenTrang);
+				DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang,
+						soSanPhamTrenTrang);
 				tongSoTrang = duLieuTrang.getTongSoTrang();
 				dsSanPham = duLieuTrang.getDsDuLieu();
 				System.out.println(dsSanPham.size());
 			}
 			return module;
-		}
-		else if(maSanPham > 0){
+		} else if (maSanPham > 0) {
 			System.out.println("Chi tiet san pham");
 			sanPham = spDao.lay(maSanPham);
 			dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
-			if(dsSanPhamCungLoai.contains(sanPham)){
+			if (dsSanPhamCungLoai.contains(sanPham)) {
 				System.out.println("blah");
 				dsSanPhamCungLoai.remove(sanPham);
 			}
-			
+
 			return "detail";
-		}else if(maDanhMuc > 0){
-			System.out.println("Lay danh sach san pham cua danh muc: " + maDanhMuc);
+		} else if (maDanhMuc > 0) {
+			System.out.println("Lay danh sach san pham cua danh muc: "
+					+ maDanhMuc);
 			DanhMuc danhMuc = dmDao.lay(maDanhMuc);
 			dsGianHangSanPham = ghspDao.layDanhSach(gianHang, danhMuc);
-			System.out.println("so san pham cua gian hang theo danh muc " + maDanhMuc +" = " + dsGianHangSanPham.size());
-			
+			System.out.println("so san pham cua gian hang theo danh muc "
+					+ maDanhMuc + " = " + dsGianHangSanPham.size());
+
 			return "list";
 		}
 		return "index";
 	}
 
-	public GianHang getModel() {
-		return gianHang;
-	}
-
-	public void prepare() throws Exception {
-		if (maGianHang != 0) {
-			gianHang = ghDao.lay(maGianHang);
-		}
-	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -206,28 +267,52 @@ public class GianHangAction extends ActionSupport implements
 		this.gianHang = gianHang;
 	}
 
-	public List<File> getImages() {
-		return images;
+	public File getLogo() {
+		return logo;
 	}
 
-	public void setImages(List<File> images) {
-		this.images = images;
+	public void setLogo(File logo) {
+		this.logo = logo;
 	}
 
-	public List<String> getImagesFileName() {
-		return imagesFileName;
+	public String getLogoFileName() {
+		return logoFileName;
 	}
 
-	public void setImagesFileName(List<String> imagesFileName) {
-		this.imagesFileName = imagesFileName;
+	public void setLogoFileName(String logoFileName) {
+		this.logoFileName = logoFileName;
 	}
 
-	public List<String> getImagesContentType() {
-		return imagesContentType;
+	public String getLogoContentType() {
+		return logoContentType;
 	}
 
-	public void setImagesContentType(List<String> imagesContentType) {
-		this.imagesContentType = imagesContentType;
+	public void setLogoContentType(String logoContentType) {
+		this.logoContentType = logoContentType;
+	}
+
+	public File getBanner() {
+		return banner;
+	}
+
+	public void setBanner(File banner) {
+		this.banner = banner;
+	}
+
+	public String getBannerFileName() {
+		return bannerFileName;
+	}
+
+	public void setBannerFileName(String bannerFileName) {
+		this.bannerFileName = bannerFileName;
+	}
+
+	public String getBannerContentType() {
+		return bannerContentType;
+	}
+
+	public void setBannerContentType(String bannerContentType) {
+		this.bannerContentType = bannerContentType;
 	}
 
 	public void setServletRequest(HttpServletRequest request) {
@@ -370,5 +455,5 @@ public class GianHangAction extends ActionSupport implements
 	public void setGianHangSanPham(GianHangSanPham gianHangSanPham) {
 		this.gianHangSanPham = gianHangSanPham;
 	}
-	
+
 }

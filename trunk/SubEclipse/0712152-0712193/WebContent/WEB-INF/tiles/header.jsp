@@ -21,6 +21,8 @@
 
 <div id="header">
 
-<div id="logo"><a href="#"></a></div>
+<div id="logo"><a href="#">
+<img alt="estore-logo" src="images/estore-logo.png">
+</a></div>
 
 </div>
