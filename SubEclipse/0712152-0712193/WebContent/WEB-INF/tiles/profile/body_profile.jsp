@@ -14,10 +14,10 @@
 		<sj:tab id="tab3" target="div3" label="Thay đổi địa chỉ email"></sj:tab>
 
 		<div id="div1">
-			<s:form action="Profile_capNhatThongTin" method="post"
+			<s:form action="Profile_capNhatThongTin" method="post" enctype="multipart/form-data"
 				validate="true">
 				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
-				<s:file label="Logo/Avatar" name="file" value="" />
+				<s:file label="Logo/Avatar" name="image" value="" />
 				<s:textfield label="Họ tên" name="hoTen"
 					value="%{#session['tk'].thanhVien.hoTen}" />
 				<s:textfield label="Email" name="email"
