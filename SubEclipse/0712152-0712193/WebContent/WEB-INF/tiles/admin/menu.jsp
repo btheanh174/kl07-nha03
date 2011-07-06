@@ -12,9 +12,9 @@
 		
 		<s:if test="#session['admin'] != null">
 			<div class="nav-divider">&nbsp;</div>
-			<s:property value="#session['admin]"/>
+			<font color="white"><s:property value="#session['admin]"/></font>
 			<div class="nav-divider">&nbsp;</div>
-			<a href="<s:url action="doLogout"/>" id="logout"><font color="white">Đăng xuất</font>
+			<a href="<s:url action="doLogout"/>" id="logout"><font  color="white">Đăng xuất</font>
 			</a>
 			<div class="clear">&nbsp;</div>
 		</s:if>

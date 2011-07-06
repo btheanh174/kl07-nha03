@@ -77,8 +77,14 @@
 			<result name="input">admin/test.jsp</result>
 		</action>
 		
-		<action name="ThanhVien_danhSach" class="admin.action.taikhoan.QuanLyNhomAction" method="execute">
+		<action name="ThanhVien_danhSach" class="admin.action.taikhoan.QuanLyNhomAction" method="danhSach">
 			<result name="success">/admin/user/list.jsp</result>
+		</action>
+		<action name="ThanhVien_sua" class="admin.action.taikhoan.QuanLyNhomAction" method="sua">
+			<result name="success">/admin/user/edit.jsp</result>
+		</action>
+		<action name="ThanhVien_*" class="admin.action.taikhoan.QuanLyNhomAction" method="{1}">
+			<result name="success" type="redirect">ThanhVien_danhSach</result>
 		</action>
 		<!-- end Admin -->
 

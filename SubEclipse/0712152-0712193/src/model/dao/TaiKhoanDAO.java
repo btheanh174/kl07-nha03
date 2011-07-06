@@ -2,14 +2,15 @@ package model.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
+
+
+import model.pojo.TaiKhoan;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 import util.HibernateUtil;
-
-import model.pojo.TaiKhoan;
 
 public class TaiKhoanDAO extends AbstractDAO{
 
@@ -52,6 +53,33 @@ public class TaiKhoanDAO extends AbstractDAO{
 	
 	public List<TaiKhoan> layDanhSach() {
 		return super.findAll(TaiKhoan.class);
+	}
+	
+	public List<TaiKhoan> layDanhSach(int trang, int soTaiKhoanTrenTrang){
+		List<TaiKhoan> kq = null;
+		try{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			String hql  = "from TaiKhoan";
+			Query query = session.createQuery(hql);
+			
+			int batdau = (trang - 1) * soTaiKhoanTrenTrang;
+			query.setFirstResult(batdau);
+			query.setMaxResults(soTaiKhoanTrenTrang);
+			
+			kq = query.list();
+			for (TaiKhoan taiKhoan : kq) {
+				Hibernate.initialize(taiKhoan);
+				Hibernate.initialize(taiKhoan.getNhomNguoiDung());
+			}
+			
+			tx.commit();
+		}catch(HibernateException e){
+			handleException(e);
+		}finally{
+			HibernateUtil.shutdown();
+		}
+		return kq;
 	}
 	
 	public void xoa(TaiKhoan taiKhoan) {
