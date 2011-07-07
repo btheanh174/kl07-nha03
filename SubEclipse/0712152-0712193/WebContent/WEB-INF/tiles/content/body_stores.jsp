@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<%
+String context = request.getContextPath();
+%>
+
 <div id="content">
 <div class="block_title"><span>Danh sách cửa hàng</span></div>
 <div class="break_line"></div>
@@ -34,7 +38,7 @@
 							<td class="col_2">
 								<div class="picture_small">
 									<s:if test="logo != null">
-										<a href="${store }" class="tooltip"><img src="${logo }"
+										<a href="${store }" class="tooltip"><img src='<%=context %><s:property value="logo"/>'
 											width="80" height="60" alt=""> </a>
 									</s:if>
 									<s:else>
