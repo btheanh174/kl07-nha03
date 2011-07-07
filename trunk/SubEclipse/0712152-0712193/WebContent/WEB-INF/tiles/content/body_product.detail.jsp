@@ -17,7 +17,9 @@ $(document).ready(function(){
 </script>
 <sj:head />
 
-
+<%
+String context = request.getContextPath();
+%>
 
 <div id="content">
 
@@ -141,7 +143,7 @@ $(document).ready(function(){
 							<td class="col_5">
 							<div class="picture_small"><a href="${store }"
 								class="tooltip"><img
-								src="<s:property value="getGianHang().logo"/>" width="80"
+								src='<%=context %><s:property value="getGianHang().logo"/>' width="80"
 								height="60" alt=""> </a></div>
 							</td>
 							<td class="col_6">

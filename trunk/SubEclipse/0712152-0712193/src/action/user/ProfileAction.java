@@ -27,8 +27,7 @@ import util.HashUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ProfileAction extends ActionSupport implements SessionAware, ModelDriven<ThanhVien>
-		{
+public class ProfileAction extends ActionSupport implements SessionAware, ModelDriven<ThanhVien>{
 
 	/**
 	 * 
@@ -62,130 +61,156 @@ public class ProfileAction extends ActionSupport implements SessionAware, ModelD
 	}
 
 	public String doiMatKhau() {
-
-		System.out.println("Doi mat khau");
-		taiKhoan = (TaiKhoan) sessionMap.get("tk");
-		if (taiKhoan != null) {
-			String salt = taiKhoan.getSalt();
-			String hashedPassword = null;
-			try {
-				hashedPassword = HashUtil.generateHash(salt + getMatKhauCu());
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-			if (!hashedPassword.equals(taiKhoan.getMatKhau())) {
-				return ERROR;
-			} else {
+		try {
+			System.out.println("Doi mat khau");
+			taiKhoan = (TaiKhoan) sessionMap.get("tk");
+			if (taiKhoan != null) {
+				String salt = taiKhoan.getSalt();
+				String hashedPassword = null;
 				try {
-					hashedPassword = new String(HashUtil.generateHash(salt
-							+ getMatKhauMoi()));
+					hashedPassword = HashUtil.generateHash(salt
+							+ getMatKhauCu());
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
-				taiKhoan.setMatKhau(hashedPassword);
-				tkDao.capNhat(taiKhoan);
-				return SUCCESS;
+				if (!hashedPassword.equals(taiKhoan.getMatKhau())) {
+					return ERROR;
+				} else {
+					try {
+						hashedPassword = new String(HashUtil.generateHash(salt
+								+ getMatKhauMoi()));
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+					taiKhoan.setMatKhau(hashedPassword);
+					tkDao.capNhat(taiKhoan);
+					return SUCCESS;
+				}
+			} else {
+				return ERROR;
 			}
-		} else {
-			return ERROR;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return NONE;
 		}
 	}
 
 	public String doiEmail() {
-		System.out.println("Doi email");
-		taiKhoan = (TaiKhoan) sessionMap.get("tk");
-		if (taiKhoan != null) {
-			String salt = taiKhoan.getSalt();
-			String hashedPassword = null;
-			try {
-				hashedPassword = HashUtil.generateHash(salt + getMatKhau());
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
+		try {
+			System.out.println("Doi email");
+			taiKhoan = (TaiKhoan) sessionMap.get("tk");
+			if (taiKhoan != null) {
+				String salt = taiKhoan.getSalt();
+				String hashedPassword = null;
+				try {
+					hashedPassword = HashUtil.generateHash(salt + getMatKhau());
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
 
-			if (!hashedPassword.equals(taiKhoan.getMatKhau())) {
-				return ERROR;
+				if (!hashedPassword.equals(taiKhoan.getMatKhau())) {
+					return ERROR;
+				} else {
+					thanhVien = taiKhoan.getThanhVien();
+					thanhVien.setEmail(getEmail());
+
+					taiKhoan.setThanhVien(thanhVien);
+					tkDao.capNhat(taiKhoan);
+					return SUCCESS;
+				}
 			} else {
-				thanhVien = taiKhoan.getThanhVien();
-				thanhVien.setEmail(getEmail());
-
-				taiKhoan.setThanhVien(thanhVien);
-				tkDao.capNhat(taiKhoan);
-				return SUCCESS;
+				return ERROR;
 			}
-		} else {
-			return ERROR;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return NONE;
 		}
 
 	}
 
 	public String capNhatThongTin() throws IOException {
-		System.out.println("Cập nhật thông tin cá nhân");
-		ServletContext servletContext = ServletActionContext
-				.getServletContext();
-		String imagePath = "images/avatar/";
+		try {
+			System.out.println("Cập nhật thông tin cá nhân");
+			ServletContext servletContext = ServletActionContext
+					.getServletContext();
+			String imagePath = "/images/avatar";
 
-		String rootPath = servletContext.getRealPath("/");
-		String newImageName = "";
-		if (image != null) {
-			// Dat ten lai cho image
-			String extension = "";
-			if (imageFileName != null && !imageFileName.equals("")) {
-				extension = imageFileName.substring(
-						imageFileName.lastIndexOf("."), imageFileName.length());
-			}
-			long longName = Calendar.getInstance().getTimeInMillis();
-			newImageName = imagePath + longName + extension;
+			Map sess = ServletActionContext.getContext().getSession();
+			
+			TaiKhoan tk = (TaiKhoan) sess.get("tk");
+			
+			ThanhVien tv = tk.getThanhVien();
 
-			// Luu file xuong server
-			if (!imageFileName.equals("")) {
-				File fileToCreate = new File(rootPath, newImageName);
-				FileUtils.copyFile(image, fileToCreate);
-				if (!fileToCreate.exists()) {
-					FileOutputStream fos = new FileOutputStream(fileToCreate);
-					fos.write(FileUtils.readFileToByteArray(image));
-					fos.flush();
-					fos.close();
+			if (image != null) {
+				System.out.println("Hinh khac null");
+				// Dat ten lai cho image
+				String extension = "";
+				if (imageFileName != null && !imageFileName.equals("")) {
+					extension = imageFileName.substring(
+							imageFileName.lastIndexOf("."),
+							imageFileName.length());
 				}
+
+				// Luu file xuong server
+				if (!imageFileName.equals("")) {
+					File dir = new File(servletContext.getRealPath(imagePath));
+
+					if (!dir.exists()) {
+						dir.mkdirs();
+					}
+
+					long tmp = Calendar.getInstance().getTimeInMillis();
+					String newImageName = tmp + extension;
+					File fileToCreate = new File(imagePath, newImageName);
+					FileUtils.copyFile(this.image, fileToCreate);
+
+					tv.setHinh(imagePath + "/" + newImageName);
+
+				}
+
 			}
+			System.out.println("Cap nhat thong tin");
+			TinhThanhPho ttp = ttpDao.lay(getMaTTP());
+			// Date birthday = new Date(getNs());
+			// System.out.println(birthday);
 
+			System.out.println(thanhVien.getHoTen());
+			tv.setHoTen(thanhVien.getHoTen());
+			tv.setDiaChi(thanhVien.getDiaChi());
+			tv.setDienThoai(thanhVien.getDienThoai());
+			tv.setEmail(thanhVien.getEmail());
+
+			// tv.setNgaySinh(birthday);
+			tv.setTinhThanhPho(ttp);
+			tv.setWebsite(thanhVien.getWebsite());
+			tv.setGioiTinh(thanhVien.getGioiTinh());
+
+			tk.setThanhVien(tv);
+			tv.setTaiKhoan(tk);
+
+			tkDao.capNhat(tk);
+
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "redirect";
 		}
-		System.out.println("Cap nhat thong tin");
-		TinhThanhPho ttp = ttpDao.lay(getMaTTP());
-		//Date birthday = new Date(getNs());
-		//System.out.println(birthday);
-		Map sess = ServletActionContext.getContext().getSession();
-		TaiKhoan tk = (TaiKhoan) sess.get("tk");
-
-		ThanhVien tv = tk.getThanhVien();
-		System.out.println(thanhVien.getHoTen());
-		tv.setHoTen(thanhVien.getHoTen());
-		tv.setDiaChi(thanhVien.getDiaChi());
-		tv.setDienThoai(thanhVien.getDienThoai());
-		tv.setEmail(thanhVien.getEmail());
-
-		tv.setHinh(newImageName);
-
-		//tv.setNgaySinh(birthday);
-		tv.setTinhThanhPho(ttp);
-		tv.setWebsite(thanhVien.getWebsite());
-		tv.setGioiTinh(thanhVien.getGioiTinh());
-
-		tk.setThanhVien(tv);
-		tv.setTaiKhoan(tk);
-
-		tkDao.capNhat(tk);
-
-		return SUCCESS;
 	}
 
 	public String hienThi() {
-		System.out.println("Hien thi");
-		// taiKhoan = tkDao.lay(maTaiKhoan);
-		// thanhVien = tvDao.lay(maTaiKhoan);
-		taiKhoan = (TaiKhoan) sessionMap.get("tk");
-		thanhVien = taiKhoan.getThanhVien();
-		return SUCCESS;
+		try {
+			System.out.println("Hien thi");
+			taiKhoan = (TaiKhoan) sessionMap.get("tk");
+			thanhVien = taiKhoan.getThanhVien();
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return NONE;
+		}
 	}
 
 	public int getMaTaiKhoan() {
@@ -211,7 +236,6 @@ public class ProfileAction extends ActionSupport implements SessionAware, ModelD
 	public void setThanhVien(ThanhVien thanhVien) {
 		this.thanhVien = thanhVien;
 	}
-
 
 	public String getMatKhauCu() {
 		return matKhauCu;
@@ -269,28 +293,28 @@ public class ProfileAction extends ActionSupport implements SessionAware, ModelD
 		this.ns = ns;
 	}
 
-	public File getHinh() {
+	public File getImage() {
 		return image;
 	}
 
-	public void setHinh(File hinh) {
-		this.image = hinh;
+	public void setImage(File image) {
+		this.image = image;
 	}
 
-	public String getHinhFileName() {
+	public String getImageFileName() {
 		return imageFileName;
 	}
 
-	public void setHinhFileName(String hinhFileName) {
-		this.imageFileName = hinhFileName;
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 
-	public String getHinhContentType() {
+	public String getImageContentType() {
 		return imageContentType;
 	}
 
-	public void setHinhContentType(String hinhContentType) {
-		this.imageContentType = hinhContentType;
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
 	}
 
 	@Override
@@ -298,4 +322,5 @@ public class ProfileAction extends ActionSupport implements SessionAware, ModelD
 		// TODO Auto-generated method stub
 		return thanhVien;
 	}
+
 }

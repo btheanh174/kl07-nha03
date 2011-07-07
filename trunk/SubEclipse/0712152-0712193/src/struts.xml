@@ -93,10 +93,11 @@
 			method="capNhatThongTin">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
-			<result name="success" type="redirect">show_myprofile_profile.action
+			<result name="success" type="redirect">/Profile_hienThi
 			</result>
-			<result name="input" type="redirect">show_myprofile_profile.action
+			<result name="input">/myprofile/profile.jsp
 			</result>
+			<result name="redirect" type="redirect">User_login</result>
 		</action>
 
 		<action name="Profile_xemHoaDon" class="action.user.HoaDonAction"
@@ -128,7 +129,7 @@
 			method="capNhat">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
-			<result name="success">/myprofile/store.jsp</result>
+			<result name="success" type="redirect">Store_hienThi</result>
 		</action>
 
 		<action name="GianHang_danhSach" class="action.gianhang.ListingGianHangAction">

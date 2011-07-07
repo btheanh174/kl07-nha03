@@ -16,6 +16,10 @@
 		soLuotTruyCap++;
 	}
 	application.setAttribute(globalcounter, soLuotTruyCap);
+	
+
+	String context = request.getContextPath();
+
 %>
 
 <!-- danh muc -->
@@ -60,8 +64,8 @@
 
 <div class="widget-content"><br>
 <b>Tên cửa hàng:</b> <s:property value="tenGianHang" /> <br>
-<div class="siteLogo"><s:if test="logo != null">
-	<img class="logo" alt="" src="<s:property value="logo"/>">
+<div class="siteLogo"><s:if test="gianHang.logo != null">
+	<img class="logo" alt="" src='<%=context %><s:property value="%{gianHang.logo}"/>'>
 </s:if> <s:else>
 	<img width="200" height="150" alt="" src="images/no_photo_x_small.gif">
 </s:else></div>

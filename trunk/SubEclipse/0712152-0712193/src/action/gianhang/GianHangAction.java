@@ -41,8 +41,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-public class GianHangAction extends ActionSupport implements
-		SessionAware, ServletRequestAware {
+public class GianHangAction extends ActionSupport implements SessionAware,
+		ServletRequestAware {
 	// Tim nhanh
 	private static final String TIM_NHANH = "search";
 	private String loai;
@@ -81,8 +81,8 @@ public class GianHangAction extends ActionSupport implements
 	private String bannerFileName;
 	private String bannerContentType;
 
-	private static final String LOGO_UPLOAD = "/images/logo/";
-	private static final String BANNER_UPLOAD = "/images/banner/";
+	private static final String LOGO_UPLOAD = "/images/logo";
+	private static final String BANNER_UPLOAD = "/images/banner";
 	// Hien thi danh muc gian hang
 	private List<NhomDanhMuc> dsNhomDanhMuc = new ArrayList<NhomDanhMuc>();
 	private List<DanhMucGianHang> dsDanhMucGianHang = new ArrayList<DanhMucGianHang>();
@@ -98,97 +98,108 @@ public class GianHangAction extends ActionSupport implements
 		tk = (TaiKhoan) session.get("tk");
 		if (tk != null) {
 			gianHang = tk.getGianHang();
+			session.put("store", gianHang);
 			System.out.println("Ngay tham gia: " + gianHang.getNgayThamGia());
 		}
 		return SUCCESS;
 	}
 
 	public String capNhat() throws IOException {
-		System.out.println("Cap nhat store");
+		try {
+			System.out.println("Cap nhat store");
 
-		this.session = ActionContext.getContext().getSession();
-		TaiKhoan tk = (TaiKhoan) session.get("tk");
-		GianHang gh = null;
-		if (tk != null) {
-			gh = tk.getGianHang();
-		} else {
-			gh = new GianHang();
-		}
+			this.session = ActionContext.getContext().getSession();
 
-		ServletContext servletContext = ServletActionContext
-				.getServletContext();
-		// Khởi tạo đường dẫn để lưu logo và banner
-		String rootPath = servletContext.getRealPath("/WebContent");
-		System.out.println(rootPath);
-		// Tạo tên cho logo và banner dựa theo miliseconds để khỏi bị trùng
+			GianHang gh = (GianHang) session.get("store");
+			if (gh == null) {
+				gh = new GianHang();
+			}
 
-		String extension = "";
-		if (logoFileName != null && !logoFileName.equals("")) {
-			extension = logoFileName.substring(logoFileName.lastIndexOf("."),
-					logoFileName.length());
-		}
-		long longName = Calendar.getInstance().getTimeInMillis();
-		String newLogoName = LOGO_UPLOAD + longName + extension;
+			ServletContext servletContext = ServletActionContext
+					.getServletContext();
+			// Khởi tạo đường dẫn để lưu logo và banner
+			String rootPath = servletContext.getResource("/").toString();
+			System.out.println(rootPath);
+			// Tạo tên cho logo và banner dựa theo miliseconds để khỏi bị trùng
 
-		extension = "";
-		if (bannerFileName != null && !bannerFileName.equals("")) {
-			extension = bannerFileName.substring(
-					bannerFileName.lastIndexOf("."), bannerFileName.length());
-		}
-		longName = Calendar.getInstance().getTimeInMillis();
-		String newBannerName = BANNER_UPLOAD + longName + extension;
+			String logoExtension = "";
+			if (logoFileName != null && !logoFileName.equals("")) {
+				logoExtension = logoFileName.substring(
+						logoFileName.lastIndexOf("."), logoFileName.length());
+			}
 
-		// Lưu file lên server
-		if (logo != null) {
-			if (!logoFileName.equals("")) {
-				System.out.println("Lưu logo vào đường dẫn: " + newLogoName);
+			String newLogoName = "";
 
-				File fileToCreate = new File(rootPath, newLogoName);
-				FileUtils.copyFile(logo, fileToCreate);
+			String bannerExtension = "";
+			if (bannerFileName != null && !bannerFileName.equals("")) {
+				bannerExtension = bannerFileName.substring(
+						bannerFileName.lastIndexOf("."),
+						bannerFileName.length());
+			}
+			String newBannerName = "";
 
-				if (!fileToCreate.exists()) {
-					FileOutputStream fos;
-					fos = new FileOutputStream(fileToCreate);
-					fos.write(FileUtils.readFileToByteArray(logo));
-					fos.flush();
-					fos.close();
+			// Lưu file lên server
+			if (logo != null) {
+				if (!logoFileName.equals("")) {
+					System.out
+							.println("Lưu logo vào đường dẫn: " + newLogoName);
+
+					File logoDir = new File(
+							servletContext.getRealPath(LOGO_UPLOAD));
+
+					if (!logoDir.exists()) {
+						logoDir.mkdirs();
+					}
+
+					long tmp = Calendar.getInstance().getTimeInMillis();
+					newLogoName = tmp + logoExtension;
+
+					File fileToCreate = new File(logoDir, newLogoName);
+					FileUtils.copyFile(this.logo, fileToCreate);
+
+					gianHang.setLogo(LOGO_UPLOAD + "/" + newLogoName);
+					gh.setLogo(gianHang.getLogo());
 				}
 			}
-		}
-		if (banner != null) {
-			if (!bannerFileName.equals("")) {
-				System.out
-						.println("Lưu banner vào đường dẫn: " + newBannerName);
-				File fileToCreate = new File(rootPath, newBannerName);
-				if (!fileToCreate.exists()) {
-					FileOutputStream fos;
-					fos = new FileOutputStream(fileToCreate);
-					fos.write(FileUtils.readFileToByteArray(banner));
-					fos.flush();
-					fos.close();
+			if (banner != null) {
+				if (!bannerFileName.equals("")) {
+					System.out.println("Lưu banner vào đường dẫn: "
+							+ newBannerName);
+					File bannerDir = new File(
+							servletContext.getRealPath(BANNER_UPLOAD));
+
+					if (!bannerDir.exists()) {
+						bannerDir.mkdirs();
+					}
+
+					long tmp = Calendar.getInstance().getTimeInMillis();
+					newBannerName = tmp + bannerExtension;
+
+					File fileToCreate = new File(bannerDir, newBannerName);
+					FileUtils.copyFile(this.banner, fileToCreate);
+
+					gianHang.setBanner(BANNER_UPLOAD + "/" + newBannerName);
+					gh.setBanner(gianHang.getBanner());
 				}
 			}
+
+			// Gán giá trị cho gh
+			gh.setTenGianHang(gianHang.getTenGianHang());
+
+			gh.setChinhSach(gianHang.getChinhSach());
+			gh.setDiaChi(gianHang.getDiaChi());
+			gh.setDienThoai(gianHang.getDienThoai());
+			gh.setFax(gianHang.getFax());
+			gh.setYahoo(gianHang.getYahoo());
+			gh.setGioiThieu(gianHang.getGioiThieu());
+			gh.setThongTin(gianHang.getThongTin());
+
+			ghDao.capNhat(gh);
+			return SUCCESS;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return INPUT;
 		}
-
-		// Gán giá trị vào csdl
-		gianHang.setLogo(newLogoName);
-		gianHang.setBanner(newBannerName);
-		
-		// Gán giá trị cho gh
-		gh.setTenGianHang(gianHang.getTenGianHang());
-		gh.setBanner(gianHang.getBanner());
-		gh.setLogo(gianHang.getLogo());
-		gh.setChinhSach(gianHang.getChinhSach());
-		gh.setDiaChi(gianHang.getDiaChi());
-		gh.setDienThoai(gianHang.getDienThoai());
-		gh.setFax(gianHang.getFax());
-		gh.setYahoo(gianHang.getYahoo());
-		gh.setGioiThieu(gianHang.getGioiThieu());
-		gh.setThongTin(gianHang.getThongTin());
-		
-
-		ghDao.capNhat(gh);
-		return SUCCESS;
 	}
 
 	@Override
@@ -245,7 +256,6 @@ public class GianHangAction extends ActionSupport implements
 		}
 		return "index";
 	}
-
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

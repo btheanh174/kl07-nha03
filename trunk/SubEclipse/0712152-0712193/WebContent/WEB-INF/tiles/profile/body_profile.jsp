@@ -5,7 +5,11 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="jcaptcha"
 	uri="/WEB-INF/lib/jcaptcha4struts2-2.0.2.jar"%>
-<s:hidden name="maTaiKhoan" value="7"></s:hidden>
+	
+<%
+String context = request.getContextPath();
+%>
+
 <div>
 
 	<sj:tabbedpanel id="panelProfile" animate="true" collapsible="true">
@@ -14,10 +18,10 @@
 		<sj:tab id="tab3" target="div3" label="Thay đổi địa chỉ email"></sj:tab>
 
 		<div id="div1">
-			<s:form action="Profile_capNhatThongTin" method="post" enctype="multipart/form-data"
-				validate="true">
-				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
-				<s:file label="Logo/Avatar" name="image" value="%{#session['tk'].thanhVien.hinh}" />
+			<img alt="" src="<%=context %><s:property value="%{#session['tk'].thanhVien.hinh}"/>">
+			<s:form action="Profile_capNhatThongTin" method="post" enctype="multipart/form-data">
+				
+				<s:file label="Logo/Avatar" name="image" />
 				<s:textfield label="Họ tên" name="thanhVien.hoTen"
 					value="%{#session['tk'].thanhVien.hoTen}" />
 				<s:textfield label="Email" name="thanhVien.email"
@@ -41,8 +45,7 @@
 
 				<s:select list="{'Nam', 'Nữ'}" label="Giới tính" name="thanhVien.gioiTinh"></s:select>
 
-				<!--<jcaptcha:image height="50" width="300" label="Mã an toàn" />
-				-->
+				
 				<s:submit value="Cập nhật"></s:submit>
 
 			</s:form>

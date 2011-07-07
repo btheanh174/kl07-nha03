@@ -7,6 +7,10 @@
 <%@ taglib uri="http://code.google.com/p/jcaptcha4struts2/taglib/2.0"
 	prefix="jcaptcha"%>
 
+<%
+String context = request.getContextPath();
+%>
+
 <sj:div>
 	<sj:tabbedpanel id="panelStore" animate="true" collapsible="true">
 		<sj:tab id="tab1" target="div1" label="Quản lý cửa hàng"></sj:tab>
@@ -16,7 +20,7 @@
 				<div class="setup">
 					<div class="photo relative1">
 						<p>
-							<img width="120" height="120" src="<s:property value="%{#session['tk'].gianHang.logo}"/>">
+							<img width="120" height="120" src="<%=context %><s:property value="%{#session['tk'].gianHang.logo}"/>">
 						</p>
 						<b><s:file name="logo" label="Logo"></s:file>
 							<div class="txt">Sửa logo</div> </b> <span class="explain">Kích
@@ -24,7 +28,7 @@
 					</div>
 					<div class="photo relative2">
 						<p>
-							<img width="607" height="120" src="<s:property value="%{#session['tk'].gianHang.banner}"/>">
+							<img width="607" height="120" src="<%=context %><s:property value="%{#session['tk'].gianHang.banner}"/>">
 						</p>
 						<b>
 						 <span class="file1">
