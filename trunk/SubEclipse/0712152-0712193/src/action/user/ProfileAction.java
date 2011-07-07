@@ -27,8 +27,8 @@ import util.HashUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ProfileAction extends ActionSupport implements SessionAware,
-		ModelDriven<ThanhVien> {
+public class ProfileAction extends ActionSupport implements SessionAware, ModelDriven<ThanhVien>
+		{
 
 	/**
 	 * 
@@ -120,7 +120,7 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 	}
 
 	public String capNhatThongTin() throws IOException {
-
+		System.out.println("Cập nhật thông tin cá nhân");
 		ServletContext servletContext = ServletActionContext
 				.getServletContext();
 		String imagePath = "images/avatar/";
@@ -140,6 +140,7 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 			// Luu file xuong server
 			if (!imageFileName.equals("")) {
 				File fileToCreate = new File(rootPath, newImageName);
+				FileUtils.copyFile(image, fileToCreate);
 				if (!fileToCreate.exists()) {
 					FileOutputStream fos = new FileOutputStream(fileToCreate);
 					fos.write(FileUtils.readFileToByteArray(image));
@@ -154,9 +155,9 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 		//Date birthday = new Date(getNs());
 		//System.out.println(birthday);
 		Map sess = ServletActionContext.getContext().getSession();
-		taiKhoan = (TaiKhoan) sess.get("tk");
+		TaiKhoan tk = (TaiKhoan) sess.get("tk");
 
-		ThanhVien tv = taiKhoan.getThanhVien();
+		ThanhVien tv = tk.getThanhVien();
 		System.out.println(thanhVien.getHoTen());
 		tv.setHoTen(thanhVien.getHoTen());
 		tv.setDiaChi(thanhVien.getDiaChi());
@@ -170,10 +171,10 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 		tv.setWebsite(thanhVien.getWebsite());
 		tv.setGioiTinh(thanhVien.getGioiTinh());
 
-		taiKhoan.setThanhVien(tv);
-		tv.setTaiKhoan(taiKhoan);
+		tk.setThanhVien(tv);
+		tv.setTaiKhoan(tk);
 
-		tkDao.capNhat(taiKhoan);
+		tkDao.capNhat(tk);
 
 		return SUCCESS;
 	}
@@ -211,9 +212,6 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 		this.thanhVien = thanhVien;
 	}
 
-	public ThanhVien getModel() {
-		return thanhVien;
-	}
 
 	public String getMatKhauCu() {
 		return matKhauCu;
@@ -293,5 +291,11 @@ public class ProfileAction extends ActionSupport implements SessionAware,
 
 	public void setHinhContentType(String hinhContentType) {
 		this.imageContentType = hinhContentType;
+	}
+
+	@Override
+	public ThanhVien getModel() {
+		// TODO Auto-generated method stub
+		return thanhVien;
 	}
 }

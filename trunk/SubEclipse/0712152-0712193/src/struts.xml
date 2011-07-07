@@ -91,6 +91,8 @@
 
 		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction"
 			method="capNhatThongTin">
+			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="basicStack" />
 			<result name="success" type="redirect">show_myprofile_profile.action
 			</result>
 			<result name="input" type="redirect">show_myprofile_profile.action
@@ -202,10 +204,6 @@
 		</action>
 
 		<!-- -->
-
-
-
-		<!-- sub site -->
 		<action name="store" class="action.gianhang.GianHangAction"
 			method="execute">
 			<result name="index">/all/index.jsp</result>
@@ -217,21 +215,8 @@
 			<result name="search">/all/searchresults.jsp</result>
 		</action>
 
-
-
-
-
-		<!-- end sub site -->
-
-
-
 	</package>
-
 	<!-- sub site -->
-
-
-
-
 	<include file="store-struts.xml"></include>
 	<include file="payment-struts.xml"></include>
 	<include file="admin-struts.xml"></include>

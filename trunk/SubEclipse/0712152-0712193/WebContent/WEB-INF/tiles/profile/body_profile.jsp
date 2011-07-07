@@ -17,21 +17,21 @@
 			<s:form action="Profile_capNhatThongTin" method="post" enctype="multipart/form-data"
 				validate="true">
 				<s:hidden name="maTaiKhoan" value="%{top.maTaiKhoan}"></s:hidden>
-				<s:file label="Logo/Avatar" name="image" value="" />
-				<s:textfield label="Họ tên" name="hoTen"
+				<s:file label="Logo/Avatar" name="image" value="%{#session['tk'].thanhVien.hinh}" />
+				<s:textfield label="Họ tên" name="thanhVien.hoTen"
 					value="%{#session['tk'].thanhVien.hoTen}" />
-				<s:textfield label="Email" name="email"
+				<s:textfield label="Email" name="thanhVien.email"
 					value="%{#session['tk'].thanhVien.email}" />
 				<sj:datepicker name="ns" showAnim="slideDown" displayFormat="dd/mm/yy"
 					label="Ngày sinh" value="%{#session['tk'].thanhVien.ngaySinh}"></sj:datepicker>
 				
-				<s:textfield label="Địa chỉ" name="diaChi"
+				<s:textfield label="Địa chỉ" name="thanhVien.diaChi"
 					value="%{#session['tk'].thanhVien.diaChi}" />
 
-				<s:textfield label="Điện thoại" name="dienThoai"
+				<s:textfield label="Điện thoại" name="thanhVien.dienThoai"
 					value="%{#session['tk'].thanhVien.dienThoai}" />
 
-				<s:textfield label="Website" name="website"
+				<s:textfield label="Website" name="thanhVien.website"
 					value="%{#session['tk'].thanhVien.website}" />
 				<s:bean name="model.bean.TinhThanhPhoBean" id="ttpBean"></s:bean>
 				<sj:autocompleter label="Tỉnh/thành phố" name="maTTP"
@@ -39,7 +39,7 @@
 					listValue="tenTinhThanhPho"
 					value="%{#session['tk'].thanhVien.tinhThanhPho.maTinhThanhPho}"></sj:autocompleter>
 
-				<s:select list="{'Nam', 'Nữ'}" label="Giới tính" name="gioiTinh"></s:select>
+				<s:select list="{'Nam', 'Nữ'}" label="Giới tính" name="thanhVien.gioiTinh"></s:select>
 
 				<!--<jcaptcha:image height="50" width="300" label="Mã an toàn" />
 				-->
