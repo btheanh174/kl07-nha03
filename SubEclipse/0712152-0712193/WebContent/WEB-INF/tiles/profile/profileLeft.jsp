@@ -20,8 +20,18 @@
 		<li class="even"><a href="">Quản lý sản phẩm</a></li>
 		<li class="even"><a href="">Quản lý danh mục</a></li>
 		<li class="even"><a href="">Quản lý đơn hàng</a></li>
+		
 	</ul>
-
+	<div class="title_box">Cấu hình gian hàng</div>
+	<ul class="left_menu">
+		<li class="even"><a href="<s:url action="Store_hienThi"/>">Quản lý cửa hàng</a></li>
+		<li class="even"><a href="">Cấu hình chung</a></li>
+		<li class="even"><a href="">Giới thiệu</a></li>
+		<li class="even"><a href="">Chính sách</a></li>
+		<li class="even"><a href="">Bản đồ</a></li>
+		<li class="even"><a href="">Liên hệ</a></li>
+		<li class="even"><a href="">Cuối trang</a></li>
+	</ul>
 </s:if>
 
 <div class="title_box">Quản lý rao vặt</div>

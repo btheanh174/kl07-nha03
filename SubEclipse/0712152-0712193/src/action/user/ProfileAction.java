@@ -1,12 +1,12 @@
 package action.user;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -163,9 +163,24 @@ public class ProfileAction extends ActionSupport implements SessionAware, ModelD
 
 					long tmp = Calendar.getInstance().getTimeInMillis();
 					String newImageName = tmp + extension;
-					File fileToCreate = new File(imagePath, newImageName);
+					File fileToCreate = new File(dir, newImageName);
 					FileUtils.copyFile(this.image, fileToCreate);
-
+					
+					if(!fileToCreate.exists()){
+						
+						FileOutputStream fos = new FileOutputStream(fileToCreate);
+						InputStream is = new FileInputStream(this.image);
+						
+						byte[] buffer = new byte[(int) this.image.length()];
+						is.read(buffer);
+						
+						fos.write(buffer);
+						fos.flush();
+						fos.close();
+						
+						is.close();
+					}
+					
 					tv.setHinh(imagePath + "/" + newImageName);
 
 				}

@@ -18,7 +18,7 @@ String context = request.getContextPath();
 		<sj:tab id="tab3" target="div3" label="Thay đổi địa chỉ email"></sj:tab>
 
 		<div id="div1">
-			<img alt="" src="<%=context %><s:property value="%{#session['tk'].thanhVien.hinh}"/>">
+			<img alt="" src="<%=context %><s:property value="%{#session['tk'].thanhVien.hinh}"/>" width="100" height="100">
 			<s:form action="Profile_capNhatThongTin" method="post" enctype="multipart/form-data">
 				
 				<s:file label="Logo/Avatar" name="image" />

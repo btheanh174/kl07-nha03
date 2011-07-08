@@ -67,7 +67,7 @@
 
 		<action name="User_logout" class="action.user.LogoutAction">
 			<result name="success">/user/logout.jsp</result>
-			<result name="input" type="redirect">show_index.action</result>
+			<result name="input" type="redirect">Index</result>
 		</action>
 
 		<!-- User profile -->
@@ -114,7 +114,7 @@
 		<action name="Profile_test" class="action.user.ProfileAction"
 			method="test">
 
-			<result name="success" type="redirect">show_index.action</result>
+			<result name="success" type="redirect">Index</result>
 			<result name="input" type="redirect">show_myprofile_profile.action
 			</result>
 		</action>
