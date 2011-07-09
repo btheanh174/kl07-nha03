@@ -47,7 +47,7 @@
 		
 		<li class="right_divider"></li>
 		<li>
-		<a href="<s:url action="Profile_hienThi"/>" class="right_nav4">Quản lý</a>
+		<a href="<s:url action="Store_hienThi"/>" class="right_nav4">Quản lý</a>
 		</li>
 		
 

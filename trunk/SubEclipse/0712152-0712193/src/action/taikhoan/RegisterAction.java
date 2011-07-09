@@ -1,4 +1,4 @@
-package action.user;
+package action.taikhoan;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
