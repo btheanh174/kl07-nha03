@@ -6,7 +6,7 @@
 // thi cho chuyen ve trang index
 // 
 if(session.getAttribute("tk")!=null){
-	response.sendRedirect("show_index.action");
+	response.sendRedirect("Index");
 }
 %>
 <tiles:insertDefinition name="Login.tiles"></tiles:insertDefinition>

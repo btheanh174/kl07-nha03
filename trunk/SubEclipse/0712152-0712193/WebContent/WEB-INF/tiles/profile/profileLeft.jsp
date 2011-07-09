@@ -24,13 +24,11 @@
 	</ul>
 	<div class="title_box">Cấu hình gian hàng</div>
 	<ul class="left_menu">
-		<li class="even"><a href="<s:url action="Store_hienThi"/>">Quản lý cửa hàng</a></li>
-		<li class="even"><a href="">Cấu hình chung</a></li>
-		<li class="even"><a href="">Giới thiệu</a></li>
-		<li class="even"><a href="">Chính sách</a></li>
-		<li class="even"><a href="">Bản đồ</a></li>
-		<li class="even"><a href="">Liên hệ</a></li>
-		<li class="even"><a href="">Cuối trang</a></li>
+		<li class="even"><a href="<s:url action="show_myprofile_settings"/>">Cấu hình chung</a></li>
+		<li class="even"><a href="<s:url action="show_myprofile_intro"/>">Giới thiệu</a></li>
+		<li class="even"><a href="<s:url action="show_myprofile_policy"/>">Chính sách</a></li>
+		<li class="even"><a href="<s:url action="show_myprofile_map"/>">Bản đồ</a></li>
+		<li class="even"><a href="<s:url action="show_myprofile_footer"/>">Cuối trang</a></li>
 	</ul>
 </s:if>
 
