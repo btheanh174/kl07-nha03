@@ -9,14 +9,14 @@
 
 		<!-- interceptor -->
 		<interceptors>
-			<interceptor name="LastActionInterceptor" class="action.user.LastActionInterceptor"></interceptor>
+			<interceptor name="LastActionInterceptor" class="action.taikhoan.LastActionInterceptor"></interceptor>
 			<interceptor-stack name="MyLoginStack">
 				<interceptor-ref name="LastActionInterceptor"></interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
 
 			<interceptor name="redirectMessage"
-				class="action.user.RedirectMessageInterceptor"></interceptor>
+				class="action.taikhoan.RedirectMessageInterceptor"></interceptor>
 
 		</interceptors>
 
@@ -46,7 +46,7 @@
 
 		<!-- Dung cho register -->
 
-		<action name="User_register" class="action.user.RegisterAction"
+		<action name="User_register" class="action.taikhoan.RegisterAction"
 			method="register">
 			<interceptor-ref name="jcaptchaDefaultStack" /> <!-- Tich hop jcaptcha4pluginstruts2 -->
 			<result name="success" type="redirect">Index.action</result>
@@ -56,7 +56,7 @@
 
 		<!-- Dung cho login va lost password -->
 
-		<action name="User_login" class="action.user.LoginAction"
+		<action name="User_login" class="action.taikhoan.LoginAction"
 			method="login">
 			<result name="success" type="redirectAction">
 				<param name="actionName">${#session['prevAction']}</param>
@@ -65,31 +65,31 @@
 			<result name="error" type="redirect">show_user_register.action</result>
 		</action>
 
-		<action name="User_logout" class="action.user.LogoutAction">
+		<action name="User_logout" class="action.taikhoan.LogoutAction">
 			<result name="success">/user/logout.jsp</result>
 			<result name="input" type="redirect">Index</result>
 		</action>
 
 		<!-- User profile -->
 
-		<action name="Profile_hienThi" class="action.user.ProfileAction"
+		<action name="Profile_hienThi" class="action.taikhoan.ProfileAction"
 			method="hienThi">
 			<result name="success" type="redirect">show_profile_profile
 			</result>
 		</action>
 
-		<action name="Profile_doiMatKhau" class="action.user.ProfileAction"
+		<action name="Profile_doiMatKhau" class="action.taikhoan.ProfileAction"
 			method="doiMatKhau">
 			<result name="success" type="redirect">show_profile_profile</result>
 		</action>
 
-		<action name="Profile_doiEmail" class="action.user.ProfileAction"
+		<action name="Profile_doiEmail" class="action.taikhoan.ProfileAction"
 			method="doiEmail">
 			<result name="success" type="redirect">show_profile_profile
 			</result>
 		</action>
 
-		<action name="Profile_capNhatThongTin" class="action.user.ProfileAction"
+		<action name="Profile_capNhatThongTin" class="action.taikhoan.ProfileAction"
 			method="capNhatThongTin">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
@@ -100,18 +100,18 @@
 			<result name="redirect" type="redirect">show_user_login</result>
 		</action>
 
-		<action name="Profile_xemHoaDon" class="action.user.HoaDonAction"
+		<action name="Profile_xemHoaDon" class="action.taikhoan.HoaDonAction"
 			method="layDanhSachHoaDon">
 			<result name="success" type="tiles">Profile_Bills.tiles</result>
 		</action>
 
-		<action name="Profile_xemChiTietHoaDon" class="action.user.HoaDonAction"
+		<action name="Profile_xemChiTietHoaDon" class="action.taikhoan.HoaDonAction"
 			method="layChiTietHoaDon">
 			<result name="success" type="tiles">Profile_DetailBill.tiles</result>
 		</action>
 
 
-		<action name="Profile_test" class="action.user.ProfileAction"
+		<action name="Profile_test" class="action.taikhoan.ProfileAction"
 			method="test">
 
 			<result name="success" type="redirect">Index</result>

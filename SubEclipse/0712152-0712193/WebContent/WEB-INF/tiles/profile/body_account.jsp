@@ -13,7 +13,7 @@ String context = request.getContextPath();
 	<sj:div id="div1">
 		<img alt="" src="<%=context %><s:property value="%{#session['tk'].thanhVien.hinh}"/>" width="100" height="100">
 		<br>
-		<a href="<s:url action="Profile_capNhatThongTin"/>">chỉnh sửa hồ sơ &gt;&gt;</a>
+		<a href="<s:url action="Profile_hienThi"/>">chỉnh sửa hồ sơ &gt;&gt;</a>
 		<br>
 		<s:if test="%{#session['nhomNguoiDung']} == 2">
 			<s:url id="store" action="store">
