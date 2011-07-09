@@ -10,9 +10,13 @@ public class LogoutAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		Map session = ActionContext.getContext().getSession();
+		
 		session.remove("tk");
 		session.remove("nhomNguoiDung");
 		session.remove("prevAction");
+		session.remove("context");
+		session.remove("store");
+		
 		return SUCCESS;
 	}
 	

@@ -24,16 +24,6 @@
 			hệ</a>
 	</li>
 
-	<s:if test="#session['nhomNguoiDung'] == 4">
-		<li class="divider"></li>
-		<li><a href="<s:url action="show_admin_index"/>" class="nav6">Quản
-				lý category admin</a>
-		</li>
-
-	</s:if>
-
-
-
 	<s:if test="#session['tk'] == null">
 		<li><a href="<s:url action="show_user_login"/>"
 			class="right_nav4">Đăng nhập</a>
@@ -57,7 +47,7 @@
 		
 		<li class="right_divider"></li>
 		<li>
-		<a href="" class="right_nav4">Quản lý</a>
+		<a href="<s:url action="Profile_hienThi"/>" class="right_nav4">Quản lý</a>
 		</li>
 		
 
