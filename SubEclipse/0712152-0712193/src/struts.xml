@@ -97,7 +97,7 @@
 			</result>
 			<result name="input">/myprofile/profile.jsp
 			</result>
-			<result name="redirect" type="redirect">User_login</result>
+			<result name="redirect" type="redirect">show_user_login</result>
 		</action>
 
 		<action name="Profile_xemHoaDon" class="action.user.HoaDonAction"
@@ -130,6 +130,11 @@
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
 			<result name="success" type="redirect">Store_hienThi</result>
+		</action>
+		
+		<action name="Store_capNhat_*" class="action.gianhang.GianHangAction" method="{1}">
+			<result name="success" type="redirect">show_myprofile_{1}</result>
+			<result name="redirect" type="redirect">show_user_login</result>
 		</action>
 
 		<action name="GianHang_danhSach" class="action.gianhang.ListingGianHangAction">
@@ -209,6 +214,7 @@
 			method="execute">
 			<result name="index">/all/index.jsp</result>
 			<result name="intro">/all/intro.jsp</result>
+			<result name="map">/all/map.jsp</result>
 			<result name="contact">/all/contact.jsp</result>
 			<result name="policy">/all/policy.jsp</result>
 			<result name="detail">/all/detail.jsp</result>

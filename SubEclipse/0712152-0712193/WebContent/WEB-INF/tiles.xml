@@ -244,6 +244,37 @@
 			value="/WEB-INF/tiles/profile/body_account.jsp"></put-attribute>
 	</definition>
 
+	<definition name="Intro.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Giới thiệu gian hàng"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_intro.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Policy.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Chính sách bán hàng"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_policy.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Footer.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Thông tin cuối trang"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Map.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Cấu hình bản đồ"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_map.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="Settings.tiles" extends="profileLayout">
+		<put-attribute name="pageTitle" value="Cấu hình chung"></put-attribute>
+		<put-attribute name="center"
+			value="/WEB-INF/tiles/profile/body_settings.jsp"></put-attribute>
+	</definition>
+	
+	
 	<definition name="Message.tiles" extends="profileLayout">
 		<put-attribute name="pageTitle" value="Quản lý tin nhắn"></put-attribute>
 		<put-attribute name="center"
@@ -255,6 +286,8 @@
 		<put-attribute name="center"
 			value="/WEB-INF/tiles/profile/body_store.jsp"></put-attribute>
 	</definition>
+	
+	
 
 	<!-- End Profile layout -->
 	<!-- Shopping cart -->
@@ -297,6 +330,11 @@
 	<definition name="siteIntro.tiles" extends="siteLayout">
 		<put-attribute name="title" value="Giới thiệu"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/tiles/all/body_intro.jsp"></put-attribute>
+	</definition>
+
+	<definition name="siteMap.tiles" extends="siteLayout">
+		<put-attribute name="title" value="Bản đồ"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/tiles/all/body_map.jsp"></put-attribute>
 	</definition>
 
 	<definition name="sitePolicy.tiles" extends="siteLayout">

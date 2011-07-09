@@ -28,7 +28,7 @@ margin-left:-300px;
 	<div class="top_prod_box_big"></div>
 	<div class="center_prod_box_big">
 	Bạn đã truy xuất vào tài nguyên không tồn tại!
-	Nhấn <a href="<s:url action="show_index"/>">vào đây</a> để quay lại trang chủ. Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong vòng 5s.
+	Nhấn <a href="<s:url action="Index"/>">vào đây</a> để quay lại trang chủ. Hoặc hệ thống sẽ tự động chuyển tới trang chủ trong vòng 5s.
 	</div>
 	<div class="bottom_prod_box_big"></div>
 	</div>

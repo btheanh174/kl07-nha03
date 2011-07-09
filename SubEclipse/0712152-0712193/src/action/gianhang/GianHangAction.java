@@ -108,7 +108,7 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 		try {
 			System.out.println("Cap nhat store");
 
-			this.session = ActionContext.getContext().getSession();
+			this.session = ServletActionContext.getContext().getSession();
 
 			GianHang gh = (GianHang) session.get("store");
 			if (gh == null) {
@@ -202,6 +202,57 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 		}
 	}
 
+	public String intro() {
+		System.out.println("Cap nhat thong tin gioi thieu gian hang");
+		try {
+
+			this.session = ServletActionContext.getContext().getSession();
+			TaiKhoan tk = (TaiKhoan) this.session.get("tk");
+			GianHang gh = tk.getGianHang();
+			if (gh == null) {
+				gh = new GianHang();
+			}
+
+			if (gianHang.getGioiThieu() != null
+					|| !"".equals(gianHang.getGioiThieu())) {
+				gh.setGioiThieu(gianHang.getGioiThieu());
+			}
+
+			ghDao.capNhat(gh);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect";
+		}
+	}
+
+	public String policy() {
+		try {
+
+			this.session = ServletActionContext.getContext().getSession();
+			TaiKhoan tk = (TaiKhoan) this.session.get("tk");
+			GianHang gh = tk.getGianHang();
+			if (gh == null) {
+				gh = new GianHang();
+			}
+
+			if (gianHang.getChinhSach() != null
+					|| !"".equals(gianHang.getChinhSach())) {
+				gh.setChinhSach(gianHang.getChinhSach());
+			}
+
+			ghDao.capNhat(gh);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect";
+		}
+	}
+
+	public String footer() {
+		return SUCCESS;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		// Hien thi store
@@ -218,6 +269,8 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 				System.out.println(dsDanhMucGianHang.get(i).getDanhMuc()
 						.getTenDanhMuc());
 			}
+
+			System.out.println(gianHang.getGioiThieu());
 		} catch (NullPointerException e) {
 			return "error";
 		}
