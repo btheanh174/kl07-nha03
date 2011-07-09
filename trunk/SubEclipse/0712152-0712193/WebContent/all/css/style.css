@@ -978,6 +978,12 @@ ul.pagination li {
 	width: 960px;
 }
 
+.footer_top{
+	width: 960px;
+}
+.footer_bottom{
+	width: 960px;
+}
 
 .block1 {
 	float: left;

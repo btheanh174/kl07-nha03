@@ -11,5 +11,11 @@
 </s:if>
 
 
-<div id="footer" class="clearfix">Copyright @ estore 2011 - LLH
-	MTH</div>
+<div id="footer">
+	<div class="footer_top">Copyright @ estore 2011</div>
+<hr>
+	<div class="footer_bottom">
+		<s:text name="%{gianHang.footer}"></s:text>
+	</div>
+	
+</div>
