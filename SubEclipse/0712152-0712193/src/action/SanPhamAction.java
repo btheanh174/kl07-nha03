@@ -1,7 +1,9 @@
 package action;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -26,6 +28,7 @@ import model.pojo.LaptopTieuChi;
 import model.pojo.SanPham;
 import model.pojo.SanPhamTieuChi;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -70,6 +73,7 @@ public class SanPhamAction extends ActionSupport implements
 	private int tongSoTrang;
 	private List<Integer> soTrang = new ArrayList<Integer>();
 
+	private static final String PRODUCT_PATH = "images/product";
 	public String execute() {
 		dsSanPham = spDao.layDanhSach();
 		return SUCCESS;
@@ -113,17 +117,17 @@ public class SanPhamAction extends ActionSupport implements
 		}
 	}
 
-	public String themSanPham_step1() {
+	public String themSanPham_step1() throws IOException {
 
+		
 		ServletContext servletContext = ServletActionContext
 				.getServletContext();
-		// String dataDir = servletContext.getRealPath("/WEB-INF");
+		
 
-		String dataDir = servletContext.getRealPath("/WEB-INF")
-				+ "\\uploadPicture";
+		String dataDir = servletContext.getRealPath(PRODUCT_PATH);
 		File folder = new File(dataDir);
 		if (!folder.exists()) {
-			folder.mkdir();
+			folder.mkdirs();
 		}
 
 		Set<HinhAnh> dsHinhAnh = new HashSet<HinhAnh>();
@@ -131,11 +135,16 @@ public class SanPhamAction extends ActionSupport implements
 			if (dsImages.get(i) != null) {
 				// attachment will be null if there's an error,
 				// such as if the uploaded file is too large
-
-				File savedFile = new File(dataDir, dsImagesFileName.get(i));
-				dsImages.get(i).renameTo(savedFile);
-				dsHinhAnh.add(new HinhAnh(sanPham.getTenSanPham(),
-						dsImagesFileName.get(i), null));
+				
+				long tmp = Calendar.getInstance().getTimeInMillis();
+				String fileName = dsImagesFileName.get(i);
+				String extension = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+				String newImageName = tmp + extension;
+				File fileToCreate = new File(folder, newImageName);
+				FileUtils.copyFile(dsImages.get(i), fileToCreate);
+				
+				HinhAnh ha = new HinhAnh(null, PRODUCT_PATH + "/" + newImageName, null);
+				dsHinhAnh.add(ha);
 
 			}
 		session.put("dsHinhAnh", dsHinhAnh);
