@@ -5,11 +5,11 @@
 
 <div class="title_box">Thông tin cá nhân</div>
 <ul class="left_menu">
-	<li class="even"><a href="<s:url action="show_myprofile_account"/>">Tổng quan tài khoản</a></li>
+	<li class="even"><a href="<s:url action="show_profile_account"/>">Tổng quan tài khoản</a></li>
 	<li class="even"><a href="<s:url action="Profile_hienThi"/>">Thông tin
 			cá nhân</a></li>
 	<li class="even"><a href="">Nạp tiền vào tài khoản</a></li>
-	<li class="even"><a href="<s:url action="show_myprofile_message"/>">Tin nhắn</a></li>
+	<li class="even"><a href="<s:url action="show_profile_message"/>">Tin nhắn</a></li>
 	<li class="even"><a href="<s:url action="Profile_xemHoaDon"/>">Hóa đơn giao dịch</a></li>
 </ul>
 
@@ -24,17 +24,17 @@
 	</ul>
 	<div class="title_box">Cấu hình gian hàng</div>
 	<ul class="left_menu">
-		<li class="even"><a href="<s:url action="show_myprofile_settings"/>">Cấu hình chung</a></li>
-		<li class="even"><a href="<s:url action="show_myprofile_intro"/>">Giới thiệu</a></li>
-		<li class="even"><a href="<s:url action="show_myprofile_policy"/>">Chính sách</a></li>
-		<li class="even"><a href="<s:url action="show_myprofile_map"/>">Bản đồ</a></li>
-		<li class="even"><a href="<s:url action="show_myprofile_footer"/>">Cuối trang</a></li>
+		<li class="even"><a href="<s:url action="show_profile_settings"/>">Cấu hình chung</a></li>
+		<li class="even"><a href="<s:url action="show_profile_intro"/>">Giới thiệu</a></li>
+		<li class="even"><a href="<s:url action="show_profile_policy"/>">Chính sách</a></li>
+		<li class="even"><a href="<s:url action="show_profile_map"/>">Bản đồ</a></li>
+		<li class="even"><a href="<s:url action="show_profile_footer"/>">Cuối trang</a></li>
 	</ul>
 </s:if>
 
 <div class="title_box">Quản lý rao vặt</div>
 <ul class="left_menu">
-	<li class="even"><a href="<s:url action=""/>">Đăng tin rao vặt</a>
+	<li class="even"><a href="">Đăng tin rao vặt</a>
 	</li>
 	<li class="even"><a href="">Danh sách tin rao vặt</a></li>
 	<li class="even"><a href="">Danh sách tin rao vặt đã hết hạn</a></li>

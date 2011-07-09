@@ -74,18 +74,18 @@
 
 		<action name="Profile_hienThi" class="action.user.ProfileAction"
 			method="hienThi">
-			<result name="success" type="redirect">show_myprofile_profile.action
+			<result name="success" type="redirect">show_profile_profile
 			</result>
 		</action>
 
 		<action name="Profile_doiMatKhau" class="action.user.ProfileAction"
 			method="doiMatKhau">
-			<result name="success">/myprofile/profile.jsp</result>
+			<result name="success" type="redirect">show_profile_profile</result>
 		</action>
 
 		<action name="Profile_doiEmail" class="action.user.ProfileAction"
 			method="doiEmail">
-			<result name="success" type="redirect">show_myprofile_profile.action
+			<result name="success" type="redirect">show_profile_profile
 			</result>
 		</action>
 
@@ -93,9 +93,9 @@
 			method="capNhatThongTin">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
-			<result name="success" type="redirect">/Profile_hienThi
+			<result name="success" type="redirect">Profile_hienThi
 			</result>
-			<result name="input">/myprofile/profile.jsp
+			<result name="input">show_profile_profile
 			</result>
 			<result name="redirect" type="redirect">show_user_login</result>
 		</action>
@@ -115,7 +115,7 @@
 			method="test">
 
 			<result name="success" type="redirect">Index</result>
-			<result name="input" type="redirect">show_myprofile_profile.action
+			<result name="input" type="redirect">show_profile_profile
 			</result>
 		</action>
 		<!-- end Profile -->
@@ -123,7 +123,7 @@
 		<!-- Store -->
 		<action name="Store_hienThi" class="action.gianhang.GianHangAction"
 			method="hienThi">
-			<result name="success">/myprofile/store.jsp</result>
+			<result name="success" type="redirect">show_profile_store</result>
 		</action>
 		<action name="Store_capNhat" class="action.gianhang.GianHangAction"
 			method="capNhat">
@@ -133,7 +133,7 @@
 		</action>
 		
 		<action name="Store_capNhat_*" class="action.gianhang.GianHangAction" method="{1}">
-			<result name="success" type="redirect">show_myprofile_{1}</result>
+			<result name="success" type="redirect">show_profile_{1}</result>
 			<result name="redirect" type="redirect">show_user_login</result>
 		</action>
 
@@ -147,19 +147,19 @@
 
 		<action name="DanhMuc_themDanhMuc" class="action.DanhMucAction"
 			method="themDanhMuc">
-			<result name="success" type="redirect">QuanLyCategories.action</result>
+			<result name="success" type="redirect">QuanLyCategories</result>
 		</action>
 
 		<action name="DanhMuc_xoaDanhMuc" class="action.DanhMucAction"
 			method="xoaDanhMuc">
-			<result name="success" type="redirect">QuanLyCategories.action</result>
-			<result name="input" type="redirect">QuanLyCategories.action</result>
+			<result name="success" type="redirect">QuanLyCategories</result>
+			<result name="input" type="redirect">QuanLyCategories</result>
 		</action>
 
 		<action name="DanhMuc_capNhatDanhMuc" class="action.DanhMucAction"
 			method="capNhatDanhMuc">
-			<result name="success" type="redirect">QuanLyCategories.action</result>
-			<result name="input" type="redirect">QuanLyCategories.action</result>
+			<result name="success" type="redirect">QuanLyCategories</result>
+			<result name="input" type="redirect">QuanLyCategories</result>
 			<result name="error">/global/error.jsp</result>
 		</action>
 
@@ -179,7 +179,7 @@
 		<action name="SanPham_timNhanh" class="action.SanPhamAction"
 			method="timNhanh">
 			<result name="success">/admin/product/search_results.jsp</result>
-			<result name="input" type="redirect">show3_admin_product_search.action
+			<result name="input" type="redirect">show3_admin_product_search
 			</result>
 		</action>
 
@@ -205,8 +205,8 @@
 
 		<action name="GioHang_*" class="action.XuLyGioHangAction"
 			method="{1}">
-			<result name="success" type="redirect">XemGioHang.action</result>
-			<result name="input" type="redirect">Index.action</result>
+			<result name="success" type="redirect">XemGioHang</result>
+			<result name="input" type="redirect">Index</result>
 		</action>
 
 		<!-- -->
