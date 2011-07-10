@@ -5,7 +5,7 @@
 <div id="content-outer">
 	<!-- start content -->
 	<div id="content">
-	Administrator panel
+	<h3>Các chức năng danh cho Admin, Mod</h3>
 	</div>
 	<div class="clear">&nbsp;</div>
 	<!--  end content -->

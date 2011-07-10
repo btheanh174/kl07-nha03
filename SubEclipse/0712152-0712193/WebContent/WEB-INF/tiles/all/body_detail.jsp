@@ -43,7 +43,7 @@
 		
 		<tr>
 			<td class="item_info">Giá bán</td>
-			<td>: <span class="price">14.700.000 Đ </span></td>
+			<td>: <span class="price"> </span></td>
 		</tr>
 		<tr>
 			<td class="item_info">Bảo hành</td>
