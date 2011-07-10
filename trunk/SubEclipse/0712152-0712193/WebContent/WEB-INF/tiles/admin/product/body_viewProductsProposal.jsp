@@ -89,9 +89,8 @@
 										</s:else>
 										<td><input type="checkbox" />
 										</td>
-										<td><img alt="" height="50px" 
-										src="<%= request.getContextPath()%>/images/yourImage.gif">
-										src="<s:property value="hinhAnh"/>"/> 
+										<td><img alt="" height="50px" width="50px"
+										src='<s:property value="hinhAnh"/>'/> 
 										</td>
 										<td><s:property value="tenSanPham" />
 										</td>

@@ -10,12 +10,18 @@
 	<div id="message-blue">
 		<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
-				<td class="blue-left">Welcome back. <a href="">View my
-						account.</a>
+				<td class="blue-left">
+				Lọc theo tên: <input type="text" />
+				<select>
+				<option>Admin</option>
+				<option>Mod</option>
+				<option>Store</option>
+				<option>Member</option>
+				</select>
+				<input type="button" size="20" value="Tìm">
 				</td>
-				<td class="blue-right"><a class="close-blue"><img
-						src="images/table/icon_close_blue.gif" alt="" />
-				</a>
+				<td class="blue-right">
+				
 				</td>
 			</tr>
 		</table>

@@ -6,7 +6,7 @@
 <div id="main_navi" class="clearfix">
 	<div id="main_navi_in">
 		<ul id="nav">
-			<li><a href="<s:url action="Index"/>">eStore.com</a>
+			<li><a href="<s:url action="Index"/>">eStore</a>
 			</li>
 			<s:url id="store">
 				<s:param name="maGianHang" value="maGianHang"></s:param>
