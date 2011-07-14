@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import util.NumberUtil;
+
 public class GianHangSanPham {
 
 	public static class Id implements Serializable{
@@ -106,6 +108,10 @@ public class GianHangSanPham {
 
 	public void setGiaRieng(Integer giaRieng) {
 		this.giaRieng = giaRieng;
+	}
+	
+	public String getGiaRiengText(){
+		return NumberUtil.getNumberText(giaRieng);
 	}
 
 	//@Column(name="BAO_HANH", length=10)
