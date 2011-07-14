@@ -403,7 +403,7 @@ public class Testing {
 		System.out.println("Cap nhat xong");*/
 		
 		// Lay danh sach danh muc cua gian hang co ma = 1
-		DanhMucDAO dmDao = new DanhMucDAO();
+		/*DanhMucDAO dmDao = new DanhMucDAO();
 		GianHang gh = new GianHangDAO().lay(1);
 		List<DanhMuc> kq = dmDao.layDanhSach(gh);
 		
@@ -455,7 +455,19 @@ public class Testing {
 		System.out.println(lsghsp.size());
 		for (GianHangSanPham ghsp : lsghsp) {
 			System.out.println(ghsp.getSanPham().getTenSanPham());
-		}
+		}*/
+		
+		SanPhamDAO spDao = new SanPhamDAO();
+		DienThoaiDAO dtDao = new DienThoaiDAO();
+		//SanPham sp = dtDao.lay(6);
+		SanPham sp = spDao.lay(7);
+		GianHangDAO ghDao = new GianHangDAO();
+		GianHang gh = ghDao.lay(1);
+		
+		GianHangSanPhamDAO ghspDao = new GianHangSanPhamDAO();
+		GianHangSanPham ghsp = ghspDao.lay(gh, sp);
+		System.out.println(ghsp.getGiaRieng());
+		System.out.println(ghsp.getSanPham().getTenSanPham());
 	}
 	
 	private static void testSanPhamDeNghi(){

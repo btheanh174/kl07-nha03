@@ -25,6 +25,35 @@ public class GianHangSanPhamDAO {
 	public GianHangSanPhamDAO() {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
 	}
+	
+	public GianHangSanPham lay(GianHang gianHang, SanPham sanPham){
+		GianHangSanPham kq = null;
+		try {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			tx = session.beginTransaction();
+			
+			String hql = "select ghsp from GianHang gh inner join gh.dsGianHangSanPham ghsp "
+					+ "where ghsp.gianHang =:gianHang and ghsp.sanPham =:sanPham";
+			Query query = session.createQuery(hql);
+			query.setParameter("gianHang", gianHang);
+			query.setParameter("sanPham", sanPham);
+			
+			kq = (GianHangSanPham) query.uniqueResult();
+			Hibernate.initialize(kq);
+			Hibernate.initialize(kq.getSanPham());
+			
+			
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+				throw e;
+			}
+		} finally {
+			HibernateUtil.shutdown();
+		}
+		return kq;
+	}
 
 	public void xoa(GianHang gianHang, SanPham sanPham, GianHangSanPham ghsp) {
 		try {

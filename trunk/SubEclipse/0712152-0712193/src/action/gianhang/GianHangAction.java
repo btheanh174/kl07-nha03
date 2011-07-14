@@ -290,6 +290,7 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 		} else if (maSanPham > 0) {
 			System.out.println("Chi tiet san pham");
 			sanPham = spDao.lay(maSanPham);
+			gianHangSanPham = ghspDao.lay(gianHang, sanPham);
 			dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
 			if (dsSanPhamCungLoai.contains(sanPham)) {
 				System.out.println("blah");

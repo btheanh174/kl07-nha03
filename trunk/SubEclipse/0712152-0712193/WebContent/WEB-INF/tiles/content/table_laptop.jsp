@@ -82,13 +82,6 @@
 			</tr>
 			<tr>
 				<td class="name">Tính năng khác:</td>
-				<td class="value"> <ul>
-									<li>HDMI</li>
-									<li>Camera</li>
-									<li>Microphone</li>
-									<li>Headphone</li>
-									<li>Bluetooth</li>
-									<li>RJ-11 Modem</li>
-								</ul>  <s:property value="tinhNangKhac" /></td>
+				<td class="value"> <s:property value="tinhNangKhac" /></td>
 			</tr>
 		</table>

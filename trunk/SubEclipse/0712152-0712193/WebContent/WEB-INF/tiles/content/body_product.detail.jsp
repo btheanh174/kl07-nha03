@@ -62,6 +62,7 @@ String context = request.getContextPath();
 		<div class="break_module"></div>
 		<div class="break_line"></div>
 		<s:if test="loaiSanPham.equals('DIENTHOAI')">
+		
 			<ul>
 			<li>Hãng sản xuất: <b> <s:property value="hangSanXuat"/> </b></li>
 			<li>Kiểu dáng: <b> <s:property value="kieuDang"/> </b></li>

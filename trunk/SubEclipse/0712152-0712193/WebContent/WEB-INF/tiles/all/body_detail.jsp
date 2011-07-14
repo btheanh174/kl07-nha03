@@ -43,37 +43,33 @@
 		
 		<tr>
 			<td class="item_info">Giá bán</td>
-			<td>: <span class="price"> </span></td>
+			<td class="price">: <s:property value="gianHangSanPham.getGiaRiengText()"/> VNĐ</td>
 		</tr>
 		<tr>
 			<td class="item_info">Bảo hành</td>
-			<td>:</td>
+			<td>: <s:property value="gianHangSanPham.baoHanh"/> </td>
 		</tr>
-		<tr>
-			<td class="item_info">Tình trạng</td>
-			<td>:</td>
-		</tr>
-		<tr>
-			<td class="item_info">Xuất xứ</td>
-			<td>:</td>
-		</tr>
+		<s:if test="gianHangSanPham.soLuong > 0">
 		<tr>
 			<td class="item_info">Số lượng</td>
-			<td>:</td>
+			<td>: <s:property value="gianHangSanPham.soLuong"/></td>
 		</tr>
+		</s:if>
 		<tr>
 			<td class="item_info">Được cập nhật lúc: </td>
-			<td> <s:property value="capNhat"/> </td>
+			<td> <s:property value="gianHangSanPham.capNhat"/> </td>
 		</tr>
 	</tbody>
 </table>
-
-<s:form action="GioHang_them" method="post">
-	<s:hidden name="maGianHang" value="%{maGianHang}"></s:hidden>
-	<s:hidden name="maSanPham" value="%{maSanPham}"></s:hidden>
-	<input type="hidden" name="soLuong" value="1">
-	<s:submit type="image" src="images/datmua.gif"></s:submit>
-</s:form></div>
+<s:if test="gianHangSanPham.soLuong > 0">
+	<s:form action="GioHang_them" method="post">
+		<s:hidden name="maGianHang" value="%{maGianHang}"></s:hidden>
+		<s:hidden name="maSanPham" value="%{maSanPham}"></s:hidden>
+		<input type="hidden" name="soLuong" value="1">
+		<s:submit type="image" src="images/datmua.gif"></s:submit>
+	</s:form>
+</s:if>
+</div>
 </div>
 <div class="clear"></div>
 </div>
