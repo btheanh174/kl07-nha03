@@ -56,7 +56,7 @@ public class SanPhamAction extends ActionSupport implements
 	HinhAnhDAO haDao = new HinhAnhDAO();
 	DanhMucDAO dmDao = new DanhMucDAO();
 	ThamSoDAO tsDao = new ThamSoDAO();
-	
+
 	private int maSanPham;
 	private SanPham sanPham;
 	private Laptop laptop;
@@ -74,6 +74,7 @@ public class SanPhamAction extends ActionSupport implements
 	private List<Integer> soTrang = new ArrayList<Integer>();
 
 	private static final String PRODUCT_PATH = "images/product";
+
 	public String execute() {
 		dsSanPham = spDao.layDanhSach();
 		return SUCCESS;
@@ -82,7 +83,7 @@ public class SanPhamAction extends ActionSupport implements
 	public String chiTiet() {
 		sanPham = spDao.lay(maSanPham);
 		dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
-		if(dsSanPhamCungLoai.contains(sanPham)){
+		if (dsSanPhamCungLoai.contains(sanPham)) {
 			dsSanPhamCungLoai.remove(sanPham);
 		}
 		return SUCCESS;
@@ -91,7 +92,8 @@ public class SanPhamAction extends ActionSupport implements
 	public String timNhanh() {
 		System.out.println("Trang hien tai = " + trang);
 		int soSanPhamTrenTrang = tsDao.layGiaTri(1);
-		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang, soSanPhamTrenTrang);
+		DuLieuTrang duLieuTrang = spDao.timKiem(tieuChi, trang,
+				soSanPhamTrenTrang);
 		tongSoTrang = duLieuTrang.getTongSoTrang();
 		System.out.println("Tong so trang = " + tongSoTrang);
 		dsSanPham = duLieuTrang.getDsDuLieu();
@@ -119,10 +121,8 @@ public class SanPhamAction extends ActionSupport implements
 
 	public String themSanPham_step1() throws IOException {
 
-		
 		ServletContext servletContext = ServletActionContext
 				.getServletContext();
-		
 
 		String dataDir = servletContext.getRealPath(PRODUCT_PATH);
 		File folder = new File(dataDir);
@@ -135,15 +135,31 @@ public class SanPhamAction extends ActionSupport implements
 			if (dsImages.get(i) != null) {
 				// attachment will be null if there's an error,
 				// such as if the uploaded file is too large
-				
+
 				long tmp = Calendar.getInstance().getTimeInMillis();
 				String fileName = dsImagesFileName.get(i);
-				String extension = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-				String newImageName = tmp + extension;
+				fileName = fileName.replaceAll(" ", "");
+				String onlyName = fileName.substring(0,
+						fileName.lastIndexOf("."));
+				System.out.println("file name = " + fileName);
+
+				String extension = fileName.substring(
+						fileName.lastIndexOf("."), fileName.length());
+				String newImageName = onlyName + "_" + tmp + extension;
 				File fileToCreate = new File(folder, newImageName);
 				FileUtils.copyFile(dsImages.get(i), fileToCreate);
-				
-				HinhAnh ha = new HinhAnh(null, PRODUCT_PATH + "/" + newImageName, null);
+
+				/*
+				 * // Lưu hình vào images/product của project String
+				 * dataDirProject =
+				 * "C:\\Documents and Settings\\Mai Thanh Huy\\Desktop\\SVN Workspace\\Workspace1\\0712152-0712193\\WebContent\\images\\product"
+				 * ; File folderProject = new File(dataDirProject); if
+				 * (!folderProject.exists()) { folderProject.mkdirs(); } File
+				 * fileInProject = new File(folderProject, newImageName);
+				 * FileUtils.copyFile(dsImages.get(i), fileInProject); // Hết!
+				 */
+				HinhAnh ha = new HinhAnh(null, PRODUCT_PATH + "/"
+						+ newImageName, null);
 				dsHinhAnh.add(ha);
 
 			}
@@ -159,7 +175,8 @@ public class SanPhamAction extends ActionSupport implements
 		} else {
 			dienthoai = new DienThoai(sanPham.getTenSanPham(),
 					sanPham.getGia(), sanPham.getHangSanXuat(),
-					sanPham.getDsHinhAnh(), dmTemp, sanPham.getDsGianHangSanPham());
+					sanPham.getDsHinhAnh(), dmTemp,
+					sanPham.getDsGianHangSanPham());
 			session.put("dt", dienthoai);
 		}
 		session.put("loai", sanPham.getLoaiSanPham());
@@ -184,10 +201,11 @@ public class SanPhamAction extends ActionSupport implements
 			dienthoai.setHangSanXuat(dienthoaiTemp.getHangSanXuat());
 			dienthoai.setDsHinhAnh(dienthoaiTemp.getDsHinhAnh());
 			dienthoai.setDanhMuc(dienthoaiTemp.getDanhMuc());
-			dienthoai.setDsGianHangSanPham(dienthoaiTemp.getDsGianHangSanPham());
+			dienthoai
+					.setDsGianHangSanPham(dienthoaiTemp.getDsGianHangSanPham());
 			session.put("dt", dienthoai);
 		}
-		
+
 		return SUCCESS;
 	}
 
@@ -200,37 +218,33 @@ public class SanPhamAction extends ActionSupport implements
 				LaptopDAO ltDao = new LaptopDAO();
 				ltDao.them(laptop);
 				// Lưu hình vào csdl
-				
-				
+
 				// Iterating over the elements in the set
 				Iterator<HinhAnh> it = dsHinhAnh.iterator();
 				while (it.hasNext()) {
-				    // Get element
-				    HinhAnh element = it.next();
-				    element.setSanPham(laptop);
-				    haDao.them(element);
+					// Get element
+					HinhAnh element = it.next();
+					element.setSanPham(laptop);
+					haDao.them(element);
 				}
 				session.remove("lt");
-			}
-			else
-			{
+			} else {
 				dienthoai = (DienThoai) session.get("dt");
 				DienThoaiDAO dtDao = new DienThoaiDAO();
 				dtDao.them(dienthoai);
 				// Lưu hình vào csdl
 
-
 				// Iterating over the elements in the set
 				Iterator<HinhAnh> it = dsHinhAnh.iterator();
 				while (it.hasNext()) {
-				    // Get element
-				    HinhAnh element = it.next();
-				    element.setSanPham(dienthoai);
-				    haDao.them(element);
+					// Get element
+					HinhAnh element = it.next();
+					element.setSanPham(dienthoai);
+					haDao.them(element);
 				}
 				session.remove("dt");
 			}
-			
+
 			return FINISH;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -251,13 +265,12 @@ public class SanPhamAction extends ActionSupport implements
 		this.sanPham = sanPham;
 	}
 
-	/*public List<SanPham> getListSanPham() {
-		return listSanPham;
-	}
-
-	public void setListSanPham(List<SanPham> listSanPham) {
-		this.listSanPham = listSanPham;
-	}*/
+	/*
+	 * public List<SanPham> getListSanPham() { return listSanPham; }
+	 * 
+	 * public void setListSanPham(List<SanPham> listSanPham) { this.listSanPham
+	 * = listSanPham; }
+	 */
 
 	public int getMaSanPham() {
 		return maSanPham;
@@ -342,7 +355,6 @@ public class SanPhamAction extends ActionSupport implements
 		this.loaiSanPham = loaiSanPham;
 	}
 
-
 	public void setLaptop(Laptop laptop) {
 		this.laptop = laptop;
 	}
@@ -395,5 +407,5 @@ public class SanPhamAction extends ActionSupport implements
 	public void setDsSanPhamCungLoai(List<SanPham> dsSanPhamCungLoai) {
 		this.dsSanPhamCungLoai = dsSanPhamCungLoai;
 	}
-	
+
 }
