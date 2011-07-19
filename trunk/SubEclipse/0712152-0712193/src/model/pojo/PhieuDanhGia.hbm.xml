@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 16, 2011 11:28:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.pojo.PhieuDanhGia" table="phieu_danh_gia">
+        <id name="maPhieuDanhGia" type="int">
+            <column name="MA_PHIEU_DANH_GIA" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="tieuDe" type="java.lang.String">
+            <column name="TIEU_DE" />
+        </property>
+        <property name="danhGia" type="java.lang.String">
+            <column name="DANH_GIA" />
+        </property>
+        <property name="noiDung" type="java.lang.String">
+            <column name="NOI_DUNG"></column>
+        </property>
+        <many-to-one name="gianHang" class="model.pojo.GianHang" fetch="join">
+            <column name="GIAN_HANG" />
+        </many-to-one>
+        <many-to-one name="taiKhoan" class="model.pojo.TaiKhoan" fetch="join">
+            <column name="TAI_KHOAN" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

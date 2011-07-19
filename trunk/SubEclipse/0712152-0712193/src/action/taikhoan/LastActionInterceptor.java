@@ -24,6 +24,10 @@ public class LastActionInterceptor implements Interceptor {
 		if(!("show_user_login".equalsIgnoreCase(actionName)) && !"User_login".equalsIgnoreCase(actionName)){
 			session.put("prevAction", actionName);
 		}
+		if(session.get("prevAction") == null){
+			System.out.println("prevAction null");
+			session.put("prevAction", "Index");
+		}
 		System.out.println(actionName);
 		return actionInvocation.invoke();
 	}

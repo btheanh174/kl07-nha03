@@ -11,7 +11,7 @@
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.current_session_context_class">thread</property>
   <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
-  <property name="hibernate.connection.characterEncoding">UTF-8</property> 
+  <property name="hibernate.connection.characterEncoding">UTF-8</property>
   <mapping resource="model/pojo/GianHang.hbm.xml"/>
   <mapping resource="model/pojo/DanhMuc.hbm.xml"/>
   <mapping resource="model/pojo/SanPham.hbm.xml"/>
@@ -34,5 +34,6 @@
   <mapping resource="model/pojo/GianHangSanPham.hbm.xml"/>
   <mapping resource="model/pojo/DanhMucGianHang.hbm.xml"/>
   <mapping resource="model/pojo/SanPhamDeNghi.hbm.xml"/>
+  <mapping resource="model/pojo/PhieuDanhGia.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
