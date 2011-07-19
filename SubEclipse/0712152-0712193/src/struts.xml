@@ -91,7 +91,10 @@
 
 		<action name="Profile_capNhatThongTin" class="action.taikhoan.ProfileAction"
 			method="capNhatThongTin">
-			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">50000</param>
+				<param name="allowedTypes">image/gif,image/jpeg,image/png</param>
+			</interceptor-ref>
 			<interceptor-ref name="basicStack" />
 			<result name="success" type="redirect">Profile_hienThi
 			</result>
@@ -127,8 +130,12 @@
 		</action>
 		<action name="Store_capNhat" class="action.gianhang.GianHangAction"
 			method="capNhat">
-			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">2000000</param>
+				<param name="allowedTypes">image/gif,image/jpeg,image/png</param>
+			</interceptor-ref>
 			<interceptor-ref name="basicStack" />
+			
 			<result name="success" type="redirect">Store_hienThi</result>
 		</action>
 		
