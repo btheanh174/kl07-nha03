@@ -54,6 +54,8 @@ public class GianHangSanPhamDAO {
 		}
 		return kq;
 	}
+	
+	
 
 	public void xoa(GianHang gianHang, SanPham sanPham, GianHangSanPham ghsp) {
 		try {

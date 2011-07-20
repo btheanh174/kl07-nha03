@@ -111,6 +111,10 @@ String context = request.getContextPath();
 <div id="detailtabs" class="tab_container">
     <div id="tab1" class="tab_content">
         <!--Content-->
+        <s:if test="sanPham.dsGianHangSanPham.size() < 1">
+        	Chưa có gian hàng nào bán sản phẩm này.
+        </s:if>
+        <s:else>
         <s:form>
 			<table class="shop_table" cellpadding="0" cellspacing="0">
 				<tbody>
@@ -133,7 +137,7 @@ String context = request.getContextPath();
 							<div class="No"><s:property value="#status.count" /></div>
 							</td>
 							<td class="col_2">
-							<div ><span class="price"><s:property value="giaRieng" /></span> đ</div>
+							<div ><span class="price"><s:property value="giaRieng" /></span> VNĐ</div>
 							</td>
 							<td class="col_3">
 							<div class="status"><s:property value="tinhTrang" /></div>
@@ -144,7 +148,7 @@ String context = request.getContextPath();
 							<td class="col_5">
 							<div class="picture_small"><a href="${store }"
 								class="tooltip"><img
-								src='<%=context %><s:property value="getGianHang().logo"/>' width="80"
+								src='<%=context %><s:property value="%{gianHang.logo}"/>' width="80"
 								height="60" alt=""> </a></div>
 							</td>
 							<td class="col_6">
@@ -180,6 +184,7 @@ String context = request.getContextPath();
 			</table>
 			<br>
 		</s:form>
+		</s:else>
     </div>
     <div id="tab2" class="tab_content">
        <!--Content-->

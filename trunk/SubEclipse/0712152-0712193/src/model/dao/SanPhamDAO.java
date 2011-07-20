@@ -48,6 +48,9 @@ public class SanPhamDAO extends AbstractDAO {
 			 */
 			Hibernate.initialize(kq);
 			Hibernate.initialize(kq.getDsGianHangSanPham());
+			for (GianHangSanPham ghsp : kq.getDsGianHangSanPham()) {
+				Hibernate.initialize(ghsp.getGianHang());
+			}
 
 			tx.commit();
 		} catch (HibernateException e) {

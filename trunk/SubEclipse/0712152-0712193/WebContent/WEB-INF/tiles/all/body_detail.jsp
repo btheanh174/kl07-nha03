@@ -86,21 +86,25 @@
 <!-- Danh sach nhung san pham lien quan -->
 
 <div class="realated_product_section clearfix">
+<s:if test="dsSanPhamCungLoai.size() > 0">
+	
+
 <h3>Sản phẩm cùng loại</h3>
 <div class="breadcrumb clearfix"></div>
 <ul class="realated_products">
 	<s:iterator value="dsSanPhamCungLoai" id="relate">
 		<s:url id="chitiet" action="store">
 			<s:param name="maGianHang" value="maGianHang"></s:param>
-			<s:param name="maSanPham" value="#relate.maSanPham"></s:param>
+			<s:param name="maSanPham" value="getSanPham().maSanPham"></s:param>
 		</s:url>
-		<li><a title="<s:property value="tenSanPham"/>"
+		<li><a title="<s:property value="getSanPham().tenSanPham"/>"
 			href="${chitiet }" class="product_thumb"> <img
-			src='<s:property value="hinhAnh"/>' alt="" class="danhsach"> </a><a
-			title="<s:property value="tenSanPham"/>" href="${chitiet }"> <s:property
-			value="tenSanPham" /> </a></li>
+			src='<s:property value="getSanPham().hinhAnh"/>' alt="" class="danhsach"> </a><a
+			title="<s:property value="getSanPham().tenSanPham"/>" href="${chitiet }"> <s:property
+			value="getSanPham().tenSanPham" /> </a></li>
 	</s:iterator>
 </ul>
+</s:if>
 <div class="clear"></div>
 </div>
 </div>

@@ -29,7 +29,10 @@
 <div class="title_right"><a href="#" class="switch_thumb">Cách
 hiển thị</a></div>
 <div class="breadcrumb"></div>
-
+<s:if test="dsGianHangSanPham.size() < 1">
+	Chưa có sản phẩm nào.
+</s:if>
+<s:else>
 <!-- Hien thi danh sach san pham -->
 <ul class="display">
 	<s:iterator value="dsGianHangSanPham">
@@ -53,6 +56,9 @@ hiển thị</a></div>
 	</s:iterator>
 
 </ul>
-<!-- ket thuc hien thi danh sach san pham --></div>
+<!-- ket thuc hien thi danh sach san pham -->
+</s:else>
+</div>
+
 </div>
 <!-- end main -->
