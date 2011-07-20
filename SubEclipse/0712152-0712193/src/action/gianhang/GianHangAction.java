@@ -59,7 +59,7 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 
 	private int maSanPham;
 	private SanPham sanPham = new SanPham();
-	private List<SanPham> dsSanPhamCungLoai = new ArrayList<SanPham>();
+	private List<GianHangSanPham> dsSanPhamCungLoai = new ArrayList<GianHangSanPham>();
 	private int trang;
 	private int tongSoTrang;
 	private List<Integer> soTrang;
@@ -91,6 +91,7 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 	//
 	private GianHangSanPham gianHangSanPham = new GianHangSanPham();
 	private List<GianHangSanPham> dsGianHangSanPham = new ArrayList<GianHangSanPham>();
+	
 	private GianHangSanPhamDAO ghspDao = new GianHangSanPhamDAO();
 
 	public String hienThi() {
@@ -291,10 +292,11 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 			System.out.println("Chi tiet san pham");
 			sanPham = spDao.lay(maSanPham);
 			gianHangSanPham = ghspDao.lay(gianHang, sanPham);
-			dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
-			if (dsSanPhamCungLoai.contains(sanPham)) {
+			//dsSanPhamCungLoai = spDao.layDanhSach(sanPham.getDanhMuc());
+			dsSanPhamCungLoai = ghspDao.layDanhSach(gianHang, sanPham.getDanhMuc());
+			if (dsSanPhamCungLoai.contains(gianHangSanPham)) {
 				System.out.println("blah");
-				dsSanPhamCungLoai.remove(sanPham);
+				dsSanPhamCungLoai.remove(gianHangSanPham);
 			}
 
 			return "detail";
@@ -448,11 +450,11 @@ public class GianHangAction extends ActionSupport implements SessionAware,
 		this.maDanhMuc = maDanhMuc;
 	}
 
-	public List<SanPham> getDsSanPhamCungLoai() {
+	public List<GianHangSanPham> getDsSanPhamCungLoai() {
 		return dsSanPhamCungLoai;
 	}
 
-	public void setDsSanPhamCungLoai(List<SanPham> dsSanPhamCungLoai) {
+	public void setDsSanPhamCungLoai(List<GianHangSanPham> dsSanPhamCungLoai) {
 		this.dsSanPhamCungLoai = dsSanPhamCungLoai;
 	}
 
